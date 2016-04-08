@@ -1,0 +1,12 @@
+.section{
+    width: 100vw;
+    background: transparent;
+}
+.section img{
+    margin-left: auto;
+    margin-right: auto;
+    border: solid #0D47A1;
+    border-radius: 20px;
+    margin-bottom: 150px;
+    max-width: 768px;
+}
