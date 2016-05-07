@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    width: 100%;
     background: url('https://shaydest.files.wordpress.com/2010/12/timestower.jpg') no-repeat center center fixed;
 }
 
@@ -200,6 +201,7 @@ figcaption{
 @media (max-width: 767px) {
     #wrapper {
         padding-left: 250px;
+        width: auto;
     }
 
     #wrapper.toggled {
@@ -215,37 +217,8 @@ figcaption{
     }
 
     #page-content-wrapper {
-        padding: 20px;
         position: relative;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-}
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-    #wrapper {
-        padding-left: 250px;
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: 250px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
+        width: auto;
     }
 
     #wrapper.toggled #page-content-wrapper {
@@ -256,4 +229,157 @@ figcaption{
         height: auto;
         width: auto;
     }
+    img{
+        width: 30px;
+        height: 30px;
+        text-align: center;
+    }
+
+    figcaption{
+        font-size: 8px;
+        font-weight: inherit;
+        text-align: center;
+    }
+
+    .text
+    {
+        display:inline-block;
+        font-size: small;
+    }
+
+    .material-icons.md-48 { font-size: 14px; }
+    .container-fluid {
+        padding: 0;
+        width: auto;
+    }
+
+    .information {
+        display: table;
+        height: auto;
+        position: relative;
+        max-width: 480px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    html, body{
+        width: auto;
+    }
+
+    .container-fluid .row .well{
+        font-size: small;
+        text-align: center;
+        font-family: 'Baumans',serif;
+        font-weight: bold;
+    }
+
+    .container-fluid .row .panel .panel-heading{
+        font-size: small;
+        font-family: 'Ubuntu', serif;
+        text-shadow: 2px 2px 2px #aaa;
+    }
+
+    .container-fluid .row .panel .panel-body{
+        font-size: smaller;
+    }
+
+    #cs img figcaption{
+        margin-left: 2px;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    #wrapper {
+        padding-left: 250px;
+        width: auto;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        position: relative;
+        width: auto;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+    .information .panel{
+        height: auto;
+        width: auto;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+        text-align: center;
+    }
+
+    figcaption{
+        font-size: 8px;
+        font-weight: inherit;
+        text-align: center;
+    }
+
+    .text
+    {
+        display:inline-block;
+        font-size: small;
+    }
+
+    .material-icons.md-48 { font-size: 14px; }
+    .container-fluid {
+        padding: 0;
+        width: auto;
+    }
+
+    .information {
+        display: table;
+        height: auto;
+        position: relative;
+        max-width: 480px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    html, body{
+        width: auto;
+    }
+
+    .container-fluid .row .well{
+        font-size: small;
+        text-align: center;
+        font-family: 'Baumans',serif;
+        font-weight: bold;
+    }
+
+    .container-fluid .row .panel .panel-heading{
+        font-size: small;
+        font-family: 'Ubuntu', serif;
+        text-shadow: 2px 2px 2px #aaa;
+    }
+
+    .container-fluid .row .panel .panel-body{
+        font-size: smaller;
+    }
+
+    #cs img figcaption{
+        margin-left: 2px;
+    }
+
 }
