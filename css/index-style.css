@@ -1,33 +1,207 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background: url("https://shaydest.files.wordpress.com/2010/12/timestower.jpg");
-    -webkit-animation-delay: 0.1s;
-    -webkit-animation-name: fontfix;
-    -webkit-animation-duration: 0.1s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: linear;
+html, body {
+    height: 100%;
+    background: url('https://shaydest.files.wordpress.com/2010/12/timestower.jpg') no-repeat center center fixed;
 }
 
-
-@-webkit-keyframes fontfix {
-    from { opacity: 1; }
-    to   { opacity: 1; }
+img{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+figcaption{
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
 }
 
-nav{
-    background-color: blueviolet;
+.container-fluid .row .panel .panel-body .row .col-lg-2 img:hover{
+    font-size: large;
+    font-weight: bolder;
+    text-align: center;
+    width: 120px;
+    height: 120px;
 }
 
-main {
-    flex: 1 0 auto;
+.container-fluid .row .panel .panel-body .row .col-lg-2a:hover{
+    font-size: large;
+    font-weight: bolder;
+    text-align: center;
+    width: 120px;
+    height: 120px;
 }
 
-footer .footer-copyright {
-  overflow: hidden;
-  height: 50px;
-  line-height: 50px;
-  color: rgba(255, 255, 255, 0.8);
-    background-color: blueviolet;
+.text
+{
+    display:inline-block;
+}
+
+.material-icons.md-48 { font-size: 48px; }
+
+.information {
+    display: table;
+    height: 800px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.information .panel{
+    height: auto;
+}
+
+.container-fluid .row .well{
+    font-size: x-large;
+    text-align: center;
+    font-family: 'Baumans',serif;
+    font-weight: bolder;
+}
+
+.container-fluid .row .panel .panel-heading{
+    font-size: large;
+    font-family: 'Ubuntu', serif;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+.container-fluid .row .panel .panel-body{
+    font-size: medium;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 1030px;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Ubuntu Mono", serif;
+    font-size: large;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 20px;
+    line-height: 60px;
+    font-family: 'Oregano', serif;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
 }
