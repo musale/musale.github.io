@@ -1,23 +1,30 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/app/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
-
-module.exports = {
-  entry: [
-    './app/index.js'
-  ],
+var webpack = require('webpack');
+module.exports =  {
+  entry: `${__dirname}/src/index.js`,
   output: {
-    path: __dirname + '/build',
-    filename: "index_bundle.js"
+    path: `${__dirname}/build`,
+    publicPath: '/build/',
+    filename: 'bundle.js',
   },
+
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
-      {test: /\.css$/, loader: "style-loader!css-loader"}
-    ]
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
+    ],
   },
-  plugins: [HTMLWebpackPluginConfig]
+
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
+
+  plugins: process.argv.indexOf('-p') === -1 ? null : [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false,
+      },
+    }),
+  ],
 };
