@@ -1,11 +1,26 @@
 var React = require('react');
+var styles = require('../styles/baseStyle');
+
+function IntroductionPanel(props) {
+    return (
+        <div className="panel panel-default">
+            <div className="panel-body">A Basic Panel</div>
+        </div>
+    )
+}
 
 function Home(props) {
     return (
-        <div className="container">
-            <div className="jumbotron">
-                <h1>Martin Musale Github Page</h1>
-                <h4> This page is still under construction.Check back later or reach me at <code> martinmshale@gmail.com </code></h4 >
+        <div style={styles.background}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-4">
+                        <IntroductionPanel/>
+                    </div>
+                    <div className="col-md-8">
+                        <IntroductionPanel/>
+                    </div>
+                </div>
             </div>
         </div>
     )
