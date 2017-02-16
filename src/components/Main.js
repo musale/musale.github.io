@@ -1,13 +1,18 @@
 var React = require('react');
+var styles = require('../styles/baseStyle');
+require('../styles/main.css');
 
-var HelloWorld = React.createClass({
+var Main = React.createClass({
+    componentDidMount: function() {
+        console.log(styles.background)
+    },
   render: function () {
     return (
-      <div>
-        {this.props.children}
-      </div>
+        <div style={styles.main}>
+            {this.props.children}
+        </div>
     )
   }
 })
 
-module.exports = HelloWorld;
+module.exports = Main;
