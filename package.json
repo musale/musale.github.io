@@ -81,5 +81,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/musale/musale.github.io.git"
-  }
+  },
+  "homepage": "https://musale.github.io/musale.github.io"
 }
