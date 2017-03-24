@@ -1,0 +1,84 @@
+{
+  "name": "neutrino-test",
+  "version": "1.0.0",
+  "description": "A react js test for neutrino preset",
+  "main": "index.js",
+  "dependencies": {
+    "neutrino": "^4.3.1",
+    "neutrino-preset-react": "^4.2.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0",
+    "neutrino": "^4.3.1",
+    "neutrino-preset-airbnb-base": "^4.3.1",
+    "neutrino-preset-react": "^4.2.3"
+  },
+  "scripts": {
+    "start": "neutrino start",
+    "build": "neutrino build"
+  },
+  "config": {
+    "html": {
+      "appMountId": "app",
+      "links": [
+        "https://fonts.googleapis.com/css?family=Raleway",
+        {
+          "href": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css",
+          "rel": "stylesheet",
+          "integrity": "sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ",
+          "crossorigin": "anonymous"
+        },
+        {
+          "href": "/styles/main.css",
+          "rel": "stylesheet"
+        }
+      ],
+      "scripts": [
+        {
+          "src": "https://code.jquery.com/jquery-3.1.1.slim.min.js",
+          "integrity": "sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n",
+          "crossorigin": "anonymous"
+        },
+        {
+          "src": "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js",
+          "integrity": "sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb",
+          "crossorigin": "anonymous"
+        },
+        {
+          "src": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js",
+          "integrity": "sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn",
+          "crossorigin": "anonymous"
+        },
+        {
+          "src": "https://use.fontawesome.com/60daaccd3e.js"
+        }
+      ],
+      "title": "Neutron",
+      "mobile": true,
+      "meta": [
+        {
+          "name": "description",
+          "content": "A test site checking out neutrino."
+        }
+      ]
+    },
+    "presets": [
+      "neutrino-preset-airbnb-base",
+      "neutrino-preset-react"
+    ]
+  },
+  "keywords": [
+    "neutrino",
+    "react-js"
+  ],
+  "author": "Musale Martin",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musale/musale.github.io.git"
+  }
+}
