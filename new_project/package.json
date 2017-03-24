@@ -64,6 +64,26 @@
         {
           "name": "description",
           "content": "A test site checking out neutrino."
+        },
+        {
+          "name": "twitter:card",
+          "content": "summary"
+        },
+        {
+          "name": "twitter:site",
+          "content": "@ehhMusale"
+        },
+        {
+          "name": "twitter:title",
+          "content": "Expert Web Developer."
+        },
+        {
+          "name": "twitter:description",
+          "content": "Expert Web Developer."
+        },
+        {
+          "name": "twitter:image",
+          "content": "https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg"
         }
       ]
     },
