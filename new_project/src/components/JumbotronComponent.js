@@ -4,12 +4,7 @@ const styles = require('../styles/styles');
 function JumbotronComponent() {
   return (
     <div style={styles.jumbotron}>
-      <div className="jumbotron jumbotron-fluid">
-        <div className="container">
-          <h1 className="display-2 text-center">Fluid jumbotron</h1>
-          <p className="lead text-center">&#8213; Awaiting greatness &#8213;</p>
-        </div>
-      </div>
+      <img className="img-responsive" src="/images/3246305.jpg" alt="MM" height="40%" width="100%" />
       <hr></hr>
     </div>
   );
