@@ -1,6 +1,7 @@
 const React = require('react');
 const JumbotronComponent = require('../components/JumbotronComponent');
 const MyProjectsComponent = require('../components/MyProjectsComponent');
+const projects = require('../utils/projects');
 
 const BodyTextContainer = React.createClass({
   render() {
@@ -8,7 +9,7 @@ const BodyTextContainer = React.createClass({
       <div>
         <div className="container">
           <JumbotronComponent/>
-          <MyProjectsComponent/>
+          <MyProjectsComponent data={projects}/>
         </div>
       </div>
     );
