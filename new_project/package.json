@@ -20,7 +20,7 @@
   "scripts": {
     "start": "neutrino start",
     "build": "neutrino build",
-    "deploy" : "npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&siteup"
   },
   "config": {
     "html": {
@@ -34,7 +34,7 @@
           "crossorigin": "anonymous"
         },
         {
-          "href": "/styles/main.css",
+          "href": "./styles/main.css",
           "rel": "stylesheet"
         }
       ],
@@ -58,7 +58,8 @@
           "src": "https://use.fontawesome.com/60daaccd3e.js"
         },
         {
-          "src": "/utils/loadsw.js"
+          "src": "./loadsw.js",
+          "type": "text/javascript"
         }
       ],
       "title": "Neutron",
