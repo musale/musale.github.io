@@ -11,7 +11,6 @@ const urlsToCache = [
   '/scripts/bootstrap.min.js',
   '/scripts/jquery-3.1.1.slim.min.js',
   '/scripts/tether.min.js',
-  'https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg',
 ];
 
 self.addEventListener('install', function(event) {
