@@ -12,9 +12,6 @@ const urlsToCache = [
   '/scripts/jquery-3.1.1.slim.min.js',
   '/scripts/tether.min.js',
   'https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg',
-  'https://fonts.gstatic.com/s/raleway/v11/yQiAaD56cjx1AooMTSghGfY6323mHUZFJMgTvxaG2iE.woff2',
-  'https://fonts.gstatic.com/s/raleway/v11/0dTEPzkLWceF7z0koJaX1A.woff2',
-  'https://placehold.it/355x250',
 ];
 
 self.addEventListener('install', function(event) {
