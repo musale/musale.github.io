@@ -1,6 +1,6 @@
 const CACHE_NAME = 'neutron-v1';
 const urlsToCache = [
-  '/(index)',
+  '/index.html',
   '/styles/main.css',
   '/styles/bootstrap.min.css',
   '/images/3246305.jpg',
