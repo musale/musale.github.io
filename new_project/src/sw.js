@@ -1,7 +1,6 @@
 const cacheVersion = '1.0.1';
 const staticCacheName = `musale-v${cacheVersion}`;
 const filesToCache = [
-  '/',
   '/styles/main.css',
   '/styles/bootstrap.min.css',
   '/images/3246305.jpg',
