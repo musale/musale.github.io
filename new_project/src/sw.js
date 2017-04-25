@@ -1,10 +1,13 @@
-const CACHE_NAME = 'neutron-v1';
+const CACHE_NAME = 'neutron-v3';
 const urlsToCache = [
   './',
   '/(index)',
   '/styles/main.css',
   '/styles/bootstrap.min.css',
   '/images/3246305.jpg',
+  '/images/001.svg',
+  '/images/002.png',
+  '/images/003.png',
   '/index.bundle.js',
   '/manifest.bundle.js',
   '/scripts/loadsw.js',
