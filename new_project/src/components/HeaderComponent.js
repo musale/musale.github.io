@@ -8,7 +8,7 @@ function HeaderComponent() {
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="#">Navbar</a>
+        <a className="navbar-brand" href="#">MM</a>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
@@ -18,10 +18,7 @@ function HeaderComponent() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Link</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" href="#">Disabled</a>
+              <a className="nav-link" href="#">Links</a>
             </li>
           </ul>
           <HeaderFormComponent/>
