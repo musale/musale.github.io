@@ -8,6 +8,8 @@ const urlsToCache = [
   '/images/001.svg',
   '/images/002.png',
   '/images/003.png',
+  '/images/004.jpg',
+  '/images/005.jpg',
   '/index.bundle.js',
   '/manifest.bundle.js',
   '/scripts/loadsw.js',

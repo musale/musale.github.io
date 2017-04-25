@@ -73,7 +73,7 @@ const projects = [
     link: 'https://musale.github.io/',
     stack: {
       appData: [
-        'React', 'html5', 'bootstrap4', 'javascript', 'ECMA6',
+        'React', 'html5', 'bootstrap4', 'javascript', 'es6',
       ],
       utilities: [
         'JSConsole', 'ReactTools',
@@ -94,7 +94,7 @@ const projects = [
     link: 'https://musale.github.io/react-fundamentals-curriculum/',
     stack: {
       appData: [
-        'React', 'html5', 'bootstrap4', 'javascript', 'ECMA6',
+        'React', 'html5', 'bootstrap4', 'javascript', 'es6',
       ],
       utilities: [
         'JSConsole', 'ReactTools',
@@ -115,7 +115,7 @@ const projects = [
     link: 'https://musale.github.io/battle-react/',
     stack: {
       appData: [
-        'React', 'html5', 'bootstrap4', 'javascript', 'ECMA6',
+        'React', 'html5', 'bootstrap4', 'javascript', 'es6',
       ],
       utilities: [
         'JSConsole', 'ReactTools',
@@ -136,7 +136,7 @@ const projects = [
     link: 'https://github.com/musale/demo-recipe-puppy',
     stack: {
       appData: [
-        'React', 'html5', 'bootstrap4', 'javascript', 'ECMA6', 'ReactRedux',
+        'React', 'html5', 'bootstrap4', 'javascript', 'es6', 'ReactRedux',
       ],
       utilities: [
         'JSConsole', 'ReactTools',
@@ -157,7 +157,7 @@ const projects = [
     link: 'https://github.com/musale/c9-works/tree/master/re-tweeter-bot',
     stack: {
       appData: [
-        'javascript', 'ECMA6',
+        'javascript', 'es6',
       ],
       utilities: [
         'JSConsole',

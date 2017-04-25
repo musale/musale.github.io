@@ -4,9 +4,8 @@ const FooterContainer = React.createClass({
   render() {
     return (
       <footer className="container-fluid bg-4 text-center">
-        <p>Bootstrap Theme Made By
-          <a href="https://www.w3schools.com">www.w3schools.com</a>
-        </p>
+        <p>I am root <i className="fa fa-smile-o" aria-hidden="true"></i>
+        . If you see me laughing, you better have a backup! </p>
       </footer>
     );
   },
