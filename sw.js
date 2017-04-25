@@ -1,4 +1,4 @@
-const cacheVersion = '1.0.1';
+const cacheVersion = '1.0.2';
 const staticCacheName = `musale-v${cacheVersion}`;
 const filesToCache = [
   '/',
