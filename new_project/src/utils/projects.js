@@ -129,7 +129,7 @@ const projects = [
     },
   },
   {
-    src: 'https://placehold.it/355x250',
+    src: '/images/006.png',
     alt: 'Recipe API Demo',
     title: 'Recipe Puppy Redux',
     body: 'Another simple React app that interfaces with the public Recipe API and demonstrates the use of React Redux to handle application states',
@@ -146,6 +146,28 @@ const projects = [
       ],
       businessTools: [
         'github',
+      ],
+    },
+  },
+  {
+    src: '/images/007.jpg',
+    alt: 'Duka Points',
+    title: 'Duka Points',
+    body: 'DukaConnect Loyalty Points service allows shopkeepers to register customers and then award them points based on their amount of goods they have bought.',
+    link: 'https://dukapoints.dukaconnect.com/',
+    stack: {
+      appData: [
+        'html5', 'bootstrap', 'jquery', 'redis', 'postgres', 'GoogleMaps',
+        'python', 'django', 'javascript', 'celery', 'markdown',
+      ],
+      utilities: [
+        'sentry', 'emailAlerts',
+      ],
+      devOps: [
+        'nginx', 'gunicorn', 'systemd', 'fabric',
+      ],
+      businessTools: [
+        'asana', 'slack', 'bitbucket', 'mixpanel',
       ],
     },
   },
