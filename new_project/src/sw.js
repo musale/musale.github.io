@@ -1,4 +1,4 @@
-const cacheVersion = '1.0.2';
+const cacheVersion = '1.1.2';
 const staticCacheName = `musale-v${cacheVersion}`;
 const filesToCache = [
   '/',
@@ -10,8 +10,11 @@ const filesToCache = [
   '/images/003.png',
   '/images/004.jpg',
   '/images/005.jpg',
-  '/index.bundle.js',
-  '/manifest.bundle.js',
+  '/images/006.png',
+  '/images/007.jpg',
+  '/index.0a5174a7356e55965bb3.bundle.js',
+  '/manifest.ce95ef9de9026a99a160.bundle.js',
+  '/index.html',
   '/scripts/loadsw.js',
   '/scripts/bootstrap.min.js',
   '/scripts/jquery-3.1.1.slim.min.js',
