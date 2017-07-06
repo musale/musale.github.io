@@ -3,3 +3,4 @@ npm-debug.log
 **/*.log
 .babelrc
 .idea/
+package-lock.json

@@ -6,7 +6,7 @@
 
 ### Set up
 * Clone this repository
-* `cd musale.github.io`
+* `cd musale.github.io/new_project`
 * `npm install` to install the required dependencies
 * `npm run start` to start a server
 
