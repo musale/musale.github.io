@@ -1,4 +1,4 @@
-@import 'App';
+@import 'node_modules/jeet/scss/index';
 $bg-color: #85144B;
 $primary-color: #7FDBFF;
 $secondary-color: #2ECC40;
@@ -6,7 +6,8 @@ $secondary-color: #2ECC40;
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Bellefair', serif;
   background-color: $bg-color;
   color: $primary-color;
 }
+@import 'app';

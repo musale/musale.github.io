@@ -16,6 +16,8 @@
     "sass": "node-sass-chokidar src/styles/scss -o src/styles/css --watch --recursive"
   },
   "devDependencies": {
-    "colors.css": "^3.0.0"
+    "colors.css": "^3.0.0",
+    "jeet": "^7.1.0",
+    "node-sass": "^4.5.3"
   }
 }
