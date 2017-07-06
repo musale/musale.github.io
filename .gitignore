@@ -4,3 +4,4 @@ npm-debug.log
 .babelrc
 .idea/
 package-lock.json
+.sass-cache
