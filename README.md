@@ -1,5 +1,5 @@
 # My GitHub Portfolio
-> Contains the github page https://musale.github.io/. It is a Progressive Web App with offline capability. I created it using [Neutrino JS](https://neutrino.js.org/) and React.
+> Contains the github page https://musale.github.io/. It is a Progressive Web App created with React JS.
 
 ### Requirements
 * Node JS
