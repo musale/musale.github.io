@@ -1,49 +1,11 @@
-$large-font-size: 28px;
-$regular-font-size: 25px;
-$medium-font-size: 20px;
-$small-font-size: 15px;
-$xsmall-font-size: 12px;
-$cm-screen: 320px;
-$xs-screen: 480px;
-$sm-screen: 768px;
-$lg-screen: 992px;
-$xl-screen: 1200px;
+@import 'node_modules/jeet/jeet';
 
-.App {
-  text-align: center;
+.app-header{
+  @include center();
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
 }
 
-.App-header {
-  font-size: $regular-font-size;
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (min-width : $cm-screen) {
-  .App-header {
-    font-size: $small-font-size;
-  }
-}
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : $xs-screen) {
-  .App-header {
-    font-size: $small-font-size;
-  }
-}
-/* Small Devices, Tablets */
-@media only screen and (min-width : $sm-screen) {
-  .App-header {
-    font-size: $small-font-size;
-  }
-}
-/* Medium Devices, Desktops */
-@media only screen and (min-width : $lg-screen) {
-  .App-header {
-    font-size: $medium-font-size;
-  }
-}
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : $xl-screen) {
-  .App-header {
-    font-size: $large-font-size;
-  }
+.social-media{
+  @include center(0px);
 }
