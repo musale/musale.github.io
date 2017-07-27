@@ -6,7 +6,12 @@ class App extends Component {
     return (
       <div className="container">
         <div className="sidebar">
-          My sidebar
+          <ul className="sidebar__menu">
+            <li className="sidebar__menu_item"><a href="/home">My menu >></a></li>
+            <li className="sidebar__menu_item"><a href="/home">My menu >></a></li>
+            <li className="sidebar__menu_item"><a href="/home">My menu >></a></li>
+            <li className="sidebar__menu_item"><a href="/home">My menu >></a></li>
+          </ul>
         </div>
         <div className="content">
           My content
