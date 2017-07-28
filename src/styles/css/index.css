@@ -1,88 +1,21 @@
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+html, body{
+  color: whitesmoke;
 }
-.container {
-  width: auto;
-  max-width: 1440px;
-  float: none;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 0;
-  padding-right: 0;
+.container-fluid{
+  margin-left: 0px;
+  margin-right: 0px;
 }
-.container::after {
-  content: '';
-  display: table;
-  clear: both;
+.nav-sidebar a {
+    color: whitesmoke;
+    -webkit-transition: all 0.08s linear;
+    -moz-transition: all 0.08s linear;
+    -o-transition: all 0.08s linear;
+    transition: all 0.08s linear;
 }
-.sidebar {
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 16.666666666666664%;
-  margin-left: 0%;
-  margin-right: 0%;
-  background-color: #d2691e;
-  color: #f5f5f5;
-  height: 100vh;
-}
-.sidebar::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.sidebar ul,
-.sidebar .sidebar__menu {
-  font-size: bold;
-}
-.sidebar ul li,
-.sidebar .sidebar__menu li,
-.sidebar ul .sidebar__menu_item,
-.sidebar .sidebar__menu .sidebar__menu_item {
-  list-style: none;
-  line-height: 1.5em;
-  margin-bottom: 3px;
-}
-.sidebar ul li a,
-.sidebar .sidebar__menu li a,
-.sidebar ul .sidebar__menu_item a,
-.sidebar .sidebar__menu .sidebar__menu_item a {
-  font-size: larger;
-  font-weight: 700;
-  color: #f5f5f5;
-  text-decoration: none;
-}
-.sidebar ul li a:hover,
-.sidebar .sidebar__menu li a:hover,
-.sidebar ul .sidebar__menu_item a:hover,
-.sidebar .sidebar__menu .sidebar__menu_item a:hover {
-  color: #ffa500;
-}
-.content {
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 83.33333333333334%;
-  margin-left: 0%;
-  margin-right: 0%;
-}
-.content::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-@media (max-width: 256px) {
-  .sidebar {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media (max-width: 512px) {
-  .sidebar {
-    width: 100%;
-    height: 100%;
-  }
+.nav-sidebar .text-overflow a,
+.nav-sidebar .text-overflow .media-body {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
