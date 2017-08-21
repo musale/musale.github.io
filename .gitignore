@@ -1,7 +1,9 @@
 node_modules/
-npm-debug.log
 **/*.log
+**/*.local
 .babelrc
 .idea/
-package-lock.json
 .sass-cache
+/coverage
+/build
+.DS_Store
