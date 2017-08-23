@@ -7,8 +7,8 @@
 ### Set up
 * Clone this repository
 * `cd musale.github.io`
-* `npm install` to install the required dependencies
-* `npm run start` to start a server
+* Run `docker-compose up`
+* View site at [http://localhost:3000](http://localhost:3000)
 
 ### Testing
 > These is still pending.
