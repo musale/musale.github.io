@@ -1,2 +1,2 @@
-<center><h1>Musale Martin</h1></center>
+# Musale Martin
 Software Developer at [Gravity](https://www.gravity.earth/), based in Nairobi, Kenya.
