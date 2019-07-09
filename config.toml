@@ -1,7 +1,3 @@
 baseurl = "https://musale.github.io"
 title = "musale"
 theme = "hugo-coder"
-
-[params]
-  author="Martin Musale <martinmshale@gmail.com>"
-  description="My personal developer site"
