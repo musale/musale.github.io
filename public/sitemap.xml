@@ -3,39 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://musale.github.io/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://musale.github.io/blog/</loc>
+    <loc>/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://musale.github.io/categories/</loc>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://musale.github.io/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>https://musale.github.io/projects/</loc>
-  </url>
-  
-  <url>
-    <loc>https://musale.github.io/tags/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://musale.github.io/blog/aiompesa/</loc>
+    <loc>/contact/</loc>
   </url>
   
   <url>
-    <loc>https://musale.github.io/</loc>
+    <loc>/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/aiompesa/</loc>
   </url>
   
 </urlset>
