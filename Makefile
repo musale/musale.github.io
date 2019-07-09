@@ -8,4 +8,5 @@ dev:
 
 .PHONY: build
 build:
+	@rm -rf public
 	@hugo -t hermit
