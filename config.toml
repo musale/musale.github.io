@@ -28,9 +28,9 @@ enableEmoji = true
     custom_js = []
 
 [taxonomies]
-  category = "categories"
-  series = "series"
-  tag = "tags"
+    category = "categories"
+    series = "series"
+    tag = "tags"
 
 [[params.social]]
     name = "Github"
