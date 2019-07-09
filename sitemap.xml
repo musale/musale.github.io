@@ -3,17 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.org/categories/</loc>
+    <loc>https://musale.github.io/posts/aiompesa/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.org/</loc>
+    <loc>https://musale.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.org/tags/</loc>
+    <loc>https://musale.github.io/posts/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
