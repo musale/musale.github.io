@@ -1,0 +1,9 @@
+node_modules/
+**/*.log
+**/*.local
+.babelrc
+.idea/
+.sass-cache
+/coverage
+/build
+.DS_Store
