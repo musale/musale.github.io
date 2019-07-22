@@ -8,24 +8,32 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 
-<meta itemprop="name" content="Asychronous MPESA calls">
-<meta itemprop="description" content="Introduction MPESA is a service that allows you to make money transactions using your mobile phone.">
+<meta itemprop="name" content="aiompesa">
+<meta itemprop="description" content="Introduction MPESA is a service that allows you to make money transactions using your mobile phone. Asyncio is a library that allows you to write concurrent code in Python using async/await pattern. AIOMPESA is a Python library that allows you to interact with Python&rsquo;s asyncio library.
+Motivation The reason I wrote this library is because:
+1. I wanted to learn some more about _asyncio_. 2. To create an asynchronous library.">
+
+
+<meta itemprop="datePublished" content="2019-07-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="151">
 
 
 
-<meta itemprop="wordCount" content="16">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta property="og:title" content="Asychronous MPESA calls" />
-<meta property="og:description" content="Introduction MPESA is a service that allows you to make money transactions using your mobile phone." />
+<meta itemprop="keywords" content="mpesa,asyncio,python," />
+<meta property="og:title" content="aiompesa" />
+<meta property="og:description" content="Introduction MPESA is a service that allows you to make money transactions using your mobile phone. Asyncio is a library that allows you to write concurrent code in Python using async/await pattern. AIOMPESA is a Python library that allows you to interact with Python&rsquo;s asyncio library.
+Motivation The reason I wrote this library is because:
+1. I wanted to learn some more about _asyncio_. 2. To create an asynchronous library." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://musale.github.io/projects/aiompesa/" />
-
+<meta property="article:published_time" content="2019-07-22T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-07-22T00:00:00&#43;00:00"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Asychronous MPESA calls"/>
-<meta name="twitter:description" content="Introduction MPESA is a service that allows you to make money transactions using your mobile phone."/>
+<meta name="twitter:title" content="aiompesa"/>
+<meta name="twitter:description" content="Introduction MPESA is a service that allows you to make money transactions using your mobile phone. Asyncio is a library that allows you to write concurrent code in Python using async/await pattern. AIOMPESA is a Python library that allows you to interact with Python&rsquo;s asyncio library.
+Motivation The reason I wrote this library is because:
+1. I wanted to learn some more about _asyncio_. 2. To create an asynchronous library."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -34,7 +42,7 @@
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
 	<link rel="shortcut icon" href="/favicon.ico">
 
-	<title>Asychronous MPESA calls</title>
+	<title>aiompesa</title>
 	<link rel="stylesheet" href="https://musale.github.io/css/style.min.568c54a56780af2a70c45272522247710b69dbfc080b315211fb98381e3796f8.css" integrity="sha256-VoxUpWeArypwxFJyUiJHcQtp2/wICzFSEfuYOB43lvg=">
 	
 </head>
@@ -70,13 +78,26 @@
 
 
 	<main class="site-main section-inner thin animated fadeIn faster">
-		<h1>Asychronous MPESA calls</h1>
+		<h1>aiompesa</h1>
 		<div class="content">
 			
 
 <h2 id="introduction">Introduction<a href="#introduction" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
-<p>MPESA is a service that allows you to make money transactions using your mobile phone.</p>
+<p>MPESA is a service that allows you to make money transactions using your mobile phone. <a href="https://docs.python.org/3/library/asyncio.html">Asyncio</a> is a library that allows you to write concurrent code in Python using <code>async/await</code> pattern. <a href="https://aiompesa.readthedocs.io">AIOMPESA</a> is a Python library that allows you to interact with Python&rsquo;s <em>asyncio</em> library.</p>
+
+<h2 id="motivation">Motivation<a href="#motivation" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>The reason I wrote this library is because:</p>
+
+<pre><code>1. I wanted to learn some more about _asyncio_.
+2. To create an asynchronous library.
+3. Experiment with Python 3+ static typing.
+</code></pre>
+
+<h2 id="results">Results<a href="#results" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I understand a little more about <em>asyncio</em> and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&rsquo;s something you can consider in future. The <em>aiompesa</em> library is available on <em>pypy</em> and open sourced at <a href="https://github.com/musale/aiompesa">GitHub</a>. For more information on how to use it you can read about it&rsquo;s usage <a href="https://aiompesa.readthedocs.org">here</a> and test it out. Cheers! 🍺</p>
 
 		</div>
 	</main>
