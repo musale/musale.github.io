@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mpesa on Martin Musale</title>
-    <link>https://musale.github.io/tags/mpesa/</link>
-    <description>Recent content in mpesa on Martin Musale</description>
+    <title>mpesa on Musale | Software Engineer</title>
+    <link>/tags/mpesa/</link>
+    <description>Recent content in mpesa on Musale | Software Engineer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://musale.github.io/tags/mpesa/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/mpesa/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>aiompesa</title>
-      <link>https://musale.github.io/projects/aiompesa/</link>
+      <link>/projects/aiompesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://musale.github.io/projects/aiompesa/</guid>
+      <guid>/projects/aiompesa/</guid>
       <description>Introduction MPESA is a service that allows you to make money transactions using your mobile phone. Asyncio is a library that allows you to write concurrent code in Python using async/await pattern. AIOMPESA is a Python library that allows you to interact with Python&amp;rsquo;s asyncio library.
 Motivation The reason I wrote this library is because:
 1. I wanted to learn some more about _asyncio_. 2. To create an asynchronous library.</description>

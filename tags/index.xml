@@ -1,40 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Martin Musale</title>
-    <link>https://musale.github.io/tags/</link>
-    <description>Recent content in Tags on Martin Musale</description>
+    <title>Tags on Musale | Software Engineer</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Musale | Software Engineer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://musale.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>asyncio</title>
-      <link>https://musale.github.io/tags/asyncio/</link>
+      <link>/tags/asyncio/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://musale.github.io/tags/asyncio/</guid>
+      <guid>/tags/asyncio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mpesa</title>
-      <link>https://musale.github.io/tags/mpesa/</link>
+      <link>/tags/mpesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://musale.github.io/tags/mpesa/</guid>
+      <guid>/tags/mpesa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://musale.github.io/tags/python/</link>
+      <link>/tags/python/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://musale.github.io/tags/python/</guid>
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
