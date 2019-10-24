@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Musale | Software Engineer</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on Musale | Software Engineer</description>
+    <title>Tags on Musale Martin</title>
+    <link>http://example.org/tags/</link>
+    <description>Recent content in Tags on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Demo</title>
+      <link>http://example.org/tags/demo/</link>
+      <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
+      
+      <guid>http://example.org/tags/demo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Typography</title>
+      <link>http://example.org/tags/typography/</link>
+      <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
+      
+      <guid>http://example.org/tags/typography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>asyncio</title>
-      <link>/tags/asyncio/</link>
+      <link>http://example.org/tags/asyncio/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/asyncio/</guid>
+      <guid>http://example.org/tags/asyncio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mpesa</title>
-      <link>/tags/mpesa/</link>
+      <link>http://example.org/tags/mpesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/mpesa/</guid>
+      <guid>http://example.org/tags/mpesa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>/tags/python/</link>
+      <link>http://example.org/tags/python/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/python/</guid>
+      <guid>http://example.org/tags/python/</guid>
       <description></description>
     </item>
     

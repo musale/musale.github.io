@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Things I&#39;ve Written on Musale Martin</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Things I&#39;ve Written on Musale Martin</description>
+    <title>Demo on Musale Martin</title>
+    <link>http://example.org/tags/demo/</link>
+    <description>Recent content in Demo on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/tags/demo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

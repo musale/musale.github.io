@@ -1,43 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Musale | Software Engineer</title>
-    <link>/</link>
-    <description>Recent content on Musale | Software Engineer</description>
+    <title>Musale Martin</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Typography</title>
+      <link>http://example.org/posts/typography/</link>
+      <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
+      
+      <guid>http://example.org/posts/typography/</guid>
+      <description>To learn Elm, I ported the frontend of a small site I run from React to Elm 0.19, and had a fun and mind-expanding time doing it.</description>
+    </item>
     
     <item>
       <title>aiompesa</title>
-      <link>/projects/aiompesa/</link>
+      <link>http://example.org/projects/aiompesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/projects/aiompesa/</guid>
-      <description>Introduction MPESA is a service that allows you to make money transactions using your mobile phone. Asyncio is a library that allows you to write concurrent code in Python using async/await pattern. AIOMPESA is a Python library that allows you to interact with Python&amp;rsquo;s asyncio library.
-Motivation The reason I wrote this library is because:
-1. I wanted to learn some more about _asyncio_. 2. To create an asynchronous library.</description>
-    </item>
-    
-    <item>
-      <title>Asychronous MPESA calls</title>
-      <link>/posts/aiompesa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/aiompesa/</guid>
-      <description>Introduction MPESA is a service that allows you to make money transactions using your mobile phone.</description>
-    </item>
-    
-    <item>
-      <title>I am</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Introduction I am who.</description>
+      <guid>http://example.org/projects/aiompesa/</guid>
+      <description>MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern. &lt;a href=&#34;https://aiompesa.readthedocs.io&#34;&gt;AIOMPESA&lt;/a&gt; is a Python library that allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library.</description>
     </item>
     
   </channel>

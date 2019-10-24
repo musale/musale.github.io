@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Martin Musale&#39;s Resume/CV on Musale Martin</title>
+    <link>http://example.org/cv/</link>
+    <description>Recent content in Martin Musale&#39;s Resume/CV on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://example.org/cv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

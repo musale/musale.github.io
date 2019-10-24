@@ -3,54 +3,70 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/projects/aiompesa/</loc>
+    <loc>http://example.org/posts/</loc>
+    <lastmod>2019-10-24T11:36:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/demo/</loc>
+    <lastmod>2019-10-24T11:36:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-10-24T11:36:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+    <lastmod>2019-10-24T11:36:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/typography/</loc>
+    <lastmod>2019-10-24T11:36:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/typography/</loc>
+    <lastmod>2019-10-24T11:36:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/aiompesa/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/asyncio/</loc>
+    <loc>http://example.org/tags/asyncio/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/mpesa/</loc>
+    <loc>http://example.org/tags/mpesa/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>http://example.org/projects/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>http://example.org/tags/python/</loc>
     <lastmod>2019-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
-    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
+    <loc>http://example.org/categories/</loc>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-07-22T00:00:00+00:00</lastmod>
+    <loc>http://example.org/contacts/</loc>
   </url>
   
   <url>
-    <loc>/posts/aiompesa/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
+    <loc>http://example.org/cv/</loc>
   </url>
   
 </urlset>
