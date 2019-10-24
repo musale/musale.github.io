@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Demo on Musale Martin</title>
-    <link>http://example.org/tags/demo/</link>
+    <link>https://friendly-hugle-a4f8f2.netlify.com/tags/demo/</link>
     <description>Recent content in Demo on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/demo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/demo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Typography</title>
-      <link>http://example.org/posts/typography/</link>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</link>
       <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
       
-      <guid>http://example.org/posts/typography/</guid>
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</guid>
       <description>To learn Elm, I ported the frontend of a small site I run from React to Elm 0.19, and had a fun and mind-expanding time doing it.</description>
     </item>
     

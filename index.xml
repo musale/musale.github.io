@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Musale Martin</title>
-    <link>http://example.org/</link>
+    <link>https://friendly-hugle-a4f8f2.netlify.com/</link>
     <description>Recent content on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Typography</title>
-      <link>http://example.org/posts/typography/</link>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</link>
       <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
       
-      <guid>http://example.org/posts/typography/</guid>
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</guid>
       <description>To learn Elm, I ported the frontend of a small site I run from React to Elm 0.19, and had a fun and mind-expanding time doing it.</description>
     </item>
     
     <item>
       <title>aiompesa</title>
-      <link>http://example.org/projects/aiompesa/</link>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/projects/aiompesa/</guid>
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</guid>
       <description>MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern. &lt;a href=&#34;https://aiompesa.readthedocs.io&#34;&gt;AIOMPESA&lt;/a&gt; is a Python library that allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library.</description>
     </item>
     
