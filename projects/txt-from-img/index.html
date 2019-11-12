@@ -57,11 +57,11 @@ Currently, I&#39;m into interpreters, compilers and how computers work.">
 
             <div id="content">
                 
-<h1><a href=#>aiompesa</a></h1>
-<p class="subtitle">Mon Jul 22, 2019</p>
+<h1><a href=#>txt-from-img</a></h1>
+<p class="subtitle">Thu Aug 15, 2019</p>
 
 <blockquote>
-    <p> MPESA is a service that allows you to make money transactions using your mobile phone. <a href="https://docs.python.org/3/library/asyncio.html">Asyncio</a> is a library that allows you to write concurrent code in Python using <code>async/await</code> pattern. <a href="https://aiompesa.readthedocs.io">AIOMPESA</a> is a Python library that allows you to interact with Python&rsquo;s <em>asyncio</em> library. </p>
+    <p> Get text from an image using tessaract in a lambda function. </p>
     <p>
         
         Tags:
@@ -78,23 +78,19 @@ Currently, I&#39;m into interpreters, compilers and how computers work.">
 
 <h2 id="motivation">Motivation</h2>
 
-<p>The reason I wrote this library is because:</p>
-
-<ol>
-<li>I wanted to learn some more about <em>asyncio</em>.</li>
-<li>To create an asynchronous library.</li>
-<li>Experiment with Python 3+ static typing.</li>
-</ol>
+<p>This was a pet project to test out OCR using the Tessaract project. We&rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the <a href="https://github.com/musale/txt-from-img">project</a>, most of the setup has been done thanks to inspiration from already existing solutions.</p>
 
 <h2 id="results">Results</h2>
 
-<p>I understand a little more about <em>asyncio</em> and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&rsquo;s something you can consider in future. The <em>aiompesa</em> library is available on <em>pypy</em> and open sourced at <a href="https://github.com/musale/aiompesa">GitHub</a>. For more information on how to use it you can read about it&rsquo;s usage <a href="https://aiompesa.readthedocs.org">here</a> and test it out. Cheers! :beer:</p>
+<p>I was able to deploy a lambda function which you can invoke by sending an image which will return the text in the image. Currently, only text in English language can be processed. Other options are possible but are not covered. You can clone the project and test it out on your machine or who knows, get it on one of your pipelines! Enjoy OCR. :camera:</p>
 
 
 <div>
     
+    <a class="previous" href="https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/"> aiompesa</a>
     
-    <a class="next" href="https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/"> txt-from-img</a>
+    
+    <a class="next" href="https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/"> hoyt theme</a>
     
 </div>
 

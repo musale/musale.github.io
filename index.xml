@@ -6,10 +6,19 @@
     <description>Recent content on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hoyt theme</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/</guid>
+      <description>Hoyt is a theme built for go hugo with inspiration from &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; personal website.</description>
+    </item>
     
     <item>
       <title>Typography</title>
@@ -18,6 +27,15 @@
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</guid>
       <description>To learn Elm, I ported the frontend of a small site I run from React to Elm 0.19, and had a fun and mind-expanding time doing it.</description>
+    </item>
+    
+    <item>
+      <title>txt-from-img</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</link>
+      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</guid>
+      <description>Get text from an image using tessaract in a lambda function.</description>
     </item>
     
     <item>

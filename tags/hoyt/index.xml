@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hoyt on Musale Martin</title>
+    <link>https://friendly-hugle-a4f8f2.netlify.com/tags/hoyt/</link>
+    <description>Recent content in hoyt on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/hoyt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hoyt theme</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/</guid>
+      <description>Hoyt is a theme built for go hugo with inspiration from &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; personal website.</description>
+    </item>
+    
+  </channel>
+</rss>

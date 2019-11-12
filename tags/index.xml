@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>golang</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/golang/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hoyt</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/hoyt/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/hoyt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/themes/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/themes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Demo</title>
@@ -32,7 +59,7 @@
     <item>
       <title>asyncio</title>
       <link>https://friendly-hugle-a4f8f2.netlify.com/tags/asyncio/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/asyncio/</guid>
       <description></description>
@@ -41,7 +68,7 @@
     <item>
       <title>mpesa</title>
       <link>https://friendly-hugle-a4f8f2.netlify.com/tags/mpesa/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/mpesa/</guid>
       <description></description>
@@ -50,7 +77,7 @@
     <item>
       <title>python</title>
       <link>https://friendly-hugle-a4f8f2.netlify.com/tags/python/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/python/</guid>
       <description></description>
