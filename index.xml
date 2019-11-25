@@ -6,10 +6,19 @@
     <description>Recent content on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Nov 2019 02:55:15 +0300</lastBuildDate>
     
 	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP/3 and it&#39;s underlying protocol QUIC</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/</link>
+      <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/</guid>
+      <description>&lt;a href=&#34;https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/&#34;&gt;HTTP/3 and it&amp;rsquo;s underlying protocol QUIC&lt;/a&gt; talks about the new HTTP/3 layer and the underlying protocol QUIC. It&amp;rsquo;s from the very nice read by Daniel Haxx called &lt;a href=&#34;https://daniel.haxx.se/http3-explained&#34;&gt;HTTP/3 Explained&lt;/a&gt; – which you should read as it details the processes, how it works and what the future holds for HTPP/3 and QUIC.</description>
+    </item>
     
     <item>
       <title>hoyt theme</title>
@@ -36,15 +45,6 @@
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</guid>
       <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
-    </item>
-    
-    <item>
-      <title>HTTP/3 and it&#39;s underlying protocol QUIC</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/</guid>
-      <description>&lt;a href=&#34;https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/&#34;&gt;HTTP/3 and it&amp;rsquo;s underlying protocol QUIC&lt;/a&gt; talks about the new HTTP/3 layer and the underlying protocol QUIC. It&amp;rsquo;s from the very nice read by Daniel Haxx called &lt;a href=&#34;https://daniel.haxx.se/http3-explained&#34;&gt;HTTP/3 Explained&lt;/a&gt; – which you should read as it details the processes, how it works and what the future holds for HTPP/3 and QUIC.</description>
     </item>
     
   </channel>

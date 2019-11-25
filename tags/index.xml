@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Nov 2019 02:55:15 +0300</lastBuildDate>
     
 	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP/3</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/http/3/</link>
+      <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/http/3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/networking/</link>
+      <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/networking/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>golang</title>
@@ -62,24 +80,6 @@
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTP/3</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/http/3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/http/3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Networking</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/networking/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/networking/</guid>
       <description></description>
     </item>
     
