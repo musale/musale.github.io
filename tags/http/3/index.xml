@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP/3 on Musale Martin</title>
+    <link>https://friendly-hugle-a4f8f2.netlify.com/tags/http/3/</link>
+    <description>Recent content in HTTP/3 on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/http/3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTTP/3 and it&#39;s underlying protocol QUIC</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/</guid>
+      <description>&lt;a href=&#34;https://friendly-hugle-a4f8f2.netlify.com/thoughts/http3/&#34;&gt;HTTP/3 and it&amp;rsquo;s underlying protocol QUIC&lt;/a&gt; talks about the new HTTP/3 layer and the underlying protocol QUIC. It&amp;rsquo;s from the very nice read by Daniel Haxx called &lt;a href=&#34;https://daniel.haxx.se/http3-explained&#34;&gt;HTTP/3 Explained&lt;/a&gt; – which you should read as it details the processes, how it works and what the future holds for HTPP/3 and QUIC.</description>
+    </item>
+    
+  </channel>
+</rss>
