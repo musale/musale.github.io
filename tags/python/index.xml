@@ -17,7 +17,7 @@
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</guid>
-      <description>Get text from an image using tessaract in a lambda function.</description>
+      <description>&lt;a href=&#34;txt-from-img/&#34;&gt;txt-from-img&lt;/a&gt; was a gentle introduction to the tessaract library and how to get text from an image in a lambda function.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</guid>
-      <description>MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern. &lt;a href=&#34;https://aiompesa.readthedocs.io&#34;&gt;AIOMPESA&lt;/a&gt; is a Python library that allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library.</description>
+      <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
     </item>
     
   </channel>

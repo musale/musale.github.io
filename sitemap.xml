@@ -87,11 +87,19 @@
   </url>
   
   <url>
+    <loc>https://friendly-hugle-a4f8f2.netlify.com/wishlist/</loc>
+  </url>
+  
+  <url>
     <loc>https://friendly-hugle-a4f8f2.netlify.com/contacts/</loc>
   </url>
   
   <url>
     <loc>https://friendly-hugle-a4f8f2.netlify.com/cv/</loc>
+  </url>
+  
+  <url>
+    <loc>https://friendly-hugle-a4f8f2.netlify.com/my-list/</loc>
   </url>
   
 </urlset>
