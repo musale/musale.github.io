@@ -6,19 +6,9 @@
     <description>Recent content in Things I&#39;ve Written on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Oct 2019 11:36:33 +0800</lastBuildDate>
     
 	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Typography</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</link>
-      <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
-      
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</guid>
-      <description>To learn Elm, I ported the frontend of a small site I run from React to Elm 0.19, and had a fun and mind-expanding time doing it.</description>
-    </item>
     
   </channel>
 </rss>

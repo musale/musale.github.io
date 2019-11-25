@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>Typography</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</link>
-      <pubDate>Thu, 24 Oct 2019 11:36:33 +0800</pubDate>
-      
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/posts/typography/</guid>
-      <description>To learn Elm, I ported the frontend of a small site I run from React to Elm 0.19, and had a fun and mind-expanding time doing it.</description>
-    </item>
-    
-    <item>
       <title>txt-from-img</title>
       <link>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
