@@ -6,10 +6,55 @@
     <description>Recent content in Tags on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Nov 2019 02:55:15 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 20:09:16 +0300</lastBuildDate>
     
 	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Advent of Code</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/advent-of-code/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/advent-of-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/algorithms/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Structures</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/data-structures/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/data-structures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/golang/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python3</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/python3/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/python3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HTTP/3</title>
@@ -26,15 +71,6 @@
       <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
       
       <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/networking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/tags/golang/</link>
-      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/tags/golang/</guid>
       <description></description>
     </item>
     

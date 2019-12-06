@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structures on Musale Martin</title>
+    <link>https://friendly-hugle-a4f8f2.netlify.com/tags/data-structures/</link>
+    <description>Recent content in Data Structures on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Dec 2019 20:09:16 +0300</lastBuildDate>
+    
+	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Advent of Code 2019</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/thoughts/aoc19/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/thoughts/aoc19/</guid>
+      <description>&lt;a href=&#34;https://friendly-hugle-a4f8f2.netlify.com/thoughts/aoc19/&#34;&gt;The Advent of Code 2019&lt;/a&gt; has my thoughts about the daily &lt;a href=&#34;https://adventofcode.com/&#34;&gt;exercises&lt;/a&gt; which I&amp;rsquo;m currently attempting to solve with both &lt;em&gt;Go&lt;/em&gt; and &lt;em&gt;Python 3&lt;/em&gt;.</description>
+    </item>
+    
+  </channel>
+</rss>
