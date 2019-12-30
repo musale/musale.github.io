@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>asyncio on Musale Martin</title>
-    <link>https://friendly-hugle-a4f8f2.netlify.com/tags/asyncio/</link>
+    <link>https://musale.github.io/tags/asyncio/</link>
     <description>Recent content in asyncio on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 15 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/asyncio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://musale.github.io/tags/asyncio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>txt-from-img</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</link>
+      <link>https://musale.github.io/projects/txt-from-img/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</guid>
+      <guid>https://musale.github.io/projects/txt-from-img/</guid>
       <description>&lt;a href=&#34;txt-from-img/&#34;&gt;txt-from-img&lt;/a&gt; was a gentle introduction to the tessaract library and how to get text from an image in a lambda function.</description>
     </item>
     
     <item>
       <title>aiompesa</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</link>
+      <link>https://musale.github.io/projects/aiompesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</guid>
+      <guid>https://musale.github.io/projects/aiompesa/</guid>
       <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&#39;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
     </item>
     

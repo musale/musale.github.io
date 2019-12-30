@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects I&#39;ve Authored or Worked On on Musale Martin</title>
-    <link>https://friendly-hugle-a4f8f2.netlify.com/projects/</link>
+    <link>https://musale.github.io/projects/</link>
     <description>Recent content in Projects I&#39;ve Authored or Worked On on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://musale.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hoyt theme</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/</link>
+      <link>https://musale.github.io/projects/hoyt/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/hoyt/</guid>
+      <guid>https://musale.github.io/projects/hoyt/</guid>
       <description>&lt;a href=&#34;hoyt/&#34;&gt;Hoyt&lt;/a&gt; is a theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Go Hugo&lt;/a&gt; with inspiration from &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&#39;s&lt;/a&gt; personal website. It&#39;s still a work in &lt;del&gt;very slow&lt;/del&gt; progress but it was a very good starting point for me to learn about Go Hugo and how it works as a static site generator.</description>
     </item>
     
     <item>
       <title>txt-from-img</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</link>
+      <link>https://musale.github.io/projects/txt-from-img/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/txt-from-img/</guid>
+      <guid>https://musale.github.io/projects/txt-from-img/</guid>
       <description>&lt;a href=&#34;txt-from-img/&#34;&gt;txt-from-img&lt;/a&gt; was a gentle introduction to the tessaract library and how to get text from an image in a lambda function.</description>
     </item>
     
     <item>
       <title>aiompesa</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</link>
+      <link>https://musale.github.io/projects/aiompesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/projects/aiompesa/</guid>
+      <guid>https://musale.github.io/projects/aiompesa/</guid>
       <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&#39;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
     </item>
     

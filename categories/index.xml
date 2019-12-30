@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Musale Martin</title>
-    <link>https://friendly-hugle-a4f8f2.netlify.com/categories/</link>
+    <link>https://musale.github.io/categories/</link>
     <description>Recent content in Categories on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Dec 2019 15:34:14 +0300</lastBuildDate>
     
-	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://musale.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>life</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/categories/life/</link>
+      <link>https://musale.github.io/categories/life/</link>
       <pubDate>Mon, 30 Dec 2019 15:34:14 +0300</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/categories/life/</guid>
+      <guid>https://musale.github.io/categories/life/</guid>
       <description></description>
     </item>
     
     <item>
       <title>moments</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/categories/moments/</link>
+      <link>https://musale.github.io/categories/moments/</link>
       <pubDate>Mon, 30 Dec 2019 15:34:14 +0300</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/categories/moments/</guid>
+      <guid>https://musale.github.io/categories/moments/</guid>
       <description></description>
     </item>
     
     <item>
       <title>thoughts</title>
-      <link>https://friendly-hugle-a4f8f2.netlify.com/categories/thoughts/</link>
+      <link>https://musale.github.io/categories/thoughts/</link>
       <pubDate>Mon, 30 Dec 2019 15:34:14 +0300</pubDate>
       
-      <guid>https://friendly-hugle-a4f8f2.netlify.com/categories/thoughts/</guid>
+      <guid>https://musale.github.io/categories/thoughts/</guid>
       <description></description>
     </item>
     
