@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>music on Musale Martin</title>
+    <link>https://friendly-hugle-a4f8f2.netlify.com/tags/music/</link>
+    <description>Recent content in music on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Dec 2019 15:34:14 +0300</lastBuildDate>
+    
+	<atom:link href="https://friendly-hugle-a4f8f2.netlify.com/tags/music/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Best of my Decade</title>
+      <link>https://friendly-hugle-a4f8f2.netlify.com/thoughts/best-of-decade/</link>
+      <pubDate>Mon, 30 Dec 2019 15:34:14 +0300</pubDate>
+      
+      <guid>https://friendly-hugle-a4f8f2.netlify.com/thoughts/best-of-decade/</guid>
+      <description>In &lt;a href=&#34;https://friendly-hugle-a4f8f2.netlify.com/thoughts/best-of-decade/&#34;&gt;this article&lt;/a&gt;, I reflect on some of the best things and moments that I had in the decade 2010-2019. It&#39;s been a wonderful 10 years full of ups and downs and in as much as I would like to have a balanced view of both, I choose to stick with the positive things that happened to me and that I can remember.</description>
+    </item>
+    
+  </channel>
+</rss>
