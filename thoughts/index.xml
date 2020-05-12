@@ -44,7 +44,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/thoughts/visitor-pattern/</guid>
-      <description>The &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;visitor design pattern&lt;/a&gt; is about the pattern and also gives an explanation on it&amp;rsquo;s usage in a simple example using Go.</description>
+      <description>The &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;visitor design pattern&lt;/a&gt; explains how to separate operations of an object from the object and then it gives a simple example using Go.</description>
     </item>
     
   </channel>
