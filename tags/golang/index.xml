@@ -17,7 +17,7 @@
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/aoc19/</guid>
-      <description>&lt;a href=&#34;https://musale.github.io/thoughts/aoc19/&#34;&gt;The Advent of Code 2019&lt;/a&gt; has my thoughts about the daily &lt;a href=&#34;https://adventofcode.com/&#34;&gt;exercises&lt;/a&gt; which I&#39;m currently attempting to solve with both &lt;em&gt;Go&lt;/em&gt; and &lt;em&gt;Python 3&lt;/em&gt;.</description>
+      <description>&lt;a href=&#34;https://musale.github.io/thoughts/aoc19/&#34;&gt;The Advent of Code 2019&lt;/a&gt; has my thoughts about the daily &lt;a href=&#34;https://adventofcode.com/&#34;&gt;exercises&lt;/a&gt; which I&amp;rsquo;m currently attempting to solve with both &lt;em&gt;Go&lt;/em&gt; and &lt;em&gt;Python 3&lt;/em&gt;.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/hoyt/</guid>
-      <description>&lt;a href=&#34;hoyt/&#34;&gt;Hoyt&lt;/a&gt; is a theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Go Hugo&lt;/a&gt; with inspiration from &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&#39;s&lt;/a&gt; personal website. It&#39;s still a work in &lt;del&gt;very slow&lt;/del&gt; progress but it was a very good starting point for me to learn about Go Hugo and how it works as a static site generator.</description>
+      <description>&lt;a href=&#34;hoyt/&#34;&gt;Hoyt&lt;/a&gt; is a theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Go Hugo&lt;/a&gt; with inspiration from &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; personal website. It&amp;rsquo;s still a work in &lt;del&gt;very slow&lt;/del&gt; progress but it was a very good starting point for me to learn about Go Hugo and how it works as a static site generator.</description>
     </item>
     
   </channel>

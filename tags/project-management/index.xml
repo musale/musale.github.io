@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project Management on Musale Martin</title>
+    <link>https://musale.github.io/tags/project-management/</link>
+    <description>Recent content in Project Management on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://musale.github.io/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Projects I&#39;ve Authored or Worked On</title>
+      <link>https://musale.github.io/projects/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/projects/</guid>
+      <description>Below are some small open source software projects I’ve authored or helped develop. Most of them are released under a BSD-style license. Enjoy!</description>
+    </item>
+    
+  </channel>
+</rss>

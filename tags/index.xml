@@ -147,6 +147,15 @@
     </item>
     
     <item>
+      <title>Go</title>
+      <link>https://musale.github.io/tags/go/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>golang</title>
       <link>https://musale.github.io/tags/golang/</link>
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
@@ -156,20 +165,20 @@
     </item>
     
     <item>
+      <title>Python</title>
+      <link>https://musale.github.io/tags/python/</link>
+      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Python3</title>
       <link>https://musale.github.io/tags/python3/</link>
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
       
       <guid>https://musale.github.io/tags/python3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTP/3</title>
-      <link>https://musale.github.io/tags/http/3/</link>
-      <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
-      
-      <guid>https://musale.github.io/tags/http/3/</guid>
       <description></description>
     </item>
     
@@ -219,11 +228,128 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://musale.github.io/tags/python/</link>
-      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
+      <title>Adventure</title>
+      <link>https://musale.github.io/tags/adventure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://musale.github.io/tags/python/</guid>
+      <guid>https://musale.github.io/tags/adventure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bucket List</title>
+      <link>https://musale.github.io/tags/bucket-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/bucket-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gifts</title>
+      <link>https://musale.github.io/tags/gifts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/gifts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTP/3</title>
+      <link>https://musale.github.io/tags/http/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/http/3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://musale.github.io/tags/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>https://musale.github.io/tags/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Management</title>
+      <link>https://musale.github.io/tags/project-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/project-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reading</title>
+      <link>https://musale.github.io/tags/reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/reading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Risk</title>
+      <link>https://musale.github.io/tags/risk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/risk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Development</title>
+      <link>https://musale.github.io/tags/software-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/software-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Engineer</title>
+      <link>https://musale.github.io/tags/software-engineer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/software-engineer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology</title>
+      <link>https://musale.github.io/tags/technology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travel</title>
+      <link>https://musale.github.io/tags/travel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/travel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wishlist</title>
+      <link>https://musale.github.io/tags/wishlist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/wishlist/</guid>
       <description></description>
     </item>
     

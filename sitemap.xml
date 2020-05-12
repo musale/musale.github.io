@@ -48,12 +48,12 @@
   </url>
   
   <url>
-    <loc>https://musale.github.io/categories/moments/</loc>
+    <loc>https://musale.github.io/tags/moments/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://musale.github.io/tags/moments/</loc>
+    <loc>https://musale.github.io/categories/moments/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url>
   
@@ -123,18 +123,23 @@
   </url>
   
   <url>
+    <loc>https://musale.github.io/tags/go/</loc>
+    <lastmod>2019-12-06T20:09:16+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://musale.github.io/tags/golang/</loc>
+    <lastmod>2019-12-06T20:09:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/python/</loc>
     <lastmod>2019-12-06T20:09:16+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://musale.github.io/tags/python3/</loc>
     <lastmod>2019-12-06T20:09:16+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://musale.github.io/tags/http/3/</loc>
-    <lastmod>2019-11-26T02:55:15+03:00</lastmod>
   </url>
   
   <url>
@@ -178,11 +183,6 @@
   </url>
   
   <url>
-    <loc>https://musale.github.io/tags/python/</loc>
-    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://musale.github.io/projects/txt-from-img/</loc>
     <lastmod>2019-08-15T00:00:00+00:00</lastmod>
   </url>
@@ -193,7 +193,19 @@
   </url>
   
   <url>
+    <loc>https://musale.github.io/tags/adventure/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/bucket-list/</loc>
+  </url>
+  
+  <url>
     <loc>https://musale.github.io/wishlist/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/gifts/</loc>
   </url>
   
   <url>
@@ -201,7 +213,39 @@
   </url>
   
   <url>
+    <loc>https://musale.github.io/tags/http/3/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/javascript/</loc>
+  </url>
+  
+  <url>
     <loc>https://musale.github.io/cv/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/nodejs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/project-management/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/reading/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/risk/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/software-development/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/software-engineer/</loc>
   </url>
   
   <url>
@@ -209,7 +253,19 @@
   </url>
   
   <url>
+    <loc>https://musale.github.io/tags/technology/</loc>
+  </url>
+  
+  <url>
     <loc>https://musale.github.io/my-list/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/travel/</loc>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/wishlist/</loc>
   </url>
   
 </urlset>

@@ -5,17 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         
-         <meta name="description" content="I’m Musale Martin – a learner, problem-solver and software engineer from Kenya, based in Nairobi.
+         <meta name="description" content="I’m Musale Martin – a learner, problem-solver, and software engineer from Kenya, based in Nairobi.
 
-I graduated with a BS in Mathematics &amp; Computer Science from [Jomo Kenyatta University of Agriculture and Technology](http://www.jkuat.ac.ke/), where I developed my love for technology and problem solving.
+I graduated with a BS in Mathematics &amp; Computer Science from [Jomo Kenyatta University of Agriculture and Technology](http://www.jkuat.ac.ke/), where I developed my love for technology and problem-solving.
 
-I’m currently with the Automation and Data Pipelining team at [Libryo](https://libryo.com). We’re making Law easily accesible, readable and always updated on our platform.
+I’m currently with the Automation and Data Pipelining team at [Libryo](https://libryo.com). We’re helping businesses to know their regulations by collecting, tagging, summarising, and giving them notifications when it changes.
 
-Previously, I was with [Optimetriks](https://optimetriks.com), [Gravity](https://gravity.earth) and [Focus Mobile](https://smsleopard.com) – where I helped to make sending bulk SMSs faster and more efficient.
+Previously, I was with [Optimetriks](https://optimetriks.com), [Gravity](https://gravity.earth), and [Focus Mobile](https://smsleopard.com) – where I helped to make sending bulk SMSs faster and more efficient.
 
-When I&#39;m not doing server configurations, I listen to music ~~and you can tell I love Rihanna~~ 😉, I [write](/thoughts), travel, [read](https://www.goodreads.com/user/show/13682301-mr-musale), and I imagine myself exercise.
+When I&#39;m not programming the web, I listen to music ~~and you can tell I love Rihanna~~ 😉, I [write](/thoughts), travel, [read](https://www.goodreads.com/user/show/13682301-mr-musale), and I imagine myself exercise.
 
-Currently, I&#39;m into interpreters, compilers and how programming languages work."> 
+Currently, I&#39;m into interpreters, how programming languages work, and distributed systems."> 
         
         <title>Musale Martin</title>
 
@@ -91,11 +91,11 @@ Currently, I&#39;m into interpreters, compilers and how programming languages wo
 <p>Now, HTTP/1.X is pretty widespread and the default protocol for the web. However, IETF came up with HTTP/2 to address some challenges currently faced with HTTP/1. In doing so, they also encountered some shortcomings as they were not entirely doing away with HTTP/1 but solving some problems and maintaining the HTTP/1 standards and compatibility.</p>
 <p>HTTP/2 is done over TCP. Typical browsers do many parallel transfers over a single connection and if a single packet is dropped, or lost in the network somewhere between two endpoints that speak HTTP/2, it means that the entire TCP connection is brought to a halt while the lost packet is re-transmitted and finds its way to the destination. So everything that comes after the drop, has to wait.</p>
 <h2 id="enter-quic">Enter QUIC</h2>
-<p>The initial QUIC protocol was designed by Jim Roskind at Google and was initially implemented in 2012, announced publicly to the world in 2013 when Google's experimentation broadened.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>The initial QUIC protocol was designed by Jim Roskind at Google and was initially implemented in 2012, announced publicly to the world in 2013 when Google&rsquo;s experimentation broadened.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
 <h3 id="features-of-quic">Features of QUIC</h3>
 <ul>
 <li>
-<p>It's implemented over UDP. This allows re-transmission of packets, congestion control etc. UDP packets will always get to the destination. On the other hand, many network setups block UDP traffic on other ports than 53 (used for DNS) while throttle such data in ways that makes QUIC perform worse than TCP based protocols.</p>
+<p>It&rsquo;s implemented over UDP. This allows re-transmission of packets, congestion control etc. UDP packets will always get to the destination. On the other hand, many network setups block UDP traffic on other ports than 53 (used for DNS) while throttle such data in ways that makes QUIC perform worse than TCP based protocols.</p>
 </li>
 <li>
 <p>Guaranteed in-order delivery of streams. Each stream may reach the destination in a different order than the application sent it but each of it is reliably delivered to the application in order.</p>
@@ -107,7 +107,7 @@ Currently, I&#39;m into interpreters, compilers and how programming languages wo
 <p>The transport security used in QUIC is using TLS 1.3 <a href="https://tools.ietf.org/html/rfc8446">(RFC 8446)</a> and there are never any unencrypted QUIC connections.</p>
 </li>
 <li>
-<p>The IETF QUIC protocol is a transport protocol, on top of which other application protocols can be used. The initial application layer protocol is HTTP/3 (h3). I can't wait to see what else can be done here.</p>
+<p>The IETF QUIC protocol is a transport protocol, on top of which other application protocols can be used. The initial application layer protocol is HTTP/3 (h3). I can&rsquo;t wait to see what else can be done here.</p>
 </li>
 </ul>
 <h2 id="http3">HTTP/3</h2>
@@ -120,7 +120,7 @@ Currently, I&#39;m into interpreters, compilers and how programming languages wo
 <p>Due to the streams being independent of each other, the header compression protocol used for HTTP/2 could not be used without it causing a head of block situation.</p>
 </li>
 <li>
-<p>QUIC streams are slightly different than HTTP/2 streams. There's but a small fixed number (actually nine on December 18th, 2018!) of known frames in HTTP/3. The most important ones are probably:</p>
+<p>QUIC streams are slightly different than HTTP/2 streams. There&rsquo;s but a small fixed number (actually nine on December 18th, 2018!) of known frames in HTTP/3. The most important ones are probably:</p>
 <ul>
 <li>HEADERS, that sends compressed HTTP headers</li>
 <li>DATA, sends binary data contents</li>
@@ -141,9 +141,9 @@ Currently, I&#39;m into interpreters, compilers and how programming languages wo
 <li>Both protocols do prioritization on streams</li>
 </ul>
 <h3 id="differences">Differences</h3>
-<p>The differences are in the details and primarily there thanks to HTTP/3's use of QUIC:</p>
+<p>The differences are in the details and primarily there thanks to HTTP/3&rsquo;s use of QUIC:</p>
 <ul>
-<li>HTTP/3 has better and more likely to work early data support thanks to QUIC's 0-RTT handshakes, while TCP Fast Open and TLS usually sends less data and often faces problems.</li>
+<li>HTTP/3 has better and more likely to work early data support thanks to QUIC&rsquo;s 0-RTT handshakes, while TCP Fast Open and TLS usually sends less data and often faces problems.</li>
 <li>HTTP/3 has much faster handshakes thanks to QUIC vs TCP + TLS.</li>
 <li>HTTP/3 does not exist in an insecure or unencrypted version. HTTP/2 can be implemented and used without HTTPS - even if this is rare on the Internet.</li>
 <li>HTTP/2 can be negotiated directly in a TLS handshake with the ALPN extension, while HTTP/3 is over QUIC so it needs an <code>Alt-Svc:</code> header response first to inform the client about this fact.</li>

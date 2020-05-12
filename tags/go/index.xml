@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Musale Martin</title>
+    <link>https://musale.github.io/tags/go/</link>
+    <description>Recent content in Go on Musale Martin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Dec 2019 20:09:16 +0300</lastBuildDate>
+    
+	<atom:link href="https://musale.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Martin Musale&#39;s Resume/CV</title>
+      <link>https://musale.github.io/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/cv/</guid>
+      <description>Summary I’m a software developer with over 5 years of experience developing web applications, as well as providing technical management for small teams of software developers.
+I’m fluent in Python, JavaScript, HTML, English and Swahili. I’ve also written a good amount of Golang, CSS, Shell Scripting, XSLT and Java. I learn quickly, care about detail, and love computer science and mathematics.
+Skills: This is What I Do&amp;hellip; Software development  Programming in Python, JavaScript (ES5/6, Node JS — Express and Koa), shell scripting and Golang.</description>
+    </item>
+    
+  </channel>
+</rss>
