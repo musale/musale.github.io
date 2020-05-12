@@ -104,7 +104,7 @@ Currently, I&#39;m into interpreters, how programming languages work, and distri
 <span style="color:#6ab825;font-weight:bold">func</span>(m Daiquiri) <span style="color:#447fcf">Drink</span>(){}
 </code></pre></div><h3 id="the-challenge">The challenge</h3>
 <p>Now, we want to be able to define new <code>Cocktail</code> operations without having to add the new methods on each existing cocktail. For the above implementation, we&rsquo;ll have to add the method in the <code>Cocktail</code> interface and then implement the method for each of the cocktails that we want to implement the method.</p>
-<p>The visitor pattern will allow you to operate on a <code>Cocktail</code> so that you can provide a <code>Cocktail</code> that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on each and every cocktail.</p>
+<p>The visitor pattern will allow you to operate on a <code>Cocktail</code> so that you can provide a <code>Cocktail</code> that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on every cocktail.</p>
 <h3 id="the-visitor-pattern">The Visitor Pattern</h3>
 <p>To achieve this, we implement a new interface; <code>CocktailVisitor</code> that defines the visitor operations on a cocktail.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> CocktailVisitor <span style="color:#6ab825;font-weight:bold">interface</span>{
@@ -126,28 +126,29 @@ Currently, I&#39;m into interpreters, how programming languages work, and distri
 <span style="color:#6ab825;font-weight:bold">func</span> (d Daiquiri) <span style="color:#447fcf">accept</span>(v CocktailVisitor){
     v.<span style="color:#447fcf">visitDaiquiri</span>(d)
 }
-</code></pre></div><p>Now, if you need to add a new cocktail like a <code>Margharita</code>, you just have to implement it&rsquo;s visitor and add it to the <code>CocktailVisitor</code>.</p>
+</code></pre></div><p>Now, if you need to add a new cocktail like a <code>Margharita</code>, you just have to implement its visitor and add it to the <code>CocktailVisitor</code>.</p>
 <h3 id="usage">Usage</h3>
 <p>You will need to define the operation you want to accomplish. We want to do a <code>DrinkVisit</code> operation:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> DrinkVisit <span style="color:#6ab825;font-weight:bold">struct</span>{}
 
 <span style="color:#6ab825;font-weight:bold">func</span> (DrinkVisit) <span style="color:#447fcf">visitMojito</span>(m Mojito) {
-	fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking mojitos&#34;</span>)
+    fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking mojitos&#34;</span>)
 }
 <span style="color:#6ab825;font-weight:bold">func</span> (DrinkVisit) <span style="color:#447fcf">visitDaiquiri</span>(d Daiquiri) {
-	fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking daiquiris&#34;</span>)
+    fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking daiquiris&#34;</span>)
 }
 </code></pre></div><p>Then we do the magic like:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">func</span> <span style="color:#447fcf">main</span>() {
-	visitor := DrinkVisit{}
-	mojito := &amp;Mojito{}
-	daiquiri := &amp;Daiquiri{}
-	mojito.<span style="color:#447fcf">accept</span>(visitor)
-	daiquiri.<span style="color:#447fcf">accept</span>(visitor)
+    visitor := DrinkVisit{}
+    mojito := &amp;Mojito{}
+    daiquiri := &amp;Daiquiri{}
+    mojito.<span style="color:#447fcf">accept</span>(visitor)
+    daiquiri.<span style="color:#447fcf">accept</span>(visitor)
 }
-</code></pre></div><p>A working play example can he found <a href="https://play.golang.org/p/5f_CjjuCvE-">here</a></p>
+</code></pre></div><p>A working play example can be found <a href="https://play.golang.org/p/5f_CjjuCvE-">here</a></p>
 <h3 id="conclusion">Conclusion</h3>
-<p>The visitor pattern is a common pattern in language interpeters that allows the interpreter to work on various expressions by defining operations on them. Typically, the <code>accept</code> method will return an <code>interface{}</code> or a value. That is well beyond the scope of this write up.</p>
+<p>The visitor pattern is a common pattern in language interpreters that allows the interpreter to work on various expressions by defining operations on them. Typically, the <code>accept</code> method will return an <code>interface{}</code> or a value. That is well beyond the scope of this write-up.</p>
+<p>_Initially posted at <a href="https://musale.github.io/thoughts/visitor-pattern">musale.github.io</a></p>
 
 
 <div>
