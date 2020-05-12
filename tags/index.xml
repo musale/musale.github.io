@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Dec 2019 15:34:14 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 07:00:22 +0300</lastBuildDate>
     
 	<atom:link href="https://musale.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>design patterns</title>
+      <link>https://musale.github.io/tags/design-patterns/</link>
+      <pubDate>Tue, 12 May 2020 07:00:22 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/design-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://musale.github.io/tags/go/</link>
+      <pubDate>Tue, 12 May 2020 07:00:22 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visitor pattern</title>
+      <link>https://musale.github.io/tags/visitor-pattern/</link>
+      <pubDate>Tue, 12 May 2020 07:00:22 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/visitor-pattern/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>2010-2019</title>
@@ -147,15 +174,6 @@
     </item>
     
     <item>
-      <title>Go</title>
-      <link>https://musale.github.io/tags/go/</link>
-      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
-      
-      <guid>https://musale.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>golang</title>
       <link>https://musale.github.io/tags/golang/</link>
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
@@ -242,15 +260,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/tags/bucket-list/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>design patterns</title>
-      <link>https://musale.github.io/tags/design-patterns/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/tags/design-patterns/</guid>
       <description></description>
     </item>
     
@@ -350,15 +359,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/tags/travel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>visitor pattern</title>
-      <link>https://musale.github.io/tags/visitor-pattern/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/tags/visitor-pattern/</guid>
       <description></description>
     </item>
     

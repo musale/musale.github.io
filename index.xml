@@ -6,10 +6,19 @@
     <description>Recent content on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Dec 2019 15:34:14 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 07:00:22 +0300</lastBuildDate>
     
 	<atom:link href="https://musale.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Visitor Pattern</title>
+      <link>https://musale.github.io/thoughts/visitor-pattern/</link>
+      <pubDate>Tue, 12 May 2020 07:00:22 +0300</pubDate>
+      
+      <guid>https://musale.github.io/thoughts/visitor-pattern/</guid>
+      <description>The &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;visitor design pattern&lt;/a&gt; explains how to separate operations of an object from the object and then it gives a simple example using Go.</description>
+    </item>
     
     <item>
       <title>The Best of my Decade</title>
@@ -63,15 +72,6 @@
       
       <guid>https://musale.github.io/projects/aiompesa/</guid>
       <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
-    </item>
-    
-    <item>
-      <title>The Visitor Pattern</title>
-      <link>https://musale.github.io/thoughts/visitor-pattern/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/thoughts/visitor-pattern/</guid>
-      <description>The &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;visitor design pattern&lt;/a&gt; explains how to separate operations of an object from the object and then it gives a simple example using Go.</description>
     </item>
     
   </channel>
