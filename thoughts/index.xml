@@ -38,5 +38,14 @@
       <description>&lt;a href=&#34;https://musale.github.io/thoughts/http3/&#34;&gt;HTTP/3 and it&amp;rsquo;s underlying protocol QUIC&lt;/a&gt; talks about the new HTTP/3 layer and the underlying protocol QUIC. It&amp;rsquo;s from the very nice read by Daniel Haxx called &lt;a href=&#34;https://daniel.haxx.se/http3-explained&#34;&gt;HTTP/3 Explained&lt;/a&gt; – which you should read as it details the processes, how it works and what the future holds for HTPP/3 and QUIC.</description>
     </item>
     
+    <item>
+      <title>The Visitor Pattern</title>
+      <link>https://musale.github.io/thoughts/visitor-pattern/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/thoughts/visitor-pattern/</guid>
+      <description>The &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;visitor design pattern&lt;/a&gt; is about the pattern and also gives an explanation on it&amp;rsquo;s usage in a simple example using Go.</description>
+    </item>
+    
   </channel>
 </rss>
