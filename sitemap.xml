@@ -148,11 +148,6 @@
   </url>
   
   <url>
-    <loc>https://musale.github.io/tags/python/</loc>
-    <lastmod>2019-12-06T20:09:16+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://musale.github.io/tags/python3/</loc>
     <lastmod>2019-12-06T20:09:16+03:00</lastmod>
   </url>
@@ -194,6 +189,11 @@
   
   <url>
     <loc>https://musale.github.io/tags/mpesa/</loc>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://musale.github.io/tags/python/</loc>
     <lastmod>2019-08-15T00:00:00+00:00</lastmod>
   </url>
   

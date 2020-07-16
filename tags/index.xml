@@ -183,15 +183,6 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>https://musale.github.io/tags/python/</link>
-      <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
-      
-      <guid>https://musale.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Python3</title>
       <link>https://musale.github.io/tags/python3/</link>
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
@@ -242,6 +233,15 @@
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/tags/mpesa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://musale.github.io/tags/python/</link>
+      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/tags/python/</guid>
       <description></description>
     </item>
     

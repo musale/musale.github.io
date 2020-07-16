@@ -17,7 +17,7 @@ body {
 #menu .site-title {
   float: left;
   font-size: 225%;
-  color: #d0c8c0;
+  color: #8a6e51;
   letter-spacing: 0.15em;
   padding: 0.45em 0;
   text-transform: uppercase;
@@ -70,7 +70,7 @@ a:link {
   color: #e87000;
 }
 a:visited {
-  color: #c04000;
+  color: #421b08;
 }
 h1 a,
 h2 a {
