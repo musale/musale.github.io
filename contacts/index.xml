@@ -5,10 +5,6 @@
     <link>https://musale.github.io/contacts/</link>
     <description>Recent content in How to Find Me on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://musale.github.io/contacts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://musale.github.io/contacts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
