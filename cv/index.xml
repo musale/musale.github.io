@@ -6,5 +6,16 @@
     <description>Recent content in Martin Musale&#39;s Resume/CV on Musale Martin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://musale.github.io/cv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Martin Musale&#39;s Resume/CV</title>
+      <link>https://musale.github.io/cv/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/cv/cv/</guid>
+      <description>Summary I’m a Software Engineer with over six years of experience developing web applications, as well as providing technical management for small teams of software developers.
+I’m fluent in Python, Go, JavaScript, HTML, English, and Swahili. I’ve also written a good amount of CSS, Bash, XSLT, and Java. I learn quickly, care about detail, and love Computer Science and Mathematics.
+Skills: This Is What I Do&amp;hellip; Software development  Programming in Python, Go and JavaScript (Node JS, ES5/6).</description>
+    </item>
+    
   </channel>
 </rss>
