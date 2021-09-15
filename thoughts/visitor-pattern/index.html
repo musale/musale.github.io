@@ -92,12 +92,12 @@ When I&#39;m not programming the web, I listen to music ~~and you can tell that 
 <p>From <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=41&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM">wikipedia</a></p>
 <h2 id="introduction">Introduction</h2>
 <p>Using an example of cocktails. Say we have a <code>Cocktail</code> that we can use to &ldquo;make&rdquo; different kinds of cocktails, like <code>Mojito</code> and <code>Daiquiri</code>. We can have a <code>Cocktail</code> interface that defines <code>Serve</code> and <code>Drink</code> methods for a cocktail:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Cocktail <span style="color:#6ab825;font-weight:bold">interface</span>{
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Cocktail <span style="color:#6ab825;font-weight:bold">interface</span>{
     <span style="color:#447fcf">Serve</span>()
     <span style="color:#447fcf">Drink</span>()
 }
 </code></pre></div><p>You can make the <code>Mojito</code> and <code>Daiquiri</code> implement the <code>Cocktail</code> interface methods like this:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Mojito <span style="color:#6ab825;font-weight:bold">struct</span>{}
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Mojito <span style="color:#6ab825;font-weight:bold">struct</span>{}
 
 <span style="color:#6ab825;font-weight:bold">func</span>(m Mojito) <span style="color:#447fcf">Serve</span>(){}
 <span style="color:#6ab825;font-weight:bold">func</span>(m Mojito) <span style="color:#447fcf">Drink</span>(){}
@@ -111,17 +111,17 @@ When I&#39;m not programming the web, I listen to music ~~and you can tell that 
 <p>The visitor pattern will allow you to operate on a <code>Cocktail</code> so that you can provide a <code>Cocktail</code> that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on every cocktail.</p>
 <h3 id="the-visitor-pattern">The Visitor Pattern</h3>
 <p>To achieve this, we implement a new interface; <code>CocktailVisitor</code> that defines the visitor operations on a cocktail.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> CocktailVisitor <span style="color:#6ab825;font-weight:bold">interface</span>{
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> CocktailVisitor <span style="color:#6ab825;font-weight:bold">interface</span>{
     <span style="color:#447fcf">visitMojito</span>(c Mojito)
     <span style="color:#447fcf">visitDaiquiri</span>(c Daiquiri)
 }
 </code></pre></div><p>Next, we need to &ldquo;route&rdquo; the correct cocktail to the correct method on the visitor by changing the <code>Cocktail</code> interface.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Cocktail <span style="color:#6ab825;font-weight:bold">interface</span>{
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Cocktail <span style="color:#6ab825;font-weight:bold">interface</span>{
     <span style="color:#447fcf">accept</span>(v CocktailVisitor)
 }
 </code></pre></div><p>With that, we are now able to make the <code>Cocktail</code> interface to have a method <code>accept</code> that takes in a <code>CocktailVisitor</code> or any object &ldquo;that is&rdquo; a <code>CocktailVisitor</code>.</p>
 <p>Finally, we make the cocktails:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Mojito <span style="color:#6ab825;font-weight:bold">struct</span>{}
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Mojito <span style="color:#6ab825;font-weight:bold">struct</span>{}
 <span style="color:#6ab825;font-weight:bold">func</span> (m Mojito) <span style="color:#447fcf">accept</span>(v CocktailVisitor){
     v.<span style="color:#447fcf">visitMojito</span>(m)
 }
@@ -133,7 +133,7 @@ When I&#39;m not programming the web, I listen to music ~~and you can tell that 
 </code></pre></div><p>Now, if you need to add a new cocktail like a <code>Margharita</code>, you just have to implement its visitor and add it to the <code>CocktailVisitor</code>.</p>
 <h3 id="usage">Usage</h3>
 <p>You will need to define the operation you want to accomplish. We want to do a <code>DrinkVisit</code> operation:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> DrinkVisit <span style="color:#6ab825;font-weight:bold">struct</span>{}
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> DrinkVisit <span style="color:#6ab825;font-weight:bold">struct</span>{}
 
 <span style="color:#6ab825;font-weight:bold">func</span> (DrinkVisit) <span style="color:#447fcf">visitMojito</span>(m Mojito) {
     fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking mojitos&#34;</span>)
@@ -142,7 +142,7 @@ When I&#39;m not programming the web, I listen to music ~~and you can tell that 
     fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking daiquiris&#34;</span>)
 }
 </code></pre></div><p>Then we do the magic like:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">func</span> <span style="color:#447fcf">main</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">func</span> <span style="color:#447fcf">main</span>() {
     visitor := DrinkVisit{}
     mojito := &amp;Mojito{}
     daiquiri := &amp;Daiquiri{}
