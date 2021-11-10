@@ -1,202 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        
-         <meta name="description" content="I’m Musale Martin – a learner, problem-solver, and software engineer from Kenya, based in Nairobi.
+<head>
+  
+    <title>The Visitor Pattern :: Martin Musale</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The [visitor design pattern](/thoughts/visitor-pattern) explains how to separate operations of an object from the object and then it gives a simple example using Go." />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://musale.github.io/thoughts/visitor-pattern/" />
 
-I&#39;m currently building ~~and breaking~~ software at Microsoft in the M365 team.
 
-I was previously with the Automation and Data Pipelining team at [Libryo](https://libryo.com). We were helping businesses to know their regulations by collecting, tagging, summarising, and giving them notifications about the law when it changes.
 
-Before that, I was with [Optimetriks](https://optimetriks.com), [Gravity](https://gravity.earth), and [Focus Mobile](https://smsleopard.com) – where I helped to make sending bulk SMSs faster and more efficient.
 
-In my free time, I contribute to open source projects. I&#39;m a maintainer at [Encode](https://www.encode.io/) where we aim to develop the highest quality open-source software. At the moment I&#39;m mostly programming in [Python](https://python.org) and [TypeScript](https://typescriptlang.org/), but I enjoy [Go](https://golang.org/) and also learning new languages. My favorites typically change over time.
+<link rel="stylesheet" href="https://musale.github.io/assets/style.css">
 
-I graduated with a BS in Mathematics &amp; Computer Science from [Jomo Kenyatta University of Agriculture and Technology](http://www.jkuat.ac.ke/), where I developed my love for technology and problem-solving.
+  <link rel="stylesheet" href="https://musale.github.io/assets/green.css">
 
-Currently, I&#39;m into interpreters, how programming languages work, and distributed systems.
 
-When I&#39;m not programming the web, I listen to music ~~and you can tell that I love Rihanna~~ 😉, I [write](/thoughts), travel, [read](https://www.goodreads.com/user/show/13682301-mr-musale), and I imagine myself exercise."> 
-        
-        <title>Musale Martin</title>
 
-        <link rel="stylesheet" href="/css/base.css" />
-    </head>
 
-    <body>
-        <div id="container">
-            
-                <div id="menu">
-                    <div class="site-title">Musale Martin</div>
 
-<ul class="links no-print">
+
+<link rel="apple-touch-icon" href="https://musale.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://musale.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://musale.github.io" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Visitor Pattern">
+<meta property="og:description" content="The [visitor design pattern](/thoughts/visitor-pattern) explains how to separate operations of an object from the object and then it gives a simple example using Go." />
+<meta property="og:url" content="https://musale.github.io/thoughts/visitor-pattern/" />
+<meta property="og:site_name" content="Martin Musale" />
+
+  
+    <meta property="og:image" content="https://musale.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-05-12 07:00:22 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Martin Musale (⌐▨_▨)
+  </div>
+</a>
+
+    </div>
     
-        <li>
-            <a href="/" title="Home">Home</a>
-        </li>
+      <div class="menu-trigger">menu</div>
     
-        <li>
-            <a href="/cv" title="CV">CV</a>
-        </li>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
     
-        <li>
-            <a href="/projects" title="Projects">Projects</a>
-        </li>
+      
+        
+          <li><a href="/cv">CV</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/thoughts">Thoughts?</a></li>
+        
+      
+        
+          <li><a href="/wishlist">Wishlist</a></li>
+        
+      
+        
+          <li><a href="/my-list">Bucket List</a></li>
+        
+      
+        
+          <li><a href="/contacts">Contacts</a></li>
+        
+      
+      
     
-        <li>
-            <a href="/thoughts" title="Thoughts?">Thoughts?</a>
-        </li>
-    
-        <li>
-            <a href="/my-list" title="Bucket List">Bucket List</a>
-        </li>
-    
-        <li>
-            <a href="/wishlist" title="Wishlist">Wishlist</a>
-        </li>
-    
-        <li>
-            <a href="/contacts" title="Contact">Contact</a>
-        </li>
-    
-</ul>
 
-                </div>
-            
+    
+  </ul>
 
-            <div id="content">
-                
-<h1><a href=#>The Visitor Pattern</a></h1>
-<p class="subtitle">Tue May 12, 2020</p>
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cv">CV</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/thoughts">Thoughts?</a></li>
+      
+    
+      
+        <li><a href="/wishlist">Wishlist</a></li>
+      
+    
+      
+        <li><a href="/my-list">Bucket List</a></li>
+      
+    
+      
+        <li><a href="/contacts">Contacts</a></li>
+      
+    
+    
+  </ul>
+</nav>
 
-<blockquote>
-    <p>
-        
-        Tags:
-        
-        <a href='https://musale.github.io/tags/go'>go</a> |
-        
-        <a href='https://musale.github.io/tags/design-patterns'>design patterns</a> |
-        
-        <a href='https://musale.github.io/tags/visitor-pattern'>visitor pattern</a> |
-        
-        
-    </p>
-</blockquote>
+  
+</header>
 
-<h1 id="tldr">TL;DR</h1>
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://musale.github.io/thoughts/visitor-pattern/">The Visitor Pattern</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2020-05-12
+        
+          [Updated On: 2020-05-12]
+        
+      </span>
+    
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://musale.github.io/tags/go/">go</a>&nbsp;
+    
+    #<a href="https://musale.github.io/tags/design-patterns/">design patterns</a>&nbsp;
+    
+    #<a href="https://musale.github.io/tags/visitor-pattern/">visitor pattern</a>&nbsp;
+    
+  </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="tldr">TL;DR<a href="#tldr" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.</p>
 <p>From <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=41&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM">wikipedia</a></p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Using an example of cocktails. Say we have a <code>Cocktail</code> that we can use to &ldquo;make&rdquo; different kinds of cocktails, like <code>Mojito</code> and <code>Daiquiri</code>. We can have a <code>Cocktail</code> interface that defines <code>Serve</code> and <code>Drink</code> methods for a cocktail:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Cocktail <span style="color:#6ab825;font-weight:bold">interface</span>{
-    <span style="color:#447fcf">Serve</span>()
-    <span style="color:#447fcf">Drink</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cocktail</span> <span style="color:#66d9ef">interface</span>{
+    <span style="color:#a6e22e">Serve</span>()
+    <span style="color:#a6e22e">Drink</span>()
 }
 </code></pre></div><p>You can make the <code>Mojito</code> and <code>Daiquiri</code> implement the <code>Cocktail</code> interface methods like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Mojito <span style="color:#6ab825;font-weight:bold">struct</span>{}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mojito</span> <span style="color:#66d9ef">struct</span>{}
 
-<span style="color:#6ab825;font-weight:bold">func</span>(m Mojito) <span style="color:#447fcf">Serve</span>(){}
-<span style="color:#6ab825;font-weight:bold">func</span>(m Mojito) <span style="color:#447fcf">Drink</span>(){}
+<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">Serve</span>(){}
+<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">Drink</span>(){}
 
-<span style="color:#6ab825;font-weight:bold">type</span> Daiquiri <span style="color:#6ab825;font-weight:bold">struct</span>{}
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Daiquiri</span> <span style="color:#66d9ef">struct</span>{}
 
-<span style="color:#6ab825;font-weight:bold">func</span>(m Daiquiri) <span style="color:#447fcf">Serve</span>(){}
-<span style="color:#6ab825;font-weight:bold">func</span>(m Daiquiri) <span style="color:#447fcf">Drink</span>(){}
-</code></pre></div><h3 id="the-challenge">The challenge</h3>
+<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">Serve</span>(){}
+<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">Drink</span>(){}
+</code></pre></div><h3 id="the-challenge">The challenge<a href="#the-challenge" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Now, we want to be able to define new <code>Cocktail</code> operations without having to add the new methods on each existing cocktail. For the above implementation, we&rsquo;ll have to add the method in the <code>Cocktail</code> interface and then implement the method for each of the cocktails that we want to implement the method.</p>
 <p>The visitor pattern will allow you to operate on a <code>Cocktail</code> so that you can provide a <code>Cocktail</code> that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on every cocktail.</p>
-<h3 id="the-visitor-pattern">The Visitor Pattern</h3>
+<h3 id="the-visitor-pattern">The Visitor Pattern<a href="#the-visitor-pattern" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>To achieve this, we implement a new interface; <code>CocktailVisitor</code> that defines the visitor operations on a cocktail.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> CocktailVisitor <span style="color:#6ab825;font-weight:bold">interface</span>{
-    <span style="color:#447fcf">visitMojito</span>(c Mojito)
-    <span style="color:#447fcf">visitDaiquiri</span>(c Daiquiri)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">CocktailVisitor</span> <span style="color:#66d9ef">interface</span>{
+    <span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Mojito</span>)
+    <span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Daiquiri</span>)
 }
 </code></pre></div><p>Next, we need to &ldquo;route&rdquo; the correct cocktail to the correct method on the visitor by changing the <code>Cocktail</code> interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Cocktail <span style="color:#6ab825;font-weight:bold">interface</span>{
-    <span style="color:#447fcf">accept</span>(v CocktailVisitor)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cocktail</span> <span style="color:#66d9ef">interface</span>{
+    <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>)
 }
 </code></pre></div><p>With that, we are now able to make the <code>Cocktail</code> interface to have a method <code>accept</code> that takes in a <code>CocktailVisitor</code> or any object &ldquo;that is&rdquo; a <code>CocktailVisitor</code>.</p>
 <p>Finally, we make the cocktails:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> Mojito <span style="color:#6ab825;font-weight:bold">struct</span>{}
-<span style="color:#6ab825;font-weight:bold">func</span> (m Mojito) <span style="color:#447fcf">accept</span>(v CocktailVisitor){
-    v.<span style="color:#447fcf">visitMojito</span>(m)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mojito</span> <span style="color:#66d9ef">struct</span>{}
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>){
+    <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">m</span>)
 }
 
-<span style="color:#6ab825;font-weight:bold">type</span> Daiquiri <span style="color:#6ab825;font-weight:bold">struct</span>{}
-<span style="color:#6ab825;font-weight:bold">func</span> (d Daiquiri) <span style="color:#447fcf">accept</span>(v CocktailVisitor){
-    v.<span style="color:#447fcf">visitDaiquiri</span>(d)
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Daiquiri</span> <span style="color:#66d9ef">struct</span>{}
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">d</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>){
+    <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">d</span>)
 }
 </code></pre></div><p>Now, if you need to add a new cocktail like a <code>Margharita</code>, you just have to implement its visitor and add it to the <code>CocktailVisitor</code>.</p>
-<h3 id="usage">Usage</h3>
+<h3 id="usage">Usage<a href="#usage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>You will need to define the operation you want to accomplish. We want to do a <code>DrinkVisit</code> operation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">type</span> DrinkVisit <span style="color:#6ab825;font-weight:bold">struct</span>{}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DrinkVisit</span> <span style="color:#66d9ef">struct</span>{}
 
-<span style="color:#6ab825;font-weight:bold">func</span> (DrinkVisit) <span style="color:#447fcf">visitMojito</span>(m Mojito) {
-    fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking mojitos&#34;</span>)
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">DrinkVisit</span>) <span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Drinking mojitos&#34;</span>)
 }
-<span style="color:#6ab825;font-weight:bold">func</span> (DrinkVisit) <span style="color:#447fcf">visitDaiquiri</span>(d Daiquiri) {
-    fmt.<span style="color:#447fcf">Println</span>(<span style="color:#ed9d13">&#34;Drinking daiquiris&#34;</span>)
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">DrinkVisit</span>) <span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">d</span> <span style="color:#a6e22e">Daiquiri</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Drinking daiquiris&#34;</span>)
 }
 </code></pre></div><p>Then we do the magic like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6ab825;font-weight:bold">func</span> <span style="color:#447fcf">main</span>() {
-    visitor := DrinkVisit{}
-    mojito := &amp;Mojito{}
-    daiquiri := &amp;Daiquiri{}
-    mojito.<span style="color:#447fcf">accept</span>(visitor)
-    daiquiri.<span style="color:#447fcf">accept</span>(visitor)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">visitor</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">DrinkVisit</span>{}
+    <span style="color:#a6e22e">mojito</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Mojito</span>{}
+    <span style="color:#a6e22e">daiquiri</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Daiquiri</span>{}
+    <span style="color:#a6e22e">mojito</span>.<span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">visitor</span>)
+    <span style="color:#a6e22e">daiquiri</span>.<span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">visitor</span>)
 }
 </code></pre></div><p>A working play example can be found <a href="https://play.golang.org/p/5f_CjjuCvE-">here</a></p>
-<h3 id="conclusion">Conclusion</h3>
+<h3 id="conclusion">Conclusion<a href="#conclusion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>The visitor pattern is a common pattern in language interpreters that allows the interpreter to work on various expressions by defining operations on them. Typically, the <code>accept</code> method will return an <code>interface{}</code> or a value. That is well beyond the scope of this write-up.</p>
 <p><em>Initially posted at <a href="https://musale.github.io/thoughts/visitor-pattern">musale.github.io</a></em></p>
 
+      </div></div>
 
-<div>
-    
-    <a class="previous" href="https://musale.github.io/thoughts/best-of-decade/">
-        &lt;&lt; The Best of my Decade ||</a>  
-</div>
+  
 
-<div>
-    
-    <script 
-        src="https://utteranc.es/client.js"
-        repo="musale/musale.github.io"
-        issue-term='pathname'
-        label='comment'
-        theme='github-light'
-        crossorigin="anonymous"
-        async>
-    </script>
+  
 
 </div>
 
+  </div>
 
-                 
-            </div>
-        </div>
-        
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
-        
+  
+    <footer class="footer">
+  <div class="footer__inner">
     
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-154147297-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+      <div class="copyright copyright--user">
+        <span>© 2021 Martin Musale</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://musale.github.io/assets/main.js"></script>
+<script src="https://musale.github.io/assets/prism.js"></script>
 
 
-    </body>
+
+
+
+
+
+  
+</div>
+
+</body>
 </html>

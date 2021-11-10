@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gifts on Musale Martin</title>
+    <title>Gifts on Martin Musale</title>
     <link>https://musale.github.io/tags/gifts/</link>
-    <description>Recent content in Gifts on Musale Martin</description>
+    <description>Recent content in Gifts on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://musale.github.io/tags/gifts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/gifts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Don&#39;t Sweat Buying Me The Nice Stuff 😉</title>
       <link>https://musale.github.io/wishlist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/wishlist/</guid>
-      <description>When it comes to nice things – like you – I like them too. Now, you don&amp;rsquo;t have to go through a difficult time trying to figure out what you want to buy for me 😁.
+      <description>When it comes to nice things – like you – I like them too. Now, you don&amp;rsquo;t have to go through a difficult time trying to figure out what you want to buy for me :grin:.
 Books I&amp;rsquo;m an avid reader. My reading taste ranges from romantic, adventure, biographies up to technical and non-technical all the way to any genre that will pique my interest. I read quite a lot. Now, in no particular order, here is a list of books I&amp;rsquo;d like to read:</description>
+      <content>&lt;p&gt;When it comes to nice things – like you – I like them too. Now, you don&amp;rsquo;t have to go through a difficult time trying to figure out what you want to buy for me :grin:.&lt;/p&gt;
+&lt;h2 id=&#34;books&#34;&gt;Books&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m an &lt;a href=&#34;https://www.goodreads.com/user/show/13682301-mr-musale&#34;&gt;avid reader&lt;/a&gt;. My reading taste ranges from romantic, adventure, biographies up to technical and non-technical all the way to any genre that will pique my interest. I read quite a lot. Now, in no particular order, here is a list of books I&amp;rsquo;d like to read:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://leanpub.com/composingsoftware&#34;&gt;Composing Software&lt;/a&gt; by Eric Elliot. This is technical read which explores functional programming and object composition in JavaScript. I like Eric alot, having read his previous books and blog articles, I really can&amp;rsquo;t wait to put my hands on this one.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://leanpub.com/go-thestdlib&#34;&gt;Go, The Standard Library&lt;/a&gt; by Daniel Huckstep. Okay, this one is a technical one too that covers the most of Go&amp;rsquo;s standard library. I like Go, I code in it and this one is getting me excited at exploring the language itself.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;A Philosophy of Software Design&lt;/strong&gt; by John Ousterhout.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Talent is Overrated&lt;/strong&gt; by Geoffrey Colvin.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Refactoring&lt;/strong&gt; by Martin Fowler.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;technology&#34;&gt;Technology&lt;/h2&gt;
+&lt;p&gt;On here, the options range from gadgets, hardware and software. Also, in no particular order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.apple.com/shop/buy-mac/macbook-pro/16-inch&#34;&gt;MacBook Pro 2019 16-inch&lt;/a&gt;. I like it.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://remarkable.com&#34;&gt;reMarkable tablet&lt;/a&gt;. It&amp;rsquo;s the paper tablet. Perfect for writing and reading. You can actually write &lt;a href=&#34;https://github.com/jessfraz/morningpaper2remarkable&#34;&gt;scripts&lt;/a&gt; to sync content into it! How :cool:!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dell.com/en-us/work/shop/dell-43-ultra-hd-4k-multi-client-monitor-p4317q/apd/210-ahsq/monitors-monitor-accessories&#34;&gt;Dell 43 Ultra HD 4K Multi Client Monitor.&lt;/a&gt; Now this is productivity unchained.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;miscellaneous&#34;&gt;Miscellaneous&lt;/h2&gt;
+&lt;p&gt;These are various stuff which don&amp;rsquo;t need a category. Still, they are in no particular order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tickets to a &lt;strong&gt;Rihanna&lt;/strong&gt; concert. I already have my budget for this but just in case, LOL!&lt;/li&gt;
+&lt;li&gt;Tickets to a Manchester United game at Old Trafford. Despite their shitty perfomance lately &lt;del&gt;as of 2019-11-25&lt;/del&gt; I still want to grace the &lt;em&gt;Theatre of Dreams&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.armogan.com/us/all-watches-straps/watches/spirit-of-st-louis&#34;&gt;The Spirit of St. Louis Amorgan Wrist Watch&lt;/a&gt;. I like the dull-colored ones. I wrote a &lt;a href=&#34;https://github.com/musale/armogan&#34;&gt;script&lt;/a&gt; to monitor the price 😁.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
   </channel>

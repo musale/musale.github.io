@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Project Management on Musale Martin</title>
+    <title>Project Management on Martin Musale</title>
     <link>https://musale.github.io/tags/project-management/</link>
-    <description>Recent content in Project Management on Musale Martin</description>
+    <description>Recent content in Project Management on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://musale.github.io/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projects I&#39;ve Authored or Worked On</title>
       <link>https://musale.github.io/projects/</link>
@@ -13,6 +14,8 @@
       
       <guid>https://musale.github.io/projects/</guid>
       <description>Below are some small open source software projects I’ve authored or helped develop. Most of them are released under a BSD-style license. Enjoy!</description>
+      <content>&lt;p&gt;Below are some small open source software projects I’ve authored or helped develop. Most of them are released under a BSD-style license. Enjoy!&lt;/p&gt;
+</content>
     </item>
     
   </channel>

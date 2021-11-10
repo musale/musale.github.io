@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Structures on Musale Martin</title>
+    <title>Data Structures on Martin Musale</title>
     <link>https://musale.github.io/tags/data-structures/</link>
-    <description>Recent content in Data Structures on Musale Martin</description>
+    <description>Recent content in Data Structures on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Fri, 06 Dec 2019 20:09:16 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advent of Code 2019</title>
@@ -13,7 +14,35 @@
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/aoc19/</guid>
-      <description>&lt;a href=&#34;https://musale.github.io/thoughts/aoc19/&#34;&gt;The Advent of Code 2019&lt;/a&gt; has my thoughts about the daily &lt;a href=&#34;https://adventofcode.com/&#34;&gt;exercises&lt;/a&gt; which I&amp;rsquo;m currently attempting to solve with both &lt;em&gt;Go&lt;/em&gt; and &lt;em&gt;Python 3&lt;/em&gt;.</description>
+      <description>Motivation I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this AOC. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way Jonathan Paulson&amp;rsquo;s videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed.</description>
+      <content>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this &lt;em&gt;AOC&lt;/em&gt;. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way &lt;a href=&#34;https://www.youtube.com/channel/UCuWLIm0l4sDpEe28t41WITA/videos&#34;&gt;Jonathan Paulson&amp;rsquo;s&lt;/a&gt; videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed. I also like &lt;a href=&#34;https://www.twitch.tv/lizthegrey&#34;&gt;Liz Fong-Jones&#39;&lt;/a&gt; &lt;em&gt;Go&lt;/em&gt; solutions. My solutions are over &lt;a href=&#34;https://github.com/musale/advent-of-code-2019&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;day-9&#34;&gt;Day 9&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;IntCode&lt;/code&gt; makes a come back but we are prepared :fork_and_knife:! I liked this puzzle because in as much as you needed to rethink how you fetch the modes, that was all there was. In the second part it was a matter of changing the inputs and boom! Very easy and almost, just the way I like it.&lt;/p&gt;
+&lt;p&gt;For me, I have the most of this &lt;code&gt;IntCode&lt;/code&gt; solutions in Python. What I would like to do is to port it to &lt;code&gt;Go&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;day-8&#34;&gt;Day 8&lt;/h2&gt;
+&lt;p&gt;Decoding the image data was pretty easy. It involved array manipulation so from a higher level you can see the kind of problem that you have and the way the ideal solution needs to look like. For my case, I knew that I need a way to keep layers, which I did using a &lt;code&gt;dict&lt;/code&gt;. To find the layer with the most common &lt;code&gt;zeros&lt;/code&gt;, I used Python&amp;rsquo;s &lt;code&gt;collections.Counter&lt;/code&gt; to find the count of value 0 and set the lowest value for each layer. Pretty easy.&lt;/p&gt;
+&lt;p&gt;For the second part, I looped through the size of an image (&lt;code&gt;width * height&lt;/code&gt;) and then the value which is not 2 in a second loop through the layers. This enabled me to look at the previous layer data as I went through looking for a pixel value that&amp;rsquo;s not 2.&lt;/p&gt;
+&lt;p&gt;Printing the value to get what text it looks like was an awesome task. I got this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;####.###..####.#..#.###..
+#....#..#....#.#..#.#..#.
+###..###....#..#..#.#..#.
+#....#..#..#...#..#.###..
+#....#..#.#....#..#.#.#..
+####.###..####..##..#..#.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Looking towards day #9!&lt;/p&gt;
+&lt;h2 id=&#34;day-7&#34;&gt;Day 7&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Amplifiers&lt;/strong&gt;! This puzzle builds up from the &lt;a href=&#34;https://adventofcode.com/2019/day/5&#34;&gt;day 5&lt;/a&gt; &lt;code&gt;IntCode&lt;/code&gt; puzzle. There&amp;rsquo;s multi processing in part 2 which really had me in a mind blown state. For some reason &lt;del&gt;which I don&amp;rsquo;t know&lt;/del&gt; I just find it difficult understanding the int code puzzles. I managed to do the first part but translating that to part 2 became a bit of a challenge. One thing I learnt how to tackle it was to make the code I&amp;rsquo;m running more clear. I came across a solution by &lt;a href=&#34;https://github.com/alcatrazEscapee/AdventofCode/blob/master/2019/day7/day7.py&#34;&gt;alcatrazEscapee&lt;/a&gt; and reading through his code made me understand the puzzle even better. I hope day 8 is easy on me :laugh:.&lt;/p&gt;
+&lt;h2 id=&#34;day-6&#34;&gt;Day 6&lt;/h2&gt;
+&lt;p&gt;Yay! A simple puzzle. We had ourselves a tree and traversals. This was a bit easy to do. Also, the illustrations make it really easy to think through your solutions.&lt;/p&gt;
+&lt;h2 id=&#34;day-5&#34;&gt;Day 5&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Good Lord!&lt;/strong&gt; This is by far the most difficult of the puzzles. For starters, it uses day 2&amp;rsquo;s code. Then the theory is just a lot. My brain got lost for a couple of hours here. I finally followed Jonathan Paulson&amp;rsquo;s steps and managed to finesse it. Sigh&lt;/p&gt;
+&lt;h2 id=&#34;day-1---4&#34;&gt;Day 1 - 4&lt;/h2&gt;
+&lt;p&gt;These exercises were pretty simple and straightforward. &lt;a href=&#34;https://adventofcode.com/2019/day/1&#34;&gt;Day 1&lt;/a&gt; exercises involved summing values, pretty easy. &lt;a href=&#34;https://adventofcode.com/2019/day/2&#34;&gt;Day 2&lt;/a&gt; had some splitting values given a certain step and then doing different arithmetic and end up with a final value. That was pretty easy to do too.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://adventofcode.com/2019/day/3&#34;&gt;Day 3&lt;/a&gt; came with Manhattan distance. Owh, this one was nice&amp;hellip; I&amp;rsquo;m still unable to do the visualizations and it&amp;rsquo;s one thing that I found out people are doing with their solutions. It&amp;rsquo;s fantastic seeing people doing these.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://adventofcode.com/2019/day/4&#34;&gt;Day 4&lt;/a&gt; was &lt;em&gt;brute force&lt;/em&gt; day. Genarating values in a given range and using different criteria to determine the values you need and then make a final value.&lt;/p&gt;
+</content>
     </item>
     
   </channel>

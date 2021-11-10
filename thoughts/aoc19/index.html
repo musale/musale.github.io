@@ -1,102 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        
-         <meta name="description" content="I’m Musale Martin – a learner, problem-solver, and software engineer from Kenya, based in Nairobi.
+<head>
+  
+    <title>Advent of Code 2019 :: Martin Musale</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="[The Advent of Code 2019](/thoughts/aoc19/) has my thoughts about the daily [exercises](https://adventofcode.com/) which I&#39;m currently attempting to solve with both _Go_ and _Python 3_." />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://musale.github.io/thoughts/aoc19/" />
 
-I&#39;m currently building ~~and breaking~~ software at Microsoft in the M365 team.
 
-I was previously with the Automation and Data Pipelining team at [Libryo](https://libryo.com). We were helping businesses to know their regulations by collecting, tagging, summarising, and giving them notifications about the law when it changes.
 
-Before that, I was with [Optimetriks](https://optimetriks.com), [Gravity](https://gravity.earth), and [Focus Mobile](https://smsleopard.com) – where I helped to make sending bulk SMSs faster and more efficient.
 
-In my free time, I contribute to open source projects. I&#39;m a maintainer at [Encode](https://www.encode.io/) where we aim to develop the highest quality open-source software. At the moment I&#39;m mostly programming in [Python](https://python.org) and [TypeScript](https://typescriptlang.org/), but I enjoy [Go](https://golang.org/) and also learning new languages. My favorites typically change over time.
+<link rel="stylesheet" href="https://musale.github.io/assets/style.css">
 
-I graduated with a BS in Mathematics &amp; Computer Science from [Jomo Kenyatta University of Agriculture and Technology](http://www.jkuat.ac.ke/), where I developed my love for technology and problem-solving.
+  <link rel="stylesheet" href="https://musale.github.io/assets/green.css">
 
-Currently, I&#39;m into interpreters, how programming languages work, and distributed systems.
 
-When I&#39;m not programming the web, I listen to music ~~and you can tell that I love Rihanna~~ 😉, I [write](/thoughts), travel, [read](https://www.goodreads.com/user/show/13682301-mr-musale), and I imagine myself exercise."> 
-        
-        <title>Musale Martin</title>
 
-        <link rel="stylesheet" href="/css/base.css" />
-    </head>
 
-    <body>
-        <div id="container">
-            
-                <div id="menu">
-                    <div class="site-title">Musale Martin</div>
 
-<ul class="links no-print">
+
+<link rel="apple-touch-icon" href="https://musale.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://musale.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://musale.github.io" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Advent of Code 2019">
+<meta property="og:description" content="[The Advent of Code 2019](/thoughts/aoc19/) has my thoughts about the daily [exercises](https://adventofcode.com/) which I&#39;m currently attempting to solve with both _Go_ and _Python 3_." />
+<meta property="og:url" content="https://musale.github.io/thoughts/aoc19/" />
+<meta property="og:site_name" content="Martin Musale" />
+
+  
+    <meta property="og:image" content="https://musale.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2019-12-06 20:09:16 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Martin Musale (⌐▨_▨)
+  </div>
+</a>
+
+    </div>
     
-        <li>
-            <a href="/" title="Home">Home</a>
-        </li>
+      <div class="menu-trigger">menu</div>
     
-        <li>
-            <a href="/cv" title="CV">CV</a>
-        </li>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
     
-        <li>
-            <a href="/projects" title="Projects">Projects</a>
-        </li>
+      
+        
+          <li><a href="/cv">CV</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/thoughts">Thoughts?</a></li>
+        
+      
+        
+          <li><a href="/wishlist">Wishlist</a></li>
+        
+      
+        
+          <li><a href="/my-list">Bucket List</a></li>
+        
+      
+        
+          <li><a href="/contacts">Contacts</a></li>
+        
+      
+      
     
-        <li>
-            <a href="/thoughts" title="Thoughts?">Thoughts?</a>
-        </li>
-    
-        <li>
-            <a href="/my-list" title="Bucket List">Bucket List</a>
-        </li>
-    
-        <li>
-            <a href="/wishlist" title="Wishlist">Wishlist</a>
-        </li>
-    
-        <li>
-            <a href="/contacts" title="Contact">Contact</a>
-        </li>
-    
-</ul>
 
-                </div>
-            
+    
+  </ul>
 
-            <div id="content">
-                
-<h1><a href=#>Advent of Code 2019</a></h1>
-<p class="subtitle">Fri Dec 6, 2019</p>
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cv">CV</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/thoughts">Thoughts?</a></li>
+      
+    
+      
+        <li><a href="/wishlist">Wishlist</a></li>
+      
+    
+      
+        <li><a href="/my-list">Bucket List</a></li>
+      
+    
+      
+        <li><a href="/contacts">Contacts</a></li>
+      
+    
+    
+  </ul>
+</nav>
 
-<blockquote>
-    <p>
-        
-        Tags:
-        
-        <a href='https://musale.github.io/tags/advent-of-code'>Advent of Code</a> |
-        
-        <a href='https://musale.github.io/tags/golang'>Golang</a> |
-        
-        <a href='https://musale.github.io/tags/python3'>Python3</a> |
-        
-        <a href='https://musale.github.io/tags/algorithms'>Algorithms</a> |
-        
-        <a href='https://musale.github.io/tags/data-structures'>Data Structures</a> |
-        
-        
-    </p>
-</blockquote>
+  
+</header>
 
-<h1 id="motivation">Motivation</h1>
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://musale.github.io/thoughts/aoc19/">Advent of Code 2019</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2019-12-06
+        
+          [Updated On: 2019-12-06]
+        
+      </span>
+    
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://musale.github.io/tags/advent-of-code/">Advent of Code</a>&nbsp;
+    
+    #<a href="https://musale.github.io/tags/golang/">Golang</a>&nbsp;
+    
+    #<a href="https://musale.github.io/tags/python3/">Python3</a>&nbsp;
+    
+    #<a href="https://musale.github.io/tags/algorithms/">Algorithms</a>&nbsp;
+    
+    #<a href="https://musale.github.io/tags/data-structures/">Data Structures</a>&nbsp;
+    
+  </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="motivation">Motivation<a href="#motivation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&rsquo;m already liking this <em>AOC</em>. For starters, we have a lot of participation and people are streaming when they&rsquo;re solving the puzzles. I like the way <a href="https://www.youtube.com/channel/UCuWLIm0l4sDpEe28t41WITA/videos">Jonathan Paulson&rsquo;s</a> videos are done. They are precise and really nice to see. He&rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed. I also like <a href="https://www.twitch.tv/lizthegrey">Liz Fong-Jones'</a> <em>Go</em> solutions. My solutions are over <a href="https://github.com/musale/advent-of-code-2019">here</a>.</p>
-<h2 id="day-9">Day 9</h2>
-<p>The <code>IntCode</code> makes a come back but we are prepared 🍴! I liked this puzzle because in as much as you needed to rethink how you fetch the modes, that was all there was. In the second part it was a matter of changing the inputs and boom! Very easy and almost, just the way I like it.</p>
+<h2 id="day-9">Day 9<a href="#day-9" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The <code>IntCode</code> makes a come back but we are prepared :fork_and_knife:! I liked this puzzle because in as much as you needed to rethink how you fetch the modes, that was all there was. In the second part it was a matter of changing the inputs and boom! Very easy and almost, just the way I like it.</p>
 <p>For me, I have the most of this <code>IntCode</code> solutions in Python. What I would like to do is to port it to <code>Go</code>.</p>
-<h2 id="day-8">Day 8</h2>
+<h2 id="day-8">Day 8<a href="#day-8" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Decoding the image data was pretty easy. It involved array manipulation so from a higher level you can see the kind of problem that you have and the way the ideal solution needs to look like. For my case, I knew that I need a way to keep layers, which I did using a <code>dict</code>. To find the layer with the most common <code>zeros</code>, I used Python&rsquo;s <code>collections.Counter</code> to find the count of value 0 and set the lowest value for each layer. Pretty easy.</p>
 <p>For the second part, I looped through the size of an image (<code>width * height</code>) and then the value which is not 2 in a second loop through the layers. This enabled me to look at the previous layer data as I went through looking for a pixel value that&rsquo;s not 2.</p>
 <p>Printing the value to get what text it looks like was an awesome task. I got this:</p>
@@ -108,62 +211,50 @@ When I&#39;m not programming the web, I listen to music ~~and you can tell that 
 ####.###..####..##..#..#.
 </code></pre>
 <p>Looking towards day #9!</p>
-<h2 id="day-7">Day 7</h2>
+<h2 id="day-7">Day 7<a href="#day-7" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><strong>Amplifiers</strong>! This puzzle builds up from the <a href="https://adventofcode.com/2019/day/5">day 5</a> <code>IntCode</code> puzzle. There&rsquo;s multi processing in part 2 which really had me in a mind blown state. For some reason <del>which I don&rsquo;t know</del> I just find it difficult understanding the int code puzzles. I managed to do the first part but translating that to part 2 became a bit of a challenge. One thing I learnt how to tackle it was to make the code I&rsquo;m running more clear. I came across a solution by <a href="https://github.com/alcatrazEscapee/AdventofCode/blob/master/2019/day7/day7.py">alcatrazEscapee</a> and reading through his code made me understand the puzzle even better. I hope day 8 is easy on me :laugh:.</p>
-<h2 id="day-6">Day 6</h2>
+<h2 id="day-6">Day 6<a href="#day-6" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Yay! A simple puzzle. We had ourselves a tree and traversals. This was a bit easy to do. Also, the illustrations make it really easy to think through your solutions.</p>
-<h2 id="day-5">Day 5</h2>
+<h2 id="day-5">Day 5<a href="#day-5" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><strong>Good Lord!</strong> This is by far the most difficult of the puzzles. For starters, it uses day 2&rsquo;s code. Then the theory is just a lot. My brain got lost for a couple of hours here. I finally followed Jonathan Paulson&rsquo;s steps and managed to finesse it. Sigh</p>
-<h2 id="day-1---4">Day 1 - 4</h2>
+<h2 id="day-1---4">Day 1 - 4<a href="#day-1---4" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>These exercises were pretty simple and straightforward. <a href="https://adventofcode.com/2019/day/1">Day 1</a> exercises involved summing values, pretty easy. <a href="https://adventofcode.com/2019/day/2">Day 2</a> had some splitting values given a certain step and then doing different arithmetic and end up with a final value. That was pretty easy to do too.</p>
 <p><a href="https://adventofcode.com/2019/day/3">Day 3</a> came with Manhattan distance. Owh, this one was nice&hellip; I&rsquo;m still unable to do the visualizations and it&rsquo;s one thing that I found out people are doing with their solutions. It&rsquo;s fantastic seeing people doing these.</p>
 <p><a href="https://adventofcode.com/2019/day/4">Day 4</a> was <em>brute force</em> day. Genarating values in a given range and using different criteria to determine the values you need and then make a final value.</p>
 
+      </div></div>
 
-<div>
-    
-    <a class="previous" href="https://musale.github.io/thoughts/http3/">
-        &lt;&lt; HTTP/3 and it&#39;s underlying protocol QUIC ||</a>   <a class="next" href="https://musale.github.io/thoughts/best-of-decade/"> || The Best of my Decade >>
-    </a>
-    
-</div>
+  
 
-<div>
-    
-    <script 
-        src="https://utteranc.es/client.js"
-        repo="musale/musale.github.io"
-        issue-term='pathname'
-        label='comment'
-        theme='github-light'
-        crossorigin="anonymous"
-        async>
-    </script>
+  
 
 </div>
 
+  </div>
 
-                 
-            </div>
-        </div>
-        
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
-        
+  
+    <footer class="footer">
+  <div class="footer__inner">
     
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-154147297-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+      <div class="copyright copyright--user">
+        <span>© 2021 Martin Musale</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://musale.github.io/assets/main.js"></script>
+<script src="https://musale.github.io/assets/prism.js"></script>
 
 
-    </body>
+
+
+
+
+
+  
+</div>
+
+</body>
 </html>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Musale Martin</title>
+    <title>Categories on Martin Musale</title>
     <link>https://musale.github.io/categories/</link>
-    <description>Recent content in Categories on Musale Martin</description>
+    <description>Recent content in Categories on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Mon, 30 Dec 2019 15:34:14 +0300</lastBuildDate><atom:link href="https://musale.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>life</title>
@@ -14,6 +15,7 @@
       
       <guid>https://musale.github.io/categories/life/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -23,6 +25,7 @@
       
       <guid>https://musale.github.io/categories/moments/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -32,6 +35,7 @@
       
       <guid>https://musale.github.io/categories/thoughts/</guid>
       <description></description>
+      <content></content>
     </item>
     
   </channel>

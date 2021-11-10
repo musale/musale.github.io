@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NodeJS on Musale Martin</title>
+    <title>NodeJS on Martin Musale</title>
     <link>https://musale.github.io/tags/nodejs/</link>
-    <description>Recent content in NodeJS on Musale Martin</description>
+    <description>Recent content in NodeJS on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://musale.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Martin Musale&#39;s Resume/CV</title>
       <link>https://musale.github.io/cv/</link>
@@ -15,17 +16,94 @@
       <description>Summary I’m a Software Engineer with over six years of experience developing web applications, as well as providing technical management for small teams of software developers.
 I’m fluent in Python, Go, JavaScript, HTML, English, and Swahili. I’ve also written a good amount of CSS, Bash, XSLT, and Java. I learn quickly, care about detail, and love Computer Science and Mathematics.
 Skills: This Is What I Do&amp;hellip; Software development  Programming in Python, Go and JavaScript (Node JS, ES5/6).</description>
-    </item>
-    
-    <item>
-      <title>Martin Musale&#39;s Resume/CV</title>
-      <link>https://musale.github.io/cv/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/cv/cv/</guid>
-      <description>Summary I’m a Software Engineer with over six years of experience developing web applications, as well as providing technical management for small teams of software developers.
-I’m fluent in Python, Go, JavaScript, HTML, English, and Swahili. I’ve also written a good amount of CSS, Bash, XSLT, and Java. I learn quickly, care about detail, and love Computer Science and Mathematics.
-Skills: This Is What I Do&amp;hellip; Software development  Programming in Python, Go and JavaScript (Node JS, ES5/6).</description>
+      <content>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I’m a Software Engineer with over six years of experience developing web applications, as well as providing technical management for small teams of software developers.&lt;/p&gt;
+&lt;p&gt;I’m fluent in Python, Go, JavaScript, HTML, English, and Swahili. I’ve also written a good amount of CSS, Bash, XSLT, and Java. I learn quickly, care about detail, and love Computer Science and Mathematics.&lt;/p&gt;
+&lt;h2 id=&#34;skills-this-is-what-i-do&#34;&gt;Skills: This Is What I Do&amp;hellip;&lt;/h2&gt;
+&lt;h3 id=&#34;software-development&#34;&gt;Software development&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Programming in Python, Go and JavaScript (Node JS, ES5/6).&lt;/li&gt;
+&lt;li&gt;Developing and consuming RESTful APIs.&lt;/li&gt;
+&lt;li&gt;Software development in design, analysis, implementation, deployment and monitoring of performant systems.&lt;/li&gt;
+&lt;li&gt;Systematic testing, debugging and monitoring of systems.&lt;/li&gt;
+&lt;li&gt;Teamwork and collaboration using business tools like slack, planning and organizational skills.&lt;/li&gt;
+&lt;li&gt;Contribute to open-source projects (&lt;a href=&#34;https://github.com/musale&#34;&gt;more here&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;management-and-leadership&#34;&gt;Management and leadership&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Working with fellow engineers to design and architect software systems.&lt;/li&gt;
+&lt;li&gt;Mentoring junior engineers, reviewing code, and helping to establish engineering best practices.&lt;/li&gt;
+&lt;li&gt;Giving internal training and technical talks. I provide Python expertise from having many years of using the language.&lt;/li&gt;
+&lt;li&gt;Written &amp;amp; verbal communication skills gained from talks, presentations, and interactions to understand or manage business expectations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
+&lt;h3 id=&#34;microsofthttpsmicrosoftcom---software-engineer-ii&#34;&gt;&lt;a href=&#34;https://microsoft.com&#34;&gt;Microsoft&lt;/a&gt; - Software Engineer II&lt;/h3&gt;
+&lt;h4 id=&#34;march-2021---present&#34;&gt;March 2021 - Present&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Working in the Microsoft 365 team.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;libryohttpslibryocom---software-developer&#34;&gt;&lt;a href=&#34;https://libryo.com&#34;&gt;Libryo&lt;/a&gt; - Software Developer&lt;/h3&gt;
+&lt;h4 id=&#34;june-2018---march-2021&#34;&gt;June 2018 - March 2021&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Creating and monitoring services and automation scripts that are used in the Libryo Content Pipeline.&lt;/li&gt;
+&lt;li&gt;Strategic support and consultation around technology decisions like; which technologies to use, how to use them and when, automation, mechanization, policies, processes, and procedures required for optimal efficiency, effectiveness and quality output.&lt;/li&gt;
+&lt;li&gt;Tactical support and consultation in managing the implementation and meeting of all objectives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;optimetrikshttpsoptimetrikscom---backend-software-developer&#34;&gt;&lt;a href=&#34;https://optimetriks.com&#34;&gt;Optimetriks&lt;/a&gt; - Backend Software Developer&lt;/h3&gt;
+&lt;h4 id=&#34;january-2018---june-2018&#34;&gt;January 2018 - June 2018&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Built a Sales Force Automation platform that connects all the actors of the distribution ecosystem, the FMCG companies, the distributors, the sales representatives, the field forces, and the retailers, to improve operations efficiency and increase sales reach.&lt;/li&gt;
+&lt;li&gt;Created API endpoints that were consumed by both the web dashboards and android applications.&lt;/li&gt;
+&lt;li&gt;Deployment, maintenance, and testing of the backend application.&lt;/li&gt;
+&lt;li&gt;Implementation of the security measures suggested by an audit of the system by an independent security analyst.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gravityearthhttpsgravityearth---backend-software-developer&#34;&gt;&lt;a href=&#34;https://gravity.earth&#34;&gt;Gravity.earth&lt;/a&gt; - Backend Software Developer&lt;/h3&gt;
+&lt;h4 id=&#34;september-2017---june-2018&#34;&gt;September 2017 - June 2018&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Contributed to the building of a next-generation KYC solution based on Peer-to-Peer certification and Blockchain technology (“g-KYC”).&lt;/li&gt;
+&lt;li&gt;Developed the front-facing USSD application for the platform.&lt;/li&gt;
+&lt;li&gt;Integrated the USSD application to the backend identity management platform.&lt;/li&gt;
+&lt;li&gt;Deployment, maintenance, and testing of the backend application.&lt;/li&gt;
+&lt;li&gt;MongoDB administration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;focus-mobile-ltdhttpssmsleopardcom---software-developer&#34;&gt;&lt;a href=&#34;https://smsleopard.com&#34;&gt;Focus Mobile Ltd&lt;/a&gt; - Software Developer&lt;/h3&gt;
+&lt;h4 id=&#34;july-2016---august-2017&#34;&gt;July 2016 - August 2017&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed an &lt;a href=&#34;https://smsleopard.com&#34;&gt;SMS and web-based two way SMS application&lt;/a&gt; using Python twisted, Django, Golang and gave them a user-friendly UI and UX.&lt;/li&gt;
+&lt;li&gt;Helped to re-write our SMS sending service in Golang which improved the rate at which SMSs were sent out. We created tools like &lt;a href=&#34;https://github.com/musale/returns&#34;&gt;returns&lt;/a&gt; that handles the callbacks from APIs.&lt;/li&gt;
+&lt;li&gt;Administered databases running the products i.e. MariaDB, PostgreSQL, and Redis.&lt;/li&gt;
+&lt;li&gt;Managed the deployments, continuous integration, and offered support to the running application software.&lt;/li&gt;
+&lt;li&gt;Mentored interns and helped to establish engineering best practices.&lt;/li&gt;
+&lt;li&gt;Gave internal talks to improve communication within the company and awareness of the engineering challenges and how we are planning to solve them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;slashair-ltdhttpstumacredocom---software-developer&#34;&gt;&lt;a href=&#34;https://tumacredo.com&#34;&gt;SlashAir Ltd&lt;/a&gt; - Software Developer&lt;/h3&gt;
+&lt;h4 id=&#34;january-2016---august-2016&#34;&gt;January 2016 - August 2016&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Built &lt;a href=&#34;https://tumacredo.com&#34;&gt;TumaCredo&lt;/a&gt; which is an online service that allows it&amp;rsquo;s registered users to send airtime top-ups to prepaid mobile phone subscribers across all networks in Kenya.&lt;/li&gt;
+&lt;li&gt;Added new features to the platform and re-designed the website UI and UX.&lt;/li&gt;
+&lt;li&gt;Implemented the platform micro-service architecture.&lt;/li&gt;
+&lt;li&gt;Troubleshooting and fixing bugs/issues in the application.&lt;/li&gt;
+&lt;li&gt;Liaised with the marketing department to optimize the platform use and it&amp;rsquo;s marketing online.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;carepay-ltdhttpscarepaycom---android-application-developer&#34;&gt;&lt;a href=&#34;https://carepay.com&#34;&gt;Carepay Ltd&lt;/a&gt; - Android Application Developer&lt;/h3&gt;
+&lt;h4 id=&#34;october-2015---january-2016&#34;&gt;October 2015 - January 2016&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Built an android application to facilitate the offering of healthcare payments between funders, patients, and healthcare providers.&lt;/li&gt;
+&lt;li&gt;Documentation of the current API that integrated with the Android application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;wezatele-ltdhttpswezatelecom---junior-software-developer&#34;&gt;&lt;a href=&#34;https://wezatele.com&#34;&gt;WezaTele Ltd&lt;/a&gt; - Junior Software Developer&lt;/h3&gt;
+&lt;h4 id=&#34;october-2014---january-2015&#34;&gt;October 2014 - January 2015&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Built web applications in JavaScript, Python, and using PostgreSQL databases.&lt;/li&gt;
+&lt;li&gt;Deployed web applications and new systems to AWS using vagrant and ansible scripts.&lt;/li&gt;
+&lt;li&gt;Created and consumed RESTful APIs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;p&gt;I have a BSc. in Mathematics and Computer Science and I graduated from the &lt;a href=&#34;https://jkuat.ac.ke&#34;&gt;Jomo Kenyatta University of Agriculture and Technology&lt;/a&gt; in 2015 with second class honors, upper-division. For my final year project, I created a chemist management system in C#.&lt;/p&gt;
+&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
+&lt;p&gt;I developed an interest in programming during my time at JKUAT. After getting my first internship at &lt;a href=&#34;https://wezatele.com&#34;&gt;WezaTele&lt;/a&gt; which introduced me to web application programming, I never looked back. I love making simple, fast, and light solutions - and that&amp;rsquo;s paid off during my career.&lt;/p&gt;
+&lt;p&gt;I enjoy &lt;a href=&#34;https://www.goodreads.com/user/show/13682301-mr-musale&#34;&gt;reading&lt;/a&gt; and &lt;a href=&#34;https://musale.github.io/thoughts&#34;&gt;writing&lt;/a&gt;. I&amp;rsquo;m into traveling, trying out recipes, learning new things, and making new friends. I enjoy spending time with my friends and my family. I aim to improve myself and those I influence around me.&lt;/p&gt;
+</content>
     </item>
     
   </channel>

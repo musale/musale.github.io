@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bucket List on Musale Martin</title>
+    <title>Bucket List on Martin Musale</title>
     <link>https://musale.github.io/tags/bucket-list/</link>
-    <description>Recent content in Bucket List on Musale Martin</description>
+    <description>Recent content in Bucket List on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://musale.github.io/tags/bucket-list/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/bucket-list/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>This Is My Running Bucket List!</title>
       <link>https://musale.github.io/my-list/</link>
@@ -13,7 +14,56 @@
       
       <guid>https://musale.github.io/my-list/</guid>
       <description>I would like to be able to do the following things before I die:
- Visit the republic of Morrocco. Attend a music concert. Climb a mountain (I climbed Mt. Longonot in 2017). Watch Rihanna perform. Live in another country (I lived in TZ for a week 😁). Read 1000 books (I&amp;rsquo;m at 62 officially recorded on GoodReads. Aluta Continua!). Start a company. Get a patent. Write an academic paper. Build my own home.</description>
+ Visit the republic of Morrocco. Attend a music concert. Climb a mountain (I climbed Mt. Longonot in 2017). Watch Rihanna perform. Live in another country (I lived in TZ for a week :grin:). Read 1000 books (I&amp;rsquo;m at 62 officially recorded on GoodReads. Aluta Continua!). Start a company. Get a patent. Write an academic paper. Build my own home.</description>
+      <content>&lt;p&gt;I would like to be able to do the following things before I die:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visit the republic of Morrocco.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Attend a music concert.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Climb a mountain (I climbed Mt. Longonot in 2017).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Watch Rihanna perform.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Live in another country (I lived in TZ for a week :grin:).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Read 1000 books (I&amp;rsquo;m at 62 officially recorded on GoodReads. Aluta Continua!).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Start a company.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Get a patent.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write an academic paper.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Build my own home.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Become a parent.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Have a date on top of Eiffel tower.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Get married to somebody I love.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Go on a trip overseas with my whole family.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Take a hot-air balloon ride.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Be in a submarine.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Swim (I try, but I want to know it properly and do the Olympic distance).&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Run a half marathon.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Run a full marathon.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Go scuba diving.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Ice skate (It was so improper. I mark it half done).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Learn to skate and ski.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Scream in a concert.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Ride a horse.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Publish a Python package (&lt;a href=&#34;https://aiompesa.readthedocs.org&#34;&gt;Here we go&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Publish a Go package.&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Take a walk in the rain.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Sleep in an old castle.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Sleep outside on the beach, under the sky.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Learn to play a music instrument (trying the guitar).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Experience zero gravity.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Drink Vodka in Russia (Hoping to drink Vodka from Russia next year :wink:).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Visit 100 countries (I&amp;rsquo;m at 3 :grin:).&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Go to the South Pole or North Pole.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Climb The Great Pyramid of Giza, Egypt.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Climb The Great wall of China.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Watch a football game at Old Trafford.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Visit Googleplex.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Go to a circus (Like the one in Madagascar)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Eat Moussaka in Athens.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Visit Turin.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Visit &lt;em&gt;The Leaning Tower of Pisa&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Visit Stonehenge and River Thames.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Visit The Victoria Falls in Zimbabwe.&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Drive a luxurious car. Rolls Royce? Aston Martin?&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
   </channel>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Musale Martin</title>
+    <title>Tags on Martin Musale</title>
     <link>https://musale.github.io/tags/</link>
-    <description>Recent content in Tags on Musale Martin</description>
+    <description>Recent content in Tags on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Tue, 12 May 2020 07:00:22 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>design patterns</title>
@@ -14,6 +15,7 @@
       
       <guid>https://musale.github.io/tags/design-patterns/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -23,6 +25,7 @@
       
       <guid>https://musale.github.io/tags/go/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -32,6 +35,7 @@
       
       <guid>https://musale.github.io/tags/visitor-pattern/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -41,6 +45,7 @@
       
       <guid>https://musale.github.io/tags/2010-2019/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -50,6 +55,7 @@
       
       <guid>https://musale.github.io/tags/2019/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -59,6 +65,7 @@
       
       <guid>https://musale.github.io/tags/books/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -68,6 +75,7 @@
       
       <guid>https://musale.github.io/tags/decade/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -77,6 +85,7 @@
       
       <guid>https://musale.github.io/tags/life/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -86,6 +95,7 @@
       
       <guid>https://musale.github.io/tags/lifestyle/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -95,6 +105,7 @@
       
       <guid>https://musale.github.io/tags/moments/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -104,6 +115,7 @@
       
       <guid>https://musale.github.io/tags/music/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -113,6 +125,7 @@
       
       <guid>https://musale.github.io/tags/positive-vibes/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -122,6 +135,7 @@
       
       <guid>https://musale.github.io/tags/sports/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -131,6 +145,7 @@
       
       <guid>https://musale.github.io/tags/tech/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -140,6 +155,7 @@
       
       <guid>https://musale.github.io/tags/tv/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -149,6 +165,7 @@
       
       <guid>https://musale.github.io/tags/advent-of-code/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -158,6 +175,7 @@
       
       <guid>https://musale.github.io/tags/algorithms/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -167,6 +185,7 @@
       
       <guid>https://musale.github.io/tags/data-structures/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -176,6 +195,7 @@
       
       <guid>https://musale.github.io/tags/golang/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -185,6 +205,7 @@
       
       <guid>https://musale.github.io/tags/python3/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -194,6 +215,7 @@
       
       <guid>https://musale.github.io/tags/networking/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -203,6 +225,7 @@
       
       <guid>https://musale.github.io/tags/hoyt/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -212,6 +235,7 @@
       
       <guid>https://musale.github.io/tags/themes/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -221,6 +245,7 @@
       
       <guid>https://musale.github.io/tags/asyncio/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -230,6 +255,7 @@
       
       <guid>https://musale.github.io/tags/mpesa/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -239,6 +265,7 @@
       
       <guid>https://musale.github.io/tags/python/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -248,6 +275,7 @@
       
       <guid>https://musale.github.io/tags/adventure/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -257,6 +285,7 @@
       
       <guid>https://musale.github.io/tags/bucket-list/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -266,6 +295,7 @@
       
       <guid>https://musale.github.io/tags/gifts/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -275,6 +305,7 @@
       
       <guid>https://musale.github.io/tags/http/3/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -284,6 +315,7 @@
       
       <guid>https://musale.github.io/tags/javascript/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -293,6 +325,7 @@
       
       <guid>https://musale.github.io/tags/nodejs/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -302,6 +335,7 @@
       
       <guid>https://musale.github.io/tags/project-management/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -311,6 +345,7 @@
       
       <guid>https://musale.github.io/tags/reading/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -320,6 +355,7 @@
       
       <guid>https://musale.github.io/tags/risk/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -329,6 +365,7 @@
       
       <guid>https://musale.github.io/tags/software-development/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -338,6 +375,7 @@
       
       <guid>https://musale.github.io/tags/software-engineer/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -347,6 +385,7 @@
       
       <guid>https://musale.github.io/tags/technology/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -356,6 +395,7 @@
       
       <guid>https://musale.github.io/tags/travel/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -365,6 +405,7 @@
       
       <guid>https://musale.github.io/tags/wishlist/</guid>
       <description></description>
+      <content></content>
     </item>
     
   </channel>

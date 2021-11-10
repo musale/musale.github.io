@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mpesa on Musale Martin</title>
+    <title>mpesa on Martin Musale</title>
     <link>https://musale.github.io/tags/mpesa/</link>
-    <description>Recent content in mpesa on Musale Martin</description>
+    <description>Recent content in mpesa on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Thu, 15 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://musale.github.io/tags/mpesa/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>txt-from-img</title>
@@ -14,6 +15,11 @@
       
       <guid>https://musale.github.io/projects/txt-from-img/</guid>
       <description>&lt;a href=&#34;txt-from-img/&#34;&gt;txt-from-img&lt;/a&gt; was a gentle introduction to the tessaract library and how to get text from an image in a lambda function.</description>
+      <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the &lt;a href=&#34;https://github.com/musale/txt-from-img&#34;&gt;project&lt;/a&gt;, most of the setup has been done thanks to inspiration from already existing solutions.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;I was able to deploy a lambda function which you can invoke by sending an image which will return the text in the image. Currently, only text in English language can be processed. Other options are possible but are not covered. You can clone the project and test it out on your machine or who knows, get it on one of your pipelines! Enjoy OCR. :camera:&lt;/p&gt;
+</content>
     </item>
     
     <item>
@@ -23,6 +29,16 @@
       
       <guid>https://musale.github.io/projects/aiompesa/</guid>
       <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
+      <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;The reason I wrote this library is because:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I wanted to learn some more about &lt;em&gt;asyncio&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;To create an asynchronous library.&lt;/li&gt;
+&lt;li&gt;Experiment with Python 3+ static typing.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;I understand a little more about &lt;em&gt;asyncio&lt;/em&gt; and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future. The &lt;em&gt;aiompesa&lt;/em&gt; library is available on &lt;em&gt;pypy&lt;/em&gt; and open sourced at &lt;a href=&#34;https://github.com/musale/aiompesa&#34;&gt;GitHub&lt;/a&gt;. For more information on how to use it you can read about it&amp;rsquo;s usage &lt;a href=&#34;https://aiompesa.readthedocs.org&#34;&gt;here&lt;/a&gt; and test it out. Cheers! :beer:&lt;/p&gt;
+</content>
     </item>
     
   </channel>

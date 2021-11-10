@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hoyt on Musale Martin</title>
+    <title>hoyt on Martin Musale</title>
     <link>https://musale.github.io/tags/hoyt/</link>
-    <description>Recent content in hoyt on Musale Martin</description>
+    <description>Recent content in hoyt on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://musale.github.io/tags/hoyt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hoyt theme</title>
@@ -14,6 +15,11 @@
       
       <guid>https://musale.github.io/projects/hoyt/</guid>
       <description>&lt;a href=&#34;hoyt/&#34;&gt;Hoyt&lt;/a&gt; is a theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Go Hugo&lt;/a&gt; with inspiration from &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; personal website. It&amp;rsquo;s still a work in &lt;del&gt;very slow&lt;/del&gt; progress but it was a very good starting point for me to learn about Go Hugo and how it works as a static site generator.</description>
+      <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I bumped into &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a &lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt; theme is because I used it for my site and it would be good to have one of them themes.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;I created a hugo theme named &lt;a href=&#34;https://github.com/musale/hoyt&#34;&gt;hoyt&lt;/a&gt; &lt;del&gt;for obvious reasons, d&amp;rsquo;uh&lt;/del&gt;. It&amp;rsquo;s still a work in progress and contributions are welcome in accordance to the standard guidelines of contributing to OSS. I&amp;rsquo;m looking to add more features and hopefully make this into a fully-fledged theme but for the time being, my fingers are crossed.&lt;/p&gt;
+</content>
     </item>
     
   </channel>

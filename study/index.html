@@ -1,1 +1,537 @@
-<!-- Layout with no content to avoid WARN message about missing page layout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Study Stuff :: Martin Musale</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Introduction I intend to re-visit some of the things I feel I need to brush up on or learn. This schedule is not fixed. Some activities are scheduled ahead and others are carried forward. Compeleted activities are striked out.
+   WEEK START END ACTIVITES     Week 01 December 30, 2019 January 5, 2020 Planning for the year   Week 02 January 6, 2020 January 12, 2020 SQL, Kubernetes   Week 03 January 13, 2020 January 19, 2020    Week 04 January 20, 2020 January 26, 2020    Week 05 January 27, 2020 February 2, 2020    Week 06 February 3, 2020 February 9, 2020 GraphQL   Week 07 February 10, 2020 February 16, 2020 Redis, Terraform, CDN   Week 08 February 17, 2020 February 23, 2020 Elastic Search   Week 09 February 24, 2020 March 1, 2020    Week 10 March 2, 2020 March 8, 2020    Week 11 March 9, 2020 March 15, 2020    Week 12 March 16, 2020 March 22, 2020    Week 13 March 23, 2020 March 29, 2020    Week 14 March 30, 2020 April 5, 2020    Week 15 April 6, 2020 April 12, 2020    Week 16 April 13, 2020 April 19, 2020    Week 17 April 20, 2020 April 26, 2020    Week 18 April 27, 2020 May 3, 2020    Week 19 May 4, 2020 May 10, 2020    Week 20 May 11, 2020 May 17, 2020    Week 21 May 18, 2020 May 24, 2020    Week 22 May 25, 2020 May 31, 2020    Week 23 June 1, 2020 June 7, 2020    Week 24 June 8, 2020 June 14, 2020    Week 25 June 15, 2020 June 21, 2020    Week 26 June 22, 2020 June 28, 2020    Week 27 June 29, 2020 July 5, 2020    Week 28 July 6, 2020 July 12, 2020    Week 29 July 13, 2020 July 19, 2020    Week 30 July 20, 2020 July 26, 2020    Week 31 July 27, 2020 August 2, 2020    Week 32 August 3, 2020 August 9, 2020    Week 33 August 10, 2020 August 16, 2020    Week 34 August 17, 2020 August 23, 2020    Week 35 August 24, 2020 August 30, 2020    Week 36 August 31, 2020 September 6, 2020    Week 37 September 7, 2020 September 13, 2020    Week 38 September 14, 2020 September 20, 2020    Week 39 September 21, 2020 September 27, 2020    Week 40 September 28, 2020 October 4, 2020    Week 41 October 5, 2020 October 11, 2020    Week 42 October 12, 2020 October 18, 2020    Week 43 October 19, 2020 October 25, 2020    Week 44 October 26, 2020 November 1, 2020    Week 45 November 2, 2020 November 8, 2020    Week 46 November 9, 2020 November 15, 2020    Week 47 November 16, 2020 November 22, 2020    Week 48 November 23, 2020 November 29, 2020    Week 49 November 30, 2020 December 6, 2020    Week 50 December 7, 2020 December 13, 2020    Week 51 December 14, 2020 December 20, 2020    Week 52 December 21, 2020 December 27, 2020    Week 53 December 28, 2020 January 3, 2021     " />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://musale.github.io/study/" />
+
+
+
+
+<link rel="stylesheet" href="https://musale.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://musale.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://musale.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://musale.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://musale.github.io" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Study Stuff">
+<meta property="og:description" content="Introduction I intend to re-visit some of the things I feel I need to brush up on or learn. This schedule is not fixed. Some activities are scheduled ahead and others are carried forward. Compeleted activities are striked out.
+   WEEK START END ACTIVITES     Week 01 December 30, 2019 January 5, 2020 Planning for the year   Week 02 January 6, 2020 January 12, 2020 SQL, Kubernetes   Week 03 January 13, 2020 January 19, 2020    Week 04 January 20, 2020 January 26, 2020    Week 05 January 27, 2020 February 2, 2020    Week 06 February 3, 2020 February 9, 2020 GraphQL   Week 07 February 10, 2020 February 16, 2020 Redis, Terraform, CDN   Week 08 February 17, 2020 February 23, 2020 Elastic Search   Week 09 February 24, 2020 March 1, 2020    Week 10 March 2, 2020 March 8, 2020    Week 11 March 9, 2020 March 15, 2020    Week 12 March 16, 2020 March 22, 2020    Week 13 March 23, 2020 March 29, 2020    Week 14 March 30, 2020 April 5, 2020    Week 15 April 6, 2020 April 12, 2020    Week 16 April 13, 2020 April 19, 2020    Week 17 April 20, 2020 April 26, 2020    Week 18 April 27, 2020 May 3, 2020    Week 19 May 4, 2020 May 10, 2020    Week 20 May 11, 2020 May 17, 2020    Week 21 May 18, 2020 May 24, 2020    Week 22 May 25, 2020 May 31, 2020    Week 23 June 1, 2020 June 7, 2020    Week 24 June 8, 2020 June 14, 2020    Week 25 June 15, 2020 June 21, 2020    Week 26 June 22, 2020 June 28, 2020    Week 27 June 29, 2020 July 5, 2020    Week 28 July 6, 2020 July 12, 2020    Week 29 July 13, 2020 July 19, 2020    Week 30 July 20, 2020 July 26, 2020    Week 31 July 27, 2020 August 2, 2020    Week 32 August 3, 2020 August 9, 2020    Week 33 August 10, 2020 August 16, 2020    Week 34 August 17, 2020 August 23, 2020    Week 35 August 24, 2020 August 30, 2020    Week 36 August 31, 2020 September 6, 2020    Week 37 September 7, 2020 September 13, 2020    Week 38 September 14, 2020 September 20, 2020    Week 39 September 21, 2020 September 27, 2020    Week 40 September 28, 2020 October 4, 2020    Week 41 October 5, 2020 October 11, 2020    Week 42 October 12, 2020 October 18, 2020    Week 43 October 19, 2020 October 25, 2020    Week 44 October 26, 2020 November 1, 2020    Week 45 November 2, 2020 November 8, 2020    Week 46 November 9, 2020 November 15, 2020    Week 47 November 16, 2020 November 22, 2020    Week 48 November 23, 2020 November 29, 2020    Week 49 November 30, 2020 December 6, 2020    Week 50 December 7, 2020 December 13, 2020    Week 51 December 14, 2020 December 20, 2020    Week 52 December 21, 2020 December 27, 2020    Week 53 December 28, 2020 January 3, 2021     " />
+<meta property="og:url" content="https://musale.github.io/study/" />
+<meta property="og:site_name" content="Martin Musale" />
+
+  
+    <meta property="og:image" content="https://musale.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/study/index.xml" rel="alternate" type="application/rss+xml" title="Martin Musale" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Martin Musale (⌐▨_▨)
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cv">CV</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/thoughts">Thoughts?</a></li>
+        
+      
+        
+          <li><a href="/wishlist">Wishlist</a></li>
+        
+      
+        
+          <li><a href="/my-list">Bucket List</a></li>
+        
+      
+        
+          <li><a href="/contacts">Contacts</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cv">CV</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/thoughts">Thoughts?</a></li>
+      
+    
+      
+        <li><a href="/wishlist">Wishlist</a></li>
+      
+    
+      
+        <li><a href="/my-list">Bucket List</a></li>
+      
+    
+      
+        <li><a href="/contacts">Contacts</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+    <div class="index-content">
+      <h2 id="introduction">Introduction</h2>
+<p>I intend to re-visit some of the things I feel I need to brush up on or learn. This schedule is not fixed. Some activities are scheduled ahead and others are carried forward. Compeleted activities are <del>striked out</del>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">WEEK</th>
+<th style="text-align:left">START</th>
+<th style="text-align:left">END</th>
+<th style="text-align:left">ACTIVITES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Week 01</td>
+<td style="text-align:left">December 30, 2019</td>
+<td style="text-align:left">January 5, 2020</td>
+<td style="text-align:left">Planning for the year</td>
+</tr>
+<tr>
+<td style="text-align:left">Week 02</td>
+<td style="text-align:left">January 6, 2020</td>
+<td style="text-align:left">January 12, 2020</td>
+<td style="text-align:left"><del>SQL</del>, <del>Kubernetes</del></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 03</td>
+<td style="text-align:left">January 13, 2020</td>
+<td style="text-align:left">January 19, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 04</td>
+<td style="text-align:left">January 20, 2020</td>
+<td style="text-align:left">January 26, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 05</td>
+<td style="text-align:left">January 27, 2020</td>
+<td style="text-align:left">February 2, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 06</td>
+<td style="text-align:left">February 3, 2020</td>
+<td style="text-align:left">February 9, 2020</td>
+<td style="text-align:left">GraphQL</td>
+</tr>
+<tr>
+<td style="text-align:left">Week 07</td>
+<td style="text-align:left">February 10, 2020</td>
+<td style="text-align:left">February 16, 2020</td>
+<td style="text-align:left">Redis, Terraform, CDN</td>
+</tr>
+<tr>
+<td style="text-align:left">Week 08</td>
+<td style="text-align:left">February 17, 2020</td>
+<td style="text-align:left">February 23, 2020</td>
+<td style="text-align:left">Elastic Search</td>
+</tr>
+<tr>
+<td style="text-align:left">Week 09</td>
+<td style="text-align:left">February 24, 2020</td>
+<td style="text-align:left">March 1, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 10</td>
+<td style="text-align:left">March 2, 2020</td>
+<td style="text-align:left">March 8, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 11</td>
+<td style="text-align:left">March 9, 2020</td>
+<td style="text-align:left">March 15, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 12</td>
+<td style="text-align:left">March 16, 2020</td>
+<td style="text-align:left">March 22, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 13</td>
+<td style="text-align:left">March 23, 2020</td>
+<td style="text-align:left">March 29, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 14</td>
+<td style="text-align:left">March 30, 2020</td>
+<td style="text-align:left">April 5, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 15</td>
+<td style="text-align:left">April 6, 2020</td>
+<td style="text-align:left">April 12, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 16</td>
+<td style="text-align:left">April 13, 2020</td>
+<td style="text-align:left">April 19, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 17</td>
+<td style="text-align:left">April 20, 2020</td>
+<td style="text-align:left">April 26, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 18</td>
+<td style="text-align:left">April 27, 2020</td>
+<td style="text-align:left">May 3, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 19</td>
+<td style="text-align:left">May 4, 2020</td>
+<td style="text-align:left">May 10, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 20</td>
+<td style="text-align:left">May 11, 2020</td>
+<td style="text-align:left">May 17, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 21</td>
+<td style="text-align:left">May 18, 2020</td>
+<td style="text-align:left">May 24, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 22</td>
+<td style="text-align:left">May 25, 2020</td>
+<td style="text-align:left">May 31, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 23</td>
+<td style="text-align:left">June 1, 2020</td>
+<td style="text-align:left">June 7, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 24</td>
+<td style="text-align:left">June 8, 2020</td>
+<td style="text-align:left">June 14, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 25</td>
+<td style="text-align:left">June 15, 2020</td>
+<td style="text-align:left">June 21, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 26</td>
+<td style="text-align:left">June 22, 2020</td>
+<td style="text-align:left">June 28, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 27</td>
+<td style="text-align:left">June 29, 2020</td>
+<td style="text-align:left">July 5, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 28</td>
+<td style="text-align:left">July 6, 2020</td>
+<td style="text-align:left">July 12, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 29</td>
+<td style="text-align:left">July 13, 2020</td>
+<td style="text-align:left">July 19, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 30</td>
+<td style="text-align:left">July 20, 2020</td>
+<td style="text-align:left">July 26, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 31</td>
+<td style="text-align:left">July 27, 2020</td>
+<td style="text-align:left">August 2, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 32</td>
+<td style="text-align:left">August 3, 2020</td>
+<td style="text-align:left">August 9, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 33</td>
+<td style="text-align:left">August 10, 2020</td>
+<td style="text-align:left">August 16, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 34</td>
+<td style="text-align:left">August 17, 2020</td>
+<td style="text-align:left">August 23, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 35</td>
+<td style="text-align:left">August 24, 2020</td>
+<td style="text-align:left">August 30, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 36</td>
+<td style="text-align:left">August 31, 2020</td>
+<td style="text-align:left">September 6, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 37</td>
+<td style="text-align:left">September 7, 2020</td>
+<td style="text-align:left">September 13, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 38</td>
+<td style="text-align:left">September 14, 2020</td>
+<td style="text-align:left">September 20, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 39</td>
+<td style="text-align:left">September 21, 2020</td>
+<td style="text-align:left">September 27, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 40</td>
+<td style="text-align:left">September 28, 2020</td>
+<td style="text-align:left">October 4, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 41</td>
+<td style="text-align:left">October 5, 2020</td>
+<td style="text-align:left">October 11, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 42</td>
+<td style="text-align:left">October 12, 2020</td>
+<td style="text-align:left">October 18, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 43</td>
+<td style="text-align:left">October 19, 2020</td>
+<td style="text-align:left">October 25, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 44</td>
+<td style="text-align:left">October 26, 2020</td>
+<td style="text-align:left">November 1, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 45</td>
+<td style="text-align:left">November 2, 2020</td>
+<td style="text-align:left">November 8, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 46</td>
+<td style="text-align:left">November 9, 2020</td>
+<td style="text-align:left">November 15, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 47</td>
+<td style="text-align:left">November 16, 2020</td>
+<td style="text-align:left">November 22, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 48</td>
+<td style="text-align:left">November 23, 2020</td>
+<td style="text-align:left">November 29, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 49</td>
+<td style="text-align:left">November 30, 2020</td>
+<td style="text-align:left">December 6, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 50</td>
+<td style="text-align:left">December 7, 2020</td>
+<td style="text-align:left">December 13, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 51</td>
+<td style="text-align:left">December 14, 2020</td>
+<td style="text-align:left">December 20, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 52</td>
+<td style="text-align:left">December 21, 2020</td>
+<td style="text-align:left">December 27, 2020</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Week 53</td>
+<td style="text-align:left">December 28, 2020</td>
+<td style="text-align:left">January 3, 2021</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+  
+  <div class="posts">
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>© 2021 Martin Musale</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://musale.github.io/assets/main.js"></script>
+<script src="https://musale.github.io/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Things I&#39;ve Written on Musale Martin</title>
+    <title>Things I&#39;ve Written on Martin Musale</title>
     <link>https://musale.github.io/thoughts/</link>
-    <description>Recent content in Things I&#39;ve Written on Musale Martin</description>
+    <description>Recent content in Things I&#39;ve Written on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Tue, 12 May 2020 07:00:22 +0300</lastBuildDate><atom:link href="https://musale.github.io/thoughts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Visitor Pattern</title>
@@ -13,7 +14,76 @@
       <pubDate>Tue, 12 May 2020 07:00:22 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/visitor-pattern/</guid>
-      <description>The &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;visitor design pattern&lt;/a&gt; explains how to separate operations of an object from the object and then it gives a simple example using Go.</description>
+      <description>TL;DR In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.
+From wikipedia
+Introduction Using an example of cocktails. Say we have a Cocktail that we can use to &amp;ldquo;make&amp;rdquo; different kinds of cocktails, like Mojito and Daiquiri.</description>
+      <content>&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&#34;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=41&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM&#34;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Using an example of cocktails. Say we have a &lt;code&gt;Cocktail&lt;/code&gt; that we can use to &amp;ldquo;make&amp;rdquo; different kinds of cocktails, like &lt;code&gt;Mojito&lt;/code&gt; and &lt;code&gt;Daiquiri&lt;/code&gt;. We can have a &lt;code&gt;Cocktail&lt;/code&gt; interface that defines &lt;code&gt;Serve&lt;/code&gt; and &lt;code&gt;Drink&lt;/code&gt; methods for a cocktail:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocktail&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;Serve&lt;/span&gt;()
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;Drink&lt;/span&gt;()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can make the &lt;code&gt;Mojito&lt;/code&gt; and &lt;code&gt;Daiquiri&lt;/code&gt; implement the &lt;code&gt;Cocktail&lt;/code&gt; interface methods like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Serve&lt;/span&gt;(){}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Drink&lt;/span&gt;(){}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Serve&lt;/span&gt;(){}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Drink&lt;/span&gt;(){}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;the-challenge&#34;&gt;The challenge&lt;/h3&gt;
+&lt;p&gt;Now, we want to be able to define new &lt;code&gt;Cocktail&lt;/code&gt; operations without having to add the new methods on each existing cocktail. For the above implementation, we&amp;rsquo;ll have to add the method in the &lt;code&gt;Cocktail&lt;/code&gt; interface and then implement the method for each of the cocktails that we want to implement the method.&lt;/p&gt;
+&lt;p&gt;The visitor pattern will allow you to operate on a &lt;code&gt;Cocktail&lt;/code&gt; so that you can provide a &lt;code&gt;Cocktail&lt;/code&gt; that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on every cocktail.&lt;/p&gt;
+&lt;h3 id=&#34;the-visitor-pattern&#34;&gt;The Visitor Pattern&lt;/h3&gt;
+&lt;p&gt;To achieve this, we implement a new interface; &lt;code&gt;CocktailVisitor&lt;/code&gt; that defines the visitor operations on a cocktail.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;visitMojito&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;)
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;visitDaiquiri&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Next, we need to &amp;ldquo;route&amp;rdquo; the correct cocktail to the correct method on the visitor by changing the &lt;code&gt;Cocktail&lt;/code&gt; interface.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocktail&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With that, we are now able to make the &lt;code&gt;Cocktail&lt;/code&gt; interface to have a method &lt;code&gt;accept&lt;/code&gt; that takes in a &lt;code&gt;CocktailVisitor&lt;/code&gt; or any object &amp;ldquo;that is&amp;rdquo; a &lt;code&gt;CocktailVisitor&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, we make the cocktails:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt;){
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;visitMojito&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt;)
+}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;d&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt;){
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;visitDaiquiri&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;d&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, if you need to add a new cocktail like a &lt;code&gt;Margharita&lt;/code&gt;, you just have to implement its visitor and add it to the &lt;code&gt;CocktailVisitor&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+&lt;p&gt;You will need to define the operation you want to accomplish. We want to do a &lt;code&gt;DrinkVisit&lt;/code&gt; operation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;visitMojito&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drinking mojitos&amp;#34;&lt;/span&gt;)
+}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;visitDaiquiri&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;d&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;) {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drinking daiquiris&amp;#34;&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then we do the magic like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;visitor&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt;{}
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;mojito&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;{}
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;daiquiri&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;{}
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;mojito&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;visitor&lt;/span&gt;)
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;daiquiri&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;visitor&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A working play example can be found &lt;a href=&#34;https://play.golang.org/p/5f_CjjuCvE-&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;The visitor pattern is a common pattern in language interpreters that allows the interpreter to work on various expressions by defining operations on them. Typically, the &lt;code&gt;accept&lt;/code&gt; method will return an &lt;code&gt;interface{}&lt;/code&gt; or a value. That is well beyond the scope of this write-up.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Initially posted at &lt;a href=&#34;https://musale.github.io/thoughts/visitor-pattern&#34;&gt;musale.github.io&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</content>
     </item>
     
     <item>
@@ -22,7 +92,91 @@
       <pubDate>Mon, 30 Dec 2019 15:34:14 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/best-of-decade/</guid>
-      <description>In &lt;a href=&#34;https://musale.github.io/thoughts/best-of-decade/&#34;&gt;this article&lt;/a&gt;, I reflect on some of the best things and moments that I had in the decade 2010-2019. It&amp;rsquo;s been a wonderful 10 years full of ups and downs and in as much as I would like to have a balanced view of both, I choose to stick with the positive things that happened to me and that I can remember.</description>
+      <description>Introduction I have had a good time – thinking about the last 10 years of my life. At the beginning of the decade, I was done with high school and joined university. I had massive dreams of studying Mechanical Engineering but well, life happened. I ended up doing something different – Mathematics and Computer Science. I remember at some point I wanted to be a Physicist but I think, the allure of Computer Programming found a way to completely swallow me whole.</description>
+      <content>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;I have had a good time – thinking about the last 10 years of my life. At the beginning of the decade, I was done with high school and joined university. I had massive dreams of studying Mechanical Engineering but well, life happened. I ended up doing something different – Mathematics and Computer Science. I remember at some point I wanted to be a Physicist but I think, the allure of Computer Programming found a way to completely swallow me whole.&lt;/p&gt;
+&lt;p&gt;At the end of the decade, I&amp;rsquo;m a Software Engineer making a difference everyday, a line of code at a time. I&amp;rsquo;ve learnt and experienced many lessons over the years and in as much as they are not directed to my career, they&amp;rsquo;ve made my life what it is right now. So, I&amp;rsquo;m going to highlight – and in case some of these happen to omit someone or something we experienced together, just know I always have in my heart and mind and it&amp;rsquo;s omitted because of the human capabilities I have at the moment - some of the things that warmed up my decade.&lt;/p&gt;
+&lt;h2 id=&#34;top-music-albums&#34;&gt;Top music albums&lt;/h2&gt;
+&lt;h3 id=&#34;kenyan&#34;&gt;Kenyan&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.deezer.com/us/album/7735020&#34;&gt;Pulpilt Kwa Streets&lt;/a&gt; by &lt;em&gt;Juliani&lt;/em&gt;. This album came at a time that conscious hip-hop music with positive message was needed - for me and my country. I love this work by Juliani.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.deezer.com/us/album/14705184&#34;&gt;Safari: The Journey&lt;/a&gt; by &lt;em&gt;Adawnage&lt;/em&gt;. I had the pleasure of interacting with these guys during the decade I was really happy to meet them, share their experiences outside of the music scene. I love them and this masterpiece they made.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.deezer.com/us/album/1062555&#34;&gt;Sol Filosofia&lt;/a&gt; by &lt;em&gt;Sauti Sol&lt;/em&gt;. This is one of the best things that happened to the Kenyan music scene. The best of my time!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#&#34;&gt;Testimony 1990&lt;/a&gt; by &lt;em&gt;Khaligraph Jones&lt;/em&gt;. I can&amp;rsquo;t find it on Deezer but this album slapped. Khaligraph was in his element and the music on this album was something else. Still killing the hip-hop scene.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.deezer.com/us/album/53466042&#34;&gt;LDPC&lt;/a&gt; by &lt;em&gt;Octopizzo&lt;/em&gt;. Wow! This one revamped word play and metophorism in the music scene. BTW, the title &lt;strong&gt;LDPC&lt;/strong&gt; just stands for &lt;strong&gt;L&lt;/strong&gt;ong &lt;strong&gt;D&lt;/strong&gt;istance &lt;strong&gt;P&lt;/strong&gt;aper &lt;strong&gt;C&lt;/strong&gt;haser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;global&#34;&gt;Global&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Anti&lt;/strong&gt; by &lt;em&gt;Rihanna&lt;/em&gt;. Wow! Ask anyone, they&amp;rsquo;ll tell you how much this album shook the scene. &lt;em&gt;Work&lt;/em&gt; was a hit but did you listen to &lt;em&gt;Sex with me&lt;/em&gt; in the shower? And sing along?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Watch the Throne&lt;/strong&gt; by &lt;em&gt;Jay-Z and Kanye West&lt;/em&gt;. Why do you think the song was called &lt;em&gt;Niggas in Paris&lt;/em&gt;? Cos niggas was in Paris! That&amp;rsquo;s my mood. All the time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lemonade&lt;/strong&gt; by &lt;em&gt;Beyonce&lt;/em&gt;. I felt like I was walking through a hallway with Bey&amp;rsquo;s emotions and feelings all around. I love Beyonce but this album cemented her place in my heart. Her music will always resonate with me.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Because the Internet&lt;/strong&gt; by &lt;em&gt;Childish Gambino&lt;/em&gt; was my introduction to this genius. &lt;em&gt;&amp;lsquo;Till 3005, I got your back&amp;hellip;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2014 Forest Hills Drive&lt;/strong&gt; by &lt;em&gt;J. Cole&lt;/em&gt;. Whoa! I listened through this album like I was going to be tested on it. I loved the beats on the songs, the lyrics hit home and the songs were set to make you feel like you were in the story Cole was telling. And just for the record and special mention, I also loved:
+&lt;ul&gt;
+&lt;li&gt;4 your eyez only&lt;/li&gt;
+&lt;li&gt;KOD&lt;/li&gt;
+&lt;li&gt;Revenge of the dreamers III&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;all by him and Dreamville artistes.&lt;/p&gt;
+&lt;h2 id=&#34;travel-destinations&#34;&gt;Travel Destinations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Zanzibar. I stayed here for a day but I loved it! I have to go back for longer in the coming decade.&lt;/li&gt;
+&lt;li&gt;Uganda. Kampala has a life you wanna experience at least once.&lt;/li&gt;
+&lt;li&gt;Cape Town, South Africa. This one was a lovely experience. I enjoyed every bit and I can&amp;rsquo;t wait to go back.&lt;/li&gt;
+&lt;li&gt;Naivasha, Kenya. So what you do is, make it a road trip from viewing the various scenes like &lt;em&gt;The Great Riftvalley&lt;/em&gt; to &lt;em&gt;Lake Elementaita&lt;/em&gt; along the way. Then you go to &lt;em&gt;Hells gate&lt;/em&gt;, climb the &lt;em&gt;Mt. Longonot&lt;/em&gt; crater and then you finish it with a ride on a boat on the &lt;em&gt;L. Naivasha&lt;/em&gt;. There&amp;rsquo;s many options to camp and party so please, visit the place.&lt;/li&gt;
+&lt;li&gt;Mombasa, Kenya. I did this too much in this decade. Too many times. It never gets old.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sporting-events&#34;&gt;Sporting Events&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Aguero injury time winner in May 2012. Okay, I said I&amp;rsquo;ll stick to positive things but this one I remembered it cos my team, &lt;strong&gt;Manchester United&lt;/strong&gt; was going to win the league but Aguero happened and snatched it from us on the extra time!&lt;/li&gt;
+&lt;li&gt;Eliud Kipchoge running the marathon in under 2 hours! I enjoyed that a lot.&lt;/li&gt;
+&lt;li&gt;Kenya&amp;rsquo;s Harambee Stars winning the CECAFA cup in 2017. I watched all the games and my joy was just insurpussable when we won.&lt;/li&gt;
+&lt;li&gt;Naomi Osaka beating Serena Williams in the US open final. She made me so happy. I love Serena so much and her successes are legendary. I root for Osaka in the coming decade to take it up from her.&lt;/li&gt;
+&lt;li&gt;Anytime Kenyan athletes raced. I enjoyed it. I love our athletes. The best thing that has ever happened to our country. I hope in the coming decade they&amp;rsquo;re treated and taken care of well.&lt;/li&gt;
+&lt;li&gt;Wayne Rooney&amp;rsquo;s bicycle kick against Manchester City. The best of my time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;technological-advancements&#34;&gt;Technological Advancements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Artificial Intelligence has made very many significant steps. Advancements in Machine Learning and Natural Language processing have been made in many key areas health i.e. cancer detection.&lt;/li&gt;
+&lt;li&gt;Web Development has seen a rise in web developers, engineers and tools. New languages and libraries have been created that have revolutionized the way applications on the web are developed and maintained.&lt;/li&gt;
+&lt;li&gt;Blockchain and Cryptocurrency. This has never been of interest to me but it was &lt;del&gt;and still is?&lt;/del&gt; a wave that took the decade by storm. In other applications, blockchain has been used to come up with fascnating solutions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;personal-moments&#34;&gt;Personal Moments&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Getting to study Mathematics and Computer Science. I loved programming and there was a slight chance of me missing out to study CS. When I was actually confirmed, I was overjoyed.&lt;/li&gt;
+&lt;li&gt;Attending my ex-girlfriend&amp;rsquo;s masters graduation. She&amp;rsquo;d gone through a lot to finally get to graduate and it make me very happy to finally get to the end of it.&lt;/li&gt;
+&lt;li&gt;Getting my first paid job as a programmer. I teared because someone took a chance on me and right now, thanks to him, I am what I am.&lt;/li&gt;
+&lt;li&gt;Finishing 4th in a global challenge. And I got paid a lot of chums too :grin:&lt;/li&gt;
+&lt;li&gt;Seeing my family graduate; my sisters, my mother, my uncle (now a Dr. ). These moments made me feel very proud of them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;favorite-people&#34;&gt;Favorite People&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My siblings. I love them. They understand me and they are always ready to accomodate each of us with our different desires. To a decade of growth, love and laughs.&lt;/li&gt;
+&lt;li&gt;My boys. Ah, these 3 gentlemen &lt;del&gt;Sharkdu lol&lt;/del&gt; have always been there for me. I know I can depend on them and that makes me very glad to have them in my life. To a decade of joy, laughs and love. Also, my friends &lt;del&gt;Nice Humans&lt;/del&gt;, I :heart: you all.&lt;/li&gt;
+&lt;li&gt;My ex-girlfriend. I love her. She made me happy. She was my escape. Some people come into your life and they make you live it to the fullest. She introduced me to very many things that I didn&amp;rsquo;t like at first but ended up loving and seeing or doing to an extent that I missed her a lot if she&amp;rsquo;s not there. To a decade of love, adventure and growth.&lt;/li&gt;
+&lt;li&gt;My aunt who has always been there for me in this city and out. I love you aunty Bri.&lt;/li&gt;
+&lt;li&gt;My parents. Especially my mum. Inspirational. Live long mom.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reads-of-the-decade&#34;&gt;Reads of the decade&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Men without women&lt;/strong&gt; by &lt;em&gt;Haruki Murakami&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sapiens&lt;/strong&gt; by &lt;em&gt;Yuval Noah Harari&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Murmur of Bees&lt;/strong&gt; by &lt;em&gt;Sofia Segovia&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mothernight&lt;/strong&gt; by &lt;em&gt;Kurt Vonnegut&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A River in Darkness: One Man&amp;rsquo;s Escape from North Korea&lt;/strong&gt; by &lt;em&gt;Ishikawa Masaji&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also, everything written by one of my favorite authors &lt;em&gt;Ms Dora Okeyo&lt;/em&gt;. Read some of her books from &lt;a href=&#34;https://www.goodreads.com/author/list/5601708.Dora_Okeyo&#34;&gt;this list.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gadgets-i-used-and-i-loved&#34;&gt;Gadgets I use(d) &lt;del&gt;and I love(d)&lt;/del&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Xiaomi Mi TV box. Toss all you &amp;lsquo;smart TVs&amp;rsquo; out and just get this baby. It&amp;rsquo;s one of a kind.&lt;/li&gt;
+&lt;li&gt;Samsung Galaxy Note 9. The only sane phone worth the money out here.&lt;/li&gt;
+&lt;li&gt;Macbook Pro. Okay, I had my reservations some time in the decade but I got a Mac and I loved it. It&amp;rsquo;s a PC for sane people.&lt;/li&gt;
+&lt;li&gt;Arduino. I programmed this once and I loved IOT for a minute. I hope I can get back to it in the coming decade.&lt;/li&gt;
+&lt;li&gt;PS4 and XBOX. Take your console war far away from mebecause I love both of them.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
     <item>
@@ -31,7 +185,35 @@
       <pubDate>Fri, 06 Dec 2019 20:09:16 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/aoc19/</guid>
-      <description>&lt;a href=&#34;https://musale.github.io/thoughts/aoc19/&#34;&gt;The Advent of Code 2019&lt;/a&gt; has my thoughts about the daily &lt;a href=&#34;https://adventofcode.com/&#34;&gt;exercises&lt;/a&gt; which I&amp;rsquo;m currently attempting to solve with both &lt;em&gt;Go&lt;/em&gt; and &lt;em&gt;Python 3&lt;/em&gt;.</description>
+      <description>Motivation I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this AOC. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way Jonathan Paulson&amp;rsquo;s videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed.</description>
+      <content>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this &lt;em&gt;AOC&lt;/em&gt;. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way &lt;a href=&#34;https://www.youtube.com/channel/UCuWLIm0l4sDpEe28t41WITA/videos&#34;&gt;Jonathan Paulson&amp;rsquo;s&lt;/a&gt; videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed. I also like &lt;a href=&#34;https://www.twitch.tv/lizthegrey&#34;&gt;Liz Fong-Jones&#39;&lt;/a&gt; &lt;em&gt;Go&lt;/em&gt; solutions. My solutions are over &lt;a href=&#34;https://github.com/musale/advent-of-code-2019&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;day-9&#34;&gt;Day 9&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;IntCode&lt;/code&gt; makes a come back but we are prepared :fork_and_knife:! I liked this puzzle because in as much as you needed to rethink how you fetch the modes, that was all there was. In the second part it was a matter of changing the inputs and boom! Very easy and almost, just the way I like it.&lt;/p&gt;
+&lt;p&gt;For me, I have the most of this &lt;code&gt;IntCode&lt;/code&gt; solutions in Python. What I would like to do is to port it to &lt;code&gt;Go&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;day-8&#34;&gt;Day 8&lt;/h2&gt;
+&lt;p&gt;Decoding the image data was pretty easy. It involved array manipulation so from a higher level you can see the kind of problem that you have and the way the ideal solution needs to look like. For my case, I knew that I need a way to keep layers, which I did using a &lt;code&gt;dict&lt;/code&gt;. To find the layer with the most common &lt;code&gt;zeros&lt;/code&gt;, I used Python&amp;rsquo;s &lt;code&gt;collections.Counter&lt;/code&gt; to find the count of value 0 and set the lowest value for each layer. Pretty easy.&lt;/p&gt;
+&lt;p&gt;For the second part, I looped through the size of an image (&lt;code&gt;width * height&lt;/code&gt;) and then the value which is not 2 in a second loop through the layers. This enabled me to look at the previous layer data as I went through looking for a pixel value that&amp;rsquo;s not 2.&lt;/p&gt;
+&lt;p&gt;Printing the value to get what text it looks like was an awesome task. I got this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;####.###..####.#..#.###..
+#....#..#....#.#..#.#..#.
+###..###....#..#..#.#..#.
+#....#..#..#...#..#.###..
+#....#..#.#....#..#.#.#..
+####.###..####..##..#..#.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Looking towards day #9!&lt;/p&gt;
+&lt;h2 id=&#34;day-7&#34;&gt;Day 7&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Amplifiers&lt;/strong&gt;! This puzzle builds up from the &lt;a href=&#34;https://adventofcode.com/2019/day/5&#34;&gt;day 5&lt;/a&gt; &lt;code&gt;IntCode&lt;/code&gt; puzzle. There&amp;rsquo;s multi processing in part 2 which really had me in a mind blown state. For some reason &lt;del&gt;which I don&amp;rsquo;t know&lt;/del&gt; I just find it difficult understanding the int code puzzles. I managed to do the first part but translating that to part 2 became a bit of a challenge. One thing I learnt how to tackle it was to make the code I&amp;rsquo;m running more clear. I came across a solution by &lt;a href=&#34;https://github.com/alcatrazEscapee/AdventofCode/blob/master/2019/day7/day7.py&#34;&gt;alcatrazEscapee&lt;/a&gt; and reading through his code made me understand the puzzle even better. I hope day 8 is easy on me :laugh:.&lt;/p&gt;
+&lt;h2 id=&#34;day-6&#34;&gt;Day 6&lt;/h2&gt;
+&lt;p&gt;Yay! A simple puzzle. We had ourselves a tree and traversals. This was a bit easy to do. Also, the illustrations make it really easy to think through your solutions.&lt;/p&gt;
+&lt;h2 id=&#34;day-5&#34;&gt;Day 5&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Good Lord!&lt;/strong&gt; This is by far the most difficult of the puzzles. For starters, it uses day 2&amp;rsquo;s code. Then the theory is just a lot. My brain got lost for a couple of hours here. I finally followed Jonathan Paulson&amp;rsquo;s steps and managed to finesse it. Sigh&lt;/p&gt;
+&lt;h2 id=&#34;day-1---4&#34;&gt;Day 1 - 4&lt;/h2&gt;
+&lt;p&gt;These exercises were pretty simple and straightforward. &lt;a href=&#34;https://adventofcode.com/2019/day/1&#34;&gt;Day 1&lt;/a&gt; exercises involved summing values, pretty easy. &lt;a href=&#34;https://adventofcode.com/2019/day/2&#34;&gt;Day 2&lt;/a&gt; had some splitting values given a certain step and then doing different arithmetic and end up with a final value. That was pretty easy to do too.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://adventofcode.com/2019/day/3&#34;&gt;Day 3&lt;/a&gt; came with Manhattan distance. Owh, this one was nice&amp;hellip; I&amp;rsquo;m still unable to do the visualizations and it&amp;rsquo;s one thing that I found out people are doing with their solutions. It&amp;rsquo;s fantastic seeing people doing these.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://adventofcode.com/2019/day/4&#34;&gt;Day 4&lt;/a&gt; was &lt;em&gt;brute force&lt;/em&gt; day. Genarating values in a given range and using different criteria to determine the values you need and then make a final value.&lt;/p&gt;
+</content>
     </item>
     
     <item>
@@ -40,7 +222,97 @@
       <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/http3/</guid>
-      <description>&lt;a href=&#34;https://musale.github.io/thoughts/http3/&#34;&gt;HTTP/3 and it&amp;rsquo;s underlying protocol QUIC&lt;/a&gt; talks about the new HTTP/3 layer and the underlying protocol QUIC. It&amp;rsquo;s from the very nice read by Daniel Haxx called &lt;a href=&#34;https://daniel.haxx.se/http3-explained&#34;&gt;HTTP/3 Explained&lt;/a&gt; – which you should read as it details the processes, how it works and what the future holds for HTPP/3 and QUIC.</description>
+      <description>Introduction  QUIC is a name, not an acronym. 1
+ It is the underlying transport protocol on top of which HTTP3 is built. It is meant to address the challenges that were experienced by HTTP2 on TCP and TLS.
+A little about HTTP/2 Now, HTTP/1.X is pretty widespread and the default protocol for the web. However, IETF came up with HTTP/2 to address some challenges currently faced with HTTP/1. In doing so, they also encountered some shortcomings as they were not entirely doing away with HTTP/1 but solving some problems and maintaining the HTTP/1 standards and compatibility.</description>
+      <content>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;QUIC is a name, not an acronym. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://gblobscdn.gitbook.com/assets%2F-LvW30M9uwlSh6noqzxa%2F-LvW31Pn1JTBepfnVcl_%2F-LvW36QJguX0FR2qaPtX%2FQUIC.png?alt=media&#34; alt=&#34;QUIC Logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It is the underlying transport protocol on top of which HTTP3 is built. It is meant to address the challenges that were experienced by HTTP2 on TCP and TLS.&lt;/p&gt;
+&lt;h2 id=&#34;a-little-about-http2&#34;&gt;A little about HTTP/2&lt;/h2&gt;
+&lt;p&gt;Now, HTTP/1.X is pretty widespread and the default protocol for the web. However, IETF came up with HTTP/2 to address some challenges currently faced with HTTP/1. In doing so, they also encountered some shortcomings as they were not entirely doing away with HTTP/1 but solving some problems and maintaining the HTTP/1 standards and compatibility.&lt;/p&gt;
+&lt;p&gt;HTTP/2 is done over TCP. Typical browsers do many parallel transfers over a single connection and if a single packet is dropped, or lost in the network somewhere between two endpoints that speak HTTP/2, it means that the entire TCP connection is brought to a halt while the lost packet is re-transmitted and finds its way to the destination. So everything that comes after the drop, has to wait.&lt;/p&gt;
+&lt;h2 id=&#34;enter-quic&#34;&gt;Enter QUIC&lt;/h2&gt;
+&lt;p&gt;The initial QUIC protocol was designed by Jim Roskind at Google and was initially implemented in 2012, announced publicly to the world in 2013 when Google&amp;rsquo;s experimentation broadened.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;features-of-quic&#34;&gt;Features of QUIC&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It&amp;rsquo;s implemented over UDP. This allows re-transmission of packets, congestion control etc. UDP packets will always get to the destination. On the other hand, many network setups block UDP traffic on other ports than 53 (used for DNS) while throttle such data in ways that makes QUIC perform worse than TCP based protocols.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Guaranteed in-order delivery of streams. Each stream may reach the destination in a different order than the application sent it but each of it is reliably delivered to the application in order.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fast handshakes. It offers both 0-RTT and 1-RTT connection setups, meaning that at best QUIC needs no extra round-trips at all when setting up a new connection.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The transport security used in QUIC is using TLS 1.3 &lt;a href=&#34;https://tools.ietf.org/html/rfc8446&#34;&gt;(RFC 8446)&lt;/a&gt; and there are never any unencrypted QUIC connections.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The IETF QUIC protocol is a transport protocol, on top of which other application protocols can be used. The initial application layer protocol is HTTP/3 (h3). I can&amp;rsquo;t wait to see what else can be done here.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;http3&#34;&gt;HTTP/3&lt;/h2&gt;
+&lt;p&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;HTTP is the first and primary protocol to transport over QUIC. It still maintains the same paradigms and concepts like before. In order to do HTTP over QUIC, changes were required and the results of this is what we now call HTTP/3. These changes include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In QUIC the streams are provided by the transport itself, while in HTTP/2 the streams were done within the HTTP layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Due to the streams being independent of each other, the header compression protocol used for HTTP/2 could not be used without it causing a head of block situation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;QUIC streams are slightly different than HTTP/2 streams. There&amp;rsquo;s but a small fixed number (actually nine on December 18th, 2018!) of known frames in HTTP/3. The most important ones are probably:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HEADERS, that sends compressed HTTP headers&lt;/li&gt;
+&lt;li&gt;DATA, sends binary data contents&lt;/li&gt;
+&lt;li&gt;GOAWAY, please shutdown this connection &lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;http3-compared-to-http2&#34;&gt;HTTP/3 compared to HTTP/2&lt;/h2&gt;
+&lt;p&gt;&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;HTTP/3 is designed for QUIC, which is a transport protocol that handles streams by itself.&lt;/p&gt;
+&lt;p&gt;HTTP/2 is designed for TCP, and therefore handles streams in the HTTP layer.&lt;/p&gt;
+&lt;h3 id=&#34;similarities&#34;&gt;Similarities&lt;/h3&gt;
+&lt;p&gt;The two protocols offer clients virtually identical feature sets.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Both protocols offer streams&lt;/li&gt;
+&lt;li&gt;Both protocols offer server push support&lt;/li&gt;
+&lt;li&gt;Both protocols have header compression, and QPACK and HPACK are similar in design.&lt;/li&gt;
+&lt;li&gt;Both protocols offer multiplexing over a single connection using streams&lt;/li&gt;
+&lt;li&gt;Both protocols do prioritization on streams&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;differences&#34;&gt;Differences&lt;/h3&gt;
+&lt;p&gt;The differences are in the details and primarily there thanks to HTTP/3&amp;rsquo;s use of QUIC:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP/3 has better and more likely to work early data support thanks to QUIC&amp;rsquo;s 0-RTT handshakes, while TCP Fast Open and TLS usually sends less data and often faces problems.&lt;/li&gt;
+&lt;li&gt;HTTP/3 has much faster handshakes thanks to QUIC vs TCP + TLS.&lt;/li&gt;
+&lt;li&gt;HTTP/3 does not exist in an insecure or unencrypted version. HTTP/2 can be implemented and used without HTTPS - even if this is rare on the Internet.&lt;/li&gt;
+&lt;li&gt;HTTP/2 can be negotiated directly in a TLS handshake with the ALPN extension, while HTTP/3 is over QUIC so it needs an &lt;code&gt;Alt-Svc:&lt;/code&gt; header response first to inform the client about this fact.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/why-quic.html&#34;&gt;https://http3-explained.haxx.se/en/why-quic.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/proc.html&#34;&gt;https://http3-explained.haxx.se/en/proc.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/h3.html&#34;&gt;https://http3-explained.haxx.se/en/h3.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/h3-streams.html&#34;&gt;https://http3-explained.haxx.se/en/h3-streams.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/h3-h2.html&#34;&gt;https://http3-explained.haxx.se/en/h3-h2.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
     </item>
     
   </channel>
