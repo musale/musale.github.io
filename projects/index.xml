@@ -32,7 +32,7 @@
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the &lt;a href=&#34;https://github.com/musale/txt-from-img&#34;&gt;project&lt;/a&gt;, most of the setup has been done thanks to inspiration from already existing solutions.&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
-&lt;p&gt;I was able to deploy a lambda function which you can invoke by sending an image which will return the text in the image. Currently, only text in English language can be processed. Other options are possible but are not covered. You can clone the project and test it out on your machine or who knows, get it on one of your pipelines! Enjoy OCR. :camera:&lt;/p&gt;
+&lt;p&gt;I was able to deploy a lambda function which you can invoke by sending an image which will return the text in the image. Currently, only text in English language can be processed. Other options are possible but are not covered. You can clone the project and test it out on your machine or who knows, get it on one of your pipelines! Enjoy OCR. 📷&lt;/p&gt;
 </content>
     </item>
     
@@ -52,7 +52,7 @@
 &lt;li&gt;Experiment with Python 3+ static typing.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
-&lt;p&gt;I understand a little more about &lt;em&gt;asyncio&lt;/em&gt; and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future. The &lt;em&gt;aiompesa&lt;/em&gt; library is available on &lt;em&gt;pypy&lt;/em&gt; and open sourced at &lt;a href=&#34;https://github.com/musale/aiompesa&#34;&gt;GitHub&lt;/a&gt;. For more information on how to use it you can read about it&amp;rsquo;s usage &lt;a href=&#34;https://aiompesa.readthedocs.org&#34;&gt;here&lt;/a&gt; and test it out. Cheers! :beer:&lt;/p&gt;
+&lt;p&gt;I understand a little more about &lt;em&gt;asyncio&lt;/em&gt; and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future. The &lt;em&gt;aiompesa&lt;/em&gt; library is available on &lt;em&gt;pypy&lt;/em&gt; and open sourced at &lt;a href=&#34;https://github.com/musale/aiompesa&#34;&gt;GitHub&lt;/a&gt;. For more information on how to use it you can read about it&amp;rsquo;s usage &lt;a href=&#34;https://aiompesa.readthedocs.org&#34;&gt;here&lt;/a&gt; and test it out. Cheers! 🍺&lt;/p&gt;
 </content>
     </item>
     
