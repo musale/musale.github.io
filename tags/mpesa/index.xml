@@ -9,12 +9,12 @@
     <copyright>© 2021 Martin Musale</copyright>
     <lastBuildDate>Thu, 15 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://musale.github.io/tags/mpesa/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>txt-from-img</title>
+      <title>Testing the Tessaract OCR Project</title>
       <link>https://musale.github.io/projects/txt-from-img/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/txt-from-img/</guid>
-      <description>&lt;a href=&#34;txt-from-img/&#34;&gt;txt-from-img&lt;/a&gt; was a gentle introduction to the tessaract library and how to get text from an image in a lambda function.</description>
+      <description>Motivation This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the project, most of the setup has been done thanks to inspiration from already existing solutions.</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the &lt;a href=&#34;https://github.com/musale/txt-from-img&#34;&gt;project&lt;/a&gt;, most of the setup has been done thanks to inspiration from already existing solutions.&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
@@ -23,12 +23,13 @@
     </item>
     
     <item>
-      <title>aiompesa</title>
+      <title>M-Pesa AsyncIO</title>
       <link>https://musale.github.io/projects/aiompesa/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/aiompesa/</guid>
-      <description>&lt;a href=&#34;aiompesa/&#34;&gt;aiompesa&lt;/a&gt; is a Python library that I wrote which allows you to interact with Python&amp;rsquo;s &lt;em&gt;asyncio&lt;/em&gt; library. MPESA is a service that allows you to make money transactions using your mobile phone. &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;Asyncio&lt;/a&gt; is a library that allows you to write concurrent code in Python using &lt;code&gt;async/await&lt;/code&gt; pattern.</description>
+      <description>Motivation The reason I wrote this library is because:
+ I wanted to learn some more about asyncio. To create an asynchronous library. Experiment with Python 3+ static typing.  Results I understand a little more about asyncio and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future.</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;The reason I wrote this library is because:&lt;/p&gt;
 &lt;ol&gt;
