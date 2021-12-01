@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2021 Martin Musale</copyright>
-    <lastBuildDate>Fri, 06 Dec 2019 20:09:16 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Dec 2021 08:36:14 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2021</title>
+      <link>https://musale.github.io/thoughts/aoc21/</link>
+      <pubDate>Wed, 01 Dec 2021 08:36:14 +0300</pubDate>
+      
+      <guid>https://musale.github.io/thoughts/aoc21/</guid>
+      <description>Motivation I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this AOC. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way Jonathan Paulson&amp;rsquo;s videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed.</description>
+      <content>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this &lt;em&gt;AOC&lt;/em&gt;. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way &lt;a href=&#34;https://www.youtube.com/channel/UCuWLIm0l4sDpEe28t41WITA/videos&#34;&gt;Jonathan Paulson&amp;rsquo;s&lt;/a&gt; videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed. I also like &lt;a href=&#34;https://www.twitch.tv/lizthegrey&#34;&gt;Liz Fong-Jones&#39;&lt;/a&gt; &lt;em&gt;Go&lt;/em&gt; solutions. My solutions are over &lt;a href=&#34;https://github.com/musale/advent-of-code-2021&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;day-1&#34;&gt;Day 1&lt;/h2&gt;
+&lt;p&gt;Pretty simple exercise. It involved getting the number of times values in an array increase. So given an array like &lt;code&gt;[1,2,3,2,4,1]&lt;/code&gt;, the increases are 3. In the first part, the task was to get the total number of increases going through the array. In the second part, the task was switched up to get the sum of increases in a sliding window of three values. So for &lt;code&gt;[1,2,3,2,4,1]&lt;/code&gt; the first window has &lt;code&gt;[1,2,3]&lt;/code&gt; and the next window has &lt;code&gt;[2,3,2]&lt;/code&gt;. If you sum that, then there is an increase and that&amp;rsquo;s the first one. You go on until the end of the array where the values in the window are less than three.&lt;/p&gt;
+&lt;p&gt;You can find my solution to this exercise in &lt;em&gt;golang&lt;/em&gt; &lt;a href=&#34;https://github.com/musale/advent-of-code-2021/blob/master/day_01/go/main.go&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Advent of Code 2019</title>
       <link>https://musale.github.io/thoughts/aoc19/</link>
