@@ -207,64 +207,64 @@ if (!doNotTrack) {
 <p>From <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=41&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM">wikipedia</a></p>
 <h2 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Using an example of cocktails. Say we have a <code>Cocktail</code> that we can use to &ldquo;make&rdquo; different kinds of cocktails, like <code>Mojito</code> and <code>Daiquiri</code>. We can have a <code>Cocktail</code> interface that defines <code>Serve</code> and <code>Drink</code> methods for a cocktail:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cocktail</span> <span style="color:#66d9ef">interface</span>{
-    <span style="color:#a6e22e">Serve</span>()
-    <span style="color:#a6e22e">Drink</span>()
-}
-</code></pre></div><p>You can make the <code>Mojito</code> and <code>Daiquiri</code> implement the <code>Cocktail</code> interface methods like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mojito</span> <span style="color:#66d9ef">struct</span>{}
-
-<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">Serve</span>(){}
-<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">Drink</span>(){}
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Daiquiri</span> <span style="color:#66d9ef">struct</span>{}
-
-<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">Serve</span>(){}
-<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">Drink</span>(){}
-</code></pre></div><h3 id="the-challenge">The challenge<a href="#the-challenge" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cocktail</span> <span style="color:#66d9ef">interface</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Serve</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Drink</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You can make the <code>Mojito</code> and <code>Daiquiri</code> implement the <code>Cocktail</code> interface methods like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mojito</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">Serve</span>(){}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">Drink</span>(){}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Daiquiri</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">Serve</span>(){}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">Drink</span>(){}
+</span></span></code></pre></div><h3 id="the-challenge">The challenge<a href="#the-challenge" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Now, we want to be able to define new <code>Cocktail</code> operations without having to add the new methods on each existing cocktail. For the above implementation, we&rsquo;ll have to add the method in the <code>Cocktail</code> interface and then implement the method for each of the cocktails that we want to implement the method.</p>
 <p>The visitor pattern will allow you to operate on a <code>Cocktail</code> so that you can provide a <code>Cocktail</code> that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on every cocktail.</p>
 <h3 id="the-visitor-pattern">The Visitor Pattern<a href="#the-visitor-pattern" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>To achieve this, we implement a new interface; <code>CocktailVisitor</code> that defines the visitor operations on a cocktail.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">CocktailVisitor</span> <span style="color:#66d9ef">interface</span>{
-    <span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Mojito</span>)
-    <span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Daiquiri</span>)
-}
-</code></pre></div><p>Next, we need to &ldquo;route&rdquo; the correct cocktail to the correct method on the visitor by changing the <code>Cocktail</code> interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cocktail</span> <span style="color:#66d9ef">interface</span>{
-    <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>)
-}
-</code></pre></div><p>With that, we are now able to make the <code>Cocktail</code> interface to have a method <code>accept</code> that takes in a <code>CocktailVisitor</code> or any object &ldquo;that is&rdquo; a <code>CocktailVisitor</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">CocktailVisitor</span> <span style="color:#66d9ef">interface</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Mojito</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">Daiquiri</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Next, we need to &ldquo;route&rdquo; the correct cocktail to the correct method on the visitor by changing the <code>Cocktail</code> interface.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Cocktail</span> <span style="color:#66d9ef">interface</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>With that, we are now able to make the <code>Cocktail</code> interface to have a method <code>accept</code> that takes in a <code>CocktailVisitor</code> or any object &ldquo;that is&rdquo; a <code>CocktailVisitor</code>.</p>
 <p>Finally, we make the cocktails:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mojito</span> <span style="color:#66d9ef">struct</span>{}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>){
-    <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">m</span>)
-}
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Daiquiri</span> <span style="color:#66d9ef">struct</span>{}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">d</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>){
-    <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">d</span>)
-}
-</code></pre></div><p>Now, if you need to add a new cocktail like a <code>Margharita</code>, you just have to implement its visitor and add it to the <code>CocktailVisitor</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Mojito</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">m</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Daiquiri</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">d</span> <span style="color:#a6e22e">Daiquiri</span>) <span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">v</span> <span style="color:#a6e22e">CocktailVisitor</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">d</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, if you need to add a new cocktail like a <code>Margharita</code>, you just have to implement its visitor and add it to the <code>CocktailVisitor</code>.</p>
 <h3 id="usage">Usage<a href="#usage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>You will need to define the operation you want to accomplish. We want to do a <code>DrinkVisit</code> operation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DrinkVisit</span> <span style="color:#66d9ef">struct</span>{}
-
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">DrinkVisit</span>) <span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Drinking mojitos&#34;</span>)
-}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">DrinkVisit</span>) <span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">d</span> <span style="color:#a6e22e">Daiquiri</span>) {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Drinking daiquiris&#34;</span>)
-}
-</code></pre></div><p>Then we do the magic like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">visitor</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">DrinkVisit</span>{}
-    <span style="color:#a6e22e">mojito</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Mojito</span>{}
-    <span style="color:#a6e22e">daiquiri</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Daiquiri</span>{}
-    <span style="color:#a6e22e">mojito</span>.<span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">visitor</span>)
-    <span style="color:#a6e22e">daiquiri</span>.<span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">visitor</span>)
-}
-</code></pre></div><p>A working play example can be found <a href="https://play.golang.org/p/5f_CjjuCvE-">here</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DrinkVisit</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">DrinkVisit</span>) <span style="color:#a6e22e">visitMojito</span>(<span style="color:#a6e22e">m</span> <span style="color:#a6e22e">Mojito</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Drinking mojitos&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">DrinkVisit</span>) <span style="color:#a6e22e">visitDaiquiri</span>(<span style="color:#a6e22e">d</span> <span style="color:#a6e22e">Daiquiri</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Drinking daiquiris&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Then we do the magic like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">visitor</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">DrinkVisit</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mojito</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Mojito</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">daiquiri</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Daiquiri</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mojito</span>.<span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">visitor</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">daiquiri</span>.<span style="color:#a6e22e">accept</span>(<span style="color:#a6e22e">visitor</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A working play example can be found <a href="https://play.golang.org/p/5f_CjjuCvE-">here</a></p>
 <h3 id="conclusion">Conclusion<a href="#conclusion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>The visitor pattern is a common pattern in language interpreters that allows the interpreter to work on various expressions by defining operations on them. Typically, the <code>accept</code> method will return an <code>interface{}</code> or a value. That is well beyond the scope of this write-up.</p>
 <p><em>Initially posted at <a href="https://musale.github.io/thoughts/visitor-pattern">musale.github.io</a></em></p>
@@ -278,6 +278,11 @@ if (!doNotTrack) {
 
 
 
+
+  <div style="color: #ff0000;">
+    <h1>Website id not configured!</h1>
+    <p>Please replace <code>v2DmPonO12A7QexZ1IvBnwWTV</code> with the website id from Welcomments console.</p>
+  </div>
 
 
 <div id="welcomments__container" class="welcomments__container">

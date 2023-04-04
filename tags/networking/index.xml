@@ -14,8 +14,8 @@
       <pubDate>Tue, 26 Nov 2019 02:55:15 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/http3/</guid>
-      <description>Introduction  QUIC is a name, not an acronym. 1
- It is the underlying transport protocol on top of which HTTP3 is built. It is meant to address the challenges that were experienced by HTTP2 on TCP and TLS.
+      <description>Introduction QUIC is a name, not an acronym. 1
+It is the underlying transport protocol on top of which HTTP3 is built. It is meant to address the challenges that were experienced by HTTP2 on TCP and TLS.
 A little about HTTP/2 Now, HTTP/1.X is pretty widespread and the default protocol for the web. However, IETF came up with HTTP/2 to address some challenges currently faced with HTTP/1. In doing so, they also encountered some shortcomings as they were not entirely doing away with HTTP/1 but solving some problems and maintaining the HTTP/1 standards and compatibility.</description>
       <content>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -84,26 +84,26 @@ A little about HTTP/2 Now, HTTP/1.X is pretty widespread and the default protoco
 &lt;li&gt;HTTP/3 does not exist in an insecure or unencrypted version. HTTP/2 can be implemented and used without HTTPS - even if this is rare on the Internet.&lt;/li&gt;
 &lt;li&gt;HTTP/2 can be negotiated directly in a TLS handshake with the ALPN extension, while HTTP/3 is over QUIC so it needs an &lt;code&gt;Alt-Svc:&lt;/code&gt; header response first to inform the client about this fact.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/why-quic.html&#34;&gt;https://http3-explained.haxx.se/en/why-quic.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/proc.html&#34;&gt;https://http3-explained.haxx.se/en/proc.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/h3.html&#34;&gt;https://http3-explained.haxx.se/en/h3.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/h3-streams.html&#34;&gt;https://http3-explained.haxx.se/en/h3-streams.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://http3-explained.haxx.se/en/h3-h2.html&#34;&gt;https://http3-explained.haxx.se/en/h3-h2.html&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;/div&gt;
 </content>
     </item>
     

@@ -43,7 +43,7 @@
       
       <guid>https://musale.github.io/projects/aiompesa/</guid>
       <description>Motivation The reason I wrote this library is because:
- I wanted to learn some more about asyncio. To create an asynchronous library. Experiment with Python 3+ static typing.  Results I understand a little more about asyncio and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future.</description>
+I wanted to learn some more about asyncio. To create an asynchronous library. Experiment with Python 3+ static typing. Results I understand a little more about asyncio and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future. The aiompesa library is available on pypy and open sourced at GitHub.</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;The reason I wrote this library is because:&lt;/p&gt;
 &lt;ol&gt;
