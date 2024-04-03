@@ -98,6 +98,9 @@
     <loc>https://musale.github.io/thoughts/aoc19/</loc>
     <lastmod>2019-12-06T20:09:16+03:00</lastmod>
   </url><url>
+    <loc>https://musale.github.io/tags/http/3/</loc>
+    <lastmod>2019-11-26T02:55:15+03:00</lastmod>
+  </url><url>
     <loc>https://musale.github.io/thoughts/http3/</loc>
     <lastmod>2019-11-26T02:55:15+03:00</lastmod>
   </url><url>
@@ -108,6 +111,9 @@
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/projects/hoyt/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/tags/project-management/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/projects/</loc>
@@ -145,6 +151,8 @@
   </url><url>
     <loc>https://musale.github.io/tags/ci/cd/</loc>
   </url><url>
+    <loc>https://musale.github.io/tags/cloud-engineering/</loc>
+  </url><url>
     <loc>https://musale.github.io/tags/code-review/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/deployment/</loc>
@@ -157,9 +165,9 @@
   </url><url>
     <loc>https://musale.github.io/contacts/</loc>
   </url><url>
-    <loc>https://musale.github.io/tags/http/3/</loc>
-  </url><url>
     <loc>https://musale.github.io/tags/javascript/</loc>
+  </url><url>
+    <loc>https://musale.github.io/tags/kubernetes/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/linux/</loc>
   </url><url>
@@ -168,8 +176,6 @@
     <loc>https://musale.github.io/tags/nodejs/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/optimization/</loc>
-  </url><url>
-    <loc>https://musale.github.io/tags/project-management/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/reading/</loc>
   </url><url>

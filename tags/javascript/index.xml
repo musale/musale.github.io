@@ -5,22 +5,22 @@
     <link>https://musale.github.io/tags/javascript/</link>
     <description>Recent content in JavaScript on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© 2021 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>© 2024 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Martin Musale&#39;s Resume/CV</title>
       <link>https://musale.github.io/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/cv/</guid>
-      <description>Summary I’m a passionate and innovative software developer. I have over seven years of experience developing web applications. I also provide technical management for small teams of software developers.
-Skills: This Is What I Do&amp;hellip; Software development Programming in Python, Go, and JavaScript (Node JS, ES5/6). Developing and consuming RESTful APIs. Software architecture, design, analysis, development, and maintenance. Software deployment with tools like systemd, Kubernetes, and Docker. Systematic testing, debugging, and monitoring of systems.</description>
+      <description>Summary I am a talented, driven and enthusiastic software engineer interested in web development, distributed systems and building better developer experiences. I have over nine years of experience creating software, collaborating in cross functional teams and creating value using technology.
+Skills: This Is What I Do&amp;hellip; Software development Programming in Python, Go, and TypeScript (Node JS, ES5/6). Developing and consuming RESTful APIs. Software architecture, design, analysis, development, and maintenance. Software deployment with tools like systemd, Kubernetes, and Docker.</description>
       <content>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I’m a passionate and innovative software developer. I have over seven years of experience developing web applications. I also provide technical management for small teams of software developers.&lt;/p&gt;
+&lt;p&gt;I am a talented, driven and enthusiastic software engineer interested in web development, distributed systems and building better developer experiences. I have over nine years of experience creating software, collaborating in cross functional teams and creating value using technology.&lt;/p&gt;
 &lt;h2 id=&#34;skills-this-is-what-i-do&#34;&gt;Skills: This Is What I Do&amp;hellip;&lt;/h2&gt;
 &lt;h3 id=&#34;software-development&#34;&gt;Software development&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Programming in Python, Go, and JavaScript (Node JS, ES5/6).&lt;/li&gt;
+&lt;li&gt;Programming in Python, Go, and TypeScript (Node JS, ES5/6).&lt;/li&gt;
 &lt;li&gt;Developing and consuming RESTful APIs.&lt;/li&gt;
 &lt;li&gt;Software architecture, design, analysis, development, and maintenance.&lt;/li&gt;
 &lt;li&gt;Software deployment with tools like systemd, Kubernetes, and Docker.&lt;/li&gt;
@@ -38,7 +38,8 @@ Skills: This Is What I Do&amp;hellip; Software development Programming in Python
 &lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
 &lt;h3 id=&#34;microsofthttpsmicrosoftcom---software-engineer-ii&#34;&gt;&lt;a href=&#34;https://microsoft.com&#34;&gt;Microsoft&lt;/a&gt; - Software Engineer II&lt;/h3&gt;
 &lt;h4 id=&#34;march-2021---present&#34;&gt;March 2021 - Present&lt;/h4&gt;
-&lt;p&gt;I build tools that help developers interact with Microsoft 365 data. Currently, I work on the &lt;a href=&#34;https://aka.ms/mgt&#34;&gt;Microsoft Graph Toolkit&lt;/a&gt;. This is a suite of plug-and-play components and providers that authenticate and render graph data. I also work with other teams to improve their products through reviews and testing.&lt;/p&gt;
+&lt;p&gt;I’m building a cross-cloud platform on top of the Azure Kubernetes Service.&lt;/p&gt;
+&lt;p&gt;Previously, I built tools that help developers interact with Microsoft 365 data. I worked on the &lt;a href=&#34;https://aka.ms/mgt&#34;&gt;Microsoft Graph Toolkit&lt;/a&gt;. This is a suite of plug-and-play components and providers that authenticate and render graph data. I also worked with other teams to improve their products through reviews and testing.&lt;/p&gt;
 &lt;h3 id=&#34;libryohttpslibryocom---software-engineer--technical-lead&#34;&gt;&lt;a href=&#34;https://libryo.com&#34;&gt;Libryo&lt;/a&gt; - Software Engineer &amp;amp; Technical Lead&lt;/h3&gt;
 &lt;h4 id=&#34;january-2021---march-2021-technical-lead&#34;&gt;January 2021 - March 2021, Technical Lead&lt;/h4&gt;
 &lt;p&gt;I led the Scripting Team that handles ingestion of law from various sources. This team helped feed the platform with data for various purposes. For instance, summarization, display to customers and building semantic and AI models.&lt;/p&gt;
@@ -66,7 +67,7 @@ Skills: This Is What I Do&amp;hellip; Software development Programming in Python
 &lt;p&gt;I have a BSc. in Mathematics and Computer Science. I graduated from the &lt;a href=&#34;https://jkuat.ac.ke&#34;&gt;Jomo Kenyatta University of Agriculture and Technology&lt;/a&gt; in 2015 with second class honors, upper-division. For my final year project, I created a chemist management system in C#.&lt;/p&gt;
 &lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
 &lt;p&gt;I developed an interest in programming during my time at JKUAT. After getting my first internship at &lt;a href=&#34;https://wezatele.com&#34;&gt;WezaTele&lt;/a&gt; it introduced me to web application programming. I never looked back. I love making simple, fast, and light solutions - and that&amp;rsquo;s paid off during my career.&lt;/p&gt;
-&lt;p&gt;I enjoy &lt;a href=&#34;https://www.goodreads.com/user/show/13682301-mr-musale&#34;&gt;reading&lt;/a&gt; and &lt;a href=&#34;https://musale.github.io/thoughts&#34;&gt;writing&lt;/a&gt;. I&amp;rsquo;m into traveling, trying out recipes, learning new things, and making new friends. I enjoy spending time with my friends and my family. I aim to improve myself and those I influence around me.&lt;/p&gt;
+&lt;p&gt;I enjoy &lt;a href=&#34;https://www.goodreads.com/user/show/13682301-mr-musale&#34;&gt;reading&lt;/a&gt; and &lt;a href=&#34;https://musale.github.io/thoughts/&#34;&gt;writing&lt;/a&gt;. I&amp;rsquo;m into traveling, trying out recipes, learning new things, and making new friends. I enjoy spending time with my friends and my family. I aim to improve myself and those I influence around me.&lt;/p&gt;
 </content>
     </item>
     

@@ -7,12 +7,12 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="[HTTP/3 and it&#39;s underlying protocol QUIC](/thoughts/http3/) talks about the new HTTP/3 layer and the underlying protocol QUIC. It&#39;s from the very nice read by Daniel Haxx called [HTTP/3 Explained](https://daniel.haxx.se/http3-explained) – which you should read as it details the processes, how it works and what the future holds for HTPP/3 and QUIC." />
-<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms" />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms, Kubernetes, Go, Cloud Engineering" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://musale.github.io/thoughts/http3/" />
 
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -204,7 +204,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>QUIC is a name, not an acronym. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 </blockquote>
-<p><img src="https://gblobscdn.gitbook.com/assets%2F-LvW30M9uwlSh6noqzxa%2F-LvW31Pn1JTBepfnVcl_%2F-LvW36QJguX0FR2qaPtX%2FQUIC.png?alt=media" alt="QUIC Logo"></p>
+<p><img alt="QUIC Logo" src="https://gblobscdn.gitbook.com/assets%2F-LvW30M9uwlSh6noqzxa%2F-LvW31Pn1JTBepfnVcl_%2F-LvW36QJguX0FR2qaPtX%2FQUIC.png?alt=media"></p>
 <p>It is the underlying transport protocol on top of which HTTP3 is built. It is meant to address the challenges that were experienced by HTTP2 on TCP and TLS.</p>
 <h2 id="a-little-about-http2">A little about HTTP/2<a href="#a-little-about-http2" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Now, HTTP/1.X is pretty widespread and the default protocol for the web. However, IETF came up with HTTP/2 to address some challenges currently faced with HTTP/1. In doing so, they also encountered some shortcomings as they were not entirely doing away with HTTP/1 but solving some problems and maintaining the HTTP/1 standards and compatibility.</p>
@@ -373,39 +373,7 @@ if (!doNotTrack) {
         "https://eu.ui-avatars.com/api/?background=random&name=" + comment.author.name;
 
 
-      return `<article
-  id="welcomments__comment-${comment.id}"
-  class="welcomments__comment"
-  data-comment-id="${comment.id}"
-  data-author-name="${comment.author.name}"
-  data-nesting-level="0"
-  itemprop="comment" itemscope itemtype="https://schema.org/Comment">
-  <div class="welcomments__comment-header">
-    <div class="welcomments__author-avatar">
-      <img class="welcomments__author-avatar-img" src="${avatarUrl}" alt="${comment.author.name}"/>
-    </div>
-    <div class="welcomments__author-information">
-      <div class="welcomments__author-name-and-time">
-        <h3 class="welcomments__author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <span itemprop="name">${comment.author.name}</span>
-        </h3>
-        <p class="welcomments__comment-time">
-          <a href="#welcomments__comment-${comment.id}" itemprop="url">
-            <time datetime="${comment.date}" itemprop="datePublished">
-              ${month} ${day}, ${year}
-            </time>
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div itemprop="text" class="welcomments__comment-message">${comment.message}</div>
-  <a class="welcomments__comment-reply-link"
-     href="https://welcomments.io/api/websites/v2DmPonO12A7QexZ1IvBnwWTV/comments/${comment.id}/reply">
-    Reply to ${comment.author.name}
-  </a>
-</article>
-`;
+      return `\u003carticle\n  id=\u0022welcomments__comment-\u0024\u007bcomment.id\u007d\u0022\n  class=\u0022welcomments__comment\u0022\n  data-comment-id=\u0022\u0024\u007bcomment.id\u007d\u0022\n  data-author-name=\u0022\u0024\u007bcomment.author.name\u007d\u0022\n  data-nesting-level=\u00220\u0022\n  itemprop=\u0022comment\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Comment\u0022\u003e\n  \u003cdiv class=\u0022welcomments__comment-header\u0022\u003e\n    \u003cdiv class=\u0022welcomments__author-avatar\u0022\u003e\n      \u003cimg class=\u0022welcomments__author-avatar-img\u0022 src=\u0022\u0024\u007bavatarUrl\u007d\u0022 alt=\u0022\u0024\u007bcomment.author.name\u007d\u0022\/\u003e\n    \u003c\/div\u003e\n    \u003cdiv class=\u0022welcomments__author-information\u0022\u003e\n      \u003cdiv class=\u0022welcomments__author-name-and-time\u0022\u003e\n        \u003ch3 class=\u0022welcomments__author-name\u0022 itemprop=\u0022author\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Person\u0022\u003e\n          \u003cspan itemprop=\u0022name\u0022\u003e\u0024\u007bcomment.author.name\u007d\u003c\/span\u003e\n        \u003c\/h3\u003e\n        \u003cp class=\u0022welcomments__comment-time\u0022\u003e\n          \u003ca href=\u0022#welcomments__comment-\u0024\u007bcomment.id\u007d\u0022 itemprop=\u0022url\u0022\u003e\n            \u003ctime datetime=\u0022\u0024\u007bcomment.date\u007d\u0022 itemprop=\u0022datePublished\u0022\u003e\n              \u0024\u007bmonth\u007d \u0024\u007bday\u007d, \u0024\u007byear\u007d\n            \u003c\/time\u003e\n          \u003c\/a\u003e\n        \u003c\/p\u003e\n      \u003c\/div\u003e\n    \u003c\/div\u003e\n  \u003c\/div\u003e\n  \u003cdiv itemprop=\u0022text\u0022 class=\u0022welcomments__comment-message\u0022\u003e\u0024\u007bcomment.message\u007d\u003c\/div\u003e\n  \u003ca class=\u0022welcomments__comment-reply-link\u0022\n     href=\u0022https:\/\/welcomments.io\/api\/websites\/v2DmPonO12A7QexZ1IvBnwWTV\/comments\/\u0024\u007bcomment.id\u007d\/reply\u0022\u003e\n    Reply to \u0024\u007bcomment.author.name\u007d\n  \u003c\/a\u003e\n\u003c\/article\u003e\n`;
     },
   };
 </script>
@@ -421,7 +389,7 @@ if (!doNotTrack) {
   <div class="footer__inner">
     
       <div class="copyright copyright--user">
-        <span>© 2021 Martin Musale</span>
+        <span>© 2024 Martin Musale</span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>

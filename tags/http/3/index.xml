@@ -5,8 +5,9 @@
     <link>https://musale.github.io/tags/http/3/</link>
     <description>Recent content in HTTP/3 on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© 2021 Martin Musale</copyright><atom:link href="https://musale.github.io/tags/http/3/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>© 2024 Martin Musale</copyright>
+    <lastBuildDate>Tue, 26 Nov 2019 02:55:15 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/http/3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP/3 and it&#39;s underlying protocol QUIC</title>
       <link>https://musale.github.io/thoughts/http3/</link>
@@ -20,7 +21,7 @@ A little about HTTP/2 Now, HTTP/1.X is pretty widespread and the default protoco
 &lt;blockquote&gt;
 &lt;p&gt;QUIC is a name, not an acronym. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://gblobscdn.gitbook.com/assets%2F-LvW30M9uwlSh6noqzxa%2F-LvW31Pn1JTBepfnVcl_%2F-LvW36QJguX0FR2qaPtX%2FQUIC.png?alt=media&#34; alt=&#34;QUIC Logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;QUIC Logo&#34; src=&#34;https://gblobscdn.gitbook.com/assets%2F-LvW30M9uwlSh6noqzxa%2F-LvW31Pn1JTBepfnVcl_%2F-LvW36QJguX0FR2qaPtX%2FQUIC.png?alt=media&#34;&gt;&lt;/p&gt;
 &lt;p&gt;It is the underlying transport protocol on top of which HTTP3 is built. It is meant to address the challenges that were experienced by HTTP2 on TCP and TLS.&lt;/p&gt;
 &lt;h2 id=&#34;a-little-about-http2&#34;&gt;A little about HTTP/2&lt;/h2&gt;
 &lt;p&gt;Now, HTTP/1.X is pretty widespread and the default protocol for the web. However, IETF came up with HTTP/2 to address some challenges currently faced with HTTP/1. In doing so, they also encountered some shortcomings as they were not entirely doing away with HTTP/1 but solving some problems and maintaining the HTTP/1 standards and compatibility.&lt;/p&gt;

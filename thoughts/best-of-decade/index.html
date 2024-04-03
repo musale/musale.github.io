@@ -7,12 +7,12 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="In [this article](/thoughts/best-of-decade/), I reflect on some of the best things and moments that I had in the decade 2010-2019. It&#39;s been a wonderful 10 years full of ups and downs and in as much as I would like to have a balanced view of both, I choose to stick with the positive things that happened to me and that I can remember." />
-<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms" />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms, Kubernetes, Go, Cloud Engineering" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://musale.github.io/thoughts/best-of-decade/" />
 
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -235,7 +235,7 @@ if (!doNotTrack) {
 <li><a href="https://www.deezer.com/us/album/7735020">Pulpilt Kwa Streets</a> by <em>Juliani</em>. This album came at a time that conscious hip-hop music with positive message was needed - for me and my country. I love this work by Juliani.</li>
 <li><a href="https://www.deezer.com/us/album/14705184">Safari: The Journey</a> by <em>Adawnage</em>. I had the pleasure of interacting with these guys during the decade I was really happy to meet them, share their experiences outside of the music scene. I love them and this masterpiece they made.</li>
 <li><a href="https://www.deezer.com/us/album/1062555">Sol Filosofia</a> by <em>Sauti Sol</em>. This is one of the best things that happened to the Kenyan music scene. The best of my time!</li>
-<li><a href="#">Testimony 1990</a> by <em>Khaligraph Jones</em>. I can&rsquo;t find it on Deezer but this album slapped. Khaligraph was in his element and the music on this album was something else. Still killing the hip-hop scene.</li>
+<li><a href="/">Testimony 1990</a> by <em>Khaligraph Jones</em>. I can&rsquo;t find it on Deezer but this album slapped. Khaligraph was in his element and the music on this album was something else. Still killing the hip-hop scene.</li>
 <li><a href="https://www.deezer.com/us/album/53466042">LDPC</a> by <em>Octopizzo</em>. Wow! This one revamped word play and metophorism in the music scene. BTW, the title <strong>LDPC</strong> just stands for <strong>L</strong>ong <strong>D</strong>istance <strong>P</strong>aper <strong>C</strong>haser.</li>
 </ul>
 <h3 id="global">Global<a href="#global" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -281,13 +281,13 @@ if (!doNotTrack) {
 <li>Getting to study Mathematics and Computer Science. I loved programming and there was a slight chance of me missing out to study CS. When I was actually confirmed, I was overjoyed.</li>
 <li>Attending my ex-girlfriend&rsquo;s masters graduation. She&rsquo;d gone through a lot to finally get to graduate and it make me very happy to finally get to the end of it.</li>
 <li>Getting my first paid job as a programmer. I teared because someone took a chance on me and right now, thanks to him, I am what I am.</li>
-<li>Finishing 4th in a global challenge. And I got paid a lot of chums too 😁</li>
+<li>Finishing 4th in a global challenge. And I got paid a lot of chums too &#x1f601;</li>
 <li>Seeing my family graduate; my sisters, my mother, my uncle (now a Dr. ). These moments made me feel very proud of them.</li>
 </ul>
 <h2 id="favorite-people">Favorite People<a href="#favorite-people" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li>My siblings. I love them. They understand me and they are always ready to accomodate each of us with our different desires. To a decade of growth, love and laughs.</li>
-<li>My boys. Ah, these 3 gentlemen <del>Sharkdu lol</del> have always been there for me. I know I can depend on them and that makes me very glad to have them in my life. To a decade of joy, laughs and love. Also, my friends <del>Nice Humans</del>, I ❤️ you all.</li>
+<li>My boys. Ah, these 3 gentlemen <del>Sharkdu lol</del> have always been there for me. I know I can depend on them and that makes me very glad to have them in my life. To a decade of joy, laughs and love. Also, my friends <del>Nice Humans</del>, I &#x2764;&#xfe0f; you all.</li>
 <li>My ex-girlfriend. I love her. She made me happy. She was my escape. Some people come into your life and they make you live it to the fullest. She introduced me to very many things that I didn&rsquo;t like at first but ended up loving and seeing or doing to an extent that I missed her a lot if she&rsquo;s not there. To a decade of love, adventure and growth.</li>
 <li>My aunt who has always been there for me in this city and out. I love you aunty Bri.</li>
 <li>My parents. Especially my mum. Inspirational. Live long mom.</li>
@@ -395,39 +395,7 @@ if (!doNotTrack) {
         "https://eu.ui-avatars.com/api/?background=random&name=" + comment.author.name;
 
 
-      return `<article
-  id="welcomments__comment-${comment.id}"
-  class="welcomments__comment"
-  data-comment-id="${comment.id}"
-  data-author-name="${comment.author.name}"
-  data-nesting-level="0"
-  itemprop="comment" itemscope itemtype="https://schema.org/Comment">
-  <div class="welcomments__comment-header">
-    <div class="welcomments__author-avatar">
-      <img class="welcomments__author-avatar-img" src="${avatarUrl}" alt="${comment.author.name}"/>
-    </div>
-    <div class="welcomments__author-information">
-      <div class="welcomments__author-name-and-time">
-        <h3 class="welcomments__author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <span itemprop="name">${comment.author.name}</span>
-        </h3>
-        <p class="welcomments__comment-time">
-          <a href="#welcomments__comment-${comment.id}" itemprop="url">
-            <time datetime="${comment.date}" itemprop="datePublished">
-              ${month} ${day}, ${year}
-            </time>
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div itemprop="text" class="welcomments__comment-message">${comment.message}</div>
-  <a class="welcomments__comment-reply-link"
-     href="https://welcomments.io/api/websites/v2DmPonO12A7QexZ1IvBnwWTV/comments/${comment.id}/reply">
-    Reply to ${comment.author.name}
-  </a>
-</article>
-`;
+      return `\u003carticle\n  id=\u0022welcomments__comment-\u0024\u007bcomment.id\u007d\u0022\n  class=\u0022welcomments__comment\u0022\n  data-comment-id=\u0022\u0024\u007bcomment.id\u007d\u0022\n  data-author-name=\u0022\u0024\u007bcomment.author.name\u007d\u0022\n  data-nesting-level=\u00220\u0022\n  itemprop=\u0022comment\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Comment\u0022\u003e\n  \u003cdiv class=\u0022welcomments__comment-header\u0022\u003e\n    \u003cdiv class=\u0022welcomments__author-avatar\u0022\u003e\n      \u003cimg class=\u0022welcomments__author-avatar-img\u0022 src=\u0022\u0024\u007bavatarUrl\u007d\u0022 alt=\u0022\u0024\u007bcomment.author.name\u007d\u0022\/\u003e\n    \u003c\/div\u003e\n    \u003cdiv class=\u0022welcomments__author-information\u0022\u003e\n      \u003cdiv class=\u0022welcomments__author-name-and-time\u0022\u003e\n        \u003ch3 class=\u0022welcomments__author-name\u0022 itemprop=\u0022author\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Person\u0022\u003e\n          \u003cspan itemprop=\u0022name\u0022\u003e\u0024\u007bcomment.author.name\u007d\u003c\/span\u003e\n        \u003c\/h3\u003e\n        \u003cp class=\u0022welcomments__comment-time\u0022\u003e\n          \u003ca href=\u0022#welcomments__comment-\u0024\u007bcomment.id\u007d\u0022 itemprop=\u0022url\u0022\u003e\n            \u003ctime datetime=\u0022\u0024\u007bcomment.date\u007d\u0022 itemprop=\u0022datePublished\u0022\u003e\n              \u0024\u007bmonth\u007d \u0024\u007bday\u007d, \u0024\u007byear\u007d\n            \u003c\/time\u003e\n          \u003c\/a\u003e\n        \u003c\/p\u003e\n      \u003c\/div\u003e\n    \u003c\/div\u003e\n  \u003c\/div\u003e\n  \u003cdiv itemprop=\u0022text\u0022 class=\u0022welcomments__comment-message\u0022\u003e\u0024\u007bcomment.message\u007d\u003c\/div\u003e\n  \u003ca class=\u0022welcomments__comment-reply-link\u0022\n     href=\u0022https:\/\/welcomments.io\/api\/websites\/v2DmPonO12A7QexZ1IvBnwWTV\/comments\/\u0024\u007bcomment.id\u007d\/reply\u0022\u003e\n    Reply to \u0024\u007bcomment.author.name\u007d\n  \u003c\/a\u003e\n\u003c\/article\u003e\n`;
     },
   };
 </script>
@@ -443,7 +411,7 @@ if (!doNotTrack) {
   <div class="footer__inner">
     
       <div class="copyright copyright--user">
-        <span>© 2021 Martin Musale</span>
+        <span>© 2024 Martin Musale</span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>

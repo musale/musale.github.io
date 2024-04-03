@@ -5,8 +5,8 @@
     <link>https://musale.github.io/tags/advent-of-code/</link>
     <description>Recent content in Advent of Code on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© 2021 Martin Musale</copyright>
+    <language>en</language>
+    <copyright>© 2024 Martin Musale</copyright>
     <lastBuildDate>Fri, 06 Dec 2019 20:09:16 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/advent-of-code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advent of Code 2019</title>
@@ -18,7 +18,7 @@
       <content>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
 &lt;p&gt;I always like solving problems and this is a very nice place to practise my skills. This year, I would like to learn more concepts and I&amp;rsquo;m already liking this &lt;em&gt;AOC&lt;/em&gt;. For starters, we have a lot of participation and people are streaming when they&amp;rsquo;re solving the puzzles. I like the way &lt;a href=&#34;https://www.youtube.com/channel/UCuWLIm0l4sDpEe28t41WITA/videos&#34;&gt;Jonathan Paulson&amp;rsquo;s&lt;/a&gt; videos are done. They are precise and really nice to see. He&amp;rsquo;s fast too and that makes me want to look and think through a puzzle with his level of understanding and speed. I also like &lt;a href=&#34;https://www.twitch.tv/lizthegrey&#34;&gt;Liz Fong-Jones&amp;rsquo;&lt;/a&gt; &lt;em&gt;Go&lt;/em&gt; solutions. My solutions are over &lt;a href=&#34;https://github.com/musale/advent-of-code-2019&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;day-9&#34;&gt;Day 9&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;IntCode&lt;/code&gt; makes a come back but we are prepared 🍴! I liked this puzzle because in as much as you needed to rethink how you fetch the modes, that was all there was. In the second part it was a matter of changing the inputs and boom! Very easy and almost, just the way I like it.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;IntCode&lt;/code&gt; makes a come back but we are prepared &amp;#x1f374;! I liked this puzzle because in as much as you needed to rethink how you fetch the modes, that was all there was. In the second part it was a matter of changing the inputs and boom! Very easy and almost, just the way I like it.&lt;/p&gt;
 &lt;p&gt;For me, I have the most of this &lt;code&gt;IntCode&lt;/code&gt; solutions in Python. What I would like to do is to port it to &lt;code&gt;Go&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;day-8&#34;&gt;Day 8&lt;/h2&gt;
 &lt;p&gt;Decoding the image data was pretty easy. It involved array manipulation so from a higher level you can see the kind of problem that you have and the way the ideal solution needs to look like. For my case, I knew that I need a way to keep layers, which I did using a &lt;code&gt;dict&lt;/code&gt;. To find the layer with the most common &lt;code&gt;zeros&lt;/code&gt;, I used Python&amp;rsquo;s &lt;code&gt;collections.Counter&lt;/code&gt; to find the count of value 0 and set the lowest value for each layer. Pretty easy.&lt;/p&gt;
