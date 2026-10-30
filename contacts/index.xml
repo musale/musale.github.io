@@ -6,6 +6,6 @@
     <description>Recent content in How to Find Me on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© 2024 Martin Musale</copyright><atom:link href="https://musale.github.io/contacts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© {year} Martin Musale</copyright><atom:link href="https://musale.github.io/contacts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
