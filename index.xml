@@ -14,19 +14,69 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/ai/llms/</guid>
-      <description>&lt;p&gt;Intending to answer a few things to understand Large Language Models (llms)&lt;/p&gt;
-&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;What are LLMs?
-What types of LLMs exist? What differentiates them?
-What are features, parameters in a model?
-What is model training? What is fine tuning? What is the difference?
-What does it mean a model &amp;ldquo;predicts&amp;rdquo;
-Why is hardware important for running models? Why are GPUs expensive? What are the alternatives - TPUs?
-Why is running models locally challenging? Mobile models?
-What software is deisgned to interface with models?
-Why are some models called &amp;ldquo;frontier models&amp;rdquo;? What does it mean?&lt;/p&gt;</description>
-      <content>&lt;p&gt;Intending to answer a few things to understand Large Language Models (llms)&lt;/p&gt;
-&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;large-language-models&#34;&gt;Large Language Models&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Large Language Models (LLMs)&lt;/strong&gt; are artificial intelligence systems trained on massive amounts of text to understand, summarize, translate and generate human-like language.&lt;/p&gt;
+&lt;h2 id=&#34;how-do-they-work&#34;&gt;How do they work?&lt;/h2&gt;
+&lt;p&gt;LLMs&lt;/p&gt;
+&lt;h2 id=&#34;components-of-llms&#34;&gt;Components of LLMs&lt;/h2&gt;
+&lt;h3 id=&#34;transformers&#34;&gt;Transformers&lt;/h3&gt;
+&lt;p&gt;What are transformers&lt;/p&gt;
+&lt;h3 id=&#34;embedding&#34;&gt;Embedding&lt;/h3&gt;
+&lt;p&gt;What are they?&lt;/p&gt;
+&lt;h2 id=&#34;training-llms&#34;&gt;Training LLMs&lt;/h2&gt;
+&lt;p&gt;Training LLMs is a massive undertaking requiring lots of data, complex algorithms and hardware. The pipeline can be vusualized as:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Data collection&lt;/li&gt;
+&lt;li&gt;Data cleaning&lt;/li&gt;
+&lt;li&gt;Labelling (if applicable)&lt;/li&gt;
+&lt;li&gt;Tokenization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;1-data-collection&#34;&gt;1. Data Collection&lt;/h3&gt;
+&lt;p&gt;This begins with massive data from various sources - books, articles, websites, code etc.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;large-language-models&#34;&gt;Large Language Models&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Large Language Models (LLMs)&lt;/strong&gt; are artificial intelligence systems trained on massive amounts of text to understand, summarize, translate and generate human-like language.&lt;/p&gt;
+&lt;h2 id=&#34;how-do-they-work&#34;&gt;How do they work?&lt;/h2&gt;
+&lt;p&gt;LLMs&lt;/p&gt;
+&lt;h2 id=&#34;components-of-llms&#34;&gt;Components of LLMs&lt;/h2&gt;
+&lt;h3 id=&#34;transformers&#34;&gt;Transformers&lt;/h3&gt;
+&lt;p&gt;What are transformers&lt;/p&gt;
+&lt;h3 id=&#34;embedding&#34;&gt;Embedding&lt;/h3&gt;
+&lt;p&gt;What are they?&lt;/p&gt;
+&lt;h2 id=&#34;training-llms&#34;&gt;Training LLMs&lt;/h2&gt;
+&lt;p&gt;Training LLMs is a massive undertaking requiring lots of data, complex algorithms and hardware. The pipeline can be vusualized as:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Data collection&lt;/li&gt;
+&lt;li&gt;Data cleaning&lt;/li&gt;
+&lt;li&gt;Labelling (if applicable)&lt;/li&gt;
+&lt;li&gt;Tokenization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;1-data-collection&#34;&gt;1. Data Collection&lt;/h3&gt;
+&lt;p&gt;This begins with massive data from various sources - books, articles, websites, code etc.&lt;/p&gt;
+&lt;h3 id=&#34;2-data-cleaning&#34;&gt;2. Data cleaning&lt;/h3&gt;
+&lt;p&gt;Cleaning of the data is done by data scientists to remove errors, duplication and undesirable content.&lt;/p&gt;
+&lt;h3 id=&#34;3-labelling&#34;&gt;3. Labelling&lt;/h3&gt;
+&lt;p&gt;The data is then paired with the desired outputs, target classifications or human preferences&lt;/p&gt;
+&lt;h3 id=&#34;4-tokenization&#34;&gt;4. Tokenization&lt;/h3&gt;
+&lt;p&gt;Text is then broken down into &lt;code&gt;tokens&lt;/code&gt; in a process called &lt;strong&gt;tokenization&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;graph TD
+    A[Data Collection] --&amp;gt; B[Data Cleaning]
+    B --&amp;gt; C[Labelling&amp;lt;br/&amp;gt;&amp;lt;i&amp;gt;*Supervised Fine-Tuning*&amp;lt;/i&amp;gt;]
+    C --&amp;gt; D[Tokenization]
+    D --&amp;gt; E[Model Training]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#ff9,stroke:#333,stroke-width:2px
+    style D fill:#f99,stroke:#333,stroke-width:2px
+    style E fill:#9f9,stroke:#333,stroke-width:2px&lt;/pre&gt;
+&lt;h3 id=&#34;training-techniques&#34;&gt;Training techniques&lt;/h3&gt;
+&lt;h4 id=&#34;pre-training&#34;&gt;Pre-training&lt;/h4&gt;
+&lt;h4 id=&#34;fine-tuning&#34;&gt;Fine-tuning&lt;/h4&gt;
+&lt;h2 id=&#34;types-of-llms-and-examples&#34;&gt;Types of LLMs and Examples&lt;/h2&gt;
+&lt;h3 id=&#34;zero-shot-llms&#34;&gt;Zero-shot LLMs&lt;/h3&gt;
+&lt;h3 id=&#34;fine-tuned-llms&#34;&gt;Fine-tuned LLMs&lt;/h3&gt;
+&lt;h3 id=&#34;domain-specific-llms&#34;&gt;Domain-specific LLMs&lt;/h3&gt;
+&lt;h2 id=&#34;uses-of-llms&#34;&gt;Uses of LLMs&lt;/h2&gt;
 &lt;p&gt;What are LLMs?
 What types of LLMs exist? What differentiates them?
 What are features, parameters in a model?

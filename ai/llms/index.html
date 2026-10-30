@@ -6,9 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Intending to answer a few things to understand Large Language Models (llms)
-Introduction What are LLMs? What types of LLMs exist? What differentiates them? What are features, parameters in a model? What is model training? What is fine tuning? What is the difference? What does it mean a model &ldquo;predicts&rdquo; Why is hardware important for running models? Why are GPUs expensive? What are the alternatives - TPUs? Why is running models locally challenging? Mobile models? What software is deisgned to interface with models? Why are some models called &ldquo;frontier models&rdquo;? What does it mean?
-" />
+<meta name="description" content="Intending to answer a few things to understand Large Language Models (llms)" />
 <meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms, Kubernetes, Go, Cloud Engineering" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://musale.github.io/ai/llms/" />
@@ -57,9 +55,7 @@ Introduction What are LLMs? What types of LLMs exist? What differentiates them? 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Large Language Models">
-<meta property="og:description" content="Intending to answer a few things to understand Large Language Models (llms)
-Introduction What are LLMs? What types of LLMs exist? What differentiates them? What are features, parameters in a model? What is model training? What is fine tuning? What is the difference? What does it mean a model &ldquo;predicts&rdquo; Why is hardware important for running models? Why are GPUs expensive? What are the alternatives - TPUs? Why is running models locally challenging? Mobile models? What software is deisgned to interface with models? Why are some models called &ldquo;frontier models&rdquo;? What does it mean?
-" />
+<meta property="og:description" content="Intending to answer a few things to understand Large Language Models (llms)" />
 <meta property="og:url" content="https://musale.github.io/ai/llms/" />
 <meta property="og:site_name" content="Martin Musale" />
 
@@ -205,8 +201,50 @@ Introduction What are LLMs? What types of LLMs exist? What differentiates them? 
   
 
   <div class="post-content"><div>
-        <p>Intending to answer a few things to understand Large Language Models (llms)</p>
-<h1 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+        <h1 id="large-language-models">Large Language Models<a href="#large-language-models" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p><strong>Large Language Models (LLMs)</strong> are artificial intelligence systems trained on massive amounts of text to understand, summarize, translate and generate human-like language.</p>
+<h2 id="how-do-they-work">How do they work?<a href="#how-do-they-work" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>LLMs</p>
+<h2 id="components-of-llms">Components of LLMs<a href="#components-of-llms" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="transformers">Transformers<a href="#transformers" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>What are transformers</p>
+<h3 id="embedding">Embedding<a href="#embedding" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>What are they?</p>
+<h2 id="training-llms">Training LLMs<a href="#training-llms" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Training LLMs is a massive undertaking requiring lots of data, complex algorithms and hardware. The pipeline can be vusualized as:</p>
+<ol>
+<li>Data collection</li>
+<li>Data cleaning</li>
+<li>Labelling (if applicable)</li>
+<li>Tokenization</li>
+</ol>
+<h3 id="1-data-collection">1. Data Collection<a href="#1-data-collection" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>This begins with massive data from various sources - books, articles, websites, code etc.</p>
+<h3 id="2-data-cleaning">2. Data cleaning<a href="#2-data-cleaning" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Cleaning of the data is done by data scientists to remove errors, duplication and undesirable content.</p>
+<h3 id="3-labelling">3. Labelling<a href="#3-labelling" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The data is then paired with the desired outputs, target classifications or human preferences</p>
+<h3 id="4-tokenization">4. Tokenization<a href="#4-tokenization" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Text is then broken down into <code>tokens</code> in a process called <strong>tokenization</strong>.</p>
+<pre class="mermaid">graph TD
+    A[Data Collection] --&gt; B[Data Cleaning]
+    B --&gt; C[Labelling&lt;br/&gt;&lt;i&gt;*Supervised Fine-Tuning*&lt;/i&gt;]
+    C --&gt; D[Tokenization]
+    D --&gt; E[Model Training]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#ff9,stroke:#333,stroke-width:2px
+    style D fill:#f99,stroke:#333,stroke-width:2px
+    style E fill:#9f9,stroke:#333,stroke-width:2px</pre>
+<h3 id="training-techniques">Training techniques<a href="#training-techniques" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="pre-training">Pre-training<a href="#pre-training" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h4 id="fine-tuning">Fine-tuning<a href="#fine-tuning" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h2 id="types-of-llms-and-examples">Types of LLMs and Examples<a href="#types-of-llms-and-examples" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="zero-shot-llms">Zero-shot LLMs<a href="#zero-shot-llms" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="fine-tuned-llms">Fine-tuned LLMs<a href="#fine-tuned-llms" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="domain-specific-llms">Domain-specific LLMs<a href="#domain-specific-llms" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h2 id="uses-of-llms">Uses of LLMs<a href="#uses-of-llms" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>What are LLMs?
 What types of LLMs exist? What differentiates them?
 What are features, parameters in a model?
@@ -325,8 +363,25 @@ Why are some models called &ldquo;frontier models&rdquo;? What does it mean?</p>
 
 
 
+<style>
+  .mermaid {
+    overflow-x: auto;
+  }
 
+  .mermaid svg {
+    display: block;
+    margin-inline: auto;
+  }
+</style>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.esm.min.mjs";
 
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    securityLevel: "strict"
+  });
+</script>
 
   
 </div>
