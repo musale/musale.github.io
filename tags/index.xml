@@ -7,7 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year} Martin Musale</copyright>
-    <lastBuildDate>Wed, 01 Dec 2021 08:36:14 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Oct 2026 14:47:10 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agents</title>
+      <link>https://musale.github.io/tags/agents/</link>
+      <pubDate>Fri, 30 Oct 2026 14:47:10 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/agents/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Ai</title>
+      <link>https://musale.github.io/tags/ai/</link>
+      <pubDate>Fri, 30 Oct 2026 14:47:10 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/ai/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Llms</title>
+      <link>https://musale.github.io/tags/llms/</link>
+      <pubDate>Fri, 30 Oct 2026 14:47:10 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/llms/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://musale.github.io/tags/machine-learning/</link>
+      <pubDate>Fri, 30 Oct 2026 14:47:10 +0300</pubDate>
+      
+      <guid>https://musale.github.io/tags/machine-learning/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
     <item>
       <title>Advent of Code 2021</title>
       <link>https://musale.github.io/tags/advent-of-code-2021/</link>
@@ -309,26 +349,6 @@
     </item>
     
     <item>
-      <title>Agents</title>
-      <link>https://musale.github.io/tags/agents/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/tags/agents/</guid>
-      <description></description>
-      <content></content>
-    </item>
-    
-    <item>
-      <title>Ai</title>
-      <link>https://musale.github.io/tags/ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/tags/ai/</guid>
-      <description></description>
-      <content></content>
-    </item>
-    
-    <item>
       <title>API Development and Consumption</title>
       <link>https://musale.github.io/tags/api-development-and-consumption/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -464,26 +484,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/tags/linux/</guid>
-      <description></description>
-      <content></content>
-    </item>
-    
-    <item>
-      <title>Llms</title>
-      <link>https://musale.github.io/tags/llms/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/tags/llms/</guid>
-      <description></description>
-      <content></content>
-    </item>
-    
-    <item>
-      <title>Machine Learning</title>
-      <link>https://musale.github.io/tags/machine-learning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://musale.github.io/tags/machine-learning/</guid>
       <description></description>
       <content></content>
     </item>

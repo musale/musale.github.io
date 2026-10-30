@@ -3,12 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://musale.github.io/ai/llms/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/thoughts/</loc>
     <lastmod>2021-12-01T08:36:14+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/</loc>
-    <lastmod>2021-12-01T08:36:14+03:00</lastmod>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/tags/agents/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/tags/ai/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/ai/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/tags/llms/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/tags/machine-learning/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
+  </url><url>
+    <loc>https://musale.github.io/tags/</loc>
+    <lastmod>2026-10-30T14:47:10+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/tags/advent-of-code-2021/</loc>
     <lastmod>2021-12-01T08:36:14+03:00</lastmod>
@@ -26,9 +45,6 @@
     <lastmod>2021-12-01T08:36:14+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/tags/python3/</loc>
-    <lastmod>2021-12-01T08:36:14+03:00</lastmod>
-  </url><url>
-    <loc>https://musale.github.io/tags/</loc>
     <lastmod>2021-12-01T08:36:14+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/tags/design-patterns/</loc>
@@ -141,12 +157,6 @@
   </url><url>
     <loc>https://musale.github.io/tags/adventure/</loc>
   </url><url>
-    <loc>https://musale.github.io/tags/agents/</loc>
-  </url><url>
-    <loc>https://musale.github.io/tags/ai/</loc>
-  </url><url>
-    <loc>https://musale.github.io/ai/</loc>
-  </url><url>
     <loc>https://musale.github.io/tags/api-development-and-consumption/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/api-integration/</loc>
@@ -178,10 +188,6 @@
     <loc>https://musale.github.io/tags/kubernetes/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/linux/</loc>
-  </url><url>
-    <loc>https://musale.github.io/tags/llms/</loc>
-  </url><url>
-    <loc>https://musale.github.io/tags/machine-learning/</loc>
   </url><url>
     <loc>https://musale.github.io/cv/</loc>
   </url><url>
