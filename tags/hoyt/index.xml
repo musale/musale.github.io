@@ -5,7 +5,7 @@
     <link>https://musale.github.io/tags/hoyt/</link>
     <description>Recent content in Hoyt on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>© 2024 Martin Musale</copyright>
     <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://musale.github.io/tags/hoyt/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,8 @@
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/hoyt/</guid>
-      <description>Motivation I bumped into Ben Hoyt&amp;rsquo;s website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a hugo theme is because I used it for my site and it would be good to have one of them themes.</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I bumped into &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a &lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt; theme is because I used it for my site and it would be good to have one of them themes.&lt;/p&gt;</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I bumped into &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a &lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt; theme is because I used it for my site and it would be good to have one of them themes.&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;

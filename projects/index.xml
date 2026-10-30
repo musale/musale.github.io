@@ -5,7 +5,7 @@
     <link>https://musale.github.io/projects/</link>
     <description>Recent content in Projects I&#39;ve Authored or Worked On on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>© 2024 Martin Musale</copyright>
     <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://musale.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,8 @@
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/hoyt/</guid>
-      <description>Motivation I bumped into Ben Hoyt&amp;rsquo;s website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a hugo theme is because I used it for my site and it would be good to have one of them themes.</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I bumped into &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a &lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt; theme is because I used it for my site and it would be good to have one of them themes.&lt;/p&gt;</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I bumped into &lt;a href=&#34;https://benhoyt.com/&#34;&gt;Ben Hoyt&amp;rsquo;s&lt;/a&gt; website during my rounds on the internet. I liked the way the website is laid out. Since I have been looking for a proper layout for my personal website, I found the site to be exactly what I wanted. The reason I made it into a &lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt; theme is because I used it for my site and it would be good to have one of them themes.&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
@@ -28,7 +29,8 @@
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/txt-from-img/</guid>
-      <description>Motivation This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the project, most of the setup has been done thanks to inspiration from already existing solutions.</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the &lt;a href=&#34;https://github.com/musale/txt-from-img&#34;&gt;project&lt;/a&gt;, most of the setup has been done thanks to inspiration from already existing solutions.&lt;/p&gt;</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;This was a pet project to test out OCR using the Tessaract project. We&amp;rsquo;re currently processing legal documents and some of them are in PDF or image formats. This necessitates an OCR solution which was a good place to start so that the process can be automated. Also, I was looking for a way to make lambda deployments easy and seamless. In the &lt;a href=&#34;https://github.com/musale/txt-from-img&#34;&gt;project&lt;/a&gt;, most of the setup has been done thanks to inspiration from already existing solutions.&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
@@ -42,8 +44,15 @@
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/aiompesa/</guid>
-      <description>Motivation The reason I wrote this library is because:
-I wanted to learn some more about asyncio. To create an asynchronous library. Experiment with Python 3+ static typing. Results I understand a little more about asyncio and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future. The aiompesa library is available on pypy and open sourced at GitHub.</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;The reason I wrote this library is because:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I wanted to learn some more about &lt;em&gt;asyncio&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;To create an asynchronous library.&lt;/li&gt;
+&lt;li&gt;Experiment with Python 3+ static typing.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;I understand a little more about &lt;em&gt;asyncio&lt;/em&gt; and the various IO problems that it is trying to solve. Maybe you might not need to make async M-Pesa calls now in your product but, it&amp;rsquo;s something you can consider in future. The &lt;em&gt;aiompesa&lt;/em&gt; library is available on &lt;em&gt;pypy&lt;/em&gt; and open sourced at &lt;a href=&#34;https://github.com/musale/aiompesa&#34;&gt;GitHub&lt;/a&gt;. For more information on how to use it you can read about it&amp;rsquo;s usage &lt;a href=&#34;https://aiompesa.readthedocs.org&#34;&gt;here&lt;/a&gt; and test it out. Cheers! &amp;#x1f37a;&lt;/p&gt;</description>
       <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;The reason I wrote this library is because:&lt;/p&gt;
 &lt;ol&gt;

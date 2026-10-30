@@ -5,7 +5,7 @@
     <link>https://musale.github.io/tags/go/</link>
     <description>Recent content in Go on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>© 2024 Martin Musale</copyright>
     <lastBuildDate>Tue, 12 May 2020 07:00:22 +0300</lastBuildDate><atom:link href="https://musale.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,20 +14,22 @@
       <pubDate>Tue, 12 May 2020 07:00:22 +0300</pubDate>
       
       <guid>https://musale.github.io/thoughts/visitor-pattern/</guid>
-      <description>TL;DR In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.
-From wikipedia
-Introduction Using an example of cocktails. Say we have a Cocktail that we can use to &amp;ldquo;make&amp;rdquo; different kinds of cocktails, like Mojito and Daiquiri.</description>
+      <description>&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&#34;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=41&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM&#34;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Using an example of cocktails. Say we have a &lt;code&gt;Cocktail&lt;/code&gt; that we can use to &amp;ldquo;make&amp;rdquo; different kinds of cocktails, like &lt;code&gt;Mojito&lt;/code&gt; and &lt;code&gt;Daiquiri&lt;/code&gt;. We can have a &lt;code&gt;Cocktail&lt;/code&gt; interface that defines &lt;code&gt;Serve&lt;/code&gt; and &lt;code&gt;Drink&lt;/code&gt; methods for a cocktail:&lt;/p&gt;</description>
       <content>&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
 &lt;p&gt;In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.&lt;/p&gt;
-&lt;p&gt;From &lt;a href=&#34;https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=41&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM&#34;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&#34;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=41&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwjZ_K2D4q7pAhVBRBoKHZdPCyEQmhMwKHoECA8QGA&amp;amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVisitor_pattern&amp;amp;usg=AOvVaw1FL-fqGJAkuwqC4C4YZ7YM&#34;&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Using an example of cocktails. Say we have a &lt;code&gt;Cocktail&lt;/code&gt; that we can use to &amp;ldquo;make&amp;rdquo; different kinds of cocktails, like &lt;code&gt;Mojito&lt;/code&gt; and &lt;code&gt;Daiquiri&lt;/code&gt;. We can have a &lt;code&gt;Cocktail&lt;/code&gt; interface that defines &lt;code&gt;Serve&lt;/code&gt; and &lt;code&gt;Drink&lt;/code&gt; methods for a cocktail:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocktail&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocktail&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Serve&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Drink&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can make the &lt;code&gt;Mojito&lt;/code&gt; and &lt;code&gt;Daiquiri&lt;/code&gt; implement the &lt;code&gt;Cocktail&lt;/code&gt; interface methods like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Serve&lt;/span&gt;(){}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Drink&lt;/span&gt;(){}
@@ -41,17 +43,17 @@ Introduction Using an example of cocktails. Say we have a Cocktail that we can u
 &lt;p&gt;The visitor pattern will allow you to operate on a &lt;code&gt;Cocktail&lt;/code&gt; so that you can provide a &lt;code&gt;Cocktail&lt;/code&gt; that easily conforms to all the cocktail operations. It makes it easier to add new ways to work on a cocktail without getting to make the change on every cocktail.&lt;/p&gt;
 &lt;h3 id=&#34;the-visitor-pattern&#34;&gt;The Visitor Pattern&lt;/h3&gt;
 &lt;p&gt;To achieve this, we implement a new interface; &lt;code&gt;CocktailVisitor&lt;/code&gt; that defines the visitor operations on a cocktail.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;visitMojito&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;visitDaiquiri&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Next, we need to &amp;ldquo;route&amp;rdquo; the correct cocktail to the correct method on the visitor by changing the &lt;code&gt;Cocktail&lt;/code&gt; interface.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocktail&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocktail&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With that, we are now able to make the &lt;code&gt;Cocktail&lt;/code&gt; interface to have a method &lt;code&gt;accept&lt;/code&gt; that takes in a &lt;code&gt;CocktailVisitor&lt;/code&gt; or any object &amp;ldquo;that is&amp;rdquo; a &lt;code&gt;CocktailVisitor&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Finally, we make the cocktails:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CocktailVisitor&lt;/span&gt;){
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;visitMojito&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
@@ -63,7 +65,7 @@ Introduction Using an example of cocktails. Say we have a Cocktail that we can u
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, if you need to add a new cocktail like a &lt;code&gt;Margharita&lt;/code&gt;, you just have to implement its visitor and add it to the &lt;code&gt;CocktailVisitor&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;You will need to define the operation you want to accomplish. We want to do a &lt;code&gt;DrinkVisit&lt;/code&gt; operation:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;visitMojito&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drinking mojitos&amp;#34;&lt;/span&gt;)
@@ -72,7 +74,7 @@ Introduction Using an example of cocktails. Say we have a Cocktail that we can u
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drinking daiquiris&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then we do the magic like:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;visitor&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DrinkVisit&lt;/span&gt;{}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;mojito&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Mojito&lt;/span&gt;{}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;daiquiri&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Daiquiri&lt;/span&gt;{}
@@ -92,8 +94,30 @@ Introduction Using an example of cocktails. Say we have a Cocktail that we can u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/cv/</guid>
-      <description>Summary I am a talented, driven and enthusiastic software engineer interested in web development, distributed systems and building better developer experiences. I have over nine years of experience creating software, collaborating in cross functional teams and creating value using technology.
-Skills: This Is What I Do&amp;hellip; Software development Programming in Python, Go, and TypeScript (Node JS, ES5/6). Developing and consuming RESTful APIs. Software architecture, design, analysis, development, and maintenance. Software deployment with tools like systemd, Kubernetes, and Docker.</description>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I am a talented, driven and enthusiastic software engineer interested in web development, distributed systems and building better developer experiences. I have over nine years of experience creating software, collaborating in cross functional teams and creating value using technology.&lt;/p&gt;
+&lt;h2 id=&#34;skills-this-is-what-i-do&#34;&gt;Skills: This Is What I Do&amp;hellip;&lt;/h2&gt;
+&lt;h3 id=&#34;software-development&#34;&gt;Software development&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Programming in Python, Go, and TypeScript (Node JS, ES5/6).&lt;/li&gt;
+&lt;li&gt;Developing and consuming RESTful APIs.&lt;/li&gt;
+&lt;li&gt;Software architecture, design, analysis, development, and maintenance.&lt;/li&gt;
+&lt;li&gt;Software deployment with tools like systemd, Kubernetes, and Docker.&lt;/li&gt;
+&lt;li&gt;Systematic testing, debugging, and monitoring of systems.&lt;/li&gt;
+&lt;li&gt;Teamwork and collaboration using business tools like slack, planning, and organizational skills.&lt;/li&gt;
+&lt;li&gt;Contribute to open-source projects (&lt;a href=&#34;https://github.com/musale&#34;&gt;more here&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;management-and-leadership&#34;&gt;Management and leadership&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Working with fellow engineers to design and architect software systems.&lt;/li&gt;
+&lt;li&gt;Mentoring junior engineers, code reviews, and helping to establish engineering best practices.&lt;/li&gt;
+&lt;li&gt;Giving internal training and technical talks. I provide Python expertise from having many years of using the language.&lt;/li&gt;
+&lt;li&gt;Written &amp;amp; verbal communication skills gained from talks, presentations, and interactions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
+&lt;h3 id=&#34;microsoft---software-engineer-ii&#34;&gt;&lt;a href=&#34;https://microsoft.com&#34;&gt;Microsoft&lt;/a&gt; - Software Engineer II&lt;/h3&gt;
+&lt;h4 id=&#34;march-2021---present&#34;&gt;March 2021 - Present&lt;/h4&gt;
+&lt;p&gt;I’m building a cross-cloud platform on top of the Azure Kubernetes Service.&lt;/p&gt;</description>
       <content>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
 &lt;p&gt;I am a talented, driven and enthusiastic software engineer interested in web development, distributed systems and building better developer experiences. I have over nine years of experience creating software, collaborating in cross functional teams and creating value using technology.&lt;/p&gt;
 &lt;h2 id=&#34;skills-this-is-what-i-do&#34;&gt;Skills: This Is What I Do&amp;hellip;&lt;/h2&gt;
@@ -115,31 +139,31 @@ Skills: This Is What I Do&amp;hellip; Software development Programming in Python
 &lt;li&gt;Written &amp;amp; verbal communication skills gained from talks, presentations, and interactions.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
-&lt;h3 id=&#34;microsofthttpsmicrosoftcom---software-engineer-ii&#34;&gt;&lt;a href=&#34;https://microsoft.com&#34;&gt;Microsoft&lt;/a&gt; - Software Engineer II&lt;/h3&gt;
+&lt;h3 id=&#34;microsoft---software-engineer-ii&#34;&gt;&lt;a href=&#34;https://microsoft.com&#34;&gt;Microsoft&lt;/a&gt; - Software Engineer II&lt;/h3&gt;
 &lt;h4 id=&#34;march-2021---present&#34;&gt;March 2021 - Present&lt;/h4&gt;
 &lt;p&gt;I’m building a cross-cloud platform on top of the Azure Kubernetes Service.&lt;/p&gt;
 &lt;p&gt;Previously, I built tools that help developers interact with Microsoft 365 data. I worked on the &lt;a href=&#34;https://aka.ms/mgt&#34;&gt;Microsoft Graph Toolkit&lt;/a&gt;. This is a suite of plug-and-play components and providers that authenticate and render graph data. I also worked with other teams to improve their products through reviews and testing.&lt;/p&gt;
-&lt;h3 id=&#34;libryohttpslibryocom---software-engineer--technical-lead&#34;&gt;&lt;a href=&#34;https://libryo.com&#34;&gt;Libryo&lt;/a&gt; - Software Engineer &amp;amp; Technical Lead&lt;/h3&gt;
+&lt;h3 id=&#34;libryo---software-engineer--technical-lead&#34;&gt;&lt;a href=&#34;https://libryo.com&#34;&gt;Libryo&lt;/a&gt; - Software Engineer &amp;amp; Technical Lead&lt;/h3&gt;
 &lt;h4 id=&#34;january-2021---march-2021-technical-lead&#34;&gt;January 2021 - March 2021, Technical Lead&lt;/h4&gt;
 &lt;p&gt;I led the Scripting Team that handles ingestion of law from various sources. This team helped feed the platform with data for various purposes. For instance, summarization, display to customers and building semantic and AI models.&lt;/p&gt;
 &lt;h4 id=&#34;june-2018---march-2021-software-engineer&#34;&gt;June 2018 - March 2021, Software Engineer&lt;/h4&gt;
 &lt;p&gt;I built the scripting and web scraping part of the Libryo data pipeline. This enabled pulling into the platform existing and new pieces of law. I reviewed code and RFCs for various services.&lt;/p&gt;
-&lt;h3 id=&#34;optimetrikshttpsoptimetrikscom---backend-software-developer&#34;&gt;&lt;a href=&#34;https://optimetriks.com&#34;&gt;Optimetriks&lt;/a&gt; - Backend Software Developer&lt;/h3&gt;
+&lt;h3 id=&#34;optimetriks---backend-software-developer&#34;&gt;&lt;a href=&#34;https://optimetriks.com&#34;&gt;Optimetriks&lt;/a&gt; - Backend Software Developer&lt;/h3&gt;
 &lt;h4 id=&#34;january-2018---june-2018&#34;&gt;January 2018 - June 2018&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;https://optimetriks.com&#34;&gt;FieldPro&lt;/a&gt; simplifies field operations with automated workflows. I built the backend API. This API enabled customers to create flexible data collection workflows.&lt;/p&gt;
-&lt;h3 id=&#34;gravityearthhttpsgravityearth---backend-software-developer&#34;&gt;&lt;a href=&#34;https://gravity.earth&#34;&gt;Gravity.earth&lt;/a&gt; - Backend Software Developer&lt;/h3&gt;
+&lt;h3 id=&#34;gravityearth---backend-software-developer&#34;&gt;&lt;a href=&#34;https://gravity.earth&#34;&gt;Gravity.earth&lt;/a&gt; - Backend Software Developer&lt;/h3&gt;
 &lt;h4 id=&#34;september-2017---june-2018&#34;&gt;September 2017 - June 2018&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;https://gravity.earth&#34;&gt;Gravity.earth&lt;/a&gt; enables data sharing for anyone, anywhere. I built a USSD backend and integrated it into the gravity identity platform. This helped customers register on the Identity Management Platform. Apart from that, I managed the MongoDB store, software infrastructure, and maintenance.&lt;/p&gt;
-&lt;h3 id=&#34;focus-mobile-ltdhttpssmsleopardcom---software-developer&#34;&gt;&lt;a href=&#34;https://smsleopard.com&#34;&gt;Focus Mobile Ltd&lt;/a&gt; - Software Developer&lt;/h3&gt;
+&lt;h3 id=&#34;focus-mobile-ltd---software-developer&#34;&gt;&lt;a href=&#34;https://smsleopard.com&#34;&gt;Focus Mobile Ltd&lt;/a&gt; - Software Developer&lt;/h3&gt;
 &lt;h4 id=&#34;july-2016---august-2017&#34;&gt;July 2016 - August 2017&lt;/h4&gt;
 &lt;p&gt;I built &lt;a href=&#34;https://smsleopard.com&#34;&gt;smsleopard.com&lt;/a&gt; and helped speed up sending of bulk SMSs. I worked on other projects which I built with Python, Golang, and Django. I also managed deployments and software infrastructure. I created tools like &lt;a href=&#34;https://github.com/musale/returns&#34;&gt;returns&lt;/a&gt; that handles the callbacks from APIs to ease our development of the SMS products.&lt;/p&gt;
-&lt;h3 id=&#34;slashair-ltdhttpstumacredocom---software-developer&#34;&gt;&lt;a href=&#34;https://tumacredo.com&#34;&gt;SlashAir Ltd&lt;/a&gt; - Software Developer&lt;/h3&gt;
+&lt;h3 id=&#34;slashair-ltd---software-developer&#34;&gt;&lt;a href=&#34;https://tumacredo.com&#34;&gt;SlashAir Ltd&lt;/a&gt; - Software Developer&lt;/h3&gt;
 &lt;h4 id=&#34;january-2016---august-2016&#34;&gt;January 2016 - August 2016&lt;/h4&gt;
 &lt;p&gt;I built and maintained &lt;a href=&#34;https://tumacredo.com&#34;&gt;TumaCredo.com&lt;/a&gt;. I eased sending of bulk airtime by adding new features and designing the UI/UX. I also maintained the platform infrastructure. I liaised with the Marketing department to optimize the platform use.&lt;/p&gt;
-&lt;h3 id=&#34;carepay-ltdhttpscarepaycom---android-application-developer&#34;&gt;&lt;a href=&#34;https://carepay.com&#34;&gt;Carepay Ltd&lt;/a&gt; - Android Application Developer&lt;/h3&gt;
+&lt;h3 id=&#34;carepay-ltd---android-application-developer&#34;&gt;&lt;a href=&#34;https://carepay.com&#34;&gt;Carepay Ltd&lt;/a&gt; - Android Application Developer&lt;/h3&gt;
 &lt;h4 id=&#34;october-2015---january-2016&#34;&gt;October 2015 - January 2016&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;https://carepay.com&#34;&gt;CarePay Limited&lt;/a&gt; runs a platform that administers healthcare payments. It required an android application to ease the offering of their services. I created an android application that consolidated these services on customer android smartphones.&lt;/p&gt;
-&lt;h3 id=&#34;wezatele-ltdhttpswezatelecom---junior-software-developer&#34;&gt;&lt;a href=&#34;https://wezatele.com&#34;&gt;WezaTele Ltd&lt;/a&gt; - Junior Software Developer&lt;/h3&gt;
+&lt;h3 id=&#34;wezatele-ltd---junior-software-developer&#34;&gt;&lt;a href=&#34;https://wezatele.com&#34;&gt;WezaTele Ltd&lt;/a&gt; - Junior Software Developer&lt;/h3&gt;
 &lt;h4 id=&#34;october-2014---january-2015&#34;&gt;October 2014 - January 2015&lt;/h4&gt;
 &lt;p&gt;I built and worked on several software solutions that WezaTele Ltd clients needed to make their business processes more efficient.&lt;/p&gt;
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;

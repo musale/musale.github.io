@@ -56,19 +56,19 @@
     <loc>https://musale.github.io/tags/decade/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url><url>
-    <loc>https://musale.github.io/tags/life/</loc>
+    <loc>https://musale.github.io/categories/life/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url><url>
-    <loc>https://musale.github.io/categories/life/</loc>
+    <loc>https://musale.github.io/tags/life/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/tags/lifestyle/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url><url>
-    <loc>https://musale.github.io/tags/moments/</loc>
+    <loc>https://musale.github.io/categories/moments/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url><url>
-    <loc>https://musale.github.io/categories/moments/</loc>
+    <loc>https://musale.github.io/tags/moments/</loc>
     <lastmod>2019-12-30T15:34:14+03:00</lastmod>
   </url><url>
     <loc>https://musale.github.io/tags/music/</loc>
@@ -139,6 +139,12 @@
   </url><url>
     <loc>https://musale.github.io/tags/adventure/</loc>
   </url><url>
+    <loc>https://musale.github.io/tags/agents/</loc>
+  </url><url>
+    <loc>https://musale.github.io/tags/ai/</loc>
+  </url><url>
+    <loc>https://musale.github.io/ai/</loc>
+  </url><url>
     <loc>https://musale.github.io/tags/api-development-and-consumption/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/api-integration/</loc>
@@ -170,6 +176,10 @@
     <loc>https://musale.github.io/tags/kubernetes/</loc>
   </url><url>
     <loc>https://musale.github.io/tags/linux/</loc>
+  </url><url>
+    <loc>https://musale.github.io/tags/llms/</loc>
+  </url><url>
+    <loc>https://musale.github.io/tags/machine-learning/</loc>
   </url><url>
     <loc>https://musale.github.io/cv/</loc>
   </url><url>
