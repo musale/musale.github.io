@@ -9,83 +9,245 @@
     <copyright>© 2024 Martin Musale</copyright>
     <lastBuildDate>Wed, 01 Dec 2021 08:36:14 +0300</lastBuildDate><atom:link href="https://musale.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Large Language Models</title>
+      <title>Large language models</title>
       <link>https://musale.github.io/ai/llms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/ai/llms/</guid>
-      <description>&lt;h1 id=&#34;large-language-models&#34;&gt;Large Language Models&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Large Language Models (LLMs)&lt;/strong&gt; are artificial intelligence systems trained on massive amounts of text to understand, summarize, translate and generate human-like language.&lt;/p&gt;
-&lt;h2 id=&#34;how-do-they-work&#34;&gt;How do they work?&lt;/h2&gt;
-&lt;p&gt;LLMs&lt;/p&gt;
-&lt;h2 id=&#34;components-of-llms&#34;&gt;Components of LLMs&lt;/h2&gt;
-&lt;h3 id=&#34;transformers&#34;&gt;Transformers&lt;/h3&gt;
-&lt;p&gt;What are transformers&lt;/p&gt;
-&lt;h3 id=&#34;embedding&#34;&gt;Embedding&lt;/h3&gt;
-&lt;p&gt;What are they?&lt;/p&gt;
-&lt;h2 id=&#34;training-llms&#34;&gt;Training LLMs&lt;/h2&gt;
-&lt;p&gt;Training LLMs is a massive undertaking requiring lots of data, complex algorithms and hardware. The pipeline can be vusualized as:&lt;/p&gt;
+      <description>&lt;h1 id=&#34;large-language-models&#34;&gt;Large language models&lt;/h1&gt;
+&lt;p&gt;A large language model (LLM) is a neural network trained on large amounts of text to learn patterns in language. Those patterns let it generate text, answer questions, translate, write code and summarize documents. Some models also work with images or audio.&lt;/p&gt;
+&lt;p&gt;The word &lt;em&gt;model&lt;/em&gt; means a mathematical system with learned numerical values, called &lt;em&gt;parameters&lt;/em&gt;. Given an input, the system uses those values to calculate an output. &amp;ldquo;Large&amp;rdquo; usually refers to the number of parameters and the scale of training; there is no universal size at which a language model becomes an LLM.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;large-language-models&#34;&gt;Large language models&lt;/h1&gt;
+&lt;p&gt;A large language model (LLM) is a neural network trained on large amounts of text to learn patterns in language. Those patterns let it generate text, answer questions, translate, write code and summarize documents. Some models also work with images or audio.&lt;/p&gt;
+&lt;p&gt;The word &lt;em&gt;model&lt;/em&gt; means a mathematical system with learned numerical values, called &lt;em&gt;parameters&lt;/em&gt;. Given an input, the system uses those values to calculate an output. &amp;ldquo;Large&amp;rdquo; usually refers to the number of parameters and the scale of training; there is no universal size at which a language model becomes an LLM.&lt;/p&gt;
+&lt;p&gt;It helps to separate the model from the application around it. A chat application can add conversation history, search, file access and tools. The model alone does not automatically have those abilities.&lt;/p&gt;
+&lt;h2 id=&#34;what-does-it-mean-to-predict-text&#34;&gt;What does it mean to predict text?&lt;/h2&gt;
+&lt;p&gt;For a typical text-generating LLM, prediction means calculating which token could come next, given the tokens already available. A &lt;em&gt;token&lt;/em&gt; is a piece of text: a word, part of a word, punctuation or even a space. The tokenizer determines the exact split.&lt;/p&gt;
+&lt;p&gt;Suppose the input is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The capital of Kenya is&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The model assigns probabilities to possible next tokens. &amp;ldquo;Nairobi&amp;rdquo; should be a likely continuation. The application selects a token using a decoding strategy, adds it to the input and repeats the process until it reaches a stopping condition.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Prompt text&amp;#34;] --&amp;gt; B[&amp;#34;Tokenizer: text to token IDs&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Model calculates next-token probabilities&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Decoding strategy selects a token&amp;#34;]
+    D --&amp;gt; E[&amp;#34;Append token to the sequence&amp;#34;]
+    E --&amp;gt; F{&amp;#34;Stop condition reached?&amp;#34;}
+    F --&amp;gt;|No| C
+    F --&amp;gt;|Yes| G[&amp;#34;Decode output tokens into text&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;This is &lt;em&gt;inference&lt;/em&gt;: using a trained model. Its parameters normally stay fixed while it generates a response.&lt;/p&gt;
+&lt;p&gt;Choosing the highest-probability token is one decoding strategy. Sampling is another: it allows different continuations according to their probabilities. A setting called &lt;em&gt;temperature&lt;/em&gt; adjusts how concentrated that distribution is. Lower temperatures generally make sampling more predictable; higher ones allow more variation. Neither setting guarantees a correct answer.&lt;/p&gt;
+&lt;p&gt;Predicting text can produce much more than sentence completion. Training examples contain explanations, programs and worked problems, so the model can learn patterns that support those tasks. But a plausible continuation can still be false. An invented citation or a confident factual error is often called a &lt;em&gt;hallucination&lt;/em&gt;. A token&amp;rsquo;s probability is not the probability that a claim is true.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-inside-a-model&#34;&gt;What is inside a model?&lt;/h2&gt;
+&lt;p&gt;Most widely used LLMs are based on the &lt;em&gt;Transformer&lt;/em&gt;, an architecture introduced in the 2017 paper &lt;em&gt;Attention Is All You Need&lt;/em&gt;.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; The following is a simplified view of a decoder-only Transformer, the kind commonly used for text generation.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Token IDs&amp;#34;] --&amp;gt; B[&amp;#34;Token embeddings&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Position information&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Causal self-attention: mix information from available tokens&amp;#34;]
+    D --&amp;gt; E[&amp;#34;Feed-forward network: transform each token representation&amp;#34;]
+    E --&amp;gt; F[&amp;#34;Repeat Transformer blocks&amp;#34;]
+    F --&amp;gt; G[&amp;#34;Output layer: scores for vocabulary tokens&amp;#34;]
+    G --&amp;gt; H[&amp;#34;Convert scores to probabilities&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;The diagram leaves out details such as normalization and residual connections so the main path is easier to follow.&lt;/p&gt;
+&lt;h3 id=&#34;tokens-and-embeddings&#34;&gt;Tokens and embeddings&lt;/h3&gt;
+&lt;p&gt;The tokenizer converts text into numerical IDs. An &lt;em&gt;embedding&lt;/em&gt; maps each ID to a vector, which is an ordered list of numbers the network can work with. Position information helps the model distinguish sequences such as &amp;ldquo;the dog chased the cat&amp;rdquo; and &amp;ldquo;the cat chased the dog&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The initial embedding for a token comes from learned parameters. As the token passes through the model, its representation changes with context. The word &amp;ldquo;bank&amp;rdquo; in &amp;ldquo;river bank&amp;rdquo; should have a different contextual representation from &amp;ldquo;bank account&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;You may also encounter &lt;em&gt;embedding models&lt;/em&gt; used for search. These produce vectors for whole passages so an application can compare their similarity. They serve a different purpose from a chat model that generates a reply.&lt;/p&gt;
+&lt;h3 id=&#34;attention-and-transformer-blocks&#34;&gt;Attention and Transformer blocks&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Self-attention&lt;/em&gt; lets a token&amp;rsquo;s representation incorporate information from other tokens. In a decoder-only model, causal attention prevents a position from looking ahead at future tokens. For &amp;ldquo;The keys on the table are missing&amp;rdquo;, attention can help connect &amp;ldquo;keys&amp;rdquo; with &amp;ldquo;are&amp;rdquo; despite the words between them.&lt;/p&gt;
+&lt;p&gt;Each block also has a feed-forward network that transforms the representations. Repeating these blocks lets the model build more complex representations of the sequence.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;context window&lt;/em&gt; is the limit on how many tokens the model can work with in one request. For typical chat models, instructions, conversation history, retrieved documents and generated output all compete for that budget. A large window does not guarantee that the model will use every detail reliably.&lt;/p&gt;
+&lt;h3 id=&#34;parameters-features-and-settings&#34;&gt;Parameters, features and settings&lt;/h3&gt;
+&lt;p&gt;These terms describe different things:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Term&lt;/th&gt;
+					&lt;th&gt;What it means&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Parameters&lt;/td&gt;
+					&lt;td&gt;Values learned during training, including weights in attention, feed-forward and embedding layers. A dense &amp;ldquo;7B&amp;rdquo; model has roughly seven billion parameters.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Features&lt;/td&gt;
+					&lt;td&gt;Properties represented in the data or inside the network, such as patterns related to syntax or topic. They are often distributed across many activations rather than stored in one named location.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Hyperparameters&lt;/td&gt;
+					&lt;td&gt;Choices made about training or architecture, such as learning rate or number of layers.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Generation settings&lt;/td&gt;
+					&lt;td&gt;Controls used at inference time, such as temperature and output length. Changing these does not retrain the model.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;More parameters can increase capacity, but size alone does not tell you which model will perform best. Training data, architecture and the task also matter.&lt;/p&gt;
+&lt;h2 id=&#34;how-does-a-model-learn&#34;&gt;How does a model learn?&lt;/h2&gt;
+&lt;p&gt;Training changes parameters so the model performs better on an objective. In next-token pre-training, the training text supplies both the input and the correct continuation.&lt;/p&gt;
+&lt;p&gt;For example, training can use &amp;ldquo;The capital of Kenya is&amp;rdquo; as context and the token or tokens for &amp;ldquo;Nairobi&amp;rdquo; as targets. The model&amp;rsquo;s prediction is compared with the actual next token using a &lt;em&gt;loss function&lt;/em&gt;. Backpropagation calculates how parameters contributed to the error, and an optimizer adjusts them to reduce the loss. This repeats over many batches of text.&lt;/p&gt;
+&lt;p&gt;The model can learn a prediction at many positions in a sequence during one training pass. Generating new text is different: in the basic inference loop, each new token depends on the tokens selected before it.&lt;/p&gt;
+&lt;h3 id=&#34;pre-training-and-fine-tuning&#34;&gt;Pre-training and fine-tuning&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Pre-training&lt;/em&gt; builds the initial model from a broad collection of text, often including code. Data preparation can include deduplication, quality filtering and removal of sensitive material. It cannot guarantee that all errors, bias or private information disappear.&lt;/p&gt;
+&lt;p&gt;Ordinary next-token pre-training is &lt;em&gt;self-supervised&lt;/em&gt;: the targets come from the text itself. People do not need to label every sentence. Explicit demonstrations and preference labels usually enter later, during &lt;em&gt;post-training&lt;/em&gt;.&lt;sup id=&#34;fnref1:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Collect and filter text&amp;#34;] --&amp;gt; B[&amp;#34;Tokenize text&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Pre-train on next-token prediction&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Base model&amp;#34;]
+    D --&amp;gt; E[&amp;#34;Optional supervised fine-tuning on prompt-response examples&amp;#34;]
+    E --&amp;gt; F[&amp;#34;Optional preference training&amp;#34;]
+    F --&amp;gt; G[&amp;#34;Instruction-tuned model&amp;#34;]
+    D -.-&amp;gt; H[&amp;#34;Evaluate at each stage&amp;#34;]
+    E -.-&amp;gt; H
+    G -.-&amp;gt; H&lt;/pre&gt;
+&lt;p&gt;This is a common route, not a required recipe for every model.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Fine-tuning&lt;/em&gt; is further training of an existing model for a task or behavior. Supervised fine-tuning might use examples of questions paired with useful answers. Preference training uses judgments about which responses are better. Reinforcement learning from human feedback (RLHF) is one approach; the InstructGPT paper documents a pipeline using demonstrations followed by preference-based training.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Fine-tuning is therefore a form of training, not a separate alternative to it. It starts with learned parameters rather than starting from scratch. Some techniques update the whole model; others train a smaller set of additional parameters, often called adapters.&lt;/p&gt;
+&lt;h3 id=&#34;prompting-and-retrieval-are-different&#34;&gt;Prompting and retrieval are different&lt;/h3&gt;
+&lt;p&gt;A prompt changes what the model sees, not its learned parameters. Giving it examples in the prompt is &lt;em&gt;few-shot prompting&lt;/em&gt;. Asking without examples is &lt;em&gt;zero-shot prompting&lt;/em&gt;. These describe how you use a model, not separate model architectures.&lt;/p&gt;
+&lt;p&gt;Retrieval-augmented generation (RAG) supplies relevant material from an external source, such as a document index, before the model answers.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; For example, a support application could retrieve the current refund policy and include it with a customer&amp;rsquo;s question.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;User question&amp;#34;] --&amp;gt; B[&amp;#34;Search document index&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Retrieve relevant passages&amp;#34;]
+    A --&amp;gt; D[&amp;#34;Build prompt&amp;#34;]
+    C --&amp;gt; D
+    D --&amp;gt; E[&amp;#34;Model generates an answer&amp;#34;]
+    E --&amp;gt; F[&amp;#34;Answer with source links when supported&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;Retrieval at inference time does not itself retrain the generator. It can provide current facts and source material, but the model can still misread a passage or cite something that does not support its claim.&lt;/p&gt;
+&lt;p&gt;If you need an answer based on today&amp;rsquo;s policy, retrieval is usually a better starting point than fine-tuning. If you need consistent output formatting or task behavior, fine-tuning may help.&lt;/p&gt;
+&lt;h2 id=&#34;what-kinds-of-models-exist&#34;&gt;What kinds of models exist?&lt;/h2&gt;
+&lt;p&gt;There are several ways to describe a model, and the labels overlap.&lt;/p&gt;
+&lt;h3 id=&#34;architecture&#34;&gt;Architecture&lt;/h3&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Architecture&lt;/th&gt;
+					&lt;th&gt;How it works&lt;/th&gt;
+					&lt;th&gt;Examples and common uses&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Encoder-only&lt;/td&gt;
+					&lt;td&gt;Builds representations using context on both sides of a token.&lt;/td&gt;
+					&lt;td&gt;BERT; classification, extraction and search representations.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Decoder-only&lt;/td&gt;
+					&lt;td&gt;Uses preceding tokens to predict the next token.&lt;/td&gt;
+					&lt;td&gt;GPT and Llama families; chat, code and text generation.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Encoder-decoder&lt;/td&gt;
+					&lt;td&gt;Encodes an input, then generates an output conditioned on it.&lt;/td&gt;
+					&lt;td&gt;T5; translation and summarization.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;BERT is a useful architectural comparison, though people often mean generative decoder-only models when they say &amp;ldquo;LLM&amp;rdquo; today.&lt;sup id=&#34;fnref2:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Another distinction is &lt;em&gt;dense&lt;/em&gt; versus &lt;em&gt;mixture-of-experts&lt;/em&gt; (MoE). A dense model uses the same parameter blocks for each token. An MoE model routes tokens through selected expert networks. Its total parameter count can be much larger than the number active for each token, so total size and computation per token are different measurements.&lt;/p&gt;
+&lt;h3 id=&#34;training-inputs-and-access&#34;&gt;Training, inputs and access&lt;/h3&gt;
+&lt;p&gt;A &lt;em&gt;base model&lt;/em&gt; has undergone pre-training. An &lt;em&gt;instruction-tuned model&lt;/em&gt; has further training to respond to instructions. A &lt;em&gt;domain-specific model&lt;/em&gt; has training focused on an area such as medicine or code. One model can be both instruction-tuned and domain-specific.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;multimodal model&lt;/em&gt; accepts or produces more than text, for example images or audio. A text-only model cannot inspect a photograph just because a chat interface allows an attachment.&lt;/p&gt;
+&lt;p&gt;With &lt;em&gt;open-weight models&lt;/em&gt;, you can obtain the learned parameters and run them yourself, subject to the license. That does not necessarily mean the training data or full training process is available. Hosted proprietary models are generally accessed through an application or API instead. Always check the particular model&amp;rsquo;s license and model card rather than assuming &amp;ldquo;open&amp;rdquo; means unrestricted.&lt;/p&gt;
+&lt;h3 id=&#34;what-does-frontier-mean&#34;&gt;What does &amp;ldquo;frontier&amp;rdquo; mean?&lt;/h3&gt;
+&lt;p&gt;A &lt;em&gt;frontier model&lt;/em&gt; is generally one near the leading edge of capability at a given time. It is not a particular architecture or parameter count, and the label moves as models improve. Policy definitions can be narrower: the paper &lt;em&gt;Frontier AI Regulation&lt;/em&gt; focuses on highly capable foundation models that could pose severe risks to public safety.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;For choosing a model, a result on your own task is more useful than the label. A smaller specialist may be sufficient for extracting fields from invoices even if a frontier model performs better on broad benchmarks.&lt;/p&gt;
+&lt;h2 id=&#34;why-does-hardware-matter&#34;&gt;Why does hardware matter?&lt;/h2&gt;
+&lt;p&gt;Running a model means doing large amounts of numerical computation and moving its parameters through memory. Training adds the work of calculating gradients and updating parameters, plus memory for training state.&lt;/p&gt;
+&lt;p&gt;GPUs perform many operations in parallel and have memory systems suited to these workloads. They were developed for graphics, but the same ability to process large arrays of numbers is useful for neural networks.&lt;/p&gt;
+&lt;p&gt;High-end AI GPUs are expensive partly because they combine complex chips with large amounts of fast memory and high-speed connections. A training cluster also needs networking, power and cooling. Price depends on supply and demand as well as hardware capability; it is not simply a price per parameter.&lt;/p&gt;
+&lt;p&gt;GPUs are not mandatory for all inference. CPUs can run smaller models, often at lower speed. Google&amp;rsquo;s &lt;em&gt;Tensor Processing Units&lt;/em&gt; (TPUs) are specialized accelerators for machine-learning workloads, especially large matrix operations.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; Phones and laptops may also have neural processing units (NPUs), but the runtime must support the hardware and model.&lt;/p&gt;
+&lt;h3 id=&#34;will-a-model-fit-on-my-computer&#34;&gt;Will a model fit on my computer?&lt;/h3&gt;
+&lt;p&gt;A useful first estimate is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;weight memory = parameter count x bits per parameter / 8
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For a dense 7B model, that gives:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Weight precision&lt;/th&gt;
+					&lt;th&gt;Approximate weight memory&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;32-bit&lt;/td&gt;
+					&lt;td&gt;28 GB&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;16-bit&lt;/td&gt;
+					&lt;td&gt;14 GB&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;8-bit&lt;/td&gt;
+					&lt;td&gt;7 GB&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;4-bit&lt;/td&gt;
+					&lt;td&gt;3.5 GB&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These are decimal gigabytes for the weights alone, not total system requirements. You also need memory for intermediate calculations, runtime overhead and, in typical Transformer generation, a &lt;em&gt;KV cache&lt;/em&gt;. This cache stores attention keys and values from processed tokens so the runtime can reuse them. Longer contexts and more simultaneous requests increase its memory use.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Quantization&lt;/em&gt; stores weights, and sometimes other values, with fewer bits. It can reduce memory requirements substantially, but quality and speed depend on the method and hardware.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; A 4-bit 7B model therefore needs more than 3.5 GB of usable memory to run.&lt;/p&gt;
+&lt;p&gt;Local inference also depends on memory bandwidth, supported operations and how quickly you need an answer. Having enough disk space to download a model does not mean you have enough RAM or GPU memory to run it comfortably.&lt;/p&gt;
+&lt;h3 id=&#34;what-about-phones&#34;&gt;What about phones?&lt;/h3&gt;
+&lt;p&gt;Phones can run smaller models, often with quantization and runtimes designed for the device. Some small models are trained through &lt;em&gt;distillation&lt;/em&gt;, where a larger model helps teach a smaller one.&lt;/p&gt;
+&lt;p&gt;The constraints include shared memory, battery use and heat. A model that runs for a short demonstration may slow down under sustained use. On-device inference can work offline and keep inputs on the device, provided the application does not send them elsewhere. Google&amp;rsquo;s LiteRT-LM is one runtime for deploying models on mobile and other devices.&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-software-connects-an-application-to-a-model&#34;&gt;What software connects an application to a model?&lt;/h2&gt;
+&lt;p&gt;The model weights are only part of a working system. A &lt;em&gt;runtime&lt;/em&gt; loads them and executes the computation. A server can expose that runtime through an API, which an application calls.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;User&amp;#34;] --&amp;gt; B[&amp;#34;Application: UI, history and permissions&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Local or remote API&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Inference runtime&amp;#34;]
+    E[&amp;#34;Model weights and tokenizer&amp;#34;] --&amp;gt; D
+    D --&amp;gt; F[&amp;#34;CPU, GPU or other supported accelerator&amp;#34;]
+    D --&amp;gt; G[&amp;#34;Generated response&amp;#34;]
+    G --&amp;gt; B&lt;/pre&gt;
+&lt;p&gt;For local use, &lt;a href=&#34;https://docs.ollama.com/&#34;&gt;Ollama&lt;/a&gt; manages model downloads and provides an API. &lt;a href=&#34;https://github.com/ggml-org/llama.cpp&#34;&gt;llama.cpp&lt;/a&gt; runs supported models on CPUs and several GPU backends, including mixed CPU/GPU execution.&lt;/p&gt;
+&lt;p&gt;For development, &lt;a href=&#34;https://huggingface.co/docs/transformers/&#34;&gt;Hugging Face Transformers&lt;/a&gt; provides model-loading, training and inference APIs. For serving concurrent requests, &lt;a href=&#34;https://docs.vllm.ai/en/stable/&#34;&gt;vLLM&lt;/a&gt; provides an inference server with batching and memory-management optimizations. Hosted model APIs move the hardware and serving work to a provider, in exchange for usage charges and the provider&amp;rsquo;s data-handling terms.&lt;/p&gt;
+&lt;p&gt;These tools are not interchangeable with the models they run. Check the runtime&amp;rsquo;s support for the model architecture, file format, quantization method and hardware.&lt;/p&gt;
+&lt;h2 id=&#34;using-models-well&#34;&gt;Using models well&lt;/h2&gt;
+&lt;p&gt;LLMs are useful for drafting, summarizing and translating text, extracting structured information and helping with code. The amount of checking depends on the consequences of an error. A draft email and a medical recommendation should not have the same review process.&lt;/p&gt;
+&lt;p&gt;For a concrete task, compare candidate models on representative examples. Check correctness, latency, memory use, cost and data-handling requirements. For code, run tests. For factual answers, open the cited sources and check that they support the claims. A polished answer is still an answer you may need to verify.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;The numbered notes link claims to source papers and documentation. The Transformer paper explains the architecture; the Hugging Face course is a more approachable starting point. Runtime links above lead to their own documentation.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
 &lt;ol&gt;
-&lt;li&gt;Data collection&lt;/li&gt;
-&lt;li&gt;Data cleaning&lt;/li&gt;
-&lt;li&gt;Labelling (if applicable)&lt;/li&gt;
-&lt;li&gt;Tokenization&lt;/li&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Hugging Face, &lt;a href=&#34;https://huggingface.co/docs/transformers/llm_tutorial&#34;&gt;Text generation&lt;/a&gt;. A practical guide to token generation and decoding settings.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Vaswani et al. (2017), &lt;a href=&#34;https://arxiv.org/abs/1706.03762&#34;&gt;Attention Is All You Need&lt;/a&gt;. The original Transformer paper.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Hugging Face LLM Course, &lt;a href=&#34;https://huggingface.co/learn/llm-course/chapter1/4&#34;&gt;How do Transformers work?&lt;/a&gt;. Covers architecture families, self-supervised learning, pre-training and fine-tuning.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref2:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Ouyang et al. (2022), &lt;a href=&#34;https://arxiv.org/abs/2203.02155&#34;&gt;Training language models to follow instructions with human feedback&lt;/a&gt;. Documents supervised fine-tuning and RLHF for InstructGPT.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;Lewis et al. (2020), &lt;a href=&#34;https://arxiv.org/abs/2005.11401&#34;&gt;Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks&lt;/a&gt;. A foundational paper combining retrieval with generation.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Anderljung et al. (2023), &lt;a href=&#34;https://arxiv.org/abs/2307.03718&#34;&gt;Frontier AI Regulation: Managing Emerging Risks to Public Safety&lt;/a&gt;. A risk-focused definition of frontier AI.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Google Cloud, &lt;a href=&#34;https://cloud.google.com/tpu/docs/intro-to-tpu&#34;&gt;Introduction to Cloud TPU&lt;/a&gt;. Explains TPUs and workload considerations for CPUs, GPUs and TPUs.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;Hugging Face Transformers, &lt;a href=&#34;https://huggingface.co/docs/transformers/quantization/overview&#34;&gt;Quantization overview&lt;/a&gt;. Describes reduced-precision storage and supported methods.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;Google AI Edge, &lt;a href=&#34;https://developers.google.com/edge/litert-lm/overview&#34;&gt;LiteRT-LM overview&lt;/a&gt;. Documents a runtime for on-device language models and supported accelerators.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;1-data-collection&#34;&gt;1. Data Collection&lt;/h3&gt;
-&lt;p&gt;This begins with massive data from various sources - books, articles, websites, code etc.&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;large-language-models&#34;&gt;Large Language Models&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Large Language Models (LLMs)&lt;/strong&gt; are artificial intelligence systems trained on massive amounts of text to understand, summarize, translate and generate human-like language.&lt;/p&gt;
-&lt;h2 id=&#34;how-do-they-work&#34;&gt;How do they work?&lt;/h2&gt;
-&lt;p&gt;LLMs&lt;/p&gt;
-&lt;h2 id=&#34;components-of-llms&#34;&gt;Components of LLMs&lt;/h2&gt;
-&lt;h3 id=&#34;transformers&#34;&gt;Transformers&lt;/h3&gt;
-&lt;p&gt;What are transformers&lt;/p&gt;
-&lt;h3 id=&#34;embedding&#34;&gt;Embedding&lt;/h3&gt;
-&lt;p&gt;What are they?&lt;/p&gt;
-&lt;h2 id=&#34;training-llms&#34;&gt;Training LLMs&lt;/h2&gt;
-&lt;p&gt;Training LLMs is a massive undertaking requiring lots of data, complex algorithms and hardware. The pipeline can be vusualized as:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Data collection&lt;/li&gt;
-&lt;li&gt;Data cleaning&lt;/li&gt;
-&lt;li&gt;Labelling (if applicable)&lt;/li&gt;
-&lt;li&gt;Tokenization&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;1-data-collection&#34;&gt;1. Data Collection&lt;/h3&gt;
-&lt;p&gt;This begins with massive data from various sources - books, articles, websites, code etc.&lt;/p&gt;
-&lt;h3 id=&#34;2-data-cleaning&#34;&gt;2. Data cleaning&lt;/h3&gt;
-&lt;p&gt;Cleaning of the data is done by data scientists to remove errors, duplication and undesirable content.&lt;/p&gt;
-&lt;h3 id=&#34;3-labelling&#34;&gt;3. Labelling&lt;/h3&gt;
-&lt;p&gt;The data is then paired with the desired outputs, target classifications or human preferences&lt;/p&gt;
-&lt;h3 id=&#34;4-tokenization&#34;&gt;4. Tokenization&lt;/h3&gt;
-&lt;p&gt;Text is then broken down into &lt;code&gt;tokens&lt;/code&gt; in a process called &lt;strong&gt;tokenization&lt;/strong&gt;.&lt;/p&gt;
-&lt;pre class=&#34;mermaid&#34;&gt;graph TD
-    A[Data Collection] --&amp;gt; B[Data Cleaning]
-    B --&amp;gt; C[Labelling&amp;lt;br/&amp;gt;&amp;lt;i&amp;gt;*Supervised Fine-Tuning*&amp;lt;/i&amp;gt;]
-    C --&amp;gt; D[Tokenization]
-    D --&amp;gt; E[Model Training]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#ff9,stroke:#333,stroke-width:2px
-    style D fill:#f99,stroke:#333,stroke-width:2px
-    style E fill:#9f9,stroke:#333,stroke-width:2px&lt;/pre&gt;
-&lt;h3 id=&#34;training-techniques&#34;&gt;Training techniques&lt;/h3&gt;
-&lt;h4 id=&#34;pre-training&#34;&gt;Pre-training&lt;/h4&gt;
-&lt;h4 id=&#34;fine-tuning&#34;&gt;Fine-tuning&lt;/h4&gt;
-&lt;h2 id=&#34;types-of-llms-and-examples&#34;&gt;Types of LLMs and Examples&lt;/h2&gt;
-&lt;h3 id=&#34;zero-shot-llms&#34;&gt;Zero-shot LLMs&lt;/h3&gt;
-&lt;h3 id=&#34;fine-tuned-llms&#34;&gt;Fine-tuned LLMs&lt;/h3&gt;
-&lt;h3 id=&#34;domain-specific-llms&#34;&gt;Domain-specific LLMs&lt;/h3&gt;
-&lt;h2 id=&#34;uses-of-llms&#34;&gt;Uses of LLMs&lt;/h2&gt;
-&lt;p&gt;What are LLMs?
-What types of LLMs exist? What differentiates them?
-What are features, parameters in a model?
-What is model training? What is fine tuning? What is the difference?
-What does it mean a model &amp;ldquo;predicts&amp;rdquo;
-Why is hardware important for running models? Why are GPUs expensive? What are the alternatives - TPUs?
-Why is running models locally challenging? Mobile models?
-What software is deisgned to interface with models?
-Why are some models called &amp;ldquo;frontier models&amp;rdquo;? What does it mean?&lt;/p&gt;
+&lt;/div&gt;
 </content>
     </item>
     
