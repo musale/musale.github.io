@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>AI agents, skills and the protocols between them :: Martin Musale</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="What agents do, how skills help them, and where A2A, MCP, AG-UI and ACP fit, with practical examples." />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms, Kubernetes, Go, Cloud Engineering" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://musale.github.io/ai/agents/" />
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQ48L99YHX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QQ48L99YHX');
+        }
+      </script>
+
+
+<link rel="stylesheet" href="https://musale.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://musale.github.io/assets/green.css">
+
+
+
+<link rel="stylesheet" href="https://musale.github.io/style.css">
+
+
+<link rel="apple-touch-icon" href="https://musale.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://musale.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://musale.github.io" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI agents, skills and the protocols between them">
+<meta property="og:description" content="What agents do, how skills help them, and where A2A, MCP, AG-UI and ACP fit, with practical examples." />
+<meta property="og:url" content="https://musale.github.io/ai/agents/" />
+<meta property="og:site_name" content="Martin Musale" />
+
+  
+    <meta property="og:image" content="https://musale.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2026-11-04 14:25:58 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Martin Musale (⌐▨_▨)
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cv">CV</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/thoughts">Thoughts?</a></li>
+        
+      
+        
+          <li><a href="/wishlist">Wishlist</a></li>
+        
+      
+        
+          <li><a href="/my-list">Bucket List</a></li>
+        
+      
+        
+          <li><a href="/ai">AI and Agents</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">Show more ▾</li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/contacts">Contacts</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cv">CV</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/thoughts">Thoughts?</a></li>
+      
+    
+      
+        <li><a href="/wishlist">Wishlist</a></li>
+      
+    
+      
+        <li><a href="/my-list">Bucket List</a></li>
+      
+    
+      
+        <li><a href="/ai">AI and Agents</a></li>
+      
+    
+      
+        <li><a href="/contacts">Contacts</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://musale.github.io/ai/agents/">AI agents, skills and the protocols between them</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        Nov 4, 2026
+        
+          [Updated On: Nov 4, 2026]
+        
+      </span>
+    
+    
+    
+      <span class="post-reading-time">:: 15 min read (2986 words)</span>
+    
+  </div>
+
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        
+          Table of Contents
+        
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-an-ai-agent">What is an AI agent?</a>
+      <ul>
+        <li><a href="#when-should-i-use-one">When should I use one?</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-a-skill">What is a skill?</a>
+      <ul>
+        <li><a href="#agent-versus-skill">Agent versus skill</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-mcp">What is MCP?</a>
+      <ul>
+        <li><a href="#is-mcp-itself-an-agent">Is MCP itself an agent?</a></li>
+        <li><a href="#a-small-mcp-server">A small MCP server</a></li>
+        <li><a href="#watch-the-protocol-version">Watch the protocol version</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-agent2agent">What is Agent2Agent?</a>
+      <ul>
+        <li><a href="#what-travels-between-them">What travels between them?</a></li>
+        <li><a href="#how-would-i-make-an-a2a-request">How would I make an A2A request?</a></li>
+        <li><a href="#how-is-a2a-different-from-mcp">How is A2A different from MCP?</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-other-protocols-should-i-know">What other protocols should I know?</a>
+      <ul>
+        <li><a href="#ag-ui-an-agent-talking-to-an-application-ui">AG-UI: an agent talking to an application UI</a></li>
+        <li><a href="#acp-check-which-one-somebody-means">ACP: check which one somebody means</a></li>
+      </ul>
+    </li>
+    <li><a href="#permissions-matter-more-than-the-protocol-name">Permissions matter more than the protocol name</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <p>An assistant that explains a failing test and an assistant that investigates the failure are doing different jobs. The first can answer from the information in a prompt. The second needs to inspect files, run a test, read the result and decide what to try next.</p>
+<p>That second case is where agents become useful. But the vocabulary around them gets confusing quickly. An agent, a skill and an MCP server can all appear in the same application without being the same thing.</p>
+<p>I find it easier to follow one example: a coding assistant investigating a failing Go build. We can add each piece when the problem needs it.</p>
+<p>If the model terminology is unfamiliar, <a href="/ai/gen-ai/">Generative AI: how it works and when to use it</a> explains the model underneath the application.</p>
+<h2 id="what-is-an-ai-agent">What is an AI agent?<a href="#what-is-an-ai-agent" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>In this article, an <em>AI agent</em> means an application that uses a language model to choose actions toward a goal, observes what happens and decides what to do next. This is the current LLM-based use of the term; agents are a broader idea in AI.</p>
+<p>The application provides the tools, state and permission checks. The model helps choose the next action. The agent might inspect a file, run a command, ask a person for clarification or stop with an answer. It does not need a separate model trained specifically for that job.</p>
+<p>Anthropic&rsquo;s <em>Building effective agents</em> makes a useful distinction: a workflow follows predefined code paths, while an agent lets the model direct the process and tool use.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Compare these approaches:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Approach</th>
+					<th>Investigating a Go build</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>One model call</td>
+					<td>Explain an error message pasted into a chat.</td>
+			</tr>
+			<tr>
+					<td>Fixed workflow</td>
+					<td>Fetch the build log, extract failed tests and generate a report in that order.</td>
+			</tr>
+			<tr>
+					<td>Agent</td>
+					<td>Inspect the log, choose relevant files, run a focused test and adapt the investigation to its result.</td>
+			</tr>
+	</tbody>
+</table>
+<p>Calling a tool once does not automatically make a system an agent. The useful question is how much control the model has over the next step.</p>
+<pre class="mermaid">flowchart TD
+    A[&#34;Goal: investigate a failing Go build&#34;] --&gt; B[&#34;Model proposes the next action&#34;]
+    B --&gt; C{&#34;Application permits it?&#34;}
+    C --&gt;|No| D[&#34;Ask for approval or stop&#34;]
+    C --&gt;|Yes| E[&#34;Run the tool&#34;]
+    E --&gt; F[&#34;Add the observed result to task state&#34;]
+    F --&gt; G{&#34;Finished, blocked or over budget?&#34;}
+    G --&gt;|No| B
+    G --&gt;|Yes| H[&#34;Return findings and evidence&#34;]</pre>
+<p>The loop needs an exit. A practical agent has limits on elapsed time, tool calls and spending. It should also know when to ask for help. Repeating the same failed command ten times is activity, not progress.</p>
+<h3 id="when-should-i-use-one">When should I use one?<a href="#when-should-i-use-one" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Use an agent when the path depends on information discovered during execution. Debugging is a good example: a compiler error, a flaky integration test and a missing environment variable need different investigations.</p>
+<p>Other examples include researching a question across several sources or handling a support request that may require follow-up questions. You still need a way to judge whether the result is acceptable.</p>
+<p>If the steps are already known, start with ordinary code or a fixed workflow. A script that runs <code>go test ./...</code> and reports the exit code does not need a model. Agents add cost, latency and additional ways to fail.<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h2 id="what-is-a-skill">What is a skill?<a href="#what-is-a-skill" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A <em>skill</em> packages instructions and supporting material for an agent to use on a particular kind of task. It might contain a review checklist, a report template or a script.</p>
+<p>Under the open Agent Skills format, a skill is a directory containing a <code>SKILL.md</code> file. That file has metadata, including a name and description, followed by instructions. Optional directories can hold scripts, references and assets.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>For our build investigation, a small skill could look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ci-triage/
+</span></span><span style="display:flex;"><span>  SKILL.md
+</span></span><span style="display:flex;"><span>  references/
+</span></span><span style="display:flex;"><span>    build-environments.md
+</span></span></code></pre></div><p>The contents of <code>ci-triage/SKILL.md</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">ci-triage</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Investigate failed Go CI builds. Use when a build fails or a user asks why tests failed.</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Investigate a failed build
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">1.</span> Read the failed job&#39;s log before changing code.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">2.</span> Separate compiler errors, test failures and infrastructure failures.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">3.</span> Run the smallest relevant test when the environment permits it.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">4.</span> Report the failing command, evidence and proposed correction.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">5.</span> Ask before changing credentials, deployment settings or production data.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>See references/build-environments.md for environment-specific setup.
+</span></span></code></pre></div><p>An agent host can load the name and description first, then read the instructions when the task needs them. This is called <em>progressive disclosure</em>. It avoids putting every available manual into every model request.<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>The installation directory and activation behavior depend on the host. A valid skill folder does not mean every AI application will discover it automatically.</p>
+<h3 id="agent-versus-skill">Agent versus skill<a href="#agent-versus-skill" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The agent runs the investigation. The skill tells it how to investigate consistently.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Question</th>
+					<th>Agent</th>
+					<th>Skill</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>What is it?</td>
+					<td>A running system that chooses and performs actions.</td>
+					<td>A package of task instructions and optional supporting files.</td>
+			</tr>
+			<tr>
+					<td>Does it run independently?</td>
+					<td>It can operate within its configured boundaries.</td>
+					<td>The host or agent must load and use it.</td>
+			</tr>
+			<tr>
+					<td>Does it change model weights?</td>
+					<td>Running an agent does not normally retrain its model.</td>
+					<td>Loading instructions does not retrain the model either.</td>
+			</tr>
+			<tr>
+					<td>Example</td>
+					<td>A coding agent investigates a failed build.</td>
+					<td>A CI triage checklist guides that investigation.</td>
+			</tr>
+	</tbody>
+</table>
+<p>Use a skill when one agent needs repeatable procedures or domain knowledge. Use a separate agent when you need an independently running worker, perhaps with a different context, permissions or service owner. A skill alone does not provide that isolation.</p>
+<p>Several agents can share a skill. One agent can use several skills. Creating a new agent for every checklist usually adds more coordination than the task needs.</p>
+<p>A skill can also contain executable code. Read it before installing it, just as you would inspect an unfamiliar developer tool. Instructions such as &ldquo;ask before deploying&rdquo; help guide behavior, but the application must enforce permissions outside the prompt.</p>
+<h2 id="what-is-mcp">What is MCP?<a href="#what-is-mcp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The <em>Model Context Protocol</em> is a standard way for an AI application to access capabilities and context exposed by other software. It follows a host, client and server architecture.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>The <em>host</em> is the application the user works with. It manages MCP clients, permissions and model interaction. An MCP <em>server</em> exposes capabilities, which can include:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Primitive</th>
+					<th>Example</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Tools</td>
+					<td>Fetch a build log or look up a pull request.</td>
+			</tr>
+			<tr>
+					<td>Resources</td>
+					<td>Read a document or another addressable source of context.</td>
+			</tr>
+			<tr>
+					<td>Prompts</td>
+					<td>Obtain a reusable prompt template that the host can present to a user.</td>
+			</tr>
+	</tbody>
+</table>
+<p>The protocol defines how these things are described and exchanged. The server still needs code that talks to the actual build system, database or API.</p>
+<p>For example, a hypothetical CI server could expose <code>get_build_log</code>. The host discovers its input schema using <code>tools/list</code>. The model proposes a call with a repository and build ID, the host applies its permission policy, and the MCP client sends <code>tools/call</code>. The application then supplies the result to the model.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>MCP saves each compatible host from needing a completely different integration for that same server. It does not make the underlying API unnecessary.</p>
+<h3 id="is-mcp-itself-an-agent">Is MCP itself an agent?<a href="#is-mcp-itself-an-agent" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>No. An MCP server can be ordinary software with no model, memory or planning loop.</p>
+<p>A server that multiplies two integers is still a valid MCP server. A chat application or a fixed workflow can use it without running an autonomous agent. MCP is useful in agentic applications, but the protocol does not create autonomy.</p>
+<p>The distinction is about the job each component performs, not an absolute restriction. An MCP tool could itself call an agent. What MCP exposes to its caller is a capability interface.</p>
+<h3 id="a-small-mcp-server">A small MCP server<a href="#a-small-mcp-server" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>This example uses version 2 of the official Python SDK and requires Python 3.11 or later. Save it as <code>server.py</code>:<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> mcp.server <span style="color:#f92672">import</span> MCPServer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mcp <span style="color:#f92672">=</span> MCPServer(<span style="color:#e6db74">&#34;Arithmetic&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@mcp.tool</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Multiply two integers.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span></code></pre></div><p>With <a href="https://docs.astral.sh/uv/">uv</a> installed, open it in the MCP Inspector:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>uv run --python 3.11 --with <span style="color:#e6db74">&#39;mcp[cli]&gt;=2,&lt;3&#39;</span> mcp dev server.py
+</span></span></code></pre></div><p>The Inspector also needs Node.js and npm. It lets you discover the tool and call <code>multiply</code> with <code>{&quot;a&quot;: 7, &quot;b&quot;: 8}</code>. The result should be <code>56</code>. The SDK handles the protocol messages and derives the input schema from the function&rsquo;s type hints.</p>
+<p>This is a local learning example, not a production deployment. A separate hands-on article would be a better place to build a useful server, connect a real host and test failures. That tutorial should cover scoped credentials, input validation, timeouts and deployment rather than stopping at a successful tool call.</p>
+<h3 id="watch-the-protocol-version">Watch the protocol version<a href="#watch-the-protocol-version" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>MCP&rsquo;s <code>2026-07-28</code> revision uses self-contained requests with protocol metadata and client capabilities on each request. Earlier revisions used an <code>initialize</code> handshake and connection-scoped state. The standard transports include stdio for local subprocesses and Streamable HTTP for network services.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<p>Older tutorials that import <code>FastMCP</code> describe the official Python SDK&rsquo;s earlier API. SDK version 2 calls that class <code>MCPServer</code> and supports the newer protocol. Check the SDK and protocol revisions together rather than mixing examples.<sup id="fnref1:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<h2 id="what-is-agent2agent">What is Agent2Agent?<a href="#what-is-agent2agent" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><em>Agent2Agent</em>, usually shortened to <em>A2A</em>, is a protocol for communication between independently implemented agent services. It defines descriptions, messages, tasks and outputs so that agents built with different frameworks can collaborate.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></p>
+<p>Suppose a coding assistant can edit a repository, but another team owns the service that investigates CI failures. The assistant can delegate:</p>
+<blockquote>
+<p>Investigate build 42 for <code>example/web</code>. Return the failing job, supporting evidence and suggested next steps. Do not modify the repository.</p>
+</blockquote>
+<p>The CI agent chooses how to investigate. The requesting agent does not need access to its implementation, model prompts or private tools.</p>
+<p>You can have agents collaborate without A2A. A function call, queue or existing API may be enough, especially within one application. A2A becomes useful when independently maintained services need a shared contract.</p>
+<h3 id="what-travels-between-them">What travels between them?<a href="#what-travels-between-them" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>An <em>Agent Card</em> describes the remote service: its identity, interfaces, capabilities, advertised skills and authentication requirements. One discovery convention serves this JSON document at <code>/.well-known/agent-card.json</code>. Private configuration and registries are other options.<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></p>
+<p>There is a naming trap here. The <code>skills</code> advertised in an A2A Agent Card describe capabilities such as &ldquo;investigate CI failures&rdquo;. They are not necessarily Agent Skills folders containing <code>SKILL.md</code>.</p>
+<p>A <em>message</em> carries content between the client and remote agent. A <em>task</em> tracks work that needs a lifecycle. An <em>artifact</em> is an output, such as a report. A simple request can return a direct message instead of creating a task.<sup id="fnref1:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></p>
+<pre class="mermaid">sequenceDiagram
+    participant User
+    participant Coding as Coding agent
+    participant CI as CI investigation agent
+    User-&gt;&gt;Coding: Investigate the failed build
+    Coding-&gt;&gt;CI: Discover Agent Card and authenticate
+    Coding-&gt;&gt;CI: Send investigation request
+    CI--&gt;&gt;Coding: Task is working
+    opt More information needed
+        CI--&gt;&gt;Coding: Task needs input
+        Coding-&gt;&gt;User: Which build environment?
+        User--&gt;&gt;Coding: Staging
+        Coding-&gt;&gt;CI: Continue with staging context
+    end
+    CI--&gt;&gt;Coding: Completed task with report artifact
+    Coding--&gt;&gt;User: Findings with evidence</pre>
+<p>The diagram shows a task with progress updates. A client can use the supported streaming mechanism or retrieve task status; it should not assume every server supports every optional feature.</p>
+<h3 id="how-would-i-make-an-a2a-request">How would I make an A2A request?<a href="#how-would-i-make-an-a2a-request" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Pick a protocol version and an SDK or binding that supports it. Implement the remote worker, expose its Agent Card, define input and output contracts, and give the caller a way to authenticate.</p>
+<p>The following is a wire-level example using A2A 1.0&rsquo;s HTTP+JSON binding. It assumes you already have a compatible local server at port 9001 that advertises the investigation capability and does not require authentication. These commands do not start an agent:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --fail --silent --show-error <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#39;A2A-Version: 1.0&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  http://localhost:9001/.well-known/agent-card.json
+</span></span></code></pre></div><p>Read the card and use its advertised service URL and binding. If that service URL is <code>http://localhost:9001</code>, the request could be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --fail --silent --show-error <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#39;A2A-Version: 1.0&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#39;Content-Type: application/a2a+json&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;message&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;messageId&#34;: &#34;ci-investigation-42&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;role&#34;: &#34;ROLE_USER&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;parts&#34;: [{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;text&#34;: &#34;Investigate build 42 for example/web. Return evidence. Do not modify files.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  http://localhost:9001/message:send
+</span></span></code></pre></div><p>The remote service may return a message or a task. A task may need more input, fail, be canceled or complete with artifacts. Handle those states explicitly. Do not treat every HTTP 200 response as a completed investigation.</p>
+<p>A2A also defines JSON-RPC and gRPC bindings. Their request shapes differ. Older examples using JSON-RPC <code>message/send</code> should not be pasted into this HTTP+JSON example; the A2A 1.0 JSON-RPC method is <code>SendMessage</code>.<sup id="fnref2:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></p>
+<p>For a complete server and client, start with the project&rsquo;s <a href="https://a2a-protocol.org/latest/tutorials/python/1-introduction/">Python quickstart</a> or its <a href="https://github.com/a2aproject/a2a-samples/tree/main/demo">multi-agent example</a>. Check the version each sample targets before running it.</p>
+<h3 id="how-is-a2a-different-from-mcp">How is A2A different from MCP?<a href="#how-is-a2a-different-from-mcp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>MCP</th>
+					<th>A2A</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Main purpose</td>
+					<td>Expose tools, resources and prompt templates to a host.</td>
+					<td>Exchange messages and delegate work to an independent agent service.</td>
+			</tr>
+			<tr>
+					<td>Typical request</td>
+					<td>&ldquo;Fetch the log for build 42.&rdquo;</td>
+					<td>&ldquo;Investigate why build 42 failed.&rdquo;</td>
+			</tr>
+			<tr>
+					<td>Who decides the internal steps?</td>
+					<td>The caller orchestrates use of exposed capabilities.</td>
+					<td>The remote agent controls how it carries out the delegated work.</td>
+			</tr>
+			<tr>
+					<td>Can they work together?</td>
+					<td>An agent can use MCP tools while doing a task.</td>
+					<td>That agent can expose its task interface through A2A.</td>
+			</tr>
+	</tbody>
+</table>
+<p>This is a distinction in purpose, not a claim that MCP can only handle quick functions or that A2A guarantees intelligent behavior.</p>
+<p>In our example, the coding agent delegates the investigation through A2A. The CI agent then uses an MCP server to retrieve logs. Neither protocol requires the agents to use the same model.</p>
+<h2 id="what-other-protocols-should-i-know">What other protocols should I know?<a href="#what-other-protocols-should-i-know" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>There is no single replacement for MCP. Other protocols often connect different parts of an application.</p>
+<h3 id="ag-ui-an-agent-talking-to-an-application-ui">AG-UI: an agent talking to an application UI<a href="#ag-ui-an-agent-talking-to-an-application-ui" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The <em>Agent-User Interaction protocol</em> defines events exchanged between an agent backend and a user-facing application. It covers things such as run lifecycle, streamed text, tool activity and shared state.<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></p>
+<p>While the CI investigation runs, a browser could receive <code>RUN_STARTED</code>, text message events and finally <code>RUN_FINISHED</code>. It can update the page as events arrive instead of waiting for one finished paragraph. A failed run emits <code>RUN_ERROR</code>.</p>
+<p>For example, these are the contents of a small text-event sequence, not a complete transport response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;RUN_STARTED&#34;</span>, <span style="color:#f92672">&#34;threadId&#34;</span>: <span style="color:#e6db74">&#34;thread-1&#34;</span>, <span style="color:#f92672">&#34;runId&#34;</span>: <span style="color:#e6db74">&#34;run-1&#34;</span>},
+</span></span><span style="display:flex;"><span>  {<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;TEXT_MESSAGE_START&#34;</span>, <span style="color:#f92672">&#34;messageId&#34;</span>: <span style="color:#e6db74">&#34;msg-1&#34;</span>, <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;assistant&#34;</span>},
+</span></span><span style="display:flex;"><span>  {<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;TEXT_MESSAGE_CONTENT&#34;</span>, <span style="color:#f92672">&#34;messageId&#34;</span>: <span style="color:#e6db74">&#34;msg-1&#34;</span>, <span style="color:#f92672">&#34;delta&#34;</span>: <span style="color:#e6db74">&#34;Build 42 failed in the integration tests.&#34;</span>},
+</span></span><span style="display:flex;"><span>  {<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;TEXT_MESSAGE_END&#34;</span>, <span style="color:#f92672">&#34;messageId&#34;</span>: <span style="color:#e6db74">&#34;msg-1&#34;</span>},
+</span></span><span style="display:flex;"><span>  {<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;RUN_FINISHED&#34;</span>, <span style="color:#f92672">&#34;threadId&#34;</span>: <span style="color:#e6db74">&#34;thread-1&#34;</span>, <span style="color:#f92672">&#34;runId&#34;</span>: <span style="color:#e6db74">&#34;run-1&#34;</span>}
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>AG-UI does not replace MCP tool access or A2A delegation. An application can use all of them:</p>
+<pre class="mermaid">flowchart TD
+    UI[&#34;Application UI&#34;] &lt;--&gt;|&#34;AG-UI events and input&#34;| A[&#34;Coding agent&#34;]
+    S[&#34;CI triage skill&#34;] -.-&gt;|&#34;Instructions loaded when needed&#34;| A
+    A &lt;--&gt;|&#34;A2A messages and tasks&#34;| B[&#34;CI investigation agent&#34;]
+    B &lt;--&gt;|&#34;MCP capability calls and results&#34;| C[&#34;MCP server&#34;]
+    C --&gt; D[&#34;Existing CI API and build logs&#34;]</pre>
+<p>You do not need this entire stack to investigate a build. The diagram shows where the parts fit when separate services and a live UI are justified.</p>
+<h3 id="acp-check-which-one-somebody-means">ACP: check which one somebody means<a href="#acp-check-which-one-somebody-means" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The name <em>ACP</em> has been used for two different protocols.</p>
+<p>The <em>Agent Communication Protocol</em> associated with BeeAI addressed agent interoperability. Its project documentation now directs users to A2A following their merger. Treat older ACP tutorials in that context as migration material.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+<p>The <em>Agent Client Protocol</em> connects coding agents to editors and IDEs. It is a different project and has not become A2A. It is useful when an editor and a coding agent need a shared interface for sessions, messages, file access and permission requests.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
+<p>For example, an ACP-capable editor can ask a compatible coding agent to investigate a Go test failure and display its proposed edits. That agent could use MCP for external tools. A2A would only be needed if it also delegated to another agent service. Installing <code>gopls</code> does not provide this integration: LSP handles language features, while ACP handles interaction with a coding agent.</p>
+<h2 id="permissions-matter-more-than-the-protocol-name">Permissions matter more than the protocol name<a href="#permissions-matter-more-than-the-protocol-name" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>An agent can make an ordinary software mistake and can also follow malicious instructions hidden in material it reads. A build log, web page or tool result is evidence, not permission to change the task.</p>
+<p>The MCP security guidance discusses risks such as confused-deputy behavior and unsafe authorization. Supporting MCP does not automatically make a server trustworthy.<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup></p>
+<p>For the CI example, I would begin with read-only log access and a disposable checkout. Editing files, pushing a branch and deploying should be separate permissions. Authenticate remote services and enforce authorization for the particular repository and action. Use the documented authorization flow rather than passing a user&rsquo;s credentials indiscriminately between services.</p>
+<p>Set timeouts and retry limits. Keep an audit trail of tool calls and results without recording secrets. Treat cancellation and duplicate delivery as normal distributed-system problems; do not assume retrying an agent task is harmless.</p>
+<p>Then evaluate the whole application. Give it known compiler errors, misleading logs, unavailable services and tasks that require clarification. Check whether it finds the right evidence, respects its boundaries and stops when it cannot proceed. A convincing final explanation is only one part of a successful run.</p>
+<p>For a small project, one agent, a clear skill and a few restricted tools are often enough. Add a protocol when there is an actual integration boundary to cross.</p>
+<h2 id="references">References<a href="#references" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The protocol examples here target A2A 1.0 and MCP revision <code>2026-07-28</code>. SDK versions are separate from protocol versions.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Anthropic, <a href="https://www.anthropic.com/research/building-effective-agents">Building effective agents</a>. Explains the workflow/agent distinction, tool feedback loops and when simpler approaches are preferable.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://agentskills.io/specification">Agent Skills specification</a>. Defines <code>SKILL.md</code>, required metadata, optional supporting files and progressive disclosure.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://modelcontextprotocol.io/specification/2026-07-28/architecture">MCP architecture, revision 2026-07-28</a>. Describes host, client and server responsibilities.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://modelcontextprotocol.io/specification/2026-07-28/server/tools">MCP tools specification, revision 2026-07-28</a>. Defines discovery, schemas, invocation and user-control considerations.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>MCP Python SDK, <a href="https://py.sdk.modelcontextprotocol.io/get-started/">Get started</a> and <a href="https://py.sdk.modelcontextprotocol.io/whats-new/">What&rsquo;s new in v2</a>. Documents <code>MCPServer</code>, the development CLI and protocol changes.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/transports">MCP transports, revision 2026-07-28</a>. Covers stdio, Streamable HTTP, request metadata and compatibility with initialization-based versions.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>A2A project, <a href="https://a2a-protocol.org/v1.0.0/specification/">Protocol specification</a> and <a href="https://github.com/a2aproject/A2A/blob/v1.0.1/docs/specification.md">v1.0.1 specification source</a>. Covers tasks, messages, artifacts, bindings and version headers.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref2:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>A2A project, <a href="https://a2a-protocol.org/v1.0.0/topics/agent-discovery/">Agent discovery</a>. Explains Agent Cards, well-known URLs and other discovery options.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>AG-UI, <a href="https://docs.ag-ui.com/introduction">Overview</a> and <a href="https://docs.ag-ui.com/concepts/events">Events</a>. Defines the agent/frontend boundary and the event types used in the example.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p><a href="https://agentcommunicationprotocol.dev/introduction/welcome">Agent Communication Protocol documentation</a>. Announces its move into A2A.&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p><a href="https://agentclientprotocol.com/get-started/introduction">Agent Client Protocol introduction</a>. Describes editor/agent interoperability and local versus remote integration.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>MCP, <a href="https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices">Security best practices</a> and <a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization">Authorization</a>. Covers authorization boundaries and protocol-specific threats.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </div></div>
+
+  
+
+  
+
+
+
+
+
+
+<div id="welcomments__container" class="welcomments__container">
+  
+  
+
+  
+    <h3 id="welcomments__comment-count-title" class="welcomments__comments-title" style="color: rgba(120,226,160,.7);">No comments yet!</h3>
+  
+
+  <section id="welcomments__comment-container" class="welcomments__comment-container"></section><form id="welcomments__form" class="welcomments__comment-form" action="https://welcomments.io/api/comments" method="post">
+  <input type="hidden" name="website-id" id="website-id" value="v2DmPonO12A7QexZ1IvBnwWTV"/>
+  <input type="hidden" name="replying-to" id="replying-to"/>
+  <input type="hidden" name="permalink" id="permalink" value="https://musale.github.io/ai/agents/"/>
+  <input type="hidden" name="page-slug" id="page-slug" value="agents"/>
+  <div class="welcomments__form-group">
+    <textarea rows="10" name="message" id="message" required spellcheck="true" placeholder="Type here..."></textarea>
+    <p class="welcomments__markdown-notice"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">GitHub-flavored Markdown</a> & a sane subset of HTML is supported.</p>
+  </div>
+  <div class="welcomments__form-group">
+    <label for="author-name">Name</label>
+    <input type="text" id="author-name" name="author-name" required spellcheck="false" placeholder="Your name"/>
+  </div>
+  <div class="welcomments__form-group welcomments__flex">
+    <div class="welcomments__column-left">
+      <label for="author-url">Website <span class="welcomments__optional-notice">(optional)</span></label>
+      <input type="url" id="author-url" name="author-url" placeholder="https://example.com"/>
+    </div>
+    <div class="welcomments__column-right">
+      <label for="author-email">Email <span class="welcomments__optional-notice">(optional)</span></label>
+      <input type="email" id="author-email" name="author-email" placeholder="johndoe@example.com"/>
+    </div>
+  </div>
+  <p class="welcomments__email-notice">Fill in your email address if you want to get notified when someone replies to your comment. Your email address is safely stored with strong 256-bit AES encryption. You can unsubscribe from notification emails any time by following a link on the bottom of a reply notification email.</p>
+  <button type="submit" class="welcomments__submit-button" id="welcomments__submit-button">Send comment</button>
+</form>
+
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.welcomments.io/welcomments.css" />
+
+
+<script defer id="welcomments__script" src="https://cdn.welcomments.io/welcomments.js" type="text/javascript"></script>
+<script type="text/javascript">
+  welcomments = {
+    apiUrl: "https://welcomments.io/api",
+
+    
+    
+    
+    commentCountTitleFactory: function (commentCount) {
+      if (commentCount === 0) {
+        return "No comments yet!";
+      }
+
+      return commentCount === 1 ? "One comment" : `${commentCount} comments`;
+    },
+
+    
+    
+    
+    
+    placeholderCommentFactory: function (comment) {
+      var year = new Intl.DateTimeFormat("en", {year: "numeric"}).format(comment.date);
+      var month = new Intl.DateTimeFormat("en", {month: "long"}).format(comment.date);
+      var day = new Intl.DateTimeFormat("en", {day: "2-digit"}).format(comment.date);
+      var avatarUrl = comment.author.avatar_url ||
+        "https://eu.ui-avatars.com/api/?background=random&name=" + comment.author.name;
+
+
+      return `\u003carticle\n  id=\u0022welcomments__comment-\u0024\u007bcomment.id\u007d\u0022\n  class=\u0022welcomments__comment\u0022\n  data-comment-id=\u0022\u0024\u007bcomment.id\u007d\u0022\n  data-author-name=\u0022\u0024\u007bcomment.author.name\u007d\u0022\n  data-nesting-level=\u00220\u0022\n  itemprop=\u0022comment\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Comment\u0022\u003e\n  \u003cdiv class=\u0022welcomments__comment-header\u0022\u003e\n    \u003cdiv class=\u0022welcomments__author-avatar\u0022\u003e\n      \u003cimg class=\u0022welcomments__author-avatar-img\u0022 src=\u0022\u0024\u007bavatarUrl\u007d\u0022 alt=\u0022\u0024\u007bcomment.author.name\u007d\u0022\/\u003e\n    \u003c\/div\u003e\n    \u003cdiv class=\u0022welcomments__author-information\u0022\u003e\n      \u003cdiv class=\u0022welcomments__author-name-and-time\u0022\u003e\n        \u003ch3 class=\u0022welcomments__author-name\u0022 itemprop=\u0022author\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Person\u0022\u003e\n          \u003cspan itemprop=\u0022name\u0022\u003e\u0024\u007bcomment.author.name\u007d\u003c\/span\u003e\n        \u003c\/h3\u003e\n        \u003cp class=\u0022welcomments__comment-time\u0022\u003e\n          \u003ca href=\u0022#welcomments__comment-\u0024\u007bcomment.id\u007d\u0022 itemprop=\u0022url\u0022\u003e\n            \u003ctime datetime=\u0022\u0024\u007bcomment.date\u007d\u0022 itemprop=\u0022datePublished\u0022\u003e\n              \u0024\u007bmonth\u007d \u0024\u007bday\u007d, \u0024\u007byear\u007d\n            \u003c\/time\u003e\n          \u003c\/a\u003e\n        \u003c\/p\u003e\n      \u003c\/div\u003e\n    \u003c\/div\u003e\n  \u003c\/div\u003e\n  \u003cdiv itemprop=\u0022text\u0022 class=\u0022welcomments__comment-message\u0022\u003e\u0024\u007bcomment.message\u007d\u003c\/div\u003e\n  \u003ca class=\u0022welcomments__comment-reply-link\u0022\n     href=\u0022https:\/\/welcomments.io\/api\/websites\/v2DmPonO12A7QexZ1IvBnwWTV\/comments\/\u0024\u007bcomment.id\u007d\/reply\u0022\u003e\n    Reply to \u0024\u007bcomment.author.name\u007d\n  \u003c\/a\u003e\n\u003c\/article\u003e\n`;
+    },
+  };
+</script>
+
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>© 2026 Martin Musale</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://musale.github.io/assets/main.js"></script>
+<script src="https://musale.github.io/assets/prism.js"></script>
+
+
+
+
+<style>
+  .mermaid {
+    overflow-x: auto;
+  }
+
+  .mermaid svg {
+    display: block;
+    margin-inline: auto;
+  }
+</style>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.esm.min.mjs";
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    fontFamily: '"Fira Code", Monaco, Consolas, monospace',
+    themeVariables: {
+      fontSize: "11pt"
+    },
+    securityLevel: "strict"
+  });
+</script>
+
+  
+</div>
+
+</body>
+</html>

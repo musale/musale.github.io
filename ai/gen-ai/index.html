@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Generative AI: how it works and when to use it :: Martin Musale</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How generative AI learns and produces content, what changed with modern models, and when simpler software is a better choice." />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms, Kubernetes, Go, Cloud Engineering" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://musale.github.io/ai/gen-ai/" />
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQ48L99YHX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QQ48L99YHX');
+        }
+      </script>
+
+
+<link rel="stylesheet" href="https://musale.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://musale.github.io/assets/green.css">
+
+
+
+<link rel="stylesheet" href="https://musale.github.io/style.css">
+
+
+<link rel="apple-touch-icon" href="https://musale.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://musale.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://musale.github.io" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Generative AI: how it works and when to use it">
+<meta property="og:description" content="How generative AI learns and produces content, what changed with modern models, and when simpler software is a better choice." />
+<meta property="og:url" content="https://musale.github.io/ai/gen-ai/" />
+<meta property="og:site_name" content="Martin Musale" />
+
+  
+    <meta property="og:image" content="https://musale.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2026-11-04 14:25:58 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Martin Musale (⌐▨_▨)
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cv">CV</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/thoughts">Thoughts?</a></li>
+        
+      
+        
+          <li><a href="/wishlist">Wishlist</a></li>
+        
+      
+        
+          <li><a href="/my-list">Bucket List</a></li>
+        
+      
+        
+          <li><a href="/ai">AI and Agents</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">Show more ▾</li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/contacts">Contacts</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cv">CV</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/thoughts">Thoughts?</a></li>
+      
+    
+      
+        <li><a href="/wishlist">Wishlist</a></li>
+      
+    
+      
+        <li><a href="/my-list">Bucket List</a></li>
+      
+    
+      
+        <li><a href="/ai">AI and Agents</a></li>
+      
+    
+      
+        <li><a href="/contacts">Contacts</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://musale.github.io/ai/gen-ai/">Generative AI: how it works and when to use it</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        Nov 4, 2026
+        
+          [Updated On: Nov 4, 2026]
+        
+      </span>
+    
+    
+    
+      <span class="post-reading-time">:: 13 min read (2649 words)</span>
+    
+  </div>
+
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        
+          Table of Contents
+        
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-does-generative-mean">What does &ldquo;generative&rdquo; mean?</a>
+      <ul>
+        <li><a href="#ai-machine-learning-llms-and-agents">AI, machine learning, LLMs and agents</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-does-a-generative-model-come-to-exist">How does a generative model come to exist?</a>
+      <ul>
+        <li><a href="#text-learn-to-predict-the-next-token">Text: learn to predict the next token</a></li>
+        <li><a href="#images-learn-to-remove-noise">Images: learn to remove noise</a></li>
+        <li><a href="#what-do-instruction-tuning-and-rlhf-add">What do instruction tuning and RLHF add?</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-new-about-it">What is new about it?</a></li>
+    <li><a href="#what-is-the-alternative">What is the alternative?</a></li>
+    <li><a href="#prompting-retrieval-and-fine-tuning-solve-different-problems">Prompting, retrieval and fine-tuning solve different problems</a></li>
+    <li><a href="#what-should-i-watch-out-for">What should I watch out for?</a>
+      <ul>
+        <li><a href="#fluent-errors">Fluent errors</a></li>
+        <li><a href="#privacy-retention-and-rights">Privacy, retention and rights</a></li>
+        <li><a href="#untrusted-input-and-real-actions">Untrusted input and real actions</a></li>
+        <li><a href="#cost-latency-and-deployment-choices">Cost, latency and deployment choices</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-do-i-know-whether-it-works-for-my-task">How do I know whether it works for my task?</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <p>A spam filter decides whether an email belongs in the spam folder. A generative model can draft a reply to that email. Both can use machine learning, but they produce different kinds of results.</p>
+<p><em>Generative AI</em> refers to systems that use learned patterns to produce content such as text, code, images, audio or video. The model learns something about how data is structured, then uses that learned structure to generate an output.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>That output can be useful without being correct. It can also resemble training material. &ldquo;Generated&rdquo; does not guarantee original, factual or safe to use.</p>
+<h2 id="what-does-generative-mean">What does &ldquo;generative&rdquo; mean?<a href="#what-does-generative-mean" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Think about photographs of cats. A classifier might learn enough to distinguish a cat from a dog. An image generator has a different task: produce an image that fits patterns associated with cats, perhaps conditioned on a request such as &ldquo;a ginger cat asleep on a blue chair&rdquo;.</p>
+<p>The classifier does not need to draw fur, lighting or a chair to make its decision. The generator needs a way to produce the image.</p>
+<p>In statistical terms, a generative model learns a distribution over data, possibly conditioned on inputs. A discriminative classifier learns how inputs relate to labels. The mathematics varies by model family, but the distinction explains why generating a convincing image is different from labeling one.<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>These are not mutually exclusive applications. A text generator can also classify an email by producing the word &ldquo;spam&rdquo;. A generative model can help solve a prediction task. The label describes its modeling approach, not a rule that forbids other uses.</p>
+<h3 id="ai-machine-learning-llms-and-agents">AI, machine learning, LLMs and agents<a href="#ai-machine-learning-llms-and-agents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>These terms describe different things:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Term</th>
+					<th>What it describes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Artificial intelligence</td>
+					<td>The broad field of building systems that perform tasks associated with intelligence.</td>
+			</tr>
+			<tr>
+					<td>Machine learning</td>
+					<td>Methods that learn patterns or behavior from data rather than relying only on explicit rules.</td>
+			</tr>
+			<tr>
+					<td>Deep learning</td>
+					<td>Machine learning with multilayer neural networks. Most prominent current generative systems use it.</td>
+			</tr>
+			<tr>
+					<td>Generative AI</td>
+					<td>Systems that use learned models to produce content. Generative modeling also predates today&rsquo;s deep networks.</td>
+			</tr>
+			<tr>
+					<td>Large language model</td>
+					<td>A large model trained on language-related data. Many current LLMs generate text and code.</td>
+			</tr>
+			<tr>
+					<td>AI agent</td>
+					<td>An application that selects and performs actions toward a goal, often using an LLM.</td>
+			</tr>
+	</tbody>
+</table>
+<p>A <em>multimodal</em> model handles more than one type of input or output, such as text and images. Check the actual capabilities: accepting an image does not mean a model can generate one.</p>
+<p>A model that writes an explanation does not automatically inspect your repository or execute commands. An application has to provide those capabilities. <a href="/ai/agents/">AI agents, skills and the protocols between them</a> covers that application layer.</p>
+<h2 id="how-does-a-generative-model-come-to-exist">How does a generative model come to exist?<a href="#how-does-a-generative-model-come-to-exist" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Someone chooses a model architecture, prepares data and trains the model on an objective. Training changes numerical parameters so the model performs better at that objective.</p>
+<p>The broad lifecycle looks like this:</p>
+<pre class="mermaid">flowchart TD
+    A[&#34;Choose a task, data sources and permitted uses&#34;] --&gt; B[&#34;Prepare and filter training data&#34;]
+    B --&gt; C[&#34;Train the base model&#34;]
+    C --&gt; D[&#34;Optional task or instruction training&#34;]
+    D --&gt; E[&#34;Evaluate quality, safety and limitations&#34;]
+    E --&gt; F[&#34;Deploy through an application or API&#34;]
+    F --&gt; G[&#34;Monitor outcomes and evaluate changes&#34;]
+    G --&gt; E</pre>
+<p>Filtering can remove some duplicates, low-quality examples and sensitive information. It cannot certify that everything left is accurate or appropriate. Decide whether the data sources and licenses permit the intended use before training begins.</p>
+<p>There is no single training recipe for every generative model. Two examples make that easier to see.</p>
+<h3 id="text-learn-to-predict-the-next-token">Text: learn to predict the next token<a href="#text-learn-to-predict-the-next-token" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Many text-generating LLMs learn by predicting the next <em>token</em>, which is a piece of text determined by a tokenizer. A token can be a word, part of a word or punctuation.</p>
+<p>During training, a passage supplies both the context and the target. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Context: The capital of Kenya is
+</span></span><span style="display:flex;"><span>Target: Nairobi
+</span></span></code></pre></div><p>The actual tokenizer may split &ldquo;Nairobi&rdquo; into several tokens. The model predicts a distribution, a loss function measures how its prediction compares with the training target, and an optimizer adjusts the parameters. This happens across many examples.</p>
+<p>This is <em>self-supervised learning</em>: the text supplies the prediction targets. It does not mean the entire system develops without human choices or human-generated data.</p>
+<p>At inference time, the application gives the trained model a prompt. The model calculates next-token probabilities, a decoding method selects a token, and the process repeats. Parameters normally remain fixed during this process. The GPT-3 paper is one documented example of an autoregressive language model used for many tasks through prompting.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>When decoding samples from those probabilities, the same prompt can produce different answers. Temperature changes how concentrated the sampling distribution is. That affects variation, not whether the answer is factual.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<pre class="mermaid">flowchart TD
+    A[&#34;Prompt and available context&#34;] --&gt; B[&#34;Calculate next-token probabilities&#34;]
+    B --&gt; C[&#34;Select a token&#34;]
+    C --&gt; D[&#34;Append it to the sequence&#34;]
+    D --&gt; E{&#34;Stop condition reached?&#34;}
+    E --&gt;|No| B
+    E --&gt;|Yes| F[&#34;Return the generated text&#34;]</pre>
+<p>This explains both the flexibility and a major limitation. Training text contains code, explanations and factual statements, so the model can learn patterns useful for producing them. But the probability of a continuation is not the probability that its claims are true.</p>
+<p>For more detail about tokenization, attention and hardware, see <a href="/ai/llms/">Large language models</a>.</p>
+<h3 id="images-learn-to-remove-noise">Images: learn to remove noise<a href="#images-learn-to-remove-noise" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Diffusion is another approach. In a simplified image diffusion setup, training adds controlled noise to an image and teaches a model to reverse that corruption. Generation starts with noise and repeatedly refines it toward a sample.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>Text-conditioned systems also use a representation of the prompt to guide this process. Some systems work in a compressed representation rather than directly on full-resolution pixels. Diffusion is a family of techniques, not a claim that every image generator follows the same steps.</p>
+<pre class="mermaid">flowchart LR
+    P[&#34;Text prompt&#34;] --&gt; C[&#34;Conditioning information&#34;]
+    N[&#34;Initial noise&#34;] --&gt; R[&#34;Repeated learned refinement&#34;]
+    C --&gt; R
+    R --&gt; I[&#34;Generated image&#34;]</pre>
+<p>The text example generates a sequence of tokens. This image example refines a noisy representation. Both are generative, but they do not have the same architecture or inference procedure.</p>
+<h3 id="what-do-instruction-tuning-and-rlhf-add">What do instruction tuning and RLHF add?<a href="#what-do-instruction-tuning-and-rlhf-add" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>A base language model trained to continue text is not necessarily good at answering a user&rsquo;s request. Further training can change that behavior.</p>
+<p><em>Supervised instruction tuning</em> uses examples of requests and desired responses. <em>Preference training</em> uses judgments about which outputs are better. Reinforcement learning from human feedback, or RLHF, is one approach; the InstructGPT paper describes a pipeline with demonstrations, preference judgments and reinforcement learning.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>Post-training can improve behavior, but it does not guarantee truthfulness. Nor does every model use RLHF. &ldquo;Instruction-tuned&rdquo; describes a training outcome or method, not proof that a model will reliably obey every instruction.</p>
+<p>A <em>foundation model</em> is broadly pretrained so it can be adapted to a range of tasks. The term describes that role, rather than one architecture. Not every generative model has that breadth.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<h2 id="what-is-new-about-it">What is new about it?<a href="#what-is-new-about-it" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Generative modeling did not begin with chatbots. Variational autoencoders were described in work first published in 2013, and generative adversarial networks followed in 2014.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup><sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></p>
+<table>
+	<thead>
+			<tr>
+					<th>Model family</th>
+					<th>Basic idea</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Autoregressive models</td>
+					<td>Generate a sequence by predicting its next element from preceding elements.</td>
+			</tr>
+			<tr>
+					<td>Variational autoencoders</td>
+					<td>Learn a probabilistic latent representation and a decoder that can generate samples.</td>
+			</tr>
+			<tr>
+					<td>Generative adversarial networks</td>
+					<td>Train a generator against a discriminator that tries to distinguish generated samples from training examples.</td>
+			</tr>
+			<tr>
+					<td>Diffusion models</td>
+					<td>Learn to reverse a corruption process and use that learned process to generate samples.</td>
+			</tr>
+	</tbody>
+</table>
+<p>This table is a map of common approaches, not a complete taxonomy. Architectures and techniques can be combined.</p>
+<p>Several developments made modern systems more broadly useful. The Transformer paper introduced an attention-based architecture with more parallelizable training than the recurrent models it compared against.<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> Later work such as GPT-3 demonstrated that a large pretrained model could perform varied tasks from instructions and examples in its input, without a separate parameter update for each task.<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Instruction tuning made those capabilities easier to access through conversation. More capable hardware, larger training runs and better serving software helped make the systems available through applications and APIs.</p>
+<p>The practical change is that one model can support many tasks through the same language interface. A developer can ask it to summarize an incident, suggest tests or rewrite a function without building a separate specialized model for each request.</p>
+<p>That flexibility is useful. It is also why a chatbot demo tells you less than you might expect about whether the same model will handle your production task reliably.</p>
+<h2 id="what-is-the-alternative">What is the alternative?<a href="#what-is-the-alternative" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The alternative depends on the job. &ldquo;Use AI&rdquo; is not a requirement unless the problem actually needs it.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Job</th>
+					<th>A reasonable starting point</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Calculate an invoice total</td>
+					<td>Ordinary code with explicit arithmetic and rounding rules.</td>
+			</tr>
+			<tr>
+					<td>Return an order&rsquo;s delivery status</td>
+					<td>A database query or API call.</td>
+			</tr>
+			<tr>
+					<td>Classify thousands of messages into known categories</td>
+					<td>A classifier, with comparison against an LLM baseline if useful.</td>
+			</tr>
+			<tr>
+					<td>Find an exact clause in a policy</td>
+					<td>Search and show the source passage.</td>
+			</tr>
+			<tr>
+					<td>Produce a standard notification</td>
+					<td>A template populated with verified fields.</td>
+			</tr>
+			<tr>
+					<td>Draft a custom explanation from several documents</td>
+					<td>A generative model with relevant source material and review.</td>
+			</tr>
+	</tbody>
+</table>
+<p>Traditional software can generate text too. A receipt template produces text, but that does not make it generative AI. The distinction is the learned model, not the mere existence of an output.</p>
+<p>Generative AI is a reasonable choice when you need flexible language or content generation and can check the result. It is a poor replacement for an authoritative database or a calculation you already know how to implement.</p>
+<p>Often the best application combines both. Fetch the actual order status using code, then let a model help explain it. Do not ask the model to invent the status.</p>
+<h2 id="prompting-retrieval-and-fine-tuning-solve-different-problems">Prompting, retrieval and fine-tuning solve different problems<a href="#prompting-retrieval-and-fine-tuning-solve-different-problems" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>These terms get mixed together, even though they change different parts of the system.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Technique</th>
+					<th>What changes?</th>
+					<th>Example</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Prompting</td>
+					<td>The instructions and context provided for a request.</td>
+					<td>Ask for a short explanation and supply a sample of the desired format.</td>
+			</tr>
+			<tr>
+					<td>Retrieval-augmented generation, or RAG</td>
+					<td>The application retrieves external material and supplies it to the generator.</td>
+					<td>Retrieve the current refund policy before answering a customer.</td>
+			</tr>
+			<tr>
+					<td>Fine-tuning</td>
+					<td>Further training updates model parameters or trained adapters.</td>
+					<td>Train for a recurring task or response behavior using curated examples.</td>
+			</tr>
+	</tbody>
+</table>
+<p>RAG combines retrieval with generation. The original RAG paper describes a system that combines a pretrained generator with a retrieval component.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup> In a common application, the flow is:</p>
+<pre class="mermaid">flowchart TD
+    Q[&#34;Question about a refund&#34;] --&gt; S[&#34;Search approved policy documents&#34;]
+    S --&gt; P[&#34;Relevant passages and source identifiers&#34;]
+    Q --&gt; G[&#34;Build the model&#39;s input&#34;]
+    P --&gt; G
+    G --&gt; A[&#34;Generate an answer grounded in the passages&#34;]
+    A --&gt; V[&#34;Check claims and source links&#34;]</pre>
+<p>Retrieving a document during a request does not, by itself, retrain the generator. A conversation stored by an application is not automatically a change to model weights either.</p>
+<p>Many retrieval systems use <em>embeddings</em>, numerical representations that help compare passages by similarity. RAG does not require a vector database, though. Keyword search can retrieve useful context too.</p>
+<p>For frequently changing information, retrieval is usually a better first step than trying to bake every new fact into weights. Fine-tuning may help with repeated behavior or a specialized task. Neither technique removes the need to evaluate the result.</p>
+<h2 id="what-should-i-watch-out-for">What should I watch out for?<a href="#what-should-i-watch-out-for" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>NIST&rsquo;s <em>Generative Artificial Intelligence Profile</em> covers risks including confabulation, privacy, harmful bias, information integrity and intellectual property. Choosing a model is only part of managing them.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
+<h3 id="fluent-errors">Fluent errors<a href="#fluent-errors" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>A model can invent an API, a citation or a reason a test failed. People commonly call this a <em>hallucination</em>. Confident wording does not make the answer more reliable.</p>
+<p>Check factual claims against sources. Run generated code and meaningful tests. For generated images, inspect details and suitability for the intended use.</p>
+<p>Lowering temperature changes generation behavior; it does not switch on a truth mode. Structured output can make a response easier to parse, but valid JSON can still contain a wrong answer.</p>
+<p>Performance also varies with the people, languages and situations represented in training and evaluation. A support assistant that handles English examples well may still fail on the languages your customers actually use. Test those cases and check for harmful stereotypes rather than relying on an aggregate score.</p>
+<h3 id="privacy-retention-and-rights">Privacy, retention and rights<a href="#privacy-retention-and-rights" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Before sending documents to a service, check what the provider stores, how long it keeps the data and whether the applicable product terms allow training on it. Do not assume every product from the same provider has the same policy.</p>
+<p>Local inference can keep model inputs on your machine, but the surrounding application may still use remote services or telemetry. Check the whole data path.</p>
+<p>Keep track of licenses and source provenance when using data or generated material. A model&rsquo;s ability to produce something does not establish your right to publish it. Requirements also depend on jurisdiction and use.</p>
+<h3 id="untrusted-input-and-real-actions">Untrusted input and real actions<a href="#untrusted-input-and-real-actions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>An instruction hidden in a retrieved document can try to redirect an assistant. This is <em>prompt injection</em>. It becomes especially dangerous when the application can send messages, access private information or modify systems.</p>
+<p>Treat external material as data, enforce permissions in software and require review for consequential actions. Telling a model to &ldquo;be careful&rdquo; is not an access-control mechanism.</p>
+<h3 id="cost-latency-and-deployment-choices">Cost, latency and deployment choices<a href="#cost-latency-and-deployment-choices" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>A hosted API reduces the hardware and serving work you manage. Running a model yourself gives you control over more of the stack, but you inherit the operational costs.</p>
+<p>Compare the cost of the whole task, including retrieval, long inputs, retries, tool calls and human review. A cheap request that needs several corrections may cost more than a more reliable approach.</p>
+<p><em>Open weights</em> means that model parameters are available under a particular license. It does not necessarily mean the training data, complete training process or unrestricted commercial rights are available. Read the license and model documentation.</p>
+<h2 id="how-do-i-know-whether-it-works-for-my-task">How do I know whether it works for my task?<a href="#how-do-i-know-whether-it-works-for-my-task" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Build a small set of representative examples before choosing a model. Include ordinary requests, ambiguous inputs and cases where the system should decline or ask for help.</p>
+<p>For a customer-support assistant, check whether it applies the right policy and cites the passage that supports the answer. Measure unsupported claims as well as successful answers. For code, test behavior rather than whether the explanation sounds convincing.</p>
+<p>Compare against a simpler baseline. A search result with a useful excerpt may beat a generated paragraph. Record quality, latency, cost and the consequences of mistakes, then repeat the evaluation when you change the model, prompt or data source.</p>
+<p>You do not need to train a foundation model to try this. Start with an existing model, a narrow task and information you are allowed to use. If ordinary code already solves the task clearly, keep it.</p>
+<h2 id="references">References<a href="#references" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Google Machine Learning, <a href="https://developers.google.com/machine-learning/gan/generative">What is a generative model?</a>. Explains generative and discriminative modeling and why the distinction is about learned distributions.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Brown et al. (2020), <a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners</a>. Documents autoregressive GPT-3 and task examples supplied without parameter updates at inference time.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Hugging Face Transformers, <a href="https://huggingface.co/docs/transformers/main/en/generation_strategies">Generation strategies</a>. Explains next-token selection, greedy decoding and sampling.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Ho, Jain and Abbeel (2020), <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a>. A foundational paper on learning and sampling with image diffusion models.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Ouyang et al. (2022), <a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a>. Describes the InstructGPT post-training process and remaining limitations.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Bommasani et al. (2021), <a href="https://arxiv.org/abs/2108.07258">On the Opportunities and Risks of Foundation Models</a>. Defines broadly trained models adaptable to many downstream tasks.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Kingma and Welling (first submitted 2013), <a href="https://arxiv.org/abs/1312.6114">Auto-Encoding Variational Bayes</a>. Introduces the variational autoencoder approach.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Goodfellow et al. (2014), <a href="https://arxiv.org/abs/1406.2661">Generative Adversarial Networks</a>. Introduces adversarial training of a generator and discriminator.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>Vaswani et al. (2017), <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>. Introduces the Transformer architecture.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>Lewis et al. (2020), <a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>. Describes generation supported by an external retrieval component.&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>NIST (2024), <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence">Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</a>. A cross-sector guide to generative AI risks and risk-management actions.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </div></div>
+
+  
+
+  
+
+
+
+
+
+
+<div id="welcomments__container" class="welcomments__container">
+  
+  
+
+  
+    <h3 id="welcomments__comment-count-title" class="welcomments__comments-title" style="color: rgba(120,226,160,.7);">No comments yet!</h3>
+  
+
+  <section id="welcomments__comment-container" class="welcomments__comment-container"></section><form id="welcomments__form" class="welcomments__comment-form" action="https://welcomments.io/api/comments" method="post">
+  <input type="hidden" name="website-id" id="website-id" value="v2DmPonO12A7QexZ1IvBnwWTV"/>
+  <input type="hidden" name="replying-to" id="replying-to"/>
+  <input type="hidden" name="permalink" id="permalink" value="https://musale.github.io/ai/gen-ai/"/>
+  <input type="hidden" name="page-slug" id="page-slug" value="gen-ai"/>
+  <div class="welcomments__form-group">
+    <textarea rows="10" name="message" id="message" required spellcheck="true" placeholder="Type here..."></textarea>
+    <p class="welcomments__markdown-notice"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">GitHub-flavored Markdown</a> & a sane subset of HTML is supported.</p>
+  </div>
+  <div class="welcomments__form-group">
+    <label for="author-name">Name</label>
+    <input type="text" id="author-name" name="author-name" required spellcheck="false" placeholder="Your name"/>
+  </div>
+  <div class="welcomments__form-group welcomments__flex">
+    <div class="welcomments__column-left">
+      <label for="author-url">Website <span class="welcomments__optional-notice">(optional)</span></label>
+      <input type="url" id="author-url" name="author-url" placeholder="https://example.com"/>
+    </div>
+    <div class="welcomments__column-right">
+      <label for="author-email">Email <span class="welcomments__optional-notice">(optional)</span></label>
+      <input type="email" id="author-email" name="author-email" placeholder="johndoe@example.com"/>
+    </div>
+  </div>
+  <p class="welcomments__email-notice">Fill in your email address if you want to get notified when someone replies to your comment. Your email address is safely stored with strong 256-bit AES encryption. You can unsubscribe from notification emails any time by following a link on the bottom of a reply notification email.</p>
+  <button type="submit" class="welcomments__submit-button" id="welcomments__submit-button">Send comment</button>
+</form>
+
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.welcomments.io/welcomments.css" />
+
+
+<script defer id="welcomments__script" src="https://cdn.welcomments.io/welcomments.js" type="text/javascript"></script>
+<script type="text/javascript">
+  welcomments = {
+    apiUrl: "https://welcomments.io/api",
+
+    
+    
+    
+    commentCountTitleFactory: function (commentCount) {
+      if (commentCount === 0) {
+        return "No comments yet!";
+      }
+
+      return commentCount === 1 ? "One comment" : `${commentCount} comments`;
+    },
+
+    
+    
+    
+    
+    placeholderCommentFactory: function (comment) {
+      var year = new Intl.DateTimeFormat("en", {year: "numeric"}).format(comment.date);
+      var month = new Intl.DateTimeFormat("en", {month: "long"}).format(comment.date);
+      var day = new Intl.DateTimeFormat("en", {day: "2-digit"}).format(comment.date);
+      var avatarUrl = comment.author.avatar_url ||
+        "https://eu.ui-avatars.com/api/?background=random&name=" + comment.author.name;
+
+
+      return `\u003carticle\n  id=\u0022welcomments__comment-\u0024\u007bcomment.id\u007d\u0022\n  class=\u0022welcomments__comment\u0022\n  data-comment-id=\u0022\u0024\u007bcomment.id\u007d\u0022\n  data-author-name=\u0022\u0024\u007bcomment.author.name\u007d\u0022\n  data-nesting-level=\u00220\u0022\n  itemprop=\u0022comment\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Comment\u0022\u003e\n  \u003cdiv class=\u0022welcomments__comment-header\u0022\u003e\n    \u003cdiv class=\u0022welcomments__author-avatar\u0022\u003e\n      \u003cimg class=\u0022welcomments__author-avatar-img\u0022 src=\u0022\u0024\u007bavatarUrl\u007d\u0022 alt=\u0022\u0024\u007bcomment.author.name\u007d\u0022\/\u003e\n    \u003c\/div\u003e\n    \u003cdiv class=\u0022welcomments__author-information\u0022\u003e\n      \u003cdiv class=\u0022welcomments__author-name-and-time\u0022\u003e\n        \u003ch3 class=\u0022welcomments__author-name\u0022 itemprop=\u0022author\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Person\u0022\u003e\n          \u003cspan itemprop=\u0022name\u0022\u003e\u0024\u007bcomment.author.name\u007d\u003c\/span\u003e\n        \u003c\/h3\u003e\n        \u003cp class=\u0022welcomments__comment-time\u0022\u003e\n          \u003ca href=\u0022#welcomments__comment-\u0024\u007bcomment.id\u007d\u0022 itemprop=\u0022url\u0022\u003e\n            \u003ctime datetime=\u0022\u0024\u007bcomment.date\u007d\u0022 itemprop=\u0022datePublished\u0022\u003e\n              \u0024\u007bmonth\u007d \u0024\u007bday\u007d, \u0024\u007byear\u007d\n            \u003c\/time\u003e\n          \u003c\/a\u003e\n        \u003c\/p\u003e\n      \u003c\/div\u003e\n    \u003c\/div\u003e\n  \u003c\/div\u003e\n  \u003cdiv itemprop=\u0022text\u0022 class=\u0022welcomments__comment-message\u0022\u003e\u0024\u007bcomment.message\u007d\u003c\/div\u003e\n  \u003ca class=\u0022welcomments__comment-reply-link\u0022\n     href=\u0022https:\/\/welcomments.io\/api\/websites\/v2DmPonO12A7QexZ1IvBnwWTV\/comments\/\u0024\u007bcomment.id\u007d\/reply\u0022\u003e\n    Reply to \u0024\u007bcomment.author.name\u007d\n  \u003c\/a\u003e\n\u003c\/article\u003e\n`;
+    },
+  };
+</script>
+
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>© 2026 Martin Musale</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://musale.github.io/assets/main.js"></script>
+<script src="https://musale.github.io/assets/prism.js"></script>
+
+
+
+
+<style>
+  .mermaid {
+    overflow-x: auto;
+  }
+
+  .mermaid svg {
+    display: block;
+    margin-inline: auto;
+  }
+</style>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.esm.min.mjs";
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    fontFamily: '"Fira Code", Monaco, Consolas, monospace',
+    themeVariables: {
+      fontSize: "11pt"
+    },
+    securityLevel: "strict"
+  });
+</script>
+
+  
+</div>
+
+</body>
+</html>

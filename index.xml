@@ -7,7 +7,282 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year} Martin Musale</copyright>
-    <lastBuildDate>Fri, 30 Oct 2026 14:47:10 +0300</lastBuildDate><atom:link href="https://musale.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Nov 2026 14:25:58 +0300</lastBuildDate><atom:link href="https://musale.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generative AI: how it works and when to use it</title>
+      <link>https://musale.github.io/ai/gen-ai/</link>
+      <pubDate>Wed, 04 Nov 2026 14:25:58 +0300</pubDate>
+      
+      <guid>https://musale.github.io/ai/gen-ai/</guid>
+      <description>&lt;p&gt;A spam filter decides whether an email belongs in the spam folder. A generative model can draft a reply to that email. Both can use machine learning, but they produce different kinds of results.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Generative AI&lt;/em&gt; refers to systems that use learned patterns to produce content such as text, code, images, audio or video. The model learns something about how data is structured, then uses that learned structure to generate an output.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;</description>
+      <content>&lt;p&gt;A spam filter decides whether an email belongs in the spam folder. A generative model can draft a reply to that email. Both can use machine learning, but they produce different kinds of results.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Generative AI&lt;/em&gt; refers to systems that use learned patterns to produce content such as text, code, images, audio or video. The model learns something about how data is structured, then uses that learned structure to generate an output.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;That output can be useful without being correct. It can also resemble training material. &amp;ldquo;Generated&amp;rdquo; does not guarantee original, factual or safe to use.&lt;/p&gt;
+&lt;h2 id=&#34;what-does-generative-mean&#34;&gt;What does &amp;ldquo;generative&amp;rdquo; mean?&lt;/h2&gt;
+&lt;p&gt;Think about photographs of cats. A classifier might learn enough to distinguish a cat from a dog. An image generator has a different task: produce an image that fits patterns associated with cats, perhaps conditioned on a request such as &amp;ldquo;a ginger cat asleep on a blue chair&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The classifier does not need to draw fur, lighting or a chair to make its decision. The generator needs a way to produce the image.&lt;/p&gt;
+&lt;p&gt;In statistical terms, a generative model learns a distribution over data, possibly conditioned on inputs. A discriminative classifier learns how inputs relate to labels. The mathematics varies by model family, but the distinction explains why generating a convincing image is different from labeling one.&lt;sup id=&#34;fnref1:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;These are not mutually exclusive applications. A text generator can also classify an email by producing the word &amp;ldquo;spam&amp;rdquo;. A generative model can help solve a prediction task. The label describes its modeling approach, not a rule that forbids other uses.&lt;/p&gt;
+&lt;h3 id=&#34;ai-machine-learning-llms-and-agents&#34;&gt;AI, machine learning, LLMs and agents&lt;/h3&gt;
+&lt;p&gt;These terms describe different things:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Term&lt;/th&gt;
+					&lt;th&gt;What it describes&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Artificial intelligence&lt;/td&gt;
+					&lt;td&gt;The broad field of building systems that perform tasks associated with intelligence.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Machine learning&lt;/td&gt;
+					&lt;td&gt;Methods that learn patterns or behavior from data rather than relying only on explicit rules.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Deep learning&lt;/td&gt;
+					&lt;td&gt;Machine learning with multilayer neural networks. Most prominent current generative systems use it.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Generative AI&lt;/td&gt;
+					&lt;td&gt;Systems that use learned models to produce content. Generative modeling also predates today&amp;rsquo;s deep networks.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Large language model&lt;/td&gt;
+					&lt;td&gt;A large model trained on language-related data. Many current LLMs generate text and code.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;AI agent&lt;/td&gt;
+					&lt;td&gt;An application that selects and performs actions toward a goal, often using an LLM.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A &lt;em&gt;multimodal&lt;/em&gt; model handles more than one type of input or output, such as text and images. Check the actual capabilities: accepting an image does not mean a model can generate one.&lt;/p&gt;
+&lt;p&gt;A model that writes an explanation does not automatically inspect your repository or execute commands. An application has to provide those capabilities. &lt;a href=&#34;https://musale.github.io/ai/agents/&#34;&gt;AI agents, skills and the protocols between them&lt;/a&gt; covers that application layer.&lt;/p&gt;
+&lt;h2 id=&#34;how-does-a-generative-model-come-to-exist&#34;&gt;How does a generative model come to exist?&lt;/h2&gt;
+&lt;p&gt;Someone chooses a model architecture, prepares data and trains the model on an objective. Training changes numerical parameters so the model performs better at that objective.&lt;/p&gt;
+&lt;p&gt;The broad lifecycle looks like this:&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Choose a task, data sources and permitted uses&amp;#34;] --&amp;gt; B[&amp;#34;Prepare and filter training data&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Train the base model&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Optional task or instruction training&amp;#34;]
+    D --&amp;gt; E[&amp;#34;Evaluate quality, safety and limitations&amp;#34;]
+    E --&amp;gt; F[&amp;#34;Deploy through an application or API&amp;#34;]
+    F --&amp;gt; G[&amp;#34;Monitor outcomes and evaluate changes&amp;#34;]
+    G --&amp;gt; E&lt;/pre&gt;
+&lt;p&gt;Filtering can remove some duplicates, low-quality examples and sensitive information. It cannot certify that everything left is accurate or appropriate. Decide whether the data sources and licenses permit the intended use before training begins.&lt;/p&gt;
+&lt;p&gt;There is no single training recipe for every generative model. Two examples make that easier to see.&lt;/p&gt;
+&lt;h3 id=&#34;text-learn-to-predict-the-next-token&#34;&gt;Text: learn to predict the next token&lt;/h3&gt;
+&lt;p&gt;Many text-generating LLMs learn by predicting the next &lt;em&gt;token&lt;/em&gt;, which is a piece of text determined by a tokenizer. A token can be a word, part of a word or punctuation.&lt;/p&gt;
+&lt;p&gt;During training, a passage supplies both the context and the target. For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Context: The capital of Kenya is
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Target: Nairobi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The actual tokenizer may split &amp;ldquo;Nairobi&amp;rdquo; into several tokens. The model predicts a distribution, a loss function measures how its prediction compares with the training target, and an optimizer adjusts the parameters. This happens across many examples.&lt;/p&gt;
+&lt;p&gt;This is &lt;em&gt;self-supervised learning&lt;/em&gt;: the text supplies the prediction targets. It does not mean the entire system develops without human choices or human-generated data.&lt;/p&gt;
+&lt;p&gt;At inference time, the application gives the trained model a prompt. The model calculates next-token probabilities, a decoding method selects a token, and the process repeats. Parameters normally remain fixed during this process. The GPT-3 paper is one documented example of an autoregressive language model used for many tasks through prompting.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;When decoding samples from those probabilities, the same prompt can produce different answers. Temperature changes how concentrated the sampling distribution is. That affects variation, not whether the answer is factual.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Prompt and available context&amp;#34;] --&amp;gt; B[&amp;#34;Calculate next-token probabilities&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Select a token&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Append it to the sequence&amp;#34;]
+    D --&amp;gt; E{&amp;#34;Stop condition reached?&amp;#34;}
+    E --&amp;gt;|No| B
+    E --&amp;gt;|Yes| F[&amp;#34;Return the generated text&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;This explains both the flexibility and a major limitation. Training text contains code, explanations and factual statements, so the model can learn patterns useful for producing them. But the probability of a continuation is not the probability that its claims are true.&lt;/p&gt;
+&lt;p&gt;For more detail about tokenization, attention and hardware, see &lt;a href=&#34;https://musale.github.io/ai/llms/&#34;&gt;Large language models&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;images-learn-to-remove-noise&#34;&gt;Images: learn to remove noise&lt;/h3&gt;
+&lt;p&gt;Diffusion is another approach. In a simplified image diffusion setup, training adds controlled noise to an image and teaches a model to reverse that corruption. Generation starts with noise and repeatedly refines it toward a sample.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Text-conditioned systems also use a representation of the prompt to guide this process. Some systems work in a compressed representation rather than directly on full-resolution pixels. Diffusion is a family of techniques, not a claim that every image generator follows the same steps.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR
+    P[&amp;#34;Text prompt&amp;#34;] --&amp;gt; C[&amp;#34;Conditioning information&amp;#34;]
+    N[&amp;#34;Initial noise&amp;#34;] --&amp;gt; R[&amp;#34;Repeated learned refinement&amp;#34;]
+    C --&amp;gt; R
+    R --&amp;gt; I[&amp;#34;Generated image&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;The text example generates a sequence of tokens. This image example refines a noisy representation. Both are generative, but they do not have the same architecture or inference procedure.&lt;/p&gt;
+&lt;h3 id=&#34;what-do-instruction-tuning-and-rlhf-add&#34;&gt;What do instruction tuning and RLHF add?&lt;/h3&gt;
+&lt;p&gt;A base language model trained to continue text is not necessarily good at answering a user&amp;rsquo;s request. Further training can change that behavior.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Supervised instruction tuning&lt;/em&gt; uses examples of requests and desired responses. &lt;em&gt;Preference training&lt;/em&gt; uses judgments about which outputs are better. Reinforcement learning from human feedback, or RLHF, is one approach; the InstructGPT paper describes a pipeline with demonstrations, preference judgments and reinforcement learning.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Post-training can improve behavior, but it does not guarantee truthfulness. Nor does every model use RLHF. &amp;ldquo;Instruction-tuned&amp;rdquo; describes a training outcome or method, not proof that a model will reliably obey every instruction.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;foundation model&lt;/em&gt; is broadly pretrained so it can be adapted to a range of tasks. The term describes that role, rather than one architecture. Not every generative model has that breadth.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-new-about-it&#34;&gt;What is new about it?&lt;/h2&gt;
+&lt;p&gt;Generative modeling did not begin with chatbots. Variational autoencoders were described in work first published in 2013, and generative adversarial networks followed in 2014.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Model family&lt;/th&gt;
+					&lt;th&gt;Basic idea&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Autoregressive models&lt;/td&gt;
+					&lt;td&gt;Generate a sequence by predicting its next element from preceding elements.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Variational autoencoders&lt;/td&gt;
+					&lt;td&gt;Learn a probabilistic latent representation and a decoder that can generate samples.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Generative adversarial networks&lt;/td&gt;
+					&lt;td&gt;Train a generator against a discriminator that tries to distinguish generated samples from training examples.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Diffusion models&lt;/td&gt;
+					&lt;td&gt;Learn to reverse a corruption process and use that learned process to generate samples.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This table is a map of common approaches, not a complete taxonomy. Architectures and techniques can be combined.&lt;/p&gt;
+&lt;p&gt;Several developments made modern systems more broadly useful. The Transformer paper introduced an attention-based architecture with more parallelizable training than the recurrent models it compared against.&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt; Later work such as GPT-3 demonstrated that a large pretrained model could perform varied tasks from instructions and examples in its input, without a separate parameter update for each task.&lt;sup id=&#34;fnref1:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Instruction tuning made those capabilities easier to access through conversation. More capable hardware, larger training runs and better serving software helped make the systems available through applications and APIs.&lt;/p&gt;
+&lt;p&gt;The practical change is that one model can support many tasks through the same language interface. A developer can ask it to summarize an incident, suggest tests or rewrite a function without building a separate specialized model for each request.&lt;/p&gt;
+&lt;p&gt;That flexibility is useful. It is also why a chatbot demo tells you less than you might expect about whether the same model will handle your production task reliably.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-the-alternative&#34;&gt;What is the alternative?&lt;/h2&gt;
+&lt;p&gt;The alternative depends on the job. &amp;ldquo;Use AI&amp;rdquo; is not a requirement unless the problem actually needs it.&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Job&lt;/th&gt;
+					&lt;th&gt;A reasonable starting point&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Calculate an invoice total&lt;/td&gt;
+					&lt;td&gt;Ordinary code with explicit arithmetic and rounding rules.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Return an order&amp;rsquo;s delivery status&lt;/td&gt;
+					&lt;td&gt;A database query or API call.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Classify thousands of messages into known categories&lt;/td&gt;
+					&lt;td&gt;A classifier, with comparison against an LLM baseline if useful.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Find an exact clause in a policy&lt;/td&gt;
+					&lt;td&gt;Search and show the source passage.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Produce a standard notification&lt;/td&gt;
+					&lt;td&gt;A template populated with verified fields.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Draft a custom explanation from several documents&lt;/td&gt;
+					&lt;td&gt;A generative model with relevant source material and review.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Traditional software can generate text too. A receipt template produces text, but that does not make it generative AI. The distinction is the learned model, not the mere existence of an output.&lt;/p&gt;
+&lt;p&gt;Generative AI is a reasonable choice when you need flexible language or content generation and can check the result. It is a poor replacement for an authoritative database or a calculation you already know how to implement.&lt;/p&gt;
+&lt;p&gt;Often the best application combines both. Fetch the actual order status using code, then let a model help explain it. Do not ask the model to invent the status.&lt;/p&gt;
+&lt;h2 id=&#34;prompting-retrieval-and-fine-tuning-solve-different-problems&#34;&gt;Prompting, retrieval and fine-tuning solve different problems&lt;/h2&gt;
+&lt;p&gt;These terms get mixed together, even though they change different parts of the system.&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Technique&lt;/th&gt;
+					&lt;th&gt;What changes?&lt;/th&gt;
+					&lt;th&gt;Example&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Prompting&lt;/td&gt;
+					&lt;td&gt;The instructions and context provided for a request.&lt;/td&gt;
+					&lt;td&gt;Ask for a short explanation and supply a sample of the desired format.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Retrieval-augmented generation, or RAG&lt;/td&gt;
+					&lt;td&gt;The application retrieves external material and supplies it to the generator.&lt;/td&gt;
+					&lt;td&gt;Retrieve the current refund policy before answering a customer.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Fine-tuning&lt;/td&gt;
+					&lt;td&gt;Further training updates model parameters or trained adapters.&lt;/td&gt;
+					&lt;td&gt;Train for a recurring task or response behavior using curated examples.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;RAG combines retrieval with generation. The original RAG paper describes a system that combines a pretrained generator with a retrieval component.&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt; In a common application, the flow is:&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    Q[&amp;#34;Question about a refund&amp;#34;] --&amp;gt; S[&amp;#34;Search approved policy documents&amp;#34;]
+    S --&amp;gt; P[&amp;#34;Relevant passages and source identifiers&amp;#34;]
+    Q --&amp;gt; G[&amp;#34;Build the model&amp;#39;s input&amp;#34;]
+    P --&amp;gt; G
+    G --&amp;gt; A[&amp;#34;Generate an answer grounded in the passages&amp;#34;]
+    A --&amp;gt; V[&amp;#34;Check claims and source links&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;Retrieving a document during a request does not, by itself, retrain the generator. A conversation stored by an application is not automatically a change to model weights either.&lt;/p&gt;
+&lt;p&gt;Many retrieval systems use &lt;em&gt;embeddings&lt;/em&gt;, numerical representations that help compare passages by similarity. RAG does not require a vector database, though. Keyword search can retrieve useful context too.&lt;/p&gt;
+&lt;p&gt;For frequently changing information, retrieval is usually a better first step than trying to bake every new fact into weights. Fine-tuning may help with repeated behavior or a specialized task. Neither technique removes the need to evaluate the result.&lt;/p&gt;
+&lt;h2 id=&#34;what-should-i-watch-out-for&#34;&gt;What should I watch out for?&lt;/h2&gt;
+&lt;p&gt;NIST&amp;rsquo;s &lt;em&gt;Generative Artificial Intelligence Profile&lt;/em&gt; covers risks including confabulation, privacy, harmful bias, information integrity and intellectual property. Choosing a model is only part of managing them.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;fluent-errors&#34;&gt;Fluent errors&lt;/h3&gt;
+&lt;p&gt;A model can invent an API, a citation or a reason a test failed. People commonly call this a &lt;em&gt;hallucination&lt;/em&gt;. Confident wording does not make the answer more reliable.&lt;/p&gt;
+&lt;p&gt;Check factual claims against sources. Run generated code and meaningful tests. For generated images, inspect details and suitability for the intended use.&lt;/p&gt;
+&lt;p&gt;Lowering temperature changes generation behavior; it does not switch on a truth mode. Structured output can make a response easier to parse, but valid JSON can still contain a wrong answer.&lt;/p&gt;
+&lt;p&gt;Performance also varies with the people, languages and situations represented in training and evaluation. A support assistant that handles English examples well may still fail on the languages your customers actually use. Test those cases and check for harmful stereotypes rather than relying on an aggregate score.&lt;/p&gt;
+&lt;h3 id=&#34;privacy-retention-and-rights&#34;&gt;Privacy, retention and rights&lt;/h3&gt;
+&lt;p&gt;Before sending documents to a service, check what the provider stores, how long it keeps the data and whether the applicable product terms allow training on it. Do not assume every product from the same provider has the same policy.&lt;/p&gt;
+&lt;p&gt;Local inference can keep model inputs on your machine, but the surrounding application may still use remote services or telemetry. Check the whole data path.&lt;/p&gt;
+&lt;p&gt;Keep track of licenses and source provenance when using data or generated material. A model&amp;rsquo;s ability to produce something does not establish your right to publish it. Requirements also depend on jurisdiction and use.&lt;/p&gt;
+&lt;h3 id=&#34;untrusted-input-and-real-actions&#34;&gt;Untrusted input and real actions&lt;/h3&gt;
+&lt;p&gt;An instruction hidden in a retrieved document can try to redirect an assistant. This is &lt;em&gt;prompt injection&lt;/em&gt;. It becomes especially dangerous when the application can send messages, access private information or modify systems.&lt;/p&gt;
+&lt;p&gt;Treat external material as data, enforce permissions in software and require review for consequential actions. Telling a model to &amp;ldquo;be careful&amp;rdquo; is not an access-control mechanism.&lt;/p&gt;
+&lt;h3 id=&#34;cost-latency-and-deployment-choices&#34;&gt;Cost, latency and deployment choices&lt;/h3&gt;
+&lt;p&gt;A hosted API reduces the hardware and serving work you manage. Running a model yourself gives you control over more of the stack, but you inherit the operational costs.&lt;/p&gt;
+&lt;p&gt;Compare the cost of the whole task, including retrieval, long inputs, retries, tool calls and human review. A cheap request that needs several corrections may cost more than a more reliable approach.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Open weights&lt;/em&gt; means that model parameters are available under a particular license. It does not necessarily mean the training data, complete training process or unrestricted commercial rights are available. Read the license and model documentation.&lt;/p&gt;
+&lt;h2 id=&#34;how-do-i-know-whether-it-works-for-my-task&#34;&gt;How do I know whether it works for my task?&lt;/h2&gt;
+&lt;p&gt;Build a small set of representative examples before choosing a model. Include ordinary requests, ambiguous inputs and cases where the system should decline or ask for help.&lt;/p&gt;
+&lt;p&gt;For a customer-support assistant, check whether it applies the right policy and cites the passage that supports the answer. Measure unsupported claims as well as successful answers. For code, test behavior rather than whether the explanation sounds convincing.&lt;/p&gt;
+&lt;p&gt;Compare against a simpler baseline. A search result with a useful excerpt may beat a generated paragraph. Record quality, latency, cost and the consequences of mistakes, then repeat the evaluation when you change the model, prompt or data source.&lt;/p&gt;
+&lt;p&gt;You do not need to train a foundation model to try this. Start with an existing model, a narrow task and information you are allowed to use. If ordinary code already solves the task clearly, keep it.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Google Machine Learning, &lt;a href=&#34;https://developers.google.com/machine-learning/gan/generative&#34;&gt;What is a generative model?&lt;/a&gt;. Explains generative and discriminative modeling and why the distinction is about learned distributions.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Brown et al. (2020), &lt;a href=&#34;https://arxiv.org/abs/2005.14165&#34;&gt;Language Models are Few-Shot Learners&lt;/a&gt;. Documents autoregressive GPT-3 and task examples supplied without parameter updates at inference time.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Hugging Face Transformers, &lt;a href=&#34;https://huggingface.co/docs/transformers/main/en/generation_strategies&#34;&gt;Generation strategies&lt;/a&gt;. Explains next-token selection, greedy decoding and sampling.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Ho, Jain and Abbeel (2020), &lt;a href=&#34;https://arxiv.org/abs/2006.11239&#34;&gt;Denoising Diffusion Probabilistic Models&lt;/a&gt;. A foundational paper on learning and sampling with image diffusion models.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;Ouyang et al. (2022), &lt;a href=&#34;https://arxiv.org/abs/2203.02155&#34;&gt;Training language models to follow instructions with human feedback&lt;/a&gt;. Describes the InstructGPT post-training process and remaining limitations.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Bommasani et al. (2021), &lt;a href=&#34;https://arxiv.org/abs/2108.07258&#34;&gt;On the Opportunities and Risks of Foundation Models&lt;/a&gt;. Defines broadly trained models adaptable to many downstream tasks.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Kingma and Welling (first submitted 2013), &lt;a href=&#34;https://arxiv.org/abs/1312.6114&#34;&gt;Auto-Encoding Variational Bayes&lt;/a&gt;. Introduces the variational autoencoder approach.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;Goodfellow et al. (2014), &lt;a href=&#34;https://arxiv.org/abs/1406.2661&#34;&gt;Generative Adversarial Networks&lt;/a&gt;. Introduces adversarial training of a generator and discriminator.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;Vaswani et al. (2017), &lt;a href=&#34;https://arxiv.org/abs/1706.03762&#34;&gt;Attention Is All You Need&lt;/a&gt;. Introduces the Transformer architecture.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Lewis et al. (2020), &lt;a href=&#34;https://arxiv.org/abs/2005.11401&#34;&gt;Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks&lt;/a&gt;. Describes generation supported by an external retrieval component.&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;NIST (2024), &lt;a href=&#34;https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence&#34;&gt;Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile&lt;/a&gt;. A cross-sector guide to generative AI risks and risk-management actions.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
     <item>
       <title>Large language models</title>
       <link>https://musale.github.io/ai/llms/</link>
@@ -245,6 +520,336 @@
 &lt;/li&gt;
 &lt;li id=&#34;fn:9&#34;&gt;
 &lt;p&gt;Google AI Edge, &lt;a href=&#34;https://developers.google.com/edge/litert-lm/overview&#34;&gt;LiteRT-LM overview&lt;/a&gt;. Documents a runtime for on-device language models and supported accelerators.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>AI agents, skills and the protocols between them</title>
+      <link>https://musale.github.io/ai/agents/</link>
+      <pubDate>Wed, 04 Nov 2026 14:25:58 +0300</pubDate>
+      
+      <guid>https://musale.github.io/ai/agents/</guid>
+      <description>&lt;p&gt;An assistant that explains a failing test and an assistant that investigates the failure are doing different jobs. The first can answer from the information in a prompt. The second needs to inspect files, run a test, read the result and decide what to try next.&lt;/p&gt;
+&lt;p&gt;That second case is where agents become useful. But the vocabulary around them gets confusing quickly. An agent, a skill and an MCP server can all appear in the same application without being the same thing.&lt;/p&gt;</description>
+      <content>&lt;p&gt;An assistant that explains a failing test and an assistant that investigates the failure are doing different jobs. The first can answer from the information in a prompt. The second needs to inspect files, run a test, read the result and decide what to try next.&lt;/p&gt;
+&lt;p&gt;That second case is where agents become useful. But the vocabulary around them gets confusing quickly. An agent, a skill and an MCP server can all appear in the same application without being the same thing.&lt;/p&gt;
+&lt;p&gt;I find it easier to follow one example: a coding assistant investigating a failing Go build. We can add each piece when the problem needs it.&lt;/p&gt;
+&lt;p&gt;If the model terminology is unfamiliar, &lt;a href=&#34;https://musale.github.io/ai/gen-ai/&#34;&gt;Generative AI: how it works and when to use it&lt;/a&gt; explains the model underneath the application.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-an-ai-agent&#34;&gt;What is an AI agent?&lt;/h2&gt;
+&lt;p&gt;In this article, an &lt;em&gt;AI agent&lt;/em&gt; means an application that uses a language model to choose actions toward a goal, observes what happens and decides what to do next. This is the current LLM-based use of the term; agents are a broader idea in AI.&lt;/p&gt;
+&lt;p&gt;The application provides the tools, state and permission checks. The model helps choose the next action. The agent might inspect a file, run a command, ask a person for clarification or stop with an answer. It does not need a separate model trained specifically for that job.&lt;/p&gt;
+&lt;p&gt;Anthropic&amp;rsquo;s &lt;em&gt;Building effective agents&lt;/em&gt; makes a useful distinction: a workflow follows predefined code paths, while an agent lets the model direct the process and tool use.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Compare these approaches:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Approach&lt;/th&gt;
+					&lt;th&gt;Investigating a Go build&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;One model call&lt;/td&gt;
+					&lt;td&gt;Explain an error message pasted into a chat.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Fixed workflow&lt;/td&gt;
+					&lt;td&gt;Fetch the build log, extract failed tests and generate a report in that order.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Agent&lt;/td&gt;
+					&lt;td&gt;Inspect the log, choose relevant files, run a focused test and adapt the investigation to its result.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Calling a tool once does not automatically make a system an agent. The useful question is how much control the model has over the next step.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Goal: investigate a failing Go build&amp;#34;] --&amp;gt; B[&amp;#34;Model proposes the next action&amp;#34;]
+    B --&amp;gt; C{&amp;#34;Application permits it?&amp;#34;}
+    C --&amp;gt;|No| D[&amp;#34;Ask for approval or stop&amp;#34;]
+    C --&amp;gt;|Yes| E[&amp;#34;Run the tool&amp;#34;]
+    E --&amp;gt; F[&amp;#34;Add the observed result to task state&amp;#34;]
+    F --&amp;gt; G{&amp;#34;Finished, blocked or over budget?&amp;#34;}
+    G --&amp;gt;|No| B
+    G --&amp;gt;|Yes| H[&amp;#34;Return findings and evidence&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;The loop needs an exit. A practical agent has limits on elapsed time, tool calls and spending. It should also know when to ask for help. Repeating the same failed command ten times is activity, not progress.&lt;/p&gt;
+&lt;h3 id=&#34;when-should-i-use-one&#34;&gt;When should I use one?&lt;/h3&gt;
+&lt;p&gt;Use an agent when the path depends on information discovered during execution. Debugging is a good example: a compiler error, a flaky integration test and a missing environment variable need different investigations.&lt;/p&gt;
+&lt;p&gt;Other examples include researching a question across several sources or handling a support request that may require follow-up questions. You still need a way to judge whether the result is acceptable.&lt;/p&gt;
+&lt;p&gt;If the steps are already known, start with ordinary code or a fixed workflow. A script that runs &lt;code&gt;go test ./...&lt;/code&gt; and reports the exit code does not need a model. Agents add cost, latency and additional ways to fail.&lt;sup id=&#34;fnref1:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-a-skill&#34;&gt;What is a skill?&lt;/h2&gt;
+&lt;p&gt;A &lt;em&gt;skill&lt;/em&gt; packages instructions and supporting material for an agent to use on a particular kind of task. It might contain a review checklist, a report template or a script.&lt;/p&gt;
+&lt;p&gt;Under the open Agent Skills format, a skill is a directory containing a &lt;code&gt;SKILL.md&lt;/code&gt; file. That file has metadata, including a name and description, followed by instructions. Optional directories can hold scripts, references and assets.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;For our build investigation, a small skill could look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ci-triage/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  SKILL.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  references/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    build-environments.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The contents of &lt;code&gt;ci-triage/SKILL.md&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ci-triage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;description&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Investigate failed Go CI builds. Use when a build fails or a user asks why tests failed.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Investigate a failed build
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;1.&lt;/span&gt; Read the failed job&amp;#39;s log before changing code.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;2.&lt;/span&gt; Separate compiler errors, test failures and infrastructure failures.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;3.&lt;/span&gt; Run the smallest relevant test when the environment permits it.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;4.&lt;/span&gt; Report the failing command, evidence and proposed correction.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;5.&lt;/span&gt; Ask before changing credentials, deployment settings or production data.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;See references/build-environments.md for environment-specific setup.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An agent host can load the name and description first, then read the instructions when the task needs them. This is called &lt;em&gt;progressive disclosure&lt;/em&gt;. It avoids putting every available manual into every model request.&lt;sup id=&#34;fnref1:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The installation directory and activation behavior depend on the host. A valid skill folder does not mean every AI application will discover it automatically.&lt;/p&gt;
+&lt;h3 id=&#34;agent-versus-skill&#34;&gt;Agent versus skill&lt;/h3&gt;
+&lt;p&gt;The agent runs the investigation. The skill tells it how to investigate consistently.&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Question&lt;/th&gt;
+					&lt;th&gt;Agent&lt;/th&gt;
+					&lt;th&gt;Skill&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;What is it?&lt;/td&gt;
+					&lt;td&gt;A running system that chooses and performs actions.&lt;/td&gt;
+					&lt;td&gt;A package of task instructions and optional supporting files.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Does it run independently?&lt;/td&gt;
+					&lt;td&gt;It can operate within its configured boundaries.&lt;/td&gt;
+					&lt;td&gt;The host or agent must load and use it.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Does it change model weights?&lt;/td&gt;
+					&lt;td&gt;Running an agent does not normally retrain its model.&lt;/td&gt;
+					&lt;td&gt;Loading instructions does not retrain the model either.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Example&lt;/td&gt;
+					&lt;td&gt;A coding agent investigates a failed build.&lt;/td&gt;
+					&lt;td&gt;A CI triage checklist guides that investigation.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Use a skill when one agent needs repeatable procedures or domain knowledge. Use a separate agent when you need an independently running worker, perhaps with a different context, permissions or service owner. A skill alone does not provide that isolation.&lt;/p&gt;
+&lt;p&gt;Several agents can share a skill. One agent can use several skills. Creating a new agent for every checklist usually adds more coordination than the task needs.&lt;/p&gt;
+&lt;p&gt;A skill can also contain executable code. Read it before installing it, just as you would inspect an unfamiliar developer tool. Instructions such as &amp;ldquo;ask before deploying&amp;rdquo; help guide behavior, but the application must enforce permissions outside the prompt.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;Model Context Protocol&lt;/em&gt; is a standard way for an AI application to access capabilities and context exposed by other software. It follows a host, client and server architecture.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;host&lt;/em&gt; is the application the user works with. It manages MCP clients, permissions and model interaction. An MCP &lt;em&gt;server&lt;/em&gt; exposes capabilities, which can include:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Primitive&lt;/th&gt;
+					&lt;th&gt;Example&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Tools&lt;/td&gt;
+					&lt;td&gt;Fetch a build log or look up a pull request.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Resources&lt;/td&gt;
+					&lt;td&gt;Read a document or another addressable source of context.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Prompts&lt;/td&gt;
+					&lt;td&gt;Obtain a reusable prompt template that the host can present to a user.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The protocol defines how these things are described and exchanged. The server still needs code that talks to the actual build system, database or API.&lt;/p&gt;
+&lt;p&gt;For example, a hypothetical CI server could expose &lt;code&gt;get_build_log&lt;/code&gt;. The host discovers its input schema using &lt;code&gt;tools/list&lt;/code&gt;. The model proposes a call with a repository and build ID, the host applies its permission policy, and the MCP client sends &lt;code&gt;tools/call&lt;/code&gt;. The application then supplies the result to the model.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;MCP saves each compatible host from needing a completely different integration for that same server. It does not make the underlying API unnecessary.&lt;/p&gt;
+&lt;h3 id=&#34;is-mcp-itself-an-agent&#34;&gt;Is MCP itself an agent?&lt;/h3&gt;
+&lt;p&gt;No. An MCP server can be ordinary software with no model, memory or planning loop.&lt;/p&gt;
+&lt;p&gt;A server that multiplies two integers is still a valid MCP server. A chat application or a fixed workflow can use it without running an autonomous agent. MCP is useful in agentic applications, but the protocol does not create autonomy.&lt;/p&gt;
+&lt;p&gt;The distinction is about the job each component performs, not an absolute restriction. An MCP tool could itself call an agent. What MCP exposes to its caller is a capability interface.&lt;/p&gt;
+&lt;h3 id=&#34;a-small-mcp-server&#34;&gt;A small MCP server&lt;/h3&gt;
+&lt;p&gt;This example uses version 2 of the official Python SDK and requires Python 3.11 or later. Save it as &lt;code&gt;server.py&lt;/code&gt;:&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; mcp.server &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; MCPServer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mcp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MCPServer(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Arithmetic&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@mcp.tool&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;multiply&lt;/span&gt;(a: int, b: int) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; int:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Multiply two integers.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; b
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;uv&lt;/a&gt; installed, open it in the MCP Inspector:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run --python 3.11 --with &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mcp[cli]&amp;gt;=2,&amp;lt;3&amp;#39;&lt;/span&gt; mcp dev server.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The Inspector also needs Node.js and npm. It lets you discover the tool and call &lt;code&gt;multiply&lt;/code&gt; with &lt;code&gt;{&amp;quot;a&amp;quot;: 7, &amp;quot;b&amp;quot;: 8}&lt;/code&gt;. The result should be &lt;code&gt;56&lt;/code&gt;. The SDK handles the protocol messages and derives the input schema from the function&amp;rsquo;s type hints.&lt;/p&gt;
+&lt;p&gt;This is a local learning example, not a production deployment. A separate hands-on article would be a better place to build a useful server, connect a real host and test failures. That tutorial should cover scoped credentials, input validation, timeouts and deployment rather than stopping at a successful tool call.&lt;/p&gt;
+&lt;h3 id=&#34;watch-the-protocol-version&#34;&gt;Watch the protocol version&lt;/h3&gt;
+&lt;p&gt;MCP&amp;rsquo;s &lt;code&gt;2026-07-28&lt;/code&gt; revision uses self-contained requests with protocol metadata and client capabilities on each request. Earlier revisions used an &lt;code&gt;initialize&lt;/code&gt; handshake and connection-scoped state. The standard transports include stdio for local subprocesses and Streamable HTTP for network services.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Older tutorials that import &lt;code&gt;FastMCP&lt;/code&gt; describe the official Python SDK&amp;rsquo;s earlier API. SDK version 2 calls that class &lt;code&gt;MCPServer&lt;/code&gt; and supports the newer protocol. Check the SDK and protocol revisions together rather than mixing examples.&lt;sup id=&#34;fnref1:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-agent2agent&#34;&gt;What is Agent2Agent?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Agent2Agent&lt;/em&gt;, usually shortened to &lt;em&gt;A2A&lt;/em&gt;, is a protocol for communication between independently implemented agent services. It defines descriptions, messages, tasks and outputs so that agents built with different frameworks can collaborate.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Suppose a coding assistant can edit a repository, but another team owns the service that investigates CI failures. The assistant can delegate:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Investigate build 42 for &lt;code&gt;example/web&lt;/code&gt;. Return the failing job, supporting evidence and suggested next steps. Do not modify the repository.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The CI agent chooses how to investigate. The requesting agent does not need access to its implementation, model prompts or private tools.&lt;/p&gt;
+&lt;p&gt;You can have agents collaborate without A2A. A function call, queue or existing API may be enough, especially within one application. A2A becomes useful when independently maintained services need a shared contract.&lt;/p&gt;
+&lt;h3 id=&#34;what-travels-between-them&#34;&gt;What travels between them?&lt;/h3&gt;
+&lt;p&gt;An &lt;em&gt;Agent Card&lt;/em&gt; describes the remote service: its identity, interfaces, capabilities, advertised skills and authentication requirements. One discovery convention serves this JSON document at &lt;code&gt;/.well-known/agent-card.json&lt;/code&gt;. Private configuration and registries are other options.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;There is a naming trap here. The &lt;code&gt;skills&lt;/code&gt; advertised in an A2A Agent Card describe capabilities such as &amp;ldquo;investigate CI failures&amp;rdquo;. They are not necessarily Agent Skills folders containing &lt;code&gt;SKILL.md&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;message&lt;/em&gt; carries content between the client and remote agent. A &lt;em&gt;task&lt;/em&gt; tracks work that needs a lifecycle. An &lt;em&gt;artifact&lt;/em&gt; is an output, such as a report. A simple request can return a direct message instead of creating a task.&lt;sup id=&#34;fnref1:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;sequenceDiagram
+    participant User
+    participant Coding as Coding agent
+    participant CI as CI investigation agent
+    User-&amp;gt;&amp;gt;Coding: Investigate the failed build
+    Coding-&amp;gt;&amp;gt;CI: Discover Agent Card and authenticate
+    Coding-&amp;gt;&amp;gt;CI: Send investigation request
+    CI--&amp;gt;&amp;gt;Coding: Task is working
+    opt More information needed
+        CI--&amp;gt;&amp;gt;Coding: Task needs input
+        Coding-&amp;gt;&amp;gt;User: Which build environment?
+        User--&amp;gt;&amp;gt;Coding: Staging
+        Coding-&amp;gt;&amp;gt;CI: Continue with staging context
+    end
+    CI--&amp;gt;&amp;gt;Coding: Completed task with report artifact
+    Coding--&amp;gt;&amp;gt;User: Findings with evidence&lt;/pre&gt;
+&lt;p&gt;The diagram shows a task with progress updates. A client can use the supported streaming mechanism or retrieve task status; it should not assume every server supports every optional feature.&lt;/p&gt;
+&lt;h3 id=&#34;how-would-i-make-an-a2a-request&#34;&gt;How would I make an A2A request?&lt;/h3&gt;
+&lt;p&gt;Pick a protocol version and an SDK or binding that supports it. Implement the remote worker, expose its Agent Card, define input and output contracts, and give the caller a way to authenticate.&lt;/p&gt;
+&lt;p&gt;The following is a wire-level example using A2A 1.0&amp;rsquo;s HTTP+JSON binding. It assumes you already have a compatible local server at port 9001 that advertises the investigation capability and does not require authentication. These commands do not start an agent:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl --fail --silent --show-error &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;A2A-Version: 1.0&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  http://localhost:9001/.well-known/agent-card.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Read the card and use its advertised service URL and binding. If that service URL is &lt;code&gt;http://localhost:9001&lt;/code&gt;, the request could be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl --fail --silent --show-error &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;A2A-Version: 1.0&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Content-Type: application/a2a+json&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;message&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;messageId&amp;#34;: &amp;#34;ci-investigation-42&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;role&amp;#34;: &amp;#34;ROLE_USER&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;parts&amp;#34;: [{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;text&amp;#34;: &amp;#34;Investigate build 42 for example/web. Return evidence. Do not modify files.&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      }]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  }&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  http://localhost:9001/message:send
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The remote service may return a message or a task. A task may need more input, fail, be canceled or complete with artifacts. Handle those states explicitly. Do not treat every HTTP 200 response as a completed investigation.&lt;/p&gt;
+&lt;p&gt;A2A also defines JSON-RPC and gRPC bindings. Their request shapes differ. Older examples using JSON-RPC &lt;code&gt;message/send&lt;/code&gt; should not be pasted into this HTTP+JSON example; the A2A 1.0 JSON-RPC method is &lt;code&gt;SendMessage&lt;/code&gt;.&lt;sup id=&#34;fnref2:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;For a complete server and client, start with the project&amp;rsquo;s &lt;a href=&#34;https://a2a-protocol.org/latest/tutorials/python/1-introduction/&#34;&gt;Python quickstart&lt;/a&gt; or its &lt;a href=&#34;https://github.com/a2aproject/a2a-samples/tree/main/demo&#34;&gt;multi-agent example&lt;/a&gt;. Check the version each sample targets before running it.&lt;/p&gt;
+&lt;h3 id=&#34;how-is-a2a-different-from-mcp&#34;&gt;How is A2A different from MCP?&lt;/h3&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;&lt;/th&gt;
+					&lt;th&gt;MCP&lt;/th&gt;
+					&lt;th&gt;A2A&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Main purpose&lt;/td&gt;
+					&lt;td&gt;Expose tools, resources and prompt templates to a host.&lt;/td&gt;
+					&lt;td&gt;Exchange messages and delegate work to an independent agent service.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Typical request&lt;/td&gt;
+					&lt;td&gt;&amp;ldquo;Fetch the log for build 42.&amp;rdquo;&lt;/td&gt;
+					&lt;td&gt;&amp;ldquo;Investigate why build 42 failed.&amp;rdquo;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Who decides the internal steps?&lt;/td&gt;
+					&lt;td&gt;The caller orchestrates use of exposed capabilities.&lt;/td&gt;
+					&lt;td&gt;The remote agent controls how it carries out the delegated work.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Can they work together?&lt;/td&gt;
+					&lt;td&gt;An agent can use MCP tools while doing a task.&lt;/td&gt;
+					&lt;td&gt;That agent can expose its task interface through A2A.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This is a distinction in purpose, not a claim that MCP can only handle quick functions or that A2A guarantees intelligent behavior.&lt;/p&gt;
+&lt;p&gt;In our example, the coding agent delegates the investigation through A2A. The CI agent then uses an MCP server to retrieve logs. Neither protocol requires the agents to use the same model.&lt;/p&gt;
+&lt;h2 id=&#34;what-other-protocols-should-i-know&#34;&gt;What other protocols should I know?&lt;/h2&gt;
+&lt;p&gt;There is no single replacement for MCP. Other protocols often connect different parts of an application.&lt;/p&gt;
+&lt;h3 id=&#34;ag-ui-an-agent-talking-to-an-application-ui&#34;&gt;AG-UI: an agent talking to an application UI&lt;/h3&gt;
+&lt;p&gt;The &lt;em&gt;Agent-User Interaction protocol&lt;/em&gt; defines events exchanged between an agent backend and a user-facing application. It covers things such as run lifecycle, streamed text, tool activity and shared state.&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;While the CI investigation runs, a browser could receive &lt;code&gt;RUN_STARTED&lt;/code&gt;, text message events and finally &lt;code&gt;RUN_FINISHED&lt;/code&gt;. It can update the page as events arrive instead of waiting for one finished paragraph. A failed run emits &lt;code&gt;RUN_ERROR&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For example, these are the contents of a small text-event sequence, not a complete transport response:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RUN_STARTED&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;threadId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;thread-1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;run-1&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TEXT_MESSAGE_START&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messageId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg-1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TEXT_MESSAGE_CONTENT&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messageId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg-1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;delta&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Build 42 failed in the integration tests.&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TEXT_MESSAGE_END&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messageId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg-1&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RUN_FINISHED&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;threadId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;thread-1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;runId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;run-1&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;AG-UI does not replace MCP tool access or A2A delegation. An application can use all of them:&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    UI[&amp;#34;Application UI&amp;#34;] &amp;lt;--&amp;gt;|&amp;#34;AG-UI events and input&amp;#34;| A[&amp;#34;Coding agent&amp;#34;]
+    S[&amp;#34;CI triage skill&amp;#34;] -.-&amp;gt;|&amp;#34;Instructions loaded when needed&amp;#34;| A
+    A &amp;lt;--&amp;gt;|&amp;#34;A2A messages and tasks&amp;#34;| B[&amp;#34;CI investigation agent&amp;#34;]
+    B &amp;lt;--&amp;gt;|&amp;#34;MCP capability calls and results&amp;#34;| C[&amp;#34;MCP server&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Existing CI API and build logs&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;You do not need this entire stack to investigate a build. The diagram shows where the parts fit when separate services and a live UI are justified.&lt;/p&gt;
+&lt;h3 id=&#34;acp-check-which-one-somebody-means&#34;&gt;ACP: check which one somebody means&lt;/h3&gt;
+&lt;p&gt;The name &lt;em&gt;ACP&lt;/em&gt; has been used for two different protocols.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;Agent Communication Protocol&lt;/em&gt; associated with BeeAI addressed agent interoperability. Its project documentation now directs users to A2A following their merger. Treat older ACP tutorials in that context as migration material.&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;Agent Client Protocol&lt;/em&gt; connects coding agents to editors and IDEs. It is a different project and has not become A2A. It is useful when an editor and a coding agent need a shared interface for sessions, messages, file access and permission requests.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;For example, an ACP-capable editor can ask a compatible coding agent to investigate a Go test failure and display its proposed edits. That agent could use MCP for external tools. A2A would only be needed if it also delegated to another agent service. Installing &lt;code&gt;gopls&lt;/code&gt; does not provide this integration: LSP handles language features, while ACP handles interaction with a coding agent.&lt;/p&gt;
+&lt;h2 id=&#34;permissions-matter-more-than-the-protocol-name&#34;&gt;Permissions matter more than the protocol name&lt;/h2&gt;
+&lt;p&gt;An agent can make an ordinary software mistake and can also follow malicious instructions hidden in material it reads. A build log, web page or tool result is evidence, not permission to change the task.&lt;/p&gt;
+&lt;p&gt;The MCP security guidance discusses risks such as confused-deputy behavior and unsafe authorization. Supporting MCP does not automatically make a server trustworthy.&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;For the CI example, I would begin with read-only log access and a disposable checkout. Editing files, pushing a branch and deploying should be separate permissions. Authenticate remote services and enforce authorization for the particular repository and action. Use the documented authorization flow rather than passing a user&amp;rsquo;s credentials indiscriminately between services.&lt;/p&gt;
+&lt;p&gt;Set timeouts and retry limits. Keep an audit trail of tool calls and results without recording secrets. Treat cancellation and duplicate delivery as normal distributed-system problems; do not assume retrying an agent task is harmless.&lt;/p&gt;
+&lt;p&gt;Then evaluate the whole application. Give it known compiler errors, misleading logs, unavailable services and tasks that require clarification. Check whether it finds the right evidence, respects its boundaries and stops when it cannot proceed. A convincing final explanation is only one part of a successful run.&lt;/p&gt;
+&lt;p&gt;For a small project, one agent, a clear skill and a few restricted tools are often enough. Add a protocol when there is an actual integration boundary to cross.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;The protocol examples here target A2A 1.0 and MCP revision &lt;code&gt;2026-07-28&lt;/code&gt;. SDK versions are separate from protocol versions.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Anthropic, &lt;a href=&#34;https://www.anthropic.com/research/building-effective-agents&#34;&gt;Building effective agents&lt;/a&gt;. Explains the workflow/agent distinction, tool feedback loops and when simpler approaches are preferable.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://agentskills.io/specification&#34;&gt;Agent Skills specification&lt;/a&gt;. Defines &lt;code&gt;SKILL.md&lt;/code&gt;, required metadata, optional supporting files and progressive disclosure.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://modelcontextprotocol.io/specification/2026-07-28/architecture&#34;&gt;MCP architecture, revision 2026-07-28&lt;/a&gt;. Describes host, client and server responsibilities.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://modelcontextprotocol.io/specification/2026-07-28/server/tools&#34;&gt;MCP tools specification, revision 2026-07-28&lt;/a&gt;. Defines discovery, schemas, invocation and user-control considerations.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;MCP Python SDK, &lt;a href=&#34;https://py.sdk.modelcontextprotocol.io/get-started/&#34;&gt;Get started&lt;/a&gt; and &lt;a href=&#34;https://py.sdk.modelcontextprotocol.io/whats-new/&#34;&gt;What&amp;rsquo;s new in v2&lt;/a&gt;. Documents &lt;code&gt;MCPServer&lt;/code&gt;, the development CLI and protocol changes.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://modelcontextprotocol.io/specification/2026-07-28/basic/transports&#34;&gt;MCP transports, revision 2026-07-28&lt;/a&gt;. Covers stdio, Streamable HTTP, request metadata and compatibility with initialization-based versions.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;A2A project, &lt;a href=&#34;https://a2a-protocol.org/v1.0.0/specification/&#34;&gt;Protocol specification&lt;/a&gt; and &lt;a href=&#34;https://github.com/a2aproject/A2A/blob/v1.0.1/docs/specification.md&#34;&gt;v1.0.1 specification source&lt;/a&gt;. Covers tasks, messages, artifacts, bindings and version headers.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref2:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;A2A project, &lt;a href=&#34;https://a2a-protocol.org/v1.0.0/topics/agent-discovery/&#34;&gt;Agent discovery&lt;/a&gt;. Explains Agent Cards, well-known URLs and other discovery options.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;AG-UI, &lt;a href=&#34;https://docs.ag-ui.com/introduction&#34;&gt;Overview&lt;/a&gt; and &lt;a href=&#34;https://docs.ag-ui.com/concepts/events&#34;&gt;Events&lt;/a&gt;. Defines the agent/frontend boundary and the event types used in the example.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://agentcommunicationprotocol.dev/introduction/welcome&#34;&gt;Agent Communication Protocol documentation&lt;/a&gt;. Announces its move into A2A.&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://agentclientprotocol.com/get-started/introduction&#34;&gt;Agent Client Protocol introduction&lt;/a&gt;. Describes editor/agent interoperability and local versus remote integration.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34;&gt;
+&lt;p&gt;MCP, &lt;a href=&#34;https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices&#34;&gt;Security best practices&lt;/a&gt; and &lt;a href=&#34;https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization&#34;&gt;Authorization&lt;/a&gt;. Covers authorization boundaries and protocol-specific threats.&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
