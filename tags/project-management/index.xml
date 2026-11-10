@@ -9,13 +9,17 @@
     <copyright>© {year} Martin Musale</copyright>
     <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://musale.github.io/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects I&#39;ve Authored or Worked On</title>
+      <title>Projects</title>
       <link>https://musale.github.io/projects/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://musale.github.io/projects/</guid>
-      <description>&lt;p&gt;Below are some small open source software projects I’ve authored or helped develop. Most of them are released under a BSD-style license. Enjoy!&lt;/p&gt;</description>
-      <content>&lt;p&gt;Below are some small open source software projects I’ve authored or helped develop. Most of them are released under a BSD-style license. Enjoy!&lt;/p&gt;
+      <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;
+&lt;p&gt;Libraries, tools, and experiments I&amp;rsquo;ve built or contributed to. Each write-up explains the problem I was working on, how I approached it, and what came out of it.&lt;/p&gt;
+&lt;p&gt;For my work on Microsoft Graph SDKs, Kiota, and cloud platforms, see &lt;a href=&#34;https://musale.github.io/about/&#34;&gt;About&lt;/a&gt;. You can find more of my code on &lt;a href=&#34;https://github.com/musale&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;
+&lt;p&gt;Libraries, tools, and experiments I&amp;rsquo;ve built or contributed to. Each write-up explains the problem I was working on, how I approached it, and what came out of it.&lt;/p&gt;
+&lt;p&gt;For my work on Microsoft Graph SDKs, Kiota, and cloud platforms, see &lt;a href=&#34;https://musale.github.io/about/&#34;&gt;About&lt;/a&gt;. You can find more of my code on &lt;a href=&#34;https://github.com/musale&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </content>
     </item>
     

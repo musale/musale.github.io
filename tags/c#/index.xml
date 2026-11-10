@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on Martin Musale</title>
+    <link>https://musale.github.io/tags/c%23/</link>
+    <description>Recent content in C# on Martin Musale</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year} Martin Musale</copyright><atom:link href="https://musale.github.io/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Martin Musale&#39;s CV</title>
+      <link>https://musale.github.io/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://musale.github.io/cv/</guid>
+      <description>&lt;h1 id=&#34;martin-musale&#34;&gt;Martin Musale&lt;/h1&gt;
+&lt;p&gt;Senior software engineer&lt;/p&gt;
+&lt;p&gt;Nairobi, Kenya | +254 705 867 162 | &lt;a href=&#34;mailto:martinmshale@gmail.com&#34;&gt;martinmshale@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/musalemartin/&#34;&gt;LinkedIn&lt;/a&gt; | &lt;a href=&#34;https://github.com/musale&#34;&gt;GitHub&lt;/a&gt; | &lt;a href=&#34;https://musale.github.io/&#34;&gt;Personal site&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Senior software engineer with 12 years of experience designing and scaling distributed backend services, developer platforms, and high-volume data pipelines in Go, C#, Python, and TypeScript. At Microsoft, I&amp;rsquo;ve improved the reliability of M365 services, shortened incident triage, and helped ship v1.0 SDKs for Microsoft 365 Copilot. My work also includes platform migrations, production infrastructure, and developer tools.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;martin-musale&#34;&gt;Martin Musale&lt;/h1&gt;
+&lt;p&gt;Senior software engineer&lt;/p&gt;
+&lt;p&gt;Nairobi, Kenya | +254 705 867 162 | &lt;a href=&#34;mailto:martinmshale@gmail.com&#34;&gt;martinmshale@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/musalemartin/&#34;&gt;LinkedIn&lt;/a&gt; | &lt;a href=&#34;https://github.com/musale&#34;&gt;GitHub&lt;/a&gt; | &lt;a href=&#34;https://musale.github.io/&#34;&gt;Personal site&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Senior software engineer with 12 years of experience designing and scaling distributed backend services, developer platforms, and high-volume data pipelines in Go, C#, Python, and TypeScript. At Microsoft, I&amp;rsquo;ve improved the reliability of M365 services, shortened incident triage, and helped ship v1.0 SDKs for Microsoft 365 Copilot. My work also includes platform migrations, production infrastructure, and developer tools.&lt;/p&gt;
+&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Programming: Go, Python, TypeScript, and C#.&lt;/li&gt;
+&lt;li&gt;Backend: REST API design, implementation, and integration; system and software architecture; security and authentication; performance and reliability tuning.&lt;/li&gt;
+&lt;li&gt;Platform: scripting and automation, containerization and orchestration, infrastructure as code, CI/CD pipelines, cloud computing and DevOps, observability, and monitoring.&lt;/li&gt;
+&lt;li&gt;Frontend: React and modern frontend frameworks, CSS frameworks and preprocessors, web accessibility, performance optimization, build and package tooling, and state management.&lt;/li&gt;
+&lt;li&gt;Collaboration: cross-functional communication, systems thinking, developer empathy, teamwork, and a product mindset.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
+&lt;h3 id=&#34;senior-software-engineer--microsoft&#34;&gt;Senior software engineer | Microsoft&lt;/h3&gt;
+&lt;p&gt;Nairobi, Kenya | 2021 - Present&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Raised availability of a service that processes people and entity information from approximately 96% to 99.9%. Implemented token caching, processor sharding to contain tenant-level retry storms, and scoped change filtering that also reduced platform latency to under one minute.&lt;/li&gt;
+&lt;li&gt;Designed and prototyped a debugging workflow for an internal cloud CLI built around kubectl. Reduced incident triage time for on-call engineers from hours to less than 15 minutes.&lt;/li&gt;
+&lt;li&gt;Led the design of a telemetry collection, normalization, and reporting pipeline to measure the value of inferred contacts in scenarios including Copilot and the People API.&lt;/li&gt;
+&lt;li&gt;Built AI-assisted workflows for incident triage, root-cause analysis, monitoring active incidents, and communicating status to stakeholders.&lt;/li&gt;
+&lt;li&gt;Coordinated a .NET 8 to .NET 10 and platform SDK migration across three services I owned, including telemetry upgrades. Added startup and assembly-loading regression tests to catch compatibility breaks before release. Documented the migration so other teams could use what we learned.&lt;/li&gt;
+&lt;li&gt;Remediated security and dependency-compliance vulnerabilities across the three services, keeping dependencies on supported, patched versions.&lt;/li&gt;
+&lt;li&gt;Contributed to Microsoft Graph API SDK releases across Python, Go, TypeScript, C#, and Java. Helped ship v1.0.0 of the Microsoft 365 Copilot API SDK (Microsoft.Agents.M365Copilot) for C#, Python, and TypeScript.&lt;/li&gt;
+&lt;li&gt;Authored and reviewed designs, code, and technical documentation. Mentored incoming engineers and university students through the ADC WINS and Skill Shadowing programs, and presented the team&amp;rsquo;s work and incident retrospectives.&lt;/li&gt;
+&lt;li&gt;Built Microsoft Graph Toolkit components, including a React authentication hook and theming support, and staged the retirement of a legacy authentication provider. Contributed to the toolkit&amp;rsquo;s v4.0 general-availability release.&lt;/li&gt;
+&lt;li&gt;Migrated Microsoft Graph Explorer to Fluent UI v9 and moved state management for static and configuration properties from Redux to React Context. Improved app interactions and supported theming and the v4 general-availability release.&lt;/li&gt;
+&lt;li&gt;Designed and carried out the migration of 1 TB of Microsoft Graph API SDK telemetry data into a more secure cloud environment within Microsoft, including schema translation and data transfer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;technical-lead--libryo-now-erm-libryo&#34;&gt;Technical lead | Libryo (now ERM Libryo)&lt;/h3&gt;
+&lt;p&gt;London, UK | June 2018 - January 2021&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Led the team ingesting legislation from external sources into Libryo&amp;rsquo;s legal data platform. Coordinated scripting work for legal content display, summarization, and automated tagging, and made it easier to add new sourcing locations.&lt;/li&gt;
+&lt;li&gt;Built web scraping and ingestion systems to collect new and updated legislation, plus the delivery pipeline that converted source material into platform-ready data.&lt;/li&gt;
+&lt;li&gt;Reviewed technical designs and implementation proposals across services, helping identify risks before development.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;backend-software-engineer--optimetriks-now-fieldpro&#34;&gt;Backend software engineer | Optimetriks (now FieldPro)&lt;/h3&gt;
+&lt;p&gt;Nairobi, Kenya | January 2018 - June 2018&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Built backend APIs for FieldPro, a platform for configuring and managing field data-collection workflows, with Tableau integration for reporting and analysis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;backend-software-engineer--gravity&#34;&gt;Backend software engineer | Gravity&lt;/h3&gt;
+&lt;p&gt;Nairobi, Kenya | September 2017 - January 2018&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Built a USSD backend integrated with Gravity&amp;rsquo;s identity platform so people could register without a smartphone or conventional web access. Managed the MongoDB data store and the service&amp;rsquo;s infrastructure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;software-engineer--focus-mobile-limited&#34;&gt;Software engineer | Focus Mobile Limited&lt;/h3&gt;
+&lt;p&gt;Nairobi, Kenya | July 2016 - August 2017&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Built SMSLeopard, a bulk SMS messaging platform, and improved its high-volume message processing and delivery.&lt;/li&gt;
+&lt;li&gt;Developed customer projects in Python, Go, and Django.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;earlier-experience&#34;&gt;Earlier experience&lt;/h2&gt;
+&lt;h3 id=&#34;software-engineer--tumacredocom&#34;&gt;Software engineer | TumaCredo.com&lt;/h3&gt;
+&lt;p&gt;January 2016 - August 2016&lt;/p&gt;
+&lt;p&gt;Built and maintained a platform for distributing bulk mobile airtime, added product capabilities, and improved the user experience.&lt;/p&gt;
+&lt;h3 id=&#34;android-application-consultant--carepay-limited&#34;&gt;Android application consultant | CarePay Limited&lt;/h3&gt;
+&lt;p&gt;October 2015 - January 2016&lt;/p&gt;
+&lt;p&gt;Developed an Android application that consolidated access to CarePay&amp;rsquo;s healthcare payment services.&lt;/p&gt;
+&lt;h3 id=&#34;junior-software-engineer--weza-tele-ltd&#34;&gt;Junior software engineer | Weza Tele Ltd&lt;/h3&gt;
+&lt;p&gt;October 2014 - January 2015&lt;/p&gt;
+&lt;p&gt;Developed software to automate and simplify client business processes.&lt;/p&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;h3 id=&#34;bachelor-of-science-in-mathematics-and-computer-science&#34;&gt;Bachelor of Science in Mathematics and Computer Science&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://jkuat.ac.ke&#34;&gt;Jomo Kenyatta University of Agriculture and Technology&lt;/a&gt; | 2012 - 2025&lt;/p&gt;
+&lt;p&gt;Second class honors.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

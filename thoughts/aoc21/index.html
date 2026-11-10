@@ -97,84 +97,88 @@
 
     </div>
     
-      <div class="menu-trigger">menu</div>
+      <button class="menu-trigger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">menu</button>
     
   </div>
   
-    <nav class="menu">
+    <nav class="menu" aria-label="Main">
   <ul class="menu__inner menu__inner--desktop">
     
       
         
-          <li><a href="/ai">AI Notes</a></li>
-        
-      
-        
-          <li><a href="/cv">CV</a></li>
-        
-      
-        
-          <li><a href="/projects">Projects</a></li>
-        
-      
-        
-          <li><a href="/thoughts">Thoughts?</a></li>
-        
-      
-        
-          <li><a href="/wishlist">Wishlist</a></li>
-        
-      
-        
-          <li><a href="/my-list">Bucket List</a></li>
-        
-      
-      
-        <ul class="menu__sub-inner">
-          <li class="menu__sub-inner-more-trigger">Show more ▾</li>
+          <li>
+  <a href="/ai">AI Notes</a>
+</li>
 
-          <ul class="menu__sub-inner-more hidden">
-            
-              
-                <li><a href="/contacts">Contacts</a></li>
-              
-            
-          </ul>
-        </ul>
+        
+      
+        
+          <li>
+  <a href="/projects">Projects</a>
+</li>
+
+        
+      
+        
+          <li>
+  <a href="/thoughts" aria-current="true">Writing</a>
+</li>
+
+        
+      
+        
+          <li>
+  <a href="/about">About</a>
+</li>
+
+        
+      
+        
+          <li>
+  <a href="/contacts">Contact</a>
+</li>
+
+        
+      
       
     
-
     
   </ul>
-
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/ai">AI Notes</a></li>
+        <li>
+  <a href="/ai">AI Notes</a>
+</li>
+
       
     
       
-        <li><a href="/cv">CV</a></li>
+        <li>
+  <a href="/projects">Projects</a>
+</li>
+
       
     
       
-        <li><a href="/projects">Projects</a></li>
+        <li>
+  <a href="/thoughts" aria-current="true">Writing</a>
+</li>
+
       
     
       
-        <li><a href="/thoughts">Thoughts?</a></li>
+        <li>
+  <a href="/about">About</a>
+</li>
+
       
     
       
-        <li><a href="/wishlist">Wishlist</a></li>
-      
-    
-      
-        <li><a href="/my-list">Bucket List</a></li>
-      
-    
-      
-        <li><a href="/contacts">Contacts</a></li>
+        <li>
+  <a href="/contacts">Contact</a>
+</li>
+
       
     
     
@@ -326,6 +330,13 @@
   
     <footer class="footer">
   <div class="footer__inner">
+    <nav class="footer-links" aria-label="Footer">
+      <ul>
+        <li><a href="/cv">CV</a></li><li><a href="/elsewhere">Elsewhere</a></li><li><a href="/index.xml">RSS</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer__inner">
     
       <div class="copyright copyright--user">
         <span>© 2026 Martin Musale</span>
@@ -341,7 +352,26 @@
 
 
 
+<script>
+  const menuButton = document.querySelector(".menu-trigger");
+  const navigation = document.querySelector(".menu");
 
+  if (menuButton && navigation) {
+    navigation.id = "primary-menu";
+    const syncMenuState = () => {
+      menuButton.setAttribute("aria-expanded", String(!navigation.classList.contains("hidden")));
+    };
+    new MutationObserver(syncMenuState).observe(navigation, { attributes: true, attributeFilter: ["class"] });
+    syncMenuState();
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !menuButton.classList.contains("hidden") && !navigation.classList.contains("hidden")) {
+        navigation.classList.add("hidden");
+        menuButton.focus();
+      }
+    });
+  }
+</script>
 
   
 </div>

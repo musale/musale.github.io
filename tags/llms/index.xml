@@ -14,8 +14,14 @@
       <pubDate>Tue, 10 Nov 2026 00:00:00 +0300</pubDate>
       
       <guid>https://musale.github.io/ai/</guid>
-      <description>&lt;p&gt;I read on Artificial Intelligence, it&amp;rsquo;s power and influence in the modern day.&lt;/p&gt;</description>
-      <content>&lt;p&gt;I read on Artificial Intelligence, it&amp;rsquo;s power and influence in the modern day.&lt;/p&gt;
+      <description>&lt;h1 id=&#34;ai-notes&#34;&gt;AI Notes&lt;/h1&gt;
+&lt;p&gt;I write about language models, agents, and the code that makes them useful. These notes follow what I&amp;rsquo;m learning, with working examples and explanations of what happens underneath.&lt;/p&gt;
+&lt;h2 id=&#34;start-here&#34;&gt;Start here&lt;/h2&gt;
+&lt;p&gt;For the foundations, read &lt;a href=&#34;https://musale.github.io/ai/gen-ai/&#34;&gt;how generative AI works&lt;/a&gt;. Next, explore &lt;a href=&#34;https://musale.github.io/ai/agents/&#34;&gt;agents and their protocols&lt;/a&gt;, or go straight to &lt;a href=&#34;https://musale.github.io/ai/prompting-models-with-go/&#34;&gt;building a small model harness in Go&lt;/a&gt;.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;ai-notes&#34;&gt;AI Notes&lt;/h1&gt;
+&lt;p&gt;I write about language models, agents, and the code that makes them useful. These notes follow what I&amp;rsquo;m learning, with working examples and explanations of what happens underneath.&lt;/p&gt;
+&lt;h2 id=&#34;start-here&#34;&gt;Start here&lt;/h2&gt;
+&lt;p&gt;For the foundations, read &lt;a href=&#34;https://musale.github.io/ai/gen-ai/&#34;&gt;how generative AI works&lt;/a&gt;. Next, explore &lt;a href=&#34;https://musale.github.io/ai/agents/&#34;&gt;agents and their protocols&lt;/a&gt;, or go straight to &lt;a href=&#34;https://musale.github.io/ai/prompting-models-with-go/&#34;&gt;building a small model harness in Go&lt;/a&gt;.&lt;/p&gt;
 </content>
     </item>
     
