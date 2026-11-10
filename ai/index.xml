@@ -1554,14 +1554,7 @@
 &lt;p&gt;The file checks here assume an owner-controlled directory without hostile concurrent writers. They do not provide a complete defense against every filesystem race or concurrent edit. Use process isolation and a deliberately prepared filesystem if you need to run untrusted code or work in a hostile directory.&lt;/p&gt;
 &lt;p&gt;The program is intentionally one turn with one possible proposal. It has no durable approval queue, user accounts, concurrent request handling, or crash recovery. Adding any of those means deciding how identity, ownership, expiry, and operation state survive beyond this process.&lt;/p&gt;
 &lt;p&gt;For this exercise, I want to be able to point at the code that permits each operation. The model can ask for a file and suggest a new note. Saving that note remains a separate application action.&lt;/p&gt;
-&lt;h2 id=&#34;follow-up-articles&#34;&gt;Follow-up articles&lt;/h2&gt;
-&lt;p&gt;These planned follow-ups are outside this article&amp;rsquo;s local tool example:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;An authenticated API tool: start with a read-only endpoint. Keep credentials in the application, fix the allowed endpoint and method, and distinguish service authentication from the user&amp;rsquo;s permission to access a resource.&lt;/li&gt;
-&lt;li&gt;Exposing the tools through MCP: reuse the tool behavior and explain what the protocol changes. Connecting through MCP should not silently grant broader permissions.&lt;/li&gt;
-&lt;li&gt;Restricted command execution: examine isolation, restricted capabilities, and resource limits as a separate exercise. The local notes example does not need arbitrary command execution.&lt;/li&gt;
-&lt;li&gt;An email-to-GitHub collaboration assistant: read selected emails, inspect approved repositories, recommend matches privately, and prepare a response draft. Treat incoming email as untrusted input and enforce disclosure rules for private projects. Sending email or inviting collaborators would require separate authorization and approval.&lt;/li&gt;
-&lt;/ul&gt;
+
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

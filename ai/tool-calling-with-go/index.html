@@ -205,7 +205,7 @@
     
     
     
-      <span class="post-reading-time">:: 13 min read (2748 words)</span>
+      <span class="post-reading-time">:: 13 min read (2614 words)</span>
     
   </div>
 
@@ -239,7 +239,6 @@
     </li>
     <li><a href="#what-happened-with-the-local-model">What happened with the local model</a></li>
     <li><a href="#where-this-example-stops">Where this example stops</a></li>
-    <li><a href="#follow-up-articles">Follow-up articles</a></li>
   </ul>
 </nav>
     </div>
@@ -539,14 +538,7 @@
 <p>The file checks here assume an owner-controlled directory without hostile concurrent writers. They do not provide a complete defense against every filesystem race or concurrent edit. Use process isolation and a deliberately prepared filesystem if you need to run untrusted code or work in a hostile directory.</p>
 <p>The program is intentionally one turn with one possible proposal. It has no durable approval queue, user accounts, concurrent request handling, or crash recovery. Adding any of those means deciding how identity, ownership, expiry, and operation state survive beyond this process.</p>
 <p>For this exercise, I want to be able to point at the code that permits each operation. The model can ask for a file and suggest a new note. Saving that note remains a separate application action.</p>
-<h2 id="follow-up-articles">Follow-up articles<a href="#follow-up-articles" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>These planned follow-ups are outside this article&rsquo;s local tool example:</p>
-<ul>
-<li>An authenticated API tool: start with a read-only endpoint. Keep credentials in the application, fix the allowed endpoint and method, and distinguish service authentication from the user&rsquo;s permission to access a resource.</li>
-<li>Exposing the tools through MCP: reuse the tool behavior and explain what the protocol changes. Connecting through MCP should not silently grant broader permissions.</li>
-<li>Restricted command execution: examine isolation, restricted capabilities, and resource limits as a separate exercise. The local notes example does not need arbitrary command execution.</li>
-<li>An email-to-GitHub collaboration assistant: read selected emails, inspect approved repositories, recommend matches privately, and prepare a response draft. Treat incoming email as untrusted input and enforce disclosure rules for private projects. Sending email or inviting collaborators would require separate authorization and approval.</li>
-</ul>
+
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
