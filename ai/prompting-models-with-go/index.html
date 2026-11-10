@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Prompting a local model with Go: from HTTP to a small harness :: Martin Musale</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Run a small model locally, inspect its requests and responses, understand JSONL, and build a Go harness with conversation history and a restricted tool." />
+<meta name="keywords" content="Web Development, Software Developer Engineer, Programming, Data Structures and Algorithms, Kubernetes, Go, Cloud Engineering" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://musale.github.io/ai/prompting-models-with-go/" />
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQ48L99YHX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QQ48L99YHX');
+        }
+      </script>
+
+
+<link rel="stylesheet" href="https://musale.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://musale.github.io/assets/green.css">
+
+
+
+<link rel="stylesheet" href="https://musale.github.io/style.css">
+
+
+<link rel="apple-touch-icon" href="https://musale.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://musale.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="https://musale.github.io" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Prompting a local model with Go: from HTTP to a small harness">
+<meta property="og:description" content="Run a small model locally, inspect its requests and responses, understand JSONL, and build a Go harness with conversation history and a restricted tool." />
+<meta property="og:url" content="https://musale.github.io/ai/prompting-models-with-go/" />
+<meta property="og:site_name" content="Martin Musale" />
+
+  
+    <meta property="og:image" content="https://musale.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2026-11-10 00:00:00 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Martin Musale (⌐▨_▨)
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/ai">AI Notes</a></li>
+        
+      
+        
+          <li><a href="/cv">CV</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/thoughts">Thoughts?</a></li>
+        
+      
+        
+          <li><a href="/wishlist">Wishlist</a></li>
+        
+      
+        
+          <li><a href="/my-list">Bucket List</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">Show more ▾</li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/contacts">Contacts</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/ai">AI Notes</a></li>
+      
+    
+      
+        <li><a href="/cv">CV</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/thoughts">Thoughts?</a></li>
+      
+    
+      
+        <li><a href="/wishlist">Wishlist</a></li>
+      
+    
+      
+        <li><a href="/my-list">Bucket List</a></li>
+      
+    
+      
+        <li><a href="/contacts">Contacts</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://musale.github.io/ai/prompting-models-with-go/">Prompting a local model with Go: from HTTP to a small harness</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        Nov 10, 2026
+        
+          [Updated On: Nov 10, 2026]
+        
+      </span>
+    
+    
+    
+      <span class="post-reading-time">:: 18 min read (3660 words)</span>
+    
+  </div>
+
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        
+          Table of Contents
+        
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-we-actually-running">What are we actually running?</a></li>
+    <li><a href="#start-a-small-model-locally">Start a small model locally</a></li>
+    <li><a href="#inspect-one-request-before-writing-go">Inspect one request before writing Go</a>
+      <ul>
+        <li><a href="#what-do-the-roles-mean">What do the roles mean?</a></li>
+        <li><a href="#what-happens-after-the-server-receives-it">What happens after the server receives it?</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-jsonl">What is JSONL?</a>
+      <ul>
+        <li><a href="#jsonl-ndjson-and-streaming">JSONL, NDJSON and streaming</a></li>
+      </ul>
+    </li>
+    <li><a href="#query-the-model-from-go">Query the model from Go</a>
+      <ul>
+        <li><a href="#try-streaming">Try streaming</a></li>
+        <li><a href="#do-not-treat-every-http-200-as-a-complete-answer">Do not treat every HTTP 200 as a complete answer</a></li>
+      </ul>
+    </li>
+    <li><a href="#prompting-is-deciding-what-context-to-send">Prompting is deciding what context to send</a></li>
+    <li><a href="#where-does-conversation-memory-live">Where does conversation memory live?</a></li>
+    <li><a href="#add-a-tool-without-giving-the-model-a-shell">Add a tool without giving the model a shell</a>
+      <ul>
+        <li><a href="#put-permissions-in-code">Put permissions in code</a></li>
+      </ul>
+    </li>
+    <li><a href="#record-what-the-harness-sends">Record what the harness sends</a></li>
+    <li><a href="#what-have-we-built-and-what-is-still-missing">What have we built, and what is still missing?</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <p>When I type a question into a coding assistant, what reaches the model? Is it my sentence, a JSON document, the whole conversation, or something else? And when people mention JSONL, are they talking about prompts, training data or streamed answers?</p>
+<p>I want to separate those things by building something small enough to read. We will run a local model, call it over HTTP from Go, keep a conversation and let it request one read-only tool. The program will also write a trace so we can inspect what it sends.</p>
+<p>The <a href="https://github.com/musale/musale-dev/tree/master/static/examples/go-harness">complete example</a> uses only Go&rsquo;s standard library. The snippets in this article are excerpts, not separate programs. You can also download <a href="/examples/go-harness/main.go">main.go</a>, <a href="/examples/go-harness/go.mod">go.mod</a>, <a href="/examples/go-harness/main_test.go">the tests</a> and <a href="/examples/go-harness/workspace/notes.txt">the sample note</a>.</p>
+<p>I exercised the example with Go 1.26.2, Ollama 0.32.14 and <code>qwen3:0.6b</code> on an Intel Mac with 16 GiB of RAM. This is a demonstration of the plumbing, not a model benchmark. Some of its answers are less obedient than the prompts ask for.</p>
+<h2 id="what-are-we-actually-running">What are we actually running?<a href="#what-are-we-actually-running" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The model and the application around it do different jobs.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Piece</th>
+					<th>Its job in this example</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Model weights</td>
+					<td>Learned numerical values used to predict the next token.</td>
+			</tr>
+			<tr>
+					<td>Tokenizer and chat template</td>
+					<td>Convert messages into the token sequence the model expects.</td>
+			</tr>
+			<tr>
+					<td>Ollama</td>
+					<td>Load the model, run inference and expose an HTTP API.</td>
+			</tr>
+			<tr>
+					<td>Go program</td>
+					<td>Build requests, keep history, handle responses and enforce tool permissions.</td>
+			</tr>
+			<tr>
+					<td>Terminal</td>
+					<td>Collect what we type and display the answer.</td>
+			</tr>
+	</tbody>
+</table>
+<p>The Go program is the beginning of a <em>harness</em>: the application code around a model that manages its interaction with a task and its environment.</p>
+<pre class="mermaid">flowchart TD
+    U[&#34;You type in the terminal&#34;] --&gt; H[&#34;Go harness: messages and settings&#34;]
+    H --&gt; J[&#34;HTTP request containing JSON&#34;]
+    J --&gt; O[&#34;Ollama: chat template and tokenizer&#34;]
+    O --&gt; M[&#34;Model inference: generate tokens&#34;]
+    M --&gt; R[&#34;Ollama: decode and package output&#34;]
+    R --&gt; P[&#34;HTTP response containing JSON or NDJSON&#34;]
+    P --&gt; H
+    H --&gt; D[&#34;Display text, or validate a tool request&#34;]</pre>
+<p>This explains a common source of confusion: we send JSON to an API, but the neural network does not execute that HTTP request. The runtime converts the relevant messages and tool descriptions into model-specific input. Generation continues a sequence of tokens.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h2 id="start-a-small-model-locally">Start a small model locally<a href="#start-a-small-model-locally" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Install <a href="https://ollama.com/download">Ollama</a> and <a href="https://go.dev/dl/">Go</a>. The example requires Go 1.24 or later because its file tool uses <code>os.OpenRoot</code>.</p>
+<p>In one terminal, start a local-only server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>OLLAMA_HOST<span style="color:#f92672">=</span>127.0.0.1:11434 OLLAMA_NO_CLOUD<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ollama serve
+</span></span></code></pre></div><p>Leave that terminal running. If the Ollama desktop app or a service already owns the port, quit it first, or configure and restart that service instead. Setting variables in a new shell does not reconfigure a server that is already running.</p>
+<p>In another terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --fail --silent --show-error http://127.0.0.1:11434/api/version
+</span></span><span style="display:flex;"><span>ollama pull qwen3:0.6b
+</span></span><span style="display:flex;"><span>ollama list
+</span></span></code></pre></div><p>The downloaded artifact on my test installation was about 523 MB, with <code>Q4_K_M</code> quantization. Quantization stores weights with reduced numerical precision to reduce their size. The download size is not the total RAM requirement: runtime buffers and the context cache need memory too.</p>
+<p>Qwen3 supports thinking and non-thinking modes. We will explicitly send <code>&quot;think&quot;: false</code> to keep this exercise focused on the answer and tool calls.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> That setting is model-dependent; it is not a universal field understood by every model API.</p>
+<p><code>OLLAMA_NO_CLOUD=1</code> disables Ollama&rsquo;s cloud features. Pulling the model still needs a download, but inference with this local model does not require sending the prompt to a hosted model. Keep the listener on loopback; do not expose this service publicly as though it had application authentication.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<h2 id="inspect-one-request-before-writing-go">Inspect one request before writing Go<a href="#inspect-one-request-before-writing-go" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Run this in the second terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --fail-with-body --silent --show-error --max-time <span style="color:#ae81ff">120</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  http://127.0.0.1:11434/api/chat <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;qwen3:0.6b&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;messages&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: &#34;You are a concise assistant.&#34;},
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Reply with just the word Nairobi.&#34;}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ],
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;stream&#34;: false,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;think&#34;: false,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;options&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;temperature&#34;: 0.2,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;num_ctx&#34;: 4096,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;num_predict&#34;: 256
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><p>This is an ordinary HTTP POST. There is no agent framework involved. Ollama&rsquo;s native chat endpoint accepts a model name and a list of messages.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>The response in my run included:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;qwen3:0.6b&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;created_at&#34;</span>: <span style="color:#e6db74">&#34;2026-11-10T06:16:18.852259Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;message&#34;</span>: { <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;assistant&#34;</span>, <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Nairobi.&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;done&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;done_reason&#34;</span>: <span style="color:#e6db74">&#34;stop&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;total_duration&#34;</span>: <span style="color:#ae81ff">3380230238</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;load_duration&#34;</span>: <span style="color:#ae81ff">3152542642</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;prompt_eval_count&#34;</span>: <span style="color:#ae81ff">34</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;prompt_eval_duration&#34;</span>: <span style="color:#ae81ff">151846000</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;eval_count&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;eval_duration&#34;</span>: <span style="color:#ae81ff">61967000</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The model metadata and timing fields are token counts that describe this run, not a fixed cost for the word &ldquo;Nairobi&rdquo;.</p>
+<p>Notice the two layers: the JSON object is the API&rsquo;s response envelope. <code>&quot;Nairobi.&quot;</code> is the model&rsquo;s answer inside it. If you ask the model to return JSON, that generated JSON can itself appear as a string in <code>message.content</code>. Parsing the outer response does not validate the contents of that string.</p>
+<h3 id="what-do-the-roles-mean">What do the roles mean?<a href="#what-do-the-roles-mean" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p><code>system</code> supplies application-level guidance. <code>user</code> contains the user&rsquo;s input. <code>assistant</code> contains a previous model response. We will add <code>tool</code> later for a result produced by application code.</p>
+<p>These are conventions the model learned through its training and message format. A system message saying &ldquo;never read private files&rdquo; does not remove filesystem permissions from the Go process. The application must enforce that restriction.</p>
+<p>The JSON wrapper also contains settings which are not prose instructions:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Setting</th>
+					<th>Meaning here</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>stream: false</code></td>
+					<td>Return one JSON response instead of incremental events. Ollama streams by default.</td>
+			</tr>
+			<tr>
+					<td><code>think: false</code></td>
+					<td>Request Qwen3&rsquo;s non-thinking mode. The example does not collect thinking output.</td>
+			</tr>
+			<tr>
+					<td><code>temperature: 0.2</code></td>
+					<td>Use a relatively concentrated sampling distribution. This does not guarantee correctness or identical replies.</td>
+			</tr>
+			<tr>
+					<td><code>num_ctx: 4096</code></td>
+					<td>Request a context window of 4,096 tokens for this runtime.</td>
+			</tr>
+			<tr>
+					<td><code>num_predict: 256</code></td>
+					<td>Limit the number of generated tokens. An answer can hit this limit before it is complete.</td>
+			</tr>
+	</tbody>
+</table>
+<p>The temperature is a choice for this short demonstration, not a claim about Qwen3&rsquo;s best settings. Its model card provides recommendations for different modes.<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h3 id="what-happens-after-the-server-receives-it">What happens after the server receives it?<a href="#what-happens-after-the-server-receives-it" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The chat template arranges the messages using the format the model expects. The tokenizer turns the resulting input into token IDs. Different models use different role markers, so we let the runtime handle that rather than inventing a universal prompt format.<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>The runtime processes the input, often called <em>prefill</em>, then generates output by repeatedly selecting another token. It stops at a model stop condition, an output limit or an interruption.</p>
+<pre class="mermaid">flowchart TD
+    A[&#34;Messages and tool descriptions&#34;] --&gt; B[&#34;Apply the model&#39;s chat template&#34;]
+    B --&gt; C[&#34;Tokenize and process the input&#34;]
+    C --&gt; D[&#34;Calculate next-token scores&#34;]
+    D --&gt; E[&#34;Select a token using decoding settings&#34;]
+    E --&gt; F{&#34;Stop?&#34;}
+    F --&gt;|No| D
+    F --&gt;|Yes| G[&#34;Decode output and return API events&#34;]</pre>
+<p>That is why an answer arrives gradually. The model normally does not produce a finished paragraph and then reveal it one character at a time. If you want more detail about tokens and inference, <a href="/ai/llms/">the LLM article</a> covers the underlying model.</p>
+<h2 id="what-is-jsonl">What is JSONL?<a href="#what-is-jsonl" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>JSON Lines, usually saved as <code>.jsonl</code>, is UTF-8 text with one valid JSON value per line. Each value is often an object, but it does not have to be. A blank line is not a valid record. A final newline is recommended.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<p>This is a JSONL file containing two chat examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsonl" data-lang="jsonl"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;messages&#34;</span>:[{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;Say hello.&#34;</span>},{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;assistant&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;Hello.&#34;</span>}]}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;messages&#34;</span>:[{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;What is 2 + 2?&#34;</span>},{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;assistant&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;4.&#34;</span>}]}
+</span></span></code></pre></div><p>It is not a JSON array, and there are no commas between the lines. A consumer reads and parses each record separately.</p>
+<p>That example could be a dataset format, but the consumer decides the schema. Another training pipeline might require a <code>text</code> field instead of <code>messages</code>. Renaming a file to <code>.jsonl</code> does not make it compatible with every trainer.</p>
+<p>JSONL describes how records are separated. It does not mean &ldquo;training&rdquo;, &ldquo;prompting&rdquo; or &ldquo;agent&rdquo; by itself. We can use the same format for application logs, batch inputs or events. None of the chat requests in this tutorial train or fine-tune the model.</p>
+<h3 id="jsonl-ndjson-and-streaming">JSONL, NDJSON and streaming<a href="#jsonl-ndjson-and-streaming" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Ollama calls its streaming format newline-delimited JSON, or NDJSON, and serves it as <code>application/x-ndjson</code>.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> For these object-per-line examples, it has the same practical structure as JSONL.</p>
+<p>Changing the request to <code>&quot;stream&quot;: true</code> gives events shaped like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsonl" data-lang="jsonl"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;message&#34;</span>:{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;assistant&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;Hel&#34;</span>},<span style="color:#f92672">&#34;done&#34;</span>:<span style="color:#66d9ef">false</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;message&#34;</span>:{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;assistant&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;lo&#34;</span>},<span style="color:#f92672">&#34;done&#34;</span>:<span style="color:#66d9ef">false</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;message&#34;</span>:{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;assistant&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;&#34;</span>},<span style="color:#f92672">&#34;done&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;done_reason&#34;</span>:<span style="color:#e6db74">&#34;stop&#34;</span>}
+</span></span></code></pre></div><p>This is an illustrative, shortened stream. The displayed answer is the concatenation of the content chunks: <code>Hello</code>.</p>
+<p>One line is an event, not necessarily one token. A text newline inside a content string appears as the JSON escape <code>\n</code>, so it does not split that record into two physical lines. Network reads are another boundary entirely: one read can contain several events or only part of one.</p>
+<p>Do not assume every streaming API uses NDJSON:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Format</th>
+					<th>How to recognise it</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>One JSON response</td>
+					<td>A single response document, as with <code>stream: false</code> here.</td>
+			</tr>
+			<tr>
+					<td>JSONL / NDJSON</td>
+					<td>Consecutive JSON values, one per line.</td>
+			</tr>
+			<tr>
+					<td>Server-sent events (SSE)</td>
+					<td><code>text/event-stream</code>, with fields such as <code>data:</code> and blank lines separating events. A data payload may contain JSON.</td>
+			</tr>
+	</tbody>
+</table>
+<p>An SSE parser must handle the SSE framing before parsing JSON inside a data field. Feeding the raw <code>data:</code> lines to a JSON decoder will not work.<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></p>
+<p>Also check which Ollama endpoint you are using. <code>/api/chat</code> places text in <code>message.content</code>; <code>/api/generate</code> uses <code>response</code>. Examples for those endpoints are not interchangeable.<sup id="fnref1:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup><sup id="fnref1:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup></p>
+<h2 id="query-the-model-from-go">Query the model from Go<a href="#query-the-model-from-go" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Get the complete example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone --depth <span style="color:#ae81ff">1</span> https://github.com/musale/musale-dev.git
+</span></span><span style="display:flex;"><span>cd musale-dev/static/examples/go-harness
+</span></span><span style="display:flex;"><span>go test ./...
+</span></span><span style="display:flex;"><span>go run . -prompt <span style="color:#e6db74">&#39;Explain what a token is in one sentence.&#39;</span>
+</span></span></code></pre></div><p>You do not need an API key or an Ollama Go SDK. The server must still be running, and the model must have been pulled.</p>
+<p>The request built by the program has the same structure as the curl request:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ChatRequest</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Model</span>: <span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">Messages</span>: <span style="color:#a6e22e">history</span>, <span style="color:#a6e22e">Stream</span>: <span style="color:#a6e22e">stream</span>, <span style="color:#a6e22e">Think</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Options</span>: <span style="color:#a6e22e">Options</span>{<span style="color:#a6e22e">Temperature</span>: <span style="color:#ae81ff">0.2</span>, <span style="color:#a6e22e">NumCtx</span>: <span style="color:#ae81ff">4096</span>, <span style="color:#a6e22e">NumPredict</span>: <span style="color:#ae81ff">256</span>},
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>ChatRequest</code> is a Go struct whose JSON tags name the API fields. Here is the HTTP portion of <code>Client.complete</code>, with trace-writing omitted:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">request</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Message</span>{}, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;encode request: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewRequestWithContext</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">MethodPost</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">URL</span>, <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">body</span>),
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Message</span>{}, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">HTTP</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">req</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Message</span>{}, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;call Ollama: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+</span></span></code></pre></div><p><code>json.Marshal</code> serializes the request. <code>http.NewRequestWithContext</code> creates the POST, and <code>http.Client.Do</code> sends it. The model-specific work happens behind that HTTP endpoint, not inside the Go HTTP client.</p>
+<p>One small detail matters: <code>Think</code> has the tag <code>json:&quot;think&quot;</code>, not <code>json:&quot;think,omitempty&quot;</code>. The latter would omit a false boolean, which could leave the server using its default instead of the mode we requested.</p>
+<p>For responses, the program creates <code>json.NewDecoder(io.LimitReader(resp.Body, 1&lt;&lt;20))</code>. It repeatedly calls <code>decoder.Decode(&amp;event)</code> into a <code>ChatResponse</code> and joins the <code>event.Message.Content</code> strings. With streaming enabled, it also prints each content chunk as it arrives. The same loop can read a single final object or a stream of objects; Go&rsquo;s decoder reads successive JSON values without assuming that each network read contains a whole event.</p>
+<p>The decoder is not a strict JSONL validator. It can accept whitespace between values, including pretty-printed JSON. That is useful for reading this API, but different from enforcing one physical line per record in a dataset.</p>
+<h3 id="try-streaming">Try streaming<a href="#try-streaming" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go run . -stream <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -prompt <span style="color:#e6db74">&#39;Complete this sentence in at most eight words: A token is&#39;</span>
+</span></span></code></pre></div><p>On my run it answered:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>A token is a small item used to represent something more valuable.
+</span></span></code></pre></div><p>The stream handling worked. The answer exceeded eight words and used the everyday meaning of &ldquo;token&rdquo; rather than the language-model meaning. I had not specified that context. A successful HTTP call is a poor test of whether the answer did the job.</p>
+<h3 id="do-not-treat-every-http-200-as-a-complete-answer">Do not treat every HTTP 200 as a complete answer<a href="#do-not-treat-every-http-200-as-a-complete-answer" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The example checks HTTP status codes before decoding a successful response. It also checks the <code>error</code> field in every event, because a stream can fail after its HTTP headers have already said <code>200 OK</code>.<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></p>
+<p>It requires a final <code>done: true</code>. An unexpected end of the body is an error, not permission to pretend the partial answer is complete. It also reports <code>done_reason: &quot;length&quot;</code> as an incomplete answer.</p>
+<p>The client has timeouts and a response-body limit. Ctrl-C cancels the request. The point of these checks is to make failure visible; a little text printed to the terminal does not prove that the request finished.</p>
+<h2 id="prompting-is-deciding-what-context-to-send">Prompting is deciding what context to send<a href="#prompting-is-deciding-what-context-to-send" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>&ldquo;Explain tokens&rdquo; leaves the model to choose the meaning, audience and level of detail. A more useful prompt is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Explain tokens in language models to a Go programmer.
+</span></span><span style="display:flex;"><span>Use one short example of text split into possible tokens.
+</span></span><span style="display:flex;"><span>Say that the exact split depends on the tokenizer.
+</span></span><span style="display:flex;"><span>Keep the answer under 120 words.
+</span></span></code></pre></div><p>This names the subject and audience, provides a way to make the explanation concrete, and gives a length target. It still needs checking.</p>
+<p>When the answer depends on private or current facts, supply those facts or provide a way to retrieve them. A model cannot know the contents of a local file just because the prompt names it. Likewise, &ldquo;give citations&rdquo; does not give it a browser.</p>
+<p>For extraction, specify what to do when information is missing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Using only the note below, return the project name and release date.
+</span></span><span style="display:flex;"><span>If the note does not state a release date, use null.
+</span></span><span style="display:flex;"><span>Return a JSON object with fields &#34;project&#34; and &#34;release_date&#34;.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;note&gt;
+</span></span><span style="display:flex;"><span>The project is called Paper Kite.
+</span></span><span style="display:flex;"><span>Its release checklist requires review and approval.
+</span></span><span style="display:flex;"><span>&lt;/note&gt;
+</span></span></code></pre></div><p>The delimiters make the data easier to distinguish from the task. They are not a security boundary. The harness must still validate generated JSON and verify facts against the note. For stricter output syntax, Ollama also supports a <code>format</code> field containing a JSON schema; the example client does not implement that option.<sup id="fnref2:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>Avoid adding an entire repository to every question. Irrelevant context consumes space and can distract the model. Choosing what to include is part of the harness&rsquo;s job.</p>
+<h2 id="where-does-conversation-memory-live">Where does conversation memory live?<a href="#where-does-conversation-memory-live" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Run the program without <code>-prompt</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go run .
+</span></span></code></pre></div><p>A test conversation produced this output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>you&gt; Remember the code KITE-839. Reply OK.
+</span></span><span style="display:flex;"><span>OK.
+</span></span><span style="display:flex;"><span>you&gt; What code did I tell you? Reply with only the code.
+</span></span><span style="display:flex;"><span>KITE-839
+</span></span><span style="display:flex;"><span>you&gt; /quit
+</span></span></code></pre></div><p>The Go program keeps <code>history</code> in memory. It starts with a system message, appends the user message, sends the history, then appends the assistant response. On the next turn it sends that growing list again.</p>
+<p>The second request therefore contains both earlier messages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;messages&#34;</span>: [
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;...application instructions...&#34;</span> },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Remember the code KITE-839. Reply OK.&#34;</span> },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;assistant&#34;</span>, <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;OK.&#34;</span> },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;What code did I tell you? Reply with only the code.&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is a shortened request excerpt, not a complete request body.</p>
+<p>The model has not learned a new permanent fact by changing its weights. It has the code in its input. Restart this Go program and its history is gone.</p>
+<p>The runtime may keep a <em>KV cache</em> of intermediate attention calculations to reuse work. That cache is an inference optimization, not a durable conversation database. Our application still supplies the history it wants the model to use.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+<p>The example refuses conversations beyond 32 messages or 8,000 bytes of message content and tool-call names and arguments. These are crude application limits, not token accounting. The 4,096-token context also includes template and tool overhead, so these checks do not prove every possible input fits. A fuller harness needs model-aware token budgeting and an explicit policy for selecting or summarizing history.</p>
+<h2 id="add-a-tool-without-giving-the-model-a-shell">Add a tool without giving the model a shell<a href="#add-a-tool-without-giving-the-model-a-shell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The sample workspace contains:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The project is called Paper Kite.
+</span></span><span style="display:flex;"><span>Its release checklist is: run the tests, review the diff, then ask for approval.
+</span></span><span style="display:flex;"><span>The demonstration code is BLUE-47.
+</span></span></code></pre></div><p>Enable the tool and ask for information that is in that file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go run . -tools -root workspace <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -prompt <span style="color:#e6db74">&#39;Read notes.txt using read_file and tell me the demonstration code. Do not guess.&#39;</span>
+</span></span></code></pre></div><p>The program supplies a tool definition named <code>read_file</code>, with an argument schema allowing only <code>&quot;path&quot;: &quot;notes.txt&quot;</code>. It receives an assistant message with a request shaped like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;assistant&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tool_calls&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;function&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;read_file&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;arguments&#34;</span>: { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;notes.txt&#34;</span> }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>That is data. The model has not opened the file.</p>
+<p>The Go code checks the name and arguments, reads the allowed file, appends the assistant&rsquo;s tool-call message and a <code>tool</code> result, then makes another model request.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup> It handles every call in the returned array, rather than assuming there will always be one.</p>
+<p>The new history includes a result like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;tool&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tool_name&#34;</span>: <span style="color:#e6db74">&#34;read_file&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;The project is called Paper Kite.\nIts release checklist is: run the tests, review the diff, then ask for approval.\nThe demonstration code is BLUE-47.\n&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre class="mermaid">sequenceDiagram
+    participant U as User
+    participant H as Go harness
+    participant M as Model API
+    participant F as File tool
+    U-&gt;&gt;H: Ask for the demonstration code
+    H-&gt;&gt;M: Messages and read_file definition
+    M--&gt;&gt;H: Assistant message requesting read_file
+    H-&gt;&gt;H: Validate tool name, arguments and budget
+    H-&gt;&gt;F: Read permitted notes.txt
+    F--&gt;&gt;H: File contents
+    H-&gt;&gt;M: History including assistant call and tool result
+    M--&gt;&gt;H: Final assistant answer
+    H--&gt;&gt;U: Display answer</pre>
+<p>My run logged the actual call to stderr:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>tool: read_file {&#34;path&#34;:&#34;notes.txt&#34;}
+</span></span></code></pre></div><p>The final answer was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The project is called Paper Kite. Its release checklist is: run the tests, review the diff, then ask for approval. The demonstration code is BLUE-47.
+</span></span></code></pre></div><p>It found the code, but repeated the rest of the note too. Tool use and precise answer formatting are separate things to evaluate.</p>
+<h3 id="put-permissions-in-code">Put permissions in code<a href="#put-permissions-in-code" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The tool schema helps the model form a request. The Go code still independently rejects unknown tools, extra arguments and every path except <code>notes.txt</code>. It opens the workspace with <code>os.OpenRoot</code>, which provides traversal-resistant file access on the tested platform.<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup></p>
+<p>The tool accepts only a regular UTF-8 file of at most 2,048 bytes. It rejects symlinks. A denied or failed call becomes an explicit error on stderr and a JSON error result sent back to the model. It does not substitute empty contents or claim that a read succeeded.</p>
+<p>This is a toy workspace owned by the person running the program, not a sandbox for a hostile filesystem. Do not point it at sensitive material. <code>os.Root</code> constrains path resolution; it does not isolate the whole process, stop other processes changing files, or make secrets inside the root safe to disclose.</p>
+<p>The loop allows at most four model requests and four tool calls per user turn. A two-minute context deadline limits that turn&rsquo;s model requests. It stops with an error when it exhausts a budget.</p>
+<p>For simplicity, this example refuses to combine <code>-stream</code> and <code>-tools</code>. A fuller client can support both, but it must assemble streamed tool-call fragments correctly before executing anything.</p>
+<p>There is no MCP server here. The harness calls a local Go function directly. MCP would be useful if we wanted a standard interface to tools supplied by other processes. It would not replace the harness&rsquo;s authorization checks. <a href="/ai/agents/">The agents article</a> explains that distinction.</p>
+<h2 id="record-what-the-harness-sends">Record what the harness sends<a href="#record-what-the-harness-sends" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Create a fresh private temporary directory and enable tracing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>trace_dir<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>mktemp -d<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>go run . -tools -trace <span style="color:#e6db74">&#34;</span>$trace_dir<span style="color:#e6db74">/tools.jsonl&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -prompt <span style="color:#e6db74">&#39;Read notes.txt using read_file and tell me the demonstration code. Do not guess.&#39;</span>
+</span></span><span style="display:flex;"><span>nvim <span style="color:#e6db74">&#34;</span>$trace_dir<span style="color:#e6db74">/tools.jsonl&#34;</span>
+</span></span></code></pre></div><p>Each request and each decoded response event becomes one JSONL record. A non-streaming tool interaction normally has four records: request, tool-call response, follow-up request and final response. A streamed answer has more response records.</p>
+<p>The record wrapper is our own format, not a model API requirement:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsonl" data-lang="jsonl"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;kind&#34;</span>:<span style="color:#e6db74">&#34;request&#34;</span>,<span style="color:#f92672">&#34;request&#34;</span>:{<span style="color:#f92672">&#34;model&#34;</span>:<span style="color:#e6db74">&#34;...&#34;</span>,<span style="color:#f92672">&#34;messages&#34;</span>:[]}}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;kind&#34;</span>:<span style="color:#e6db74">&#34;response&#34;</span>,<span style="color:#f92672">&#34;response&#34;</span>:{<span style="color:#f92672">&#34;message&#34;</span>:{<span style="color:#f92672">&#34;role&#34;</span>:<span style="color:#e6db74">&#34;assistant&#34;</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;...&#34;</span>},<span style="color:#f92672">&#34;done&#34;</span>:<span style="color:#66d9ef">true</span>}}
+</span></span></code></pre></div><p>Those are abbreviated examples. The real trace includes the supplied messages and settings. It records the decoded response fields the client knows about, not a byte-for-byte capture of HTTP headers and every server field.</p>
+<p>The program creates the trace file with mode <code>0600</code> on Unix and refuses to overwrite an existing file. Choose a new filename for another run. Traces can contain prompts, private conversation history and file contents, so do not publish them. In particular, keep them outside this blog&rsquo;s <code>static/</code> directory, which Hugo copies into the website.</p>
+<p>To see whether a tool really ran, inspect the assistant call and the following request&rsquo;s tool result, rather than trusting a sentence such as &ldquo;I checked the file.&rdquo; To investigate a lost conversation, inspect the messages in the next request.</p>
+<h2 id="what-have-we-built-and-what-is-still-missing">What have we built, and what is still missing?<a href="#what-have-we-built-and-what-is-still-missing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>We have a small harness that owns the prompt, conversation state, HTTP client, tool dispatch and limits. With tools enabled, it lets the model choose an action and then respond to its result. That is the bounded model-and-tool loop described in the agents article.</p>
+<p>It is not a reproduction of Copilot&rsquo;s or Claude&rsquo;s private implementation. Larger coding assistants have additional work to do: choose repository context, persist sessions, handle edits, request approvals, isolate commands and recover from failures. Some also load skills or connect to MCP servers.</p>
+<p>The useful next experiment is to make a small evaluation set before adding more tools. Check whether the model reads the note when it needs it, quotes the code correctly, admits a missing fact and handles a denied read. Keep tests for HTTP errors and interrupted streams separate from tests of answer quality.</p>
+<p>A larger model may follow the wording better. It cannot replace the application&rsquo;s permission checks or decide whether your tests are adequate.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Hugging Face Transformers, <a href="https://huggingface.co/docs/transformers/chat_templating">Chat templates</a>, explains how role-based messages become model-specific token sequences.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Qwen, <a href="https://huggingface.co/Qwen/Qwen3-0.6B">Qwen3-0.6B model card</a>, documents the model, supported modes and recommended generation settings.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Ollama, <a href="https://docs.ollama.com/capabilities/thinking">Thinking</a>, documents model-dependent thinking controls and separate thinking and answer fields.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Ollama, <a href="https://docs.ollama.com/faq">FAQ</a>, covers local data processing, cloud disabling, listener configuration, context size and model residency.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Ollama, <a href="https://docs.ollama.com/api/chat">Generate a chat message</a>, specifies the native chat request, response, structured-output format and generation options.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref2:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://jsonlines.org/">JSON Lines</a>, format requirements and file conventions.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Ollama, <a href="https://docs.ollama.com/api/streaming">Streaming</a>, documents NDJSON responses and how to disable streaming.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>MDN, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events">Using server-sent events</a>, describes event-stream framing, fields and message boundaries.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>Ollama, <a href="https://docs.ollama.com/api/errors">Errors</a>, covers status codes and errors emitted after a stream has started.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>Hugging Face Transformers, <a href="https://huggingface.co/docs/transformers/cache_explanation">Caching</a>, explains reuse of attention keys and values during generation.&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Ollama, <a href="https://docs.ollama.com/capabilities/tool-calling">Tool calling</a>, shows tool definitions, assistant calls and follow-up messages containing tool results.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>Damien Neil, Go Blog, <a href="https://go.dev/blog/osroot">Traversal-resistant file APIs</a>, introduces <code>os.Root</code> in Go 1.24 and describes its protections and limitations.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </div></div>
+
+  
+
+  
+
+
+
+
+
+
+<div id="welcomments__container" class="welcomments__container">
+  
+  
+
+  
+    <h3 id="welcomments__comment-count-title" class="welcomments__comments-title" style="color: rgba(120,226,160,.7);">No comments yet!</h3>
+  
+
+  <section id="welcomments__comment-container" class="welcomments__comment-container"></section><form id="welcomments__form" class="welcomments__comment-form" action="https://welcomments.io/api/comments" method="post">
+  <input type="hidden" name="website-id" id="website-id" value="v2DmPonO12A7QexZ1IvBnwWTV"/>
+  <input type="hidden" name="replying-to" id="replying-to"/>
+  <input type="hidden" name="permalink" id="permalink" value="https://musale.github.io/ai/prompting-models-with-go/"/>
+  <input type="hidden" name="page-slug" id="page-slug" value="prompting-models-with-go"/>
+  <div class="welcomments__form-group">
+    <textarea rows="10" name="message" id="message" required spellcheck="true" placeholder="Type here..."></textarea>
+    <p class="welcomments__markdown-notice"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">GitHub-flavored Markdown</a> & a sane subset of HTML is supported.</p>
+  </div>
+  <div class="welcomments__form-group">
+    <label for="author-name">Name</label>
+    <input type="text" id="author-name" name="author-name" required spellcheck="false" placeholder="Your name"/>
+  </div>
+  <div class="welcomments__form-group welcomments__flex">
+    <div class="welcomments__column-left">
+      <label for="author-url">Website <span class="welcomments__optional-notice">(optional)</span></label>
+      <input type="url" id="author-url" name="author-url" placeholder="https://example.com"/>
+    </div>
+    <div class="welcomments__column-right">
+      <label for="author-email">Email <span class="welcomments__optional-notice">(optional)</span></label>
+      <input type="email" id="author-email" name="author-email" placeholder="johndoe@example.com"/>
+    </div>
+  </div>
+  <p class="welcomments__email-notice">Fill in your email address if you want to get notified when someone replies to your comment. Your email address is safely stored with strong 256-bit AES encryption. You can unsubscribe from notification emails any time by following a link on the bottom of a reply notification email.</p>
+  <button type="submit" class="welcomments__submit-button" id="welcomments__submit-button">Send comment</button>
+</form>
+
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.welcomments.io/welcomments.css" />
+
+
+<script defer id="welcomments__script" src="https://cdn.welcomments.io/welcomments.js" type="text/javascript"></script>
+<script type="text/javascript">
+  welcomments = {
+    apiUrl: "https://welcomments.io/api",
+
+    
+    
+    
+    commentCountTitleFactory: function (commentCount) {
+      if (commentCount === 0) {
+        return "No comments yet!";
+      }
+
+      return commentCount === 1 ? "One comment" : `${commentCount} comments`;
+    },
+
+    
+    
+    
+    
+    placeholderCommentFactory: function (comment) {
+      var year = new Intl.DateTimeFormat("en", {year: "numeric"}).format(comment.date);
+      var month = new Intl.DateTimeFormat("en", {month: "long"}).format(comment.date);
+      var day = new Intl.DateTimeFormat("en", {day: "2-digit"}).format(comment.date);
+      var avatarUrl = comment.author.avatar_url ||
+        "https://eu.ui-avatars.com/api/?background=random&name=" + comment.author.name;
+
+
+      return `\u003carticle\n  id=\u0022welcomments__comment-\u0024\u007bcomment.id\u007d\u0022\n  class=\u0022welcomments__comment\u0022\n  data-comment-id=\u0022\u0024\u007bcomment.id\u007d\u0022\n  data-author-name=\u0022\u0024\u007bcomment.author.name\u007d\u0022\n  data-nesting-level=\u00220\u0022\n  itemprop=\u0022comment\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Comment\u0022\u003e\n  \u003cdiv class=\u0022welcomments__comment-header\u0022\u003e\n    \u003cdiv class=\u0022welcomments__author-avatar\u0022\u003e\n      \u003cimg class=\u0022welcomments__author-avatar-img\u0022 src=\u0022\u0024\u007bavatarUrl\u007d\u0022 alt=\u0022\u0024\u007bcomment.author.name\u007d\u0022\/\u003e\n    \u003c\/div\u003e\n    \u003cdiv class=\u0022welcomments__author-information\u0022\u003e\n      \u003cdiv class=\u0022welcomments__author-name-and-time\u0022\u003e\n        \u003ch3 class=\u0022welcomments__author-name\u0022 itemprop=\u0022author\u0022 itemscope itemtype=\u0022https:\/\/schema.org\/Person\u0022\u003e\n          \u003cspan itemprop=\u0022name\u0022\u003e\u0024\u007bcomment.author.name\u007d\u003c\/span\u003e\n        \u003c\/h3\u003e\n        \u003cp class=\u0022welcomments__comment-time\u0022\u003e\n          \u003ca href=\u0022#welcomments__comment-\u0024\u007bcomment.id\u007d\u0022 itemprop=\u0022url\u0022\u003e\n            \u003ctime datetime=\u0022\u0024\u007bcomment.date\u007d\u0022 itemprop=\u0022datePublished\u0022\u003e\n              \u0024\u007bmonth\u007d \u0024\u007bday\u007d, \u0024\u007byear\u007d\n            \u003c\/time\u003e\n          \u003c\/a\u003e\n        \u003c\/p\u003e\n      \u003c\/div\u003e\n    \u003c\/div\u003e\n  \u003c\/div\u003e\n  \u003cdiv itemprop=\u0022text\u0022 class=\u0022welcomments__comment-message\u0022\u003e\u0024\u007bcomment.message\u007d\u003c\/div\u003e\n  \u003ca class=\u0022welcomments__comment-reply-link\u0022\n     href=\u0022https:\/\/welcomments.io\/api\/websites\/v2DmPonO12A7QexZ1IvBnwWTV\/comments\/\u0024\u007bcomment.id\u007d\/reply\u0022\u003e\n    Reply to \u0024\u007bcomment.author.name\u007d\n  \u003c\/a\u003e\n\u003c\/article\u003e\n`;
+    },
+  };
+</script>
+
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>© 2026 Martin Musale</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://musale.github.io/assets/main.js"></script>
+<script src="https://musale.github.io/assets/prism.js"></script>
+
+
+
+
+<style>
+  .mermaid {
+    overflow-x: auto;
+  }
+
+  .mermaid svg {
+    display: block;
+    margin-inline: auto;
+  }
+</style>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.esm.min.mjs";
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    fontFamily: '"Fira Code", Monaco, Consolas, monospace',
+    themeVariables: {
+      fontSize: "11pt"
+    },
+    securityLevel: "strict"
+  });
+</script>
+
+  
+</div>
+
+</body>
+</html>

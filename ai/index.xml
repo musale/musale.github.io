@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI and Agents on Martin Musale</title>
+    <title>AI Notes on Martin Musale</title>
     <link>https://musale.github.io/ai/</link>
-    <description>Recent content in AI and Agents on Martin Musale</description>
+    <description>Recent content in AI Notes on Martin Musale</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year} Martin Musale</copyright>
-    <lastBuildDate>Wed, 04 Nov 2026 14:25:58 +0300</lastBuildDate><atom:link href="https://musale.github.io/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://musale.github.io/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generative AI: how it works and when to use it</title>
       <link>https://musale.github.io/ai/gen-ai/</link>
@@ -850,6 +850,402 @@
 &lt;/li&gt;
 &lt;li id=&#34;fn:12&#34;&gt;
 &lt;p&gt;MCP, &lt;a href=&#34;https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices&#34;&gt;Security best practices&lt;/a&gt; and &lt;a href=&#34;https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization&#34;&gt;Authorization&lt;/a&gt;. Covers authorization boundaries and protocol-specific threats.&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Prompting a local model with Go: from HTTP to a small harness</title>
+      <link>https://musale.github.io/ai/prompting-models-with-go/</link>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://musale.github.io/ai/prompting-models-with-go/</guid>
+      <description>&lt;p&gt;When I type a question into a coding assistant, what reaches the model? Is it my sentence, a JSON document, the whole conversation, or something else? And when people mention JSONL, are they talking about prompts, training data or streamed answers?&lt;/p&gt;
+&lt;p&gt;I want to separate those things by building something small enough to read. We will run a local model, call it over HTTP from Go, keep a conversation and let it request one read-only tool. The program will also write a trace so we can inspect what it sends.&lt;/p&gt;</description>
+      <content>&lt;p&gt;When I type a question into a coding assistant, what reaches the model? Is it my sentence, a JSON document, the whole conversation, or something else? And when people mention JSONL, are they talking about prompts, training data or streamed answers?&lt;/p&gt;
+&lt;p&gt;I want to separate those things by building something small enough to read. We will run a local model, call it over HTTP from Go, keep a conversation and let it request one read-only tool. The program will also write a trace so we can inspect what it sends.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/musale/musale-dev/tree/master/static/examples/go-harness&#34;&gt;complete example&lt;/a&gt; uses only Go&amp;rsquo;s standard library. The snippets in this article are excerpts, not separate programs. You can also download &lt;a href=&#34;https://musale.github.io/examples/go-harness/main.go&#34;&gt;main.go&lt;/a&gt;, &lt;a href=&#34;https://musale.github.io/examples/go-harness/go.mod&#34;&gt;go.mod&lt;/a&gt;, &lt;a href=&#34;https://musale.github.io/examples/go-harness/main_test.go&#34;&gt;the tests&lt;/a&gt; and &lt;a href=&#34;https://musale.github.io/examples/go-harness/workspace/notes.txt&#34;&gt;the sample note&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I exercised the example with Go 1.26.2, Ollama 0.32.14 and &lt;code&gt;qwen3:0.6b&lt;/code&gt; on an Intel Mac with 16 GiB of RAM. This is a demonstration of the plumbing, not a model benchmark. Some of its answers are less obedient than the prompts ask for.&lt;/p&gt;
+&lt;h2 id=&#34;what-are-we-actually-running&#34;&gt;What are we actually running?&lt;/h2&gt;
+&lt;p&gt;The model and the application around it do different jobs.&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Piece&lt;/th&gt;
+					&lt;th&gt;Its job in this example&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Model weights&lt;/td&gt;
+					&lt;td&gt;Learned numerical values used to predict the next token.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Tokenizer and chat template&lt;/td&gt;
+					&lt;td&gt;Convert messages into the token sequence the model expects.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Ollama&lt;/td&gt;
+					&lt;td&gt;Load the model, run inference and expose an HTTP API.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Go program&lt;/td&gt;
+					&lt;td&gt;Build requests, keep history, handle responses and enforce tool permissions.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Terminal&lt;/td&gt;
+					&lt;td&gt;Collect what we type and display the answer.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The Go program is the beginning of a &lt;em&gt;harness&lt;/em&gt;: the application code around a model that manages its interaction with a task and its environment.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    U[&amp;#34;You type in the terminal&amp;#34;] --&amp;gt; H[&amp;#34;Go harness: messages and settings&amp;#34;]
+    H --&amp;gt; J[&amp;#34;HTTP request containing JSON&amp;#34;]
+    J --&amp;gt; O[&amp;#34;Ollama: chat template and tokenizer&amp;#34;]
+    O --&amp;gt; M[&amp;#34;Model inference: generate tokens&amp;#34;]
+    M --&amp;gt; R[&amp;#34;Ollama: decode and package output&amp;#34;]
+    R --&amp;gt; P[&amp;#34;HTTP response containing JSON or NDJSON&amp;#34;]
+    P --&amp;gt; H
+    H --&amp;gt; D[&amp;#34;Display text, or validate a tool request&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;This explains a common source of confusion: we send JSON to an API, but the neural network does not execute that HTTP request. The runtime converts the relevant messages and tool descriptions into model-specific input. Generation continues a sequence of tokens.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;start-a-small-model-locally&#34;&gt;Start a small model locally&lt;/h2&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://ollama.com/download&#34;&gt;Ollama&lt;/a&gt; and &lt;a href=&#34;https://go.dev/dl/&#34;&gt;Go&lt;/a&gt;. The example requires Go 1.24 or later because its file tool uses &lt;code&gt;os.OpenRoot&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In one terminal, start a local-only server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OLLAMA_HOST&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;127.0.0.1:11434 OLLAMA_NO_CLOUD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; ollama serve
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Leave that terminal running. If the Ollama desktop app or a service already owns the port, quit it first, or configure and restart that service instead. Setting variables in a new shell does not reconfigure a server that is already running.&lt;/p&gt;
+&lt;p&gt;In another terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl --fail --silent --show-error http://127.0.0.1:11434/api/version
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ollama pull qwen3:0.6b
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ollama list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The downloaded artifact on my test installation was about 523 MB, with &lt;code&gt;Q4_K_M&lt;/code&gt; quantization. Quantization stores weights with reduced numerical precision to reduce their size. The download size is not the total RAM requirement: runtime buffers and the context cache need memory too.&lt;/p&gt;
+&lt;p&gt;Qwen3 supports thinking and non-thinking modes. We will explicitly send &lt;code&gt;&amp;quot;think&amp;quot;: false&lt;/code&gt; to keep this exercise focused on the answer and tool calls.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; That setting is model-dependent; it is not a universal field understood by every model API.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;OLLAMA_NO_CLOUD=1&lt;/code&gt; disables Ollama&amp;rsquo;s cloud features. Pulling the model still needs a download, but inference with this local model does not require sending the prompt to a hosted model. Keep the listener on loopback; do not expose this service publicly as though it had application authentication.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;inspect-one-request-before-writing-go&#34;&gt;Inspect one request before writing Go&lt;/h2&gt;
+&lt;p&gt;Run this in the second terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl --fail-with-body --silent --show-error --max-time &lt;span style=&#34;color:#ae81ff&#34;&gt;120&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  http://127.0.0.1:11434/api/chat &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Content-Type: application/json&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;model&amp;#34;: &amp;#34;qwen3:0.6b&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;messages&amp;#34;: [
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      {&amp;#34;role&amp;#34;: &amp;#34;system&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;You are a concise assistant.&amp;#34;},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      {&amp;#34;role&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;Reply with just the word Nairobi.&amp;#34;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;stream&amp;#34;: false,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;think&amp;#34;: false,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;options&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;temperature&amp;#34;: 0.2,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;num_ctx&amp;#34;: 4096,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;num_predict&amp;#34;: 256
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  }&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is an ordinary HTTP POST. There is no agent framework involved. Ollama&amp;rsquo;s native chat endpoint accepts a model name and a list of messages.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The response in my run included:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;qwen3:0.6b&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;created_at&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2026-11-10T06:16:18.852259Z&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;: { &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nairobi.&amp;#34;&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done_reason&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stop&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;total_duration&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;3380230238&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;load_duration&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;3152542642&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;prompt_eval_count&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;prompt_eval_duration&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;151846000&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;eval_count&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;eval_duration&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;61967000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The model metadata and timing fields are token counts that describe this run, not a fixed cost for the word &amp;ldquo;Nairobi&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Notice the two layers: the JSON object is the API&amp;rsquo;s response envelope. &lt;code&gt;&amp;quot;Nairobi.&amp;quot;&lt;/code&gt; is the model&amp;rsquo;s answer inside it. If you ask the model to return JSON, that generated JSON can itself appear as a string in &lt;code&gt;message.content&lt;/code&gt;. Parsing the outer response does not validate the contents of that string.&lt;/p&gt;
+&lt;h3 id=&#34;what-do-the-roles-mean&#34;&gt;What do the roles mean?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;system&lt;/code&gt; supplies application-level guidance. &lt;code&gt;user&lt;/code&gt; contains the user&amp;rsquo;s input. &lt;code&gt;assistant&lt;/code&gt; contains a previous model response. We will add &lt;code&gt;tool&lt;/code&gt; later for a result produced by application code.&lt;/p&gt;
+&lt;p&gt;These are conventions the model learned through its training and message format. A system message saying &amp;ldquo;never read private files&amp;rdquo; does not remove filesystem permissions from the Go process. The application must enforce that restriction.&lt;/p&gt;
+&lt;p&gt;The JSON wrapper also contains settings which are not prose instructions:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Setting&lt;/th&gt;
+					&lt;th&gt;Meaning here&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;code&gt;stream: false&lt;/code&gt;&lt;/td&gt;
+					&lt;td&gt;Return one JSON response instead of incremental events. Ollama streams by default.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;code&gt;think: false&lt;/code&gt;&lt;/td&gt;
+					&lt;td&gt;Request Qwen3&amp;rsquo;s non-thinking mode. The example does not collect thinking output.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;code&gt;temperature: 0.2&lt;/code&gt;&lt;/td&gt;
+					&lt;td&gt;Use a relatively concentrated sampling distribution. This does not guarantee correctness or identical replies.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;code&gt;num_ctx: 4096&lt;/code&gt;&lt;/td&gt;
+					&lt;td&gt;Request a context window of 4,096 tokens for this runtime.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;code&gt;num_predict: 256&lt;/code&gt;&lt;/td&gt;
+					&lt;td&gt;Limit the number of generated tokens. An answer can hit this limit before it is complete.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The temperature is a choice for this short demonstration, not a claim about Qwen3&amp;rsquo;s best settings. Its model card provides recommendations for different modes.&lt;sup id=&#34;fnref1:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;what-happens-after-the-server-receives-it&#34;&gt;What happens after the server receives it?&lt;/h3&gt;
+&lt;p&gt;The chat template arranges the messages using the format the model expects. The tokenizer turns the resulting input into token IDs. Different models use different role markers, so we let the runtime handle that rather than inventing a universal prompt format.&lt;sup id=&#34;fnref1:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The runtime processes the input, often called &lt;em&gt;prefill&lt;/em&gt;, then generates output by repeatedly selecting another token. It stops at a model stop condition, an output limit or an interruption.&lt;/p&gt;
+&lt;pre class=&#34;mermaid&#34;&gt;flowchart TD
+    A[&amp;#34;Messages and tool descriptions&amp;#34;] --&amp;gt; B[&amp;#34;Apply the model&amp;#39;s chat template&amp;#34;]
+    B --&amp;gt; C[&amp;#34;Tokenize and process the input&amp;#34;]
+    C --&amp;gt; D[&amp;#34;Calculate next-token scores&amp;#34;]
+    D --&amp;gt; E[&amp;#34;Select a token using decoding settings&amp;#34;]
+    E --&amp;gt; F{&amp;#34;Stop?&amp;#34;}
+    F --&amp;gt;|No| D
+    F --&amp;gt;|Yes| G[&amp;#34;Decode output and return API events&amp;#34;]&lt;/pre&gt;
+&lt;p&gt;That is why an answer arrives gradually. The model normally does not produce a finished paragraph and then reveal it one character at a time. If you want more detail about tokens and inference, &lt;a href=&#34;https://musale.github.io/ai/llms/&#34;&gt;the LLM article&lt;/a&gt; covers the underlying model.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-jsonl&#34;&gt;What is JSONL?&lt;/h2&gt;
+&lt;p&gt;JSON Lines, usually saved as &lt;code&gt;.jsonl&lt;/code&gt;, is UTF-8 text with one valid JSON value per line. Each value is often an object, but it does not have to be. A blank line is not a valid record. A final newline is recommended.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;This is a JSONL file containing two chat examples:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-jsonl&#34; data-lang=&#34;jsonl&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messages&amp;#34;&lt;/span&gt;:[{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Say hello.&amp;#34;&lt;/span&gt;},{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello.&amp;#34;&lt;/span&gt;}]}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messages&amp;#34;&lt;/span&gt;:[{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;What is 2 + 2?&amp;#34;&lt;/span&gt;},{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;4.&amp;#34;&lt;/span&gt;}]}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It is not a JSON array, and there are no commas between the lines. A consumer reads and parses each record separately.&lt;/p&gt;
+&lt;p&gt;That example could be a dataset format, but the consumer decides the schema. Another training pipeline might require a &lt;code&gt;text&lt;/code&gt; field instead of &lt;code&gt;messages&lt;/code&gt;. Renaming a file to &lt;code&gt;.jsonl&lt;/code&gt; does not make it compatible with every trainer.&lt;/p&gt;
+&lt;p&gt;JSONL describes how records are separated. It does not mean &amp;ldquo;training&amp;rdquo;, &amp;ldquo;prompting&amp;rdquo; or &amp;ldquo;agent&amp;rdquo; by itself. We can use the same format for application logs, batch inputs or events. None of the chat requests in this tutorial train or fine-tune the model.&lt;/p&gt;
+&lt;h3 id=&#34;jsonl-ndjson-and-streaming&#34;&gt;JSONL, NDJSON and streaming&lt;/h3&gt;
+&lt;p&gt;Ollama calls its streaming format newline-delimited JSON, or NDJSON, and serves it as &lt;code&gt;application/x-ndjson&lt;/code&gt;.&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; For these object-per-line examples, it has the same practical structure as JSONL.&lt;/p&gt;
+&lt;p&gt;Changing the request to &lt;code&gt;&amp;quot;stream&amp;quot;: true&lt;/code&gt; gives events shaped like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-jsonl&#34; data-lang=&#34;jsonl&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;:{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hel&amp;#34;&lt;/span&gt;},&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;:{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lo&amp;#34;&lt;/span&gt;},&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;:{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;},&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done_reason&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stop&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is an illustrative, shortened stream. The displayed answer is the concatenation of the content chunks: &lt;code&gt;Hello&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;One line is an event, not necessarily one token. A text newline inside a content string appears as the JSON escape &lt;code&gt;\n&lt;/code&gt;, so it does not split that record into two physical lines. Network reads are another boundary entirely: one read can contain several events or only part of one.&lt;/p&gt;
+&lt;p&gt;Do not assume every streaming API uses NDJSON:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Format&lt;/th&gt;
+					&lt;th&gt;How to recognise it&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;One JSON response&lt;/td&gt;
+					&lt;td&gt;A single response document, as with &lt;code&gt;stream: false&lt;/code&gt; here.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;JSONL / NDJSON&lt;/td&gt;
+					&lt;td&gt;Consecutive JSON values, one per line.&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Server-sent events (SSE)&lt;/td&gt;
+					&lt;td&gt;&lt;code&gt;text/event-stream&lt;/code&gt;, with fields such as &lt;code&gt;data:&lt;/code&gt; and blank lines separating events. A data payload may contain JSON.&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;An SSE parser must handle the SSE framing before parsing JSON inside a data field. Feeding the raw &lt;code&gt;data:&lt;/code&gt; lines to a JSON decoder will not work.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Also check which Ollama endpoint you are using. &lt;code&gt;/api/chat&lt;/code&gt; places text in &lt;code&gt;message.content&lt;/code&gt;; &lt;code&gt;/api/generate&lt;/code&gt; uses &lt;code&gt;response&lt;/code&gt;. Examples for those endpoints are not interchangeable.&lt;sup id=&#34;fnref1:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&#34;fnref1:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;query-the-model-from-go&#34;&gt;Query the model from Go&lt;/h2&gt;
+&lt;p&gt;Get the complete example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone --depth &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; https://github.com/musale/musale-dev.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd musale-dev/static/examples/go-harness
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go test ./...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go run . -prompt &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Explain what a token is in one sentence.&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You do not need an API key or an Ollama Go SDK. The server must still be running, and the model must have been pulled.&lt;/p&gt;
+&lt;p&gt;The request built by the program has the same structure as the curl request:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;request&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ChatRequest&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;Messages&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;history&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;Stream&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;stream&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;Think&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Options&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;Options&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;Temperature&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;NumCtx&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;4096&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;NumPredict&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ChatRequest&lt;/code&gt; is a Go struct whose JSON tags name the API fields. Here is the HTTP portion of &lt;code&gt;Client.complete&lt;/code&gt;, with trace-writing omitted:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;json&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Marshal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;request&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Message&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Errorf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;encode request: %w&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;req&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;http&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewRequestWithContext&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;http&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;MethodPost&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;URL&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bytes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewReader&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Message&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;req&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Header&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Set&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Content-Type&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HTTP&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Do&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;req&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Message&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Errorf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;call Ollama: %w&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Body&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Close&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;json.Marshal&lt;/code&gt; serializes the request. &lt;code&gt;http.NewRequestWithContext&lt;/code&gt; creates the POST, and &lt;code&gt;http.Client.Do&lt;/code&gt; sends it. The model-specific work happens behind that HTTP endpoint, not inside the Go HTTP client.&lt;/p&gt;
+&lt;p&gt;One small detail matters: &lt;code&gt;Think&lt;/code&gt; has the tag &lt;code&gt;json:&amp;quot;think&amp;quot;&lt;/code&gt;, not &lt;code&gt;json:&amp;quot;think,omitempty&amp;quot;&lt;/code&gt;. The latter would omit a false boolean, which could leave the server using its default instead of the mode we requested.&lt;/p&gt;
+&lt;p&gt;For responses, the program creates &lt;code&gt;json.NewDecoder(io.LimitReader(resp.Body, 1&amp;lt;&amp;lt;20))&lt;/code&gt;. It repeatedly calls &lt;code&gt;decoder.Decode(&amp;amp;event)&lt;/code&gt; into a &lt;code&gt;ChatResponse&lt;/code&gt; and joins the &lt;code&gt;event.Message.Content&lt;/code&gt; strings. With streaming enabled, it also prints each content chunk as it arrives. The same loop can read a single final object or a stream of objects; Go&amp;rsquo;s decoder reads successive JSON values without assuming that each network read contains a whole event.&lt;/p&gt;
+&lt;p&gt;The decoder is not a strict JSONL validator. It can accept whitespace between values, including pretty-printed JSON. That is useful for reading this API, but different from enforcing one physical line per record in a dataset.&lt;/p&gt;
+&lt;h3 id=&#34;try-streaming&#34;&gt;Try streaming&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go run . -stream &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -prompt &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Complete this sentence in at most eight words: A token is&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On my run it answered:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A token is a small item used to represent something more valuable.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The stream handling worked. The answer exceeded eight words and used the everyday meaning of &amp;ldquo;token&amp;rdquo; rather than the language-model meaning. I had not specified that context. A successful HTTP call is a poor test of whether the answer did the job.&lt;/p&gt;
+&lt;h3 id=&#34;do-not-treat-every-http-200-as-a-complete-answer&#34;&gt;Do not treat every HTTP 200 as a complete answer&lt;/h3&gt;
+&lt;p&gt;The example checks HTTP status codes before decoding a successful response. It also checks the &lt;code&gt;error&lt;/code&gt; field in every event, because a stream can fail after its HTTP headers have already said &lt;code&gt;200 OK&lt;/code&gt;.&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;It requires a final &lt;code&gt;done: true&lt;/code&gt;. An unexpected end of the body is an error, not permission to pretend the partial answer is complete. It also reports &lt;code&gt;done_reason: &amp;quot;length&amp;quot;&lt;/code&gt; as an incomplete answer.&lt;/p&gt;
+&lt;p&gt;The client has timeouts and a response-body limit. Ctrl-C cancels the request. The point of these checks is to make failure visible; a little text printed to the terminal does not prove that the request finished.&lt;/p&gt;
+&lt;h2 id=&#34;prompting-is-deciding-what-context-to-send&#34;&gt;Prompting is deciding what context to send&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;Explain tokens&amp;rdquo; leaves the model to choose the meaning, audience and level of detail. A more useful prompt is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Explain tokens in language models to a Go programmer.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Use one short example of text split into possible tokens.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Say that the exact split depends on the tokenizer.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Keep the answer under 120 words.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This names the subject and audience, provides a way to make the explanation concrete, and gives a length target. It still needs checking.&lt;/p&gt;
+&lt;p&gt;When the answer depends on private or current facts, supply those facts or provide a way to retrieve them. A model cannot know the contents of a local file just because the prompt names it. Likewise, &amp;ldquo;give citations&amp;rdquo; does not give it a browser.&lt;/p&gt;
+&lt;p&gt;For extraction, specify what to do when information is missing:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using only the note below, return the project name and release date.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;If the note does not state a release date, use null.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Return a JSON object with fields &amp;#34;project&amp;#34; and &amp;#34;release_date&amp;#34;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;note&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The project is called Paper Kite.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Its release checklist requires review and approval.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/note&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The delimiters make the data easier to distinguish from the task. They are not a security boundary. The harness must still validate generated JSON and verify facts against the note. For stricter output syntax, Ollama also supports a &lt;code&gt;format&lt;/code&gt; field containing a JSON schema; the example client does not implement that option.&lt;sup id=&#34;fnref2:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Avoid adding an entire repository to every question. Irrelevant context consumes space and can distract the model. Choosing what to include is part of the harness&amp;rsquo;s job.&lt;/p&gt;
+&lt;h2 id=&#34;where-does-conversation-memory-live&#34;&gt;Where does conversation memory live?&lt;/h2&gt;
+&lt;p&gt;Run the program without &lt;code&gt;-prompt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go run .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A test conversation produced this output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;you&amp;gt; Remember the code KITE-839. Reply OK.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OK.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;you&amp;gt; What code did I tell you? Reply with only the code.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;KITE-839
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;you&amp;gt; /quit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The Go program keeps &lt;code&gt;history&lt;/code&gt; in memory. It starts with a system message, appends the user message, sends the history, then appends the assistant response. On the next turn it sends that growing list again.&lt;/p&gt;
+&lt;p&gt;The second request therefore contains both earlier messages:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messages&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    { &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...application instructions...&amp;#34;&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    { &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Remember the code KITE-839. Reply OK.&amp;#34;&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    { &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;OK.&amp;#34;&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;What code did I tell you? Reply with only the code.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is a shortened request excerpt, not a complete request body.&lt;/p&gt;
+&lt;p&gt;The model has not learned a new permanent fact by changing its weights. It has the code in its input. Restart this Go program and its history is gone.&lt;/p&gt;
+&lt;p&gt;The runtime may keep a &lt;em&gt;KV cache&lt;/em&gt; of intermediate attention calculations to reuse work. That cache is an inference optimization, not a durable conversation database. Our application still supplies the history it wants the model to use.&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The example refuses conversations beyond 32 messages or 8,000 bytes of message content and tool-call names and arguments. These are crude application limits, not token accounting. The 4,096-token context also includes template and tool overhead, so these checks do not prove every possible input fits. A fuller harness needs model-aware token budgeting and an explicit policy for selecting or summarizing history.&lt;/p&gt;
+&lt;h2 id=&#34;add-a-tool-without-giving-the-model-a-shell&#34;&gt;Add a tool without giving the model a shell&lt;/h2&gt;
+&lt;p&gt;The sample workspace contains:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The project is called Paper Kite.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Its release checklist is: run the tests, review the diff, then ask for approval.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The demonstration code is BLUE-47.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enable the tool and ask for information that is in that file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go run . -tools -root workspace &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -prompt &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Read notes.txt using read_file and tell me the demonstration code. Do not guess.&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The program supplies a tool definition named &lt;code&gt;read_file&lt;/code&gt;, with an argument schema allowing only &lt;code&gt;&amp;quot;path&amp;quot;: &amp;quot;notes.txt&amp;quot;&lt;/code&gt;. It receives an assistant message with a request shaped like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tool_calls&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;function&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;read_file&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;arguments&amp;#34;&lt;/span&gt;: { &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;notes.txt&amp;#34;&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That is data. The model has not opened the file.&lt;/p&gt;
+&lt;p&gt;The Go code checks the name and arguments, reads the allowed file, appends the assistant&amp;rsquo;s tool-call message and a &lt;code&gt;tool&lt;/code&gt; result, then makes another model request.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt; It handles every call in the returned array, rather than assuming there will always be one.&lt;/p&gt;
+&lt;p&gt;The new history includes a result like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tool&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tool_name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;read_file&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The project is called Paper Kite.\nIts release checklist is: run the tests, review the diff, then ask for approval.\nThe demonstration code is BLUE-47.\n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre class=&#34;mermaid&#34;&gt;sequenceDiagram
+    participant U as User
+    participant H as Go harness
+    participant M as Model API
+    participant F as File tool
+    U-&amp;gt;&amp;gt;H: Ask for the demonstration code
+    H-&amp;gt;&amp;gt;M: Messages and read_file definition
+    M--&amp;gt;&amp;gt;H: Assistant message requesting read_file
+    H-&amp;gt;&amp;gt;H: Validate tool name, arguments and budget
+    H-&amp;gt;&amp;gt;F: Read permitted notes.txt
+    F--&amp;gt;&amp;gt;H: File contents
+    H-&amp;gt;&amp;gt;M: History including assistant call and tool result
+    M--&amp;gt;&amp;gt;H: Final assistant answer
+    H--&amp;gt;&amp;gt;U: Display answer&lt;/pre&gt;
+&lt;p&gt;My run logged the actual call to stderr:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tool: read_file {&amp;#34;path&amp;#34;:&amp;#34;notes.txt&amp;#34;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The final answer was:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The project is called Paper Kite. Its release checklist is: run the tests, review the diff, then ask for approval. The demonstration code is BLUE-47.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It found the code, but repeated the rest of the note too. Tool use and precise answer formatting are separate things to evaluate.&lt;/p&gt;
+&lt;h3 id=&#34;put-permissions-in-code&#34;&gt;Put permissions in code&lt;/h3&gt;
+&lt;p&gt;The tool schema helps the model form a request. The Go code still independently rejects unknown tools, extra arguments and every path except &lt;code&gt;notes.txt&lt;/code&gt;. It opens the workspace with &lt;code&gt;os.OpenRoot&lt;/code&gt;, which provides traversal-resistant file access on the tested platform.&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The tool accepts only a regular UTF-8 file of at most 2,048 bytes. It rejects symlinks. A denied or failed call becomes an explicit error on stderr and a JSON error result sent back to the model. It does not substitute empty contents or claim that a read succeeded.&lt;/p&gt;
+&lt;p&gt;This is a toy workspace owned by the person running the program, not a sandbox for a hostile filesystem. Do not point it at sensitive material. &lt;code&gt;os.Root&lt;/code&gt; constrains path resolution; it does not isolate the whole process, stop other processes changing files, or make secrets inside the root safe to disclose.&lt;/p&gt;
+&lt;p&gt;The loop allows at most four model requests and four tool calls per user turn. A two-minute context deadline limits that turn&amp;rsquo;s model requests. It stops with an error when it exhausts a budget.&lt;/p&gt;
+&lt;p&gt;For simplicity, this example refuses to combine &lt;code&gt;-stream&lt;/code&gt; and &lt;code&gt;-tools&lt;/code&gt;. A fuller client can support both, but it must assemble streamed tool-call fragments correctly before executing anything.&lt;/p&gt;
+&lt;p&gt;There is no MCP server here. The harness calls a local Go function directly. MCP would be useful if we wanted a standard interface to tools supplied by other processes. It would not replace the harness&amp;rsquo;s authorization checks. &lt;a href=&#34;https://musale.github.io/ai/agents/&#34;&gt;The agents article&lt;/a&gt; explains that distinction.&lt;/p&gt;
+&lt;h2 id=&#34;record-what-the-harness-sends&#34;&gt;Record what the harness sends&lt;/h2&gt;
+&lt;p&gt;Create a fresh private temporary directory and enable tracing:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;trace_dir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;mktemp -d&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go run . -tools -trace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$trace_dir&lt;span style=&#34;color:#e6db74&#34;&gt;/tools.jsonl&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -prompt &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Read notes.txt using read_file and tell me the demonstration code. Do not guess.&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nvim &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$trace_dir&lt;span style=&#34;color:#e6db74&#34;&gt;/tools.jsonl&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Each request and each decoded response event becomes one JSONL record. A non-streaming tool interaction normally has four records: request, tool-call response, follow-up request and final response. A streamed answer has more response records.&lt;/p&gt;
+&lt;p&gt;The record wrapper is our own format, not a model API requirement:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-jsonl&#34; data-lang=&#34;jsonl&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;kind&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;request&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;request&amp;#34;&lt;/span&gt;:{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;model&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;messages&amp;#34;&lt;/span&gt;:[]}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;kind&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;response&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;response&amp;#34;&lt;/span&gt;:{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;:{&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;role&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assistant&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;done&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Those are abbreviated examples. The real trace includes the supplied messages and settings. It records the decoded response fields the client knows about, not a byte-for-byte capture of HTTP headers and every server field.&lt;/p&gt;
+&lt;p&gt;The program creates the trace file with mode &lt;code&gt;0600&lt;/code&gt; on Unix and refuses to overwrite an existing file. Choose a new filename for another run. Traces can contain prompts, private conversation history and file contents, so do not publish them. In particular, keep them outside this blog&amp;rsquo;s &lt;code&gt;static/&lt;/code&gt; directory, which Hugo copies into the website.&lt;/p&gt;
+&lt;p&gt;To see whether a tool really ran, inspect the assistant call and the following request&amp;rsquo;s tool result, rather than trusting a sentence such as &amp;ldquo;I checked the file.&amp;rdquo; To investigate a lost conversation, inspect the messages in the next request.&lt;/p&gt;
+&lt;h2 id=&#34;what-have-we-built-and-what-is-still-missing&#34;&gt;What have we built, and what is still missing?&lt;/h2&gt;
+&lt;p&gt;We have a small harness that owns the prompt, conversation state, HTTP client, tool dispatch and limits. With tools enabled, it lets the model choose an action and then respond to its result. That is the bounded model-and-tool loop described in the agents article.&lt;/p&gt;
+&lt;p&gt;It is not a reproduction of Copilot&amp;rsquo;s or Claude&amp;rsquo;s private implementation. Larger coding assistants have additional work to do: choose repository context, persist sessions, handle edits, request approvals, isolate commands and recover from failures. Some also load skills or connect to MCP servers.&lt;/p&gt;
+&lt;p&gt;The useful next experiment is to make a small evaluation set before adding more tools. Check whether the model reads the note when it needs it, quotes the code correctly, admits a missing fact and handles a denied read. Keep tests for HTTP errors and interrupted streams separate from tests of answer quality.&lt;/p&gt;
+&lt;p&gt;A larger model may follow the wording better. It cannot replace the application&amp;rsquo;s permission checks or decide whether your tests are adequate.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Hugging Face Transformers, &lt;a href=&#34;https://huggingface.co/docs/transformers/chat_templating&#34;&gt;Chat templates&lt;/a&gt;, explains how role-based messages become model-specific token sequences.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Qwen, &lt;a href=&#34;https://huggingface.co/Qwen/Qwen3-0.6B&#34;&gt;Qwen3-0.6B model card&lt;/a&gt;, documents the model, supported modes and recommended generation settings.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Ollama, &lt;a href=&#34;https://docs.ollama.com/capabilities/thinking&#34;&gt;Thinking&lt;/a&gt;, documents model-dependent thinking controls and separate thinking and answer fields.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Ollama, &lt;a href=&#34;https://docs.ollama.com/faq&#34;&gt;FAQ&lt;/a&gt;, covers local data processing, cloud disabling, listener configuration, context size and model residency.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;Ollama, &lt;a href=&#34;https://docs.ollama.com/api/chat&#34;&gt;Generate a chat message&lt;/a&gt;, specifies the native chat request, response, structured-output format and generation options.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref2:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://jsonlines.org/&#34;&gt;JSON Lines&lt;/a&gt;, format requirements and file conventions.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Ollama, &lt;a href=&#34;https://docs.ollama.com/api/streaming&#34;&gt;Streaming&lt;/a&gt;, documents NDJSON responses and how to disable streaming.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;MDN, &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events&#34;&gt;Using server-sent events&lt;/a&gt;, describes event-stream framing, fields and message boundaries.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;Ollama, &lt;a href=&#34;https://docs.ollama.com/api/errors&#34;&gt;Errors&lt;/a&gt;, covers status codes and errors emitted after a stream has started.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Hugging Face Transformers, &lt;a href=&#34;https://huggingface.co/docs/transformers/cache_explanation&#34;&gt;Caching&lt;/a&gt;, explains reuse of attention keys and values during generation.&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;Ollama, &lt;a href=&#34;https://docs.ollama.com/capabilities/tool-calling&#34;&gt;Tool calling&lt;/a&gt;, shows tool definitions, assistant calls and follow-up messages containing tool results.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34;&gt;
+&lt;p&gt;Damien Neil, Go Blog, &lt;a href=&#34;https://go.dev/blog/osroot&#34;&gt;Traversal-resistant file APIs&lt;/a&gt;, introduces &lt;code&gt;os.Root&lt;/code&gt; in Go 1.24 and describes its protections and limitations.&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
