@@ -205,7 +205,7 @@
     
     
     
-      <span class="post-reading-time">:: 13 min read (2614 words)</span>
+      <span class="post-reading-time">:: 13 min read (2639 words)</span>
     
   </div>
 
@@ -538,6 +538,13 @@
 <p>The file checks here assume an owner-controlled directory without hostile concurrent writers. They do not provide a complete defense against every filesystem race or concurrent edit. Use process isolation and a deliberately prepared filesystem if you need to run untrusted code or work in a hostile directory.</p>
 <p>The program is intentionally one turn with one possible proposal. It has no durable approval queue, user accounts, concurrent request handling, or crash recovery. Adding any of those means deciding how identity, ownership, expiry, and operation state survive beyond this process.</p>
 <p>For this exercise, I want to be able to point at the code that permits each operation. The model can ask for a file and suggest a new note. Saving that note remains a separate application action.</p>
+
+<h2 id="follow-up-articles">Follow-up articles<a href="#follow-up-articles" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+  
+    <li><a href="/ai/authenticated-api-tools-with-go/">Calling an authenticated API without handing credentials to the model</a>: Build a read-only API tool with application-owned credentials, fixed endpoints, and resource authorization.</li>
+  
+</ul>
 
 <div class="footnotes" role="doc-endnotes">
 <hr>
