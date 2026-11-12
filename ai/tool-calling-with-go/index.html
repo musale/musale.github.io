@@ -205,7 +205,7 @@
     
     
     
-      <span class="post-reading-time">:: 13 min read (2639 words)</span>
+      <span class="post-reading-time">:: 13 min read (2682 words)</span>
     
   </div>
 
@@ -304,7 +304,7 @@
 </span></span><span style="display:flex;"><span>go run . -trace <span style="color:#e6db74">&#34;</span>$trace_dir<span style="color:#e6db74">/read.jsonl&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  -prompt <span style="color:#e6db74">&#39;Call read_note with path notes.txt now. Use its result to tell me the project name. Do not propose or save a note.&#39;</span>
 </span></span></code></pre></div><p>Skip the clone if you already have this repository. Pulling a model requires a download; inference here uses the local model. You can select another installed model with <code>-model</code>.</p>
-<p>The fixture describes a demonstration project called Paper Kite. Downloads are available for <a href="/examples/go-note-tools/main.go">main.go</a>, <a href="/examples/go-note-tools/notes.go">notes.go</a>, <a href="/examples/go-note-tools/go.mod">go.mod</a>, <a href="/examples/go-note-tools/notes_test.go">the notes tests</a>, <a href="/examples/go-note-tools/main_test.go">the loop tests</a>, <a href="/examples/go-note-tools/workspace/notes.txt">notes.txt</a>, and <a href="/examples/go-note-tools/workspace/project.txt">project.txt</a>.</p>
+<p>The fixture describes a demonstration project called Paper Kite. Downloads are available for <a href="/examples/go-note-tools/main.go">main.go</a>, <a href="/examples/go-note-tools/notes.go">notes.go</a>, <a href="/examples/go-note-tools/notes/notes.go">the shared notes policy</a>, <a href="/examples/go-note-tools/go.mod">go.mod</a>, <a href="/examples/go-note-tools/notes_test.go">the notes tests</a>, <a href="/examples/go-note-tools/main_test.go">the loop tests</a>, <a href="/examples/go-note-tools/workspace/notes.txt">notes.txt</a>, and <a href="/examples/go-note-tools/workspace/project.txt">project.txt</a>. The CLI&rsquo;s <code>notes.go</code> connects it to the shared policy package.</p>
 <h2 id="a-tool-description-is-not-a-permission-check">A tool description is not a permission check<a href="#a-tool-description-is-not-a-permission-check" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>We advertise <code>read_note</code> using a function description and JSON Schema:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -543,6 +543,8 @@
 <ul>
   
     <li><a href="/ai/authenticated-api-tools-with-go/">Calling an authenticated API without handing credentials to the model</a>: Build a read-only API tool with application-owned credentials, fixed endpoints, and resource authorization.</li>
+  
+    <li><a href="/ai/notes-tools-over-mcp/">Exposing local notes tools through MCP</a>: Expose existing Go notes tools through a local MCP server, inspect discovery and calls, and keep file creation out of the protocol interface.</li>
   
 </ul>
 
